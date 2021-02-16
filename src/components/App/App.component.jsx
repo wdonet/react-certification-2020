@@ -10,8 +10,14 @@ import Private from '../Private';
 import Fortune from '../Fortune';
 import Layout from '../Layout';
 import { random } from '../../utils/fns';
+import Navbar from '../Navbar/Navbar.component';
+
 
 function App() {
+  return <Navbar/>
+}
+
+function App2() {
   useLayoutEffect(() => {
     const { body } = document;
 
