@@ -2,7 +2,7 @@
 
 This was created using create-react-app 4
 
-## Application Dependencies
+## Application Dependenciess
 
 These are the system dependencies you need to have in order to run the application.
 
