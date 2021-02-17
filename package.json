@@ -14,9 +14,13 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.7.1",
+    "normalize.css": "^8.0.1",
+    "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.2",
+    "reset-css": "^5.0.1",
+    "styled-components": "^5.2.1",
     "web-vitals": "^1.1.0"
   },
   "devDependencies": {
