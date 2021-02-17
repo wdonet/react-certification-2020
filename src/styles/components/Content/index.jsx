@@ -1,10 +1,7 @@
 import React from 'react'
 import { StyledContent } from './styled'
 
-const Content = () => {
-  console.log(1)
-  return <StyledContent />
-}
+const Content = props => <StyledContent>{props.children}</StyledContent>
 
 Content.propTypes = {}
 

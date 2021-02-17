@@ -19,8 +19,10 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.2",
+    "react-spring": "^8.0.27",
     "reset-css": "^5.0.1",
     "styled-components": "^5.2.1",
+    "uuid": "^8.3.2",
     "web-vitals": "^1.1.0"
   },
   "devDependencies": {

@@ -12,6 +12,18 @@ const LayoutStyle = createGlobalStyle`
       --footer-min-height: 4rem;
     }
   }
+
+  header {
+    height: var(--header-min-height);
+  }
+
+  footer {
+    height: var(--footer-min-height);
+  }
+
+  main {
+    padding-bottom: var(--footer-min-height);
+  }
 `
 
 export default LayoutStyle

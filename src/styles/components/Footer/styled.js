@@ -5,5 +5,5 @@ export const StyledFooter = styled.footer`
   bottom: 0;
   width: 100%;
   height: var(--footer-min-height);
-  background-color: var(--background-tertiary);
+  background-color: var(--background-primary);
 `

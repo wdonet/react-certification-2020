@@ -1,38 +1,30 @@
 export default {
   dark: {
     background: {
-      primary: '#000',
-      secondary: '#222',
-      tertiary: '#555',
+      primary: '#161f23',
+      secondary: '#1e2931',
+    },
+    decorator: {
+      primary: '#2c0e7b',
+      secondary: '#194c7c',
     },
     text: {
       primary: '#FFF',
-      secondary: '#DDD',
-      tertiary: '#999',
+      secondary: '#FFF',
     },
   },
   light: {
     background: {
-      primary: '#FFF',
-      secondary: '#CCC',
-      tertiary: '#999',
+      primary: '#eef4f4',
+      secondary: '#d7dee7',
+    },
+    decorator: {
+      primary: '#5b8cbd',
+      secondary: '#d29b3b',
     },
     text: {
-      primary: '#000',
+      primary: '#222',
       secondary: '#222',
-      tertiary: '#555',
-    },
-  },
-  colorfull: {
-    background: {
-      primary: '#EDF7F6',
-      secondary: '#51E2F5',
-      tertiary: '#FFA8B6',
-    },
-    text: {
-      primary: '#111',
-      secondary: '#222',
-      tertiary: '#222',
     },
   },
 }

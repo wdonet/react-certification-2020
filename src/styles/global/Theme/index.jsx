@@ -2,12 +2,25 @@ import { createGlobalStyle } from 'styled-components'
 
 const ThemeStyle = createGlobalStyle`
   :root {
-    --background-primary: ${props => props.theme.background.primary || '#FFF'};
-    --background-secondary: ${props => props.theme.background.secondary || '#DDD'};
-    --background-tertiary: ${props => props.theme.background.tertiary || '#999'};
-    --text-primary: ${props => props.theme.text.primary || '#000'};
-    --text-secondary: ${props => props.theme.text.secondary || '#222'};
-    --text-tertiary: ${props => props.theme.text.tertiary || '#555'};
+    --background-primary: ${props => props.theme.background.primary};
+    --background-secondary: ${props => props.theme.background.secondary};
+    --decorator-primary: ${props => props.theme.decorator.primary};
+    --decorator-secondary: ${props => props.theme.decorator.secondary};
+    --text-primary: ${props => props.theme.text.primary};
+    --text-secondary: ${props => props.theme.text.secondary};
+  }
+
+  * {
+    border-color: var(--background-secondary);
+    border-bottom-color: var(--background-secondary);
+    border-top-color: var(--background-secondary);
+    border-left-color: var(--background-secondary);
+    border-right-color: var(--background-secondary);
+    color: var(--text-primary);
+  }
+
+  body, html {
+    background-color: var(--background-primary);
   }
 `
 

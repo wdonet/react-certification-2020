@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
 export const StyledHeader = styled.header`
+  position: relative;
+  z-index: 100;
   height: var(--header-min-height);
-  border-bottom: 1px solid;
-  box-shadow: 0 5px 5px var(--background-secondary);
+  border-bottom-width: 1px;
   background-color: var(--background-secondary);
 `
