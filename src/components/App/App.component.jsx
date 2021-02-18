@@ -6,6 +6,8 @@ import HomePage from '../../pages/Home';
 import NotFound from '../../pages/NotFound';
 import Layout from '../Layout';
 
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
 function App() {
   return (
     <BrowserRouter>
