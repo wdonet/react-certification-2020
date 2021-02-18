@@ -1,15 +1,19 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import Header from '../Header';
 
-import './Layout.styles.css';
+const StyledGrowDiv = styled.div`
+  flex-grow: 1;
+  height: 100%;
+`;
 
 function Layout({ children }) {
   return (
-    <>
+    <StyledGrowDiv>
       <Header />
-      <main className="container">{children}</main>
-    </>
+      <main>{children}</main>
+    </StyledGrowDiv>
   );
 }
 

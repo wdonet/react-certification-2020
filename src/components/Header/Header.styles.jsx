@@ -3,12 +3,6 @@ import { AppBar, IconButton, InputBase, Switch } from '@material-ui/core';
 
 export const StyledGrowDiv = styled.div`
   flex-grow: 1;
-
-  ${(props) =>
-    props.setHeight &&
-    css`
-      height: 100%;
-    `};
 `;
 
 export const StyledAppBar = styled(AppBar)`
