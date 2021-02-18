@@ -1,0 +1,54 @@
+yarn run v1.22.4
+$ react-scripts test --coverage --watchAll
+--------------------------|----------|----------|----------|----------|-------------------|
+File                      |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
+--------------------------|----------|----------|----------|----------|-------------------|
+All files                 |    65.48 |        0 |    57.69 |    65.06 |                   |
+ src                      |        0 |      100 |      100 |        0 |                   |
+  index.js                |        0 |      100 |      100 |        0 |                 7 |
+ src/components/App       |      100 |      100 |      100 |      100 |                   |
+  App.component.jsx       |      100 |      100 |      100 |      100 |                   |
+  index.js                |        0 |        0 |        0 |        0 |                   |
+ src/components/Fortune   |      100 |      100 |      100 |      100 |                   |
+  Fortune.component.jsx   |      100 |      100 |      100 |      100 |                   |
+  index.js                |        0 |        0 |        0 |        0 |                   |
+ src/components/Header    |      100 |      100 |      100 |      100 |                   |
+  Header.component.jsx    |      100 |      100 |      100 |      100 |                   |
+  index.js                |        0 |        0 |        0 |        0 |                   |
+ src/components/Private   |        0 |        0 |        0 |        0 |                   |
+  Private.component.jsx   |        0 |        0 |        0 |        0 |            7,9,10 |
+  index.js                |        0 |        0 |        0 |        0 |                   |
+ src/components/Sider     |      100 |      100 |      100 |      100 |                   |
+  Sider.component.jsx     |      100 |      100 |      100 |      100 |                   |
+  index.js                |        0 |        0 |        0 |        0 |                   |
+ src/components/Thumbnail |      100 |      100 |      100 |      100 |                   |
+  Thumbnail.component.jsx |      100 |      100 |      100 |      100 |                   |
+  index.js                |        0 |        0 |        0 |        0 |                   |
+ src/mockData             |      100 |      100 |      100 |      100 |                   |
+  matchMedia.mock.js      |      100 |      100 |      100 |      100 |                   |
+  youtube-videos-mock.js  |      100 |      100 |      100 |      100 |                   |
+ src/pages/Home           |      100 |      100 |      100 |      100 |                   |
+  Home.page.jsx           |      100 |      100 |      100 |      100 |                   |
+  index.js                |        0 |        0 |        0 |        0 |                   |
+ src/pages/Login          |        0 |      100 |        0 |        0 |                   |
+  Login.page.jsx          |        0 |      100 |        0 |        0 |   8,9,12,13,14,17 |
+  index.js                |        0 |        0 |        0 |        0 |                   |
+ src/pages/NotFound       |        0 |      100 |        0 |        0 |                   |
+  NotFound.page.jsx       |        0 |      100 |        0 |        0 |                 7 |
+  index.js                |        0 |        0 |        0 |        0 |                   |
+ src/pages/Secret         |        0 |      100 |        0 |        0 |                   |
+  Secret.page.jsx         |        0 |      100 |        0 |        0 |                 5 |
+  index.js                |        0 |        0 |        0 |        0 |                   |
+ src/providers/Auth       |    52.94 |        0 |       40 |    52.94 |                   |
+  Auth.provider.jsx       |    52.94 |        0 |       40 |    52.94 |... 13,27,28,32,33 |
+  index.js                |        0 |        0 |        0 |        0 |                   |
+ src/utils                |    55.56 |      100 |    33.33 |    55.56 |                   |
+  constants.js            |      100 |      100 |      100 |      100 |                   |
+  fns.js                  |        0 |      100 |        0 |        0 |                 2 |
+  storage.js              |    57.14 |      100 |       50 |    57.14 |            7,8,13 |
+ src/utils/hooks          |    58.33 |      100 |      100 |    58.33 |                   |
+  useFortune.js           |    58.33 |      100 |      100 |    58.33 |    14,16,17,19,21 |
+--------------------------|----------|----------|----------|----------|-------------------|
+
+
+Done in 16.45s.

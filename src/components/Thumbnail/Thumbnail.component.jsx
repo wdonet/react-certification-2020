@@ -20,6 +20,7 @@ const Subtitle = styled.h3`
 const Thumbnail = ({ data }) => {
   return (
     <StyledThumbnail
+      role="listitem"
       xs={{ span: 24 }}
       md={{ span: 12 }}
       lg={{ span: 8 }}

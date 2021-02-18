@@ -31,14 +31,14 @@ const Header = () => {
     <StyledHeader>
       <Row>
         <Col span={1}>
-          <StyledMenuOutlined />
+          <StyledMenuOutlined name="sider-menu" />
         </Col>
         <Center span={22}>
           <StyledSearch size="large" />
         </Center>
         <Col span={1}>
           <Link to="/login">
-            <StyledMenuOutlined as={LoginOutlined} />
+            <StyledMenuOutlined as={LoginOutlined} name="login" />
           </Link>
         </Col>
       </Row>
