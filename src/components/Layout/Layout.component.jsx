@@ -1,15 +1,16 @@
 import React from 'react';
 import NavigationBar from '../NavigationBar';
+import Styled from './Layout.styled';
 
 function Layout({ children }) {
   return (
     <>
-      <header>
+      <Styled.Header>
         <NavigationBar />
-      </header>
-      <div>
-        <main>{children}</main>
-      </div>
+      </Styled.Header>
+      <Styled.Container>
+        <Styled.Main>{children}</Styled.Main>
+      </Styled.Container>
     </>
   );
 }
