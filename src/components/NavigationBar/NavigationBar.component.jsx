@@ -1,13 +1,20 @@
 import React from 'react';
+import Styled from './NavigationBar.styled';
+import NavigationBarBrand from '../NavigationBarBrand';
+import NavigationBarToggler from '../NavigatioBarToggler';
+import NavigationBarSearch from '../NavigationBarSearch';
+import NavigationBarMenu from '../NavigationBarMenu';
 
 function NavigationBar() {
   return (
-    <nav className="nav">
-      <div className="nav-item"> burger</div>
-      <div className="nav-item"> erach</div>
-      <div className="nav-item"> theme</div>
-      <div className="nav-item">user</div>
-    </nav>
+    <Styled.Container className="navbar fixed-top navbar-expand-sm">
+      <div className="container-fluid">
+        <NavigationBarBrand />
+        <NavigationBarSearch />
+        <NavigationBarToggler />
+        <NavigationBarMenu />
+      </div>
+    </Styled.Container>
   );
 }
 
