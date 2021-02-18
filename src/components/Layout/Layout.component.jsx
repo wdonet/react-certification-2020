@@ -12,7 +12,7 @@ function Layout({ children }) {
   return (
     <StyledGrowDiv>
       <Header />
-      <main>{children}</main>
+      {children}
     </StyledGrowDiv>
   );
 }

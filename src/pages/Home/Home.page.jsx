@@ -1,13 +1,23 @@
 import React, { useRef } from 'react';
+import styled from 'styled-components';
+import { Typography } from '@material-ui/core';
 
-import './Home.styles.css';
+import Content from '../../components/Content';
+
+const Title = styled(Typography).attrs(() => ({
+  variant: 'h2',
+}))`
+  text-align: center;
+  padding-top: 30px;
+`;
 
 function HomePage() {
   const sectionRef = useRef(null);
 
   return (
     <section className="homepage" ref={sectionRef}>
-      <h1>Hello stranger!</h1>
+      <Title>Welcome to the Challenge!</Title>
+      <Content />
     </section>
   );
 }
