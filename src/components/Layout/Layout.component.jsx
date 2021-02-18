@@ -1,9 +1,15 @@
 import React from 'react';
-
-import './Layout.styles.css';
+import NavigationBar from '../NavigationBar';
 
 function Layout({ children }) {
-  return <main className="container">{children}</main>;
+  return (
+    <div className="container-fluid">
+      <header>
+        <NavigationBar />
+      </header>
+      <main>{children}</main>
+    </div>
+  );
 }
 
 export default Layout;
