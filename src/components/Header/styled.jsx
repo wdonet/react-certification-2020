@@ -5,7 +5,7 @@ export const StyledGrowDiv = styled.div`
   flex-grow: 1;
 
   ${(props) =>
-    props.height &&
+    props.setHeight &&
     css`
       height: 100%;
     `};

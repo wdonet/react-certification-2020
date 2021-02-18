@@ -29,7 +29,7 @@ const Header = () => {
   const handleMenuClose = () => setAnchorEl(null);
 
   return (
-    <StyledGrowDiv height>
+    <StyledGrowDiv setHeight>
       <StyledAppBar position="static">
         <Toolbar>
           <StyledIconButton edge="start" color="inherit" aria-label="open drawer">
