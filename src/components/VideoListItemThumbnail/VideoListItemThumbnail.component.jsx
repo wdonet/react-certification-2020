@@ -2,8 +2,8 @@ import React from 'react';
 
 function VideoListItemThumbnail({ images, title }) {
   return (
-    <div>
-      <img src={images.high.url} alt={title} />
+    <div className="card-img-top">
+      <img src={images.high.url} alt={title} className="img-fluid" />
     </div>
   );
 }
