@@ -9,7 +9,7 @@ function HomePage() {
   const sectionRef = useRef(null);
 
   return (
-    <section className="homepage container" ref={sectionRef}>
+    <section className="container" ref={sectionRef}>
       <h1>Hello stranger!</h1>
       <VideoList items={videoItems} />
     </section>
