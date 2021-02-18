@@ -4,6 +4,8 @@ import { Typography } from '@material-ui/core';
 
 import Content from '../../components/Content';
 
+import videosMock from '../../youtube-videos-mock.json';
+
 const Title = styled(Typography).attrs(() => ({
   variant: 'h2',
 }))`
@@ -13,11 +15,12 @@ const Title = styled(Typography).attrs(() => ({
 
 function HomePage() {
   const sectionRef = useRef(null);
+  const items = videosMock.items.slice(1);
 
   return (
     <section className="homepage" ref={sectionRef}>
       <Title>Welcome to the Challenge!</Title>
-      <Content />
+      <Content data={items} />
     </section>
   );
 }
