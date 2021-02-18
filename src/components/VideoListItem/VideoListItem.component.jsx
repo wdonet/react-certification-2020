@@ -1,15 +1,16 @@
 import React from 'react';
 import VideoListItemThumbnail from '../VideoListItemThumbnail';
 import VideoListIteminfo from '../VideoListItemInfo';
+import Styled from './VideoListItem.styled';
 
 function VideoListItem({ thumbnails, title, description }) {
   return (
-    <div className="col">
-      <div className="card h-100">
+    <Styled.Column className="col">
+      <Styled.Row className="card">
         <VideoListItemThumbnail images={thumbnails} title={title} />
         <VideoListIteminfo title={title} description={description} />
-      </div>
-    </div>
+      </Styled.Row>
+    </Styled.Column>
   );
 }
 

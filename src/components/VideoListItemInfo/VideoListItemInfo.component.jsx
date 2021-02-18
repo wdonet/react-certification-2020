@@ -1,11 +1,12 @@
 import React from 'react';
+import Styled from './VideoListItemInfo.styled';
 
 function VideoListIteminfo({ title, description }) {
   return (
-    <div className="card-body">
-      <h3 className="card-title">{title}</h3>
-      <p className="card-text">{description}</p>
-    </div>
+    <Styled.Body className="card-body">
+      <Styled.Title className="card-title">{title}</Styled.Title>
+      <Styled.Text className="card-text">{description}</Styled.Text>
+    </Styled.Body>
   );
 }
 

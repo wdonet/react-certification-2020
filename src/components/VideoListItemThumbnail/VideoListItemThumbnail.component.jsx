@@ -1,10 +1,11 @@
 import React from 'react';
+import Styled from './VideoListItemThumbnail.styled';
 
 function VideoListItemThumbnail({ images, title }) {
   return (
-    <div className="card-img-top">
-      <img src={images.high.url} alt={title} className="img-fluid" />
-    </div>
+    <Styled.Container className="card-img-top">
+      <Styled.Image src={images.high.url} alt={title} className="img-fluid" />
+    </Styled.Container>
   );
 }
 
