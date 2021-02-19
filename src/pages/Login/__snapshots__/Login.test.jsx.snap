@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login Page Validates Layout snapshot 1`] = `
+<section
+  className="sc-bdfBwQ kQORl"
+>
+  <form
+    className="sc-dlfnbm dmjNoP"
+    onSubmit={[Function]}
+  >
+    <h1
+      className="sc-gsTCUz dkhwEY"
+    >
+      Welcome back!
+    </h1>
+    <div
+      className="sc-hKgILt gEPNix"
+    >
+      <label
+        className="sc-eCssSg hBgXyk"
+        htmlFor="username"
+      >
+        Username 
+      </label>
+      <input
+        className="sc-jSgupP knAXbc"
+        id="username"
+        required={true}
+        type="text"
+      />
+    </div>
+    <div
+      className="sc-hKgILt gEPNix"
+    >
+      <label
+        className="sc-eCssSg hBgXyk"
+        htmlFor="password"
+      >
+        Password 
+      </label>
+      <input
+        className="sc-jSgupP knAXbc"
+        id="password"
+        required={true}
+        type="password"
+      />
+    </div>
+    <button
+      data-testid="btn-login"
+      type="submit"
+    >
+      Login
+    </button>
+  </form>
+</section>
+`;
