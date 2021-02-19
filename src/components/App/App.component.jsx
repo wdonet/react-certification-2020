@@ -22,6 +22,7 @@ const FullHeightLayout = styled(Layout)`
 
 const StyledContent = styled(AntContent)`
   padding: 1rem;
+  overflow: scroll;
 `;
 
 function App() {

@@ -8,16 +8,17 @@ const { Header: AntHeader } = Layout;
 const { Search: AntSearch } = Input;
 
 const StyledHeader = styled(AntHeader)`
-  padding: 0px;
+  padding: 0 2rem 0 0;
 `;
 
 const StyledMenuOutlined = styled(MenuOutlined)`
-  font-size: 18px;
+  font-size: 1rem;
   color: white;
 `;
 
 const StyledSearch = styled(AntSearch)`
   max-width: 800px;
+  margin: 0px 1rem;
 `;
 
 const Center = styled(Col)`
@@ -34,9 +35,9 @@ const Header = () => {
           <StyledMenuOutlined name="sider-menu" />
         </Col>
         <Center span={22}>
-          <StyledSearch size="large" />
+          <StyledSearch size="large" placeholder="Search" />
         </Center>
-        <Col span={1}>
+        <Col span={1} align="end">
           <Link to="/login">
             <StyledMenuOutlined as={LoginOutlined} name="login" />
           </Link>

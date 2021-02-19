@@ -9,7 +9,7 @@ const Image = styled.img`
 `;
 const Title = styled.h2`
   font-size: 1.25rem;
-  margin-top: 12px;
+  margin-top: 0.8rem;
   margin-bottom: 0px;
 `;
 const Subtitle = styled.h3`
