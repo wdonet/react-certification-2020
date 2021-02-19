@@ -16,6 +16,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import he from 'he';
 
 import Videos from '../../mocks/youtube-videos-mock.json';
+import Hidden from '@material-ui/core/Hidden';
 
 const StyledToolbar = styled(Toolbar)`
   display: flex;
@@ -38,9 +39,21 @@ const StyledCard = styled(Card)`
   height: 350px;
 `;
 
+const StyledGrid = styled(Grid)`
+  //padding: 0;
+`;
+
 const VideoList = styled.div`
-  padding: 20px 200px;
   text-align: center;
+  
+  @media (min-width: 1024px) {
+    padding: 20px 50px;
+  }
+  
+  @media (min-width: 1440px) {
+    padding: 20px 200px;
+  }
+
   p {
     text-align: left;
     color: rgba(169, 169, 169, 1);
@@ -49,17 +62,17 @@ const VideoList = styled.div`
 
 const VideoCards = Videos.items.map(
   ({
-    etag,
-    snippet: {
-      title,
-      description,
-      thumbnails: {
-        high: { url: thumbnailsHigh },
-      },
-    },
-  }) => {
+     etag,
+     snippet: {
+       title,
+       description,
+       thumbnails: {
+         high: { url: thumbnailsHigh },
+       },
+     },
+   }) => {
     return (
-      <Grid item xs={3} key={etag}>
+      <StyledGrid item xs={12} sm={6} md={3} key={etag}>
         <StyledCard>
           <CardActionArea>
             <StyledCardMedia image={thumbnailsHigh} title="image" />
@@ -69,9 +82,9 @@ const VideoCards = Videos.items.map(
             </CardContent>
           </CardActionArea>
         </StyledCard>
-      </Grid>
+      </StyledGrid>
     );
-  }
+  },
 );
 
 function HomePage() {
@@ -83,10 +96,14 @@ function HomePage() {
             <IconButton edge="start" color="inherit" aria-label="menu">
               <MenuIcon />
             </IconButton>
-            <StyledInputBase placeholder="Search..." />
+            <Hidden xsDown>
+              <StyledInputBase placeholder="Search..." />
+            </Hidden>
           </div>
           <div>
-            <FormControlLabel label="Dark Mode" control={<Switch />} />
+            <Hidden xsDown>
+              <FormControlLabel label="Dark Mode" control={<Switch />} />
+            </Hidden>
             <Button color="inherit">Login</Button>
           </div>
         </StyledToolbar>
