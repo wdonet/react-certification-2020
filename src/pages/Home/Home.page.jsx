@@ -13,6 +13,7 @@ import {
   Container,
   Header,
 } from './Home.styles';
+import { formatDate } from '../../utils/fns';
 
 const HomePage = () => {
   const history = useHistory();
@@ -25,11 +26,6 @@ const HomePage = () => {
     history.push('/');
   };
 
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString();
-  };
-
   return (
     <Container ref={sectionRef}>
       <Header>
@@ -38,7 +34,7 @@ const HomePage = () => {
           <>
             <h2>Good to have you back</h2>
             <ButtonsContainer>
-              <ButtonLinkWarning to="/" onClick={deAuthenticate}>
+              <ButtonLinkWarning to="/" onClick={deAuthenticate} data-testid="btn-logout">
                 <IoExitOutline />
                 Logout
               </ButtonLinkWarning>

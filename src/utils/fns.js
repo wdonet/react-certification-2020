@@ -1,5 +1,10 @@
-function random(limit) {
+const random = (limit) => {
   return Math.floor(Math.random() * limit);
-}
+};
 
-export { random };
+const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  return date.toLocaleDateString();
+};
+
+export { random, formatDate };
