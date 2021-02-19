@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import { useAuth } from '../../providers/Auth';
+import { Header, HomeView } from '../../components';
 import './Home.styles.css';
 
 function HomePage() {
@@ -17,20 +18,23 @@ function HomePage() {
 
   return (
     <section className="homepage" ref={sectionRef}>
-      <h1>Hello stranger!</h1>
+      <Header />
       {authenticated ? (
         <>
-          <h2>Good to have you back</h2>
-          <span>
+          <HomeView>
             <Link to="/" onClick={deAuthenticate}>
-              ← logout
+              logout
             </Link>
-            <span className="separator" />
-            <Link to="/secret">show me something cool →</Link>
-          </span>
+          </HomeView>
         </>
       ) : (
-        <Link to="/login">let me in →</Link>
+        <>
+          <HomeView>
+            <Link to="/" onClick={deAuthenticate}>
+              logout
+            </Link>
+          </HomeView>
+        </>
       )}
     </section>
   );
