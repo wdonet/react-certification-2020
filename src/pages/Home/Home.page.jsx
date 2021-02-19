@@ -1,8 +1,10 @@
 import React, { useRef } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-
 import { useAuth } from '../../providers/Auth';
 import './Home.styles.css';
+import Styled from './styledHome';
+import data from './youtube-videos-mock.json';
+import VideoContainer from './videoContainer.js'
 
 function HomePage() {
   const history = useHistory();
@@ -28,6 +30,16 @@ function HomePage() {
             <span className="separator" />
             <Link to="/secret">show me something cool →</Link>
           </span>
+          <Styled.WrapperVideo>
+            {data.items.map((item) => (
+              <VideoContainer 
+                key = {item.etag}
+                title = {item.snippet.title}
+                description = {item.snippet.description}
+                url = {item.snippet.thumbnails.medium.url}
+              />
+            ))}
+          </Styled.WrapperVideo>
         </>
       ) : (
         <Link to="/login">let me in →</Link>
