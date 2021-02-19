@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LayoutWrapper renders 1`] = `
+<div
+  data-testid="layout-wrapper"
+>
+  <Navbar />
+  <MainContent />
+</div>
+`;
