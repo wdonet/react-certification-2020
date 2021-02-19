@@ -1,36 +1,37 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { StyledHero } from './styled'
 import useGradient from '../../../hooks/useGradient'
-import useThemeStyles from '../../../hooks/useThemeStyles'
 
-const Hero = () => {
-  const { name, theme, setTheme } = useThemeStyles()
-
-  const colors = useGradient({
-    colors: [
-      theme.decorator.primary,
-      theme.decorator.secondary,
-      theme.background.primary,
-    ],
-    total: 3,
-    speed: 2000,
+const Hero = ({ backgroundColors, amountDisplay, animationSpeed, children }) => {
+  const gradientStyle = useGradient({
+    colors: backgroundColors,
+    total: amountDisplay,
+    speed: animationSpeed,
   })
 
   return (
     <StyledHero
       style={{
-        ...colors.vars,
-        transition: colors.transitions,
-        background: colors.background,
+        ...gradientStyle,
       }}
     >
-      <button type="button" onClick={() => setTheme(name === 'light' ? 'dark' : 'light')}>
-        Change Theme to Light
-      </button>
+      {children}
     </StyledHero>
   )
 }
 
-Hero.propTypes = {}
+Hero.propTypes = {
+  backgroundColors: PropTypes.instanceOf(Array).isRequired,
+  amountDisplay: PropTypes.number,
+  animationSpeed: PropTypes.number,
+  children: PropTypes.node,
+}
+
+Hero.defaultProps = {
+  amountDisplay: 3,
+  animationSpeed: 2000,
+  children: undefined,
+}
 
 export default Hero

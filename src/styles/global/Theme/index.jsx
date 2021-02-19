@@ -6,6 +6,7 @@ const ThemeStyle = createGlobalStyle`
     --background-secondary: ${props => props.theme.background.secondary};
     --decorator-primary: ${props => props.theme.decorator.primary};
     --decorator-secondary: ${props => props.theme.decorator.secondary};
+    --decorator-contrast: ${props => props.theme.decorator.contrast};
     --text-primary: ${props => props.theme.text.primary};
     --text-secondary: ${props => props.theme.text.secondary};
   }

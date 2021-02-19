@@ -1,8 +1,11 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { StyledFooter } from './styled'
 
-const Footer = () => <StyledFooter>this is the footer</StyledFooter>
+const Footer = ({ children }) => <StyledFooter>{children}</StyledFooter>
 
-Footer.propTypes = {}
+Footer.propTypes = {
+  children: PropTypes.node.isRequired,
+}
 
 export default Footer

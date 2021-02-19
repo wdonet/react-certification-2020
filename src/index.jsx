@@ -5,12 +5,15 @@ import 'reset-css'
 import Layout from './components/Layout'
 import reportWebVitals from './services/reportWebVitals'
 import ThemeStylesProvider from './providers/ThemeStyles'
+import CustomProvider from './providers/Custom'
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeStylesProvider>
-      <Layout>This is a long text</Layout>
-    </ThemeStylesProvider>
+    <CustomProvider>
+      <ThemeStylesProvider>
+        <Layout />
+      </ThemeStylesProvider>
+    </CustomProvider>
   </React.StrictMode>,
   document.getElementById('root')
 )

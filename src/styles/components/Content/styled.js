@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
-export const StyledContent = styled.main`
-  padding-bottom: var(--footer-min-height);
-  background-color: var(--background-primary);
+export const StyledContent = styled.section`
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  padding: 0 20px;
 `

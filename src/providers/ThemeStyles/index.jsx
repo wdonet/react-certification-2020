@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import BaselineStyle from '../../styles/global/Baseline'
 import LayoutStyle from '../../styles/global/Layout'
@@ -8,7 +8,8 @@ import themes from '../../config/themes'
 export const ThemeStylesContext = React.createContext({})
 
 const ThemeStylesProvider = ({ children }) => {
-  const [currentTheme, setCurrentTheme] = React.useState('dark')
+  const isNight = new Date() > new Date().setHours(18)
+  const [currentTheme, setCurrentTheme] = useState(isNight ? 'dark' : 'light')
   const themeValues = themes[currentTheme]
 
   function setTheme(newTheme) {

@@ -40,8 +40,8 @@ const useGradient = ({ colors, speed = 2000, total = 3 }) => {
   }
 
   return {
-    vars: gradientNames,
-    transitions: gradientTransitions.join(','),
+    ...gradientNames,
+    transition: gradientTransitions.join(','),
     background: `radial-gradient(circle at top left, ${gradientVars.join(',')})`,
   }
 }
