@@ -9,7 +9,11 @@ import SecretPage from '../../pages/Secret';
 import Private from '../Private';
 import Fortune from '../Fortune';
 import Layout from '../Layout';
+import Header from '../Header';
+import VideoList from '../VideoList';
 import { random } from '../../utils/fns';
+
+import mockedData from '../../youtube-videos-mock.json';
 
 function App() {
   useLayoutEffect(() => {
@@ -33,6 +37,8 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
+        <Header />
+        <VideoList items={mockedData.items} />
         <Layout>
           <Switch>
             <Route exact path="/">
