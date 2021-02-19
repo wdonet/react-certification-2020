@@ -25,7 +25,9 @@ function LoginPage() {
           <FormLabel htmlFor="password">Password </FormLabel>
           <FormInput required type="password" id="password" />
         </FormGroup>
-        <button type="submit">Login</button>
+        <button type="submit" data-testid="btn-login">
+          Login
+        </button>
       </Form>
     </Container>
   );

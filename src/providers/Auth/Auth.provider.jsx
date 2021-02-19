@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import { AUTH_STORAGE_KEY } from '../../utils/constants';
 import { storage } from '../../utils/storage';
@@ -6,7 +6,7 @@ import { storage } from '../../utils/storage';
 const AuthContext = React.createContext(null);
 
 function useAuth() {
-  const context = useContext(AuthContext);
+  const context = React.useContext(AuthContext);
   if (!context) {
     throw new Error(`Can't use "useAuth" without an AuthProvider!`);
   }
