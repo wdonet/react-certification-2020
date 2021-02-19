@@ -1,10 +1,11 @@
 import React from 'react';
 import '../../utils/testing';
+import 'jest-styled-components';
 import { render, unmountComponentAtNode } from 'react-dom';
-import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import { getByTestId } from '@testing-library/react';
 import LayoutWrapper from './LayoutWrapper';
+import { mount } from 'enzyme';
 
 let container;
 const build = () => {
@@ -27,9 +28,9 @@ afterEach(() => {
   return container;
 });
 
-describe('LayoutWrapper', () => {
+describe("LayoutWrapper", () => {
   it('renders', () => {
-    const wrapper = shallow(<LayoutWrapper />);
+    const wrapper = build(<LayoutWrapper />);
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
@@ -40,3 +41,12 @@ describe('LayoutWrapper', () => {
     expect(MainContent()).toBeInTheDocument();
   });
 });
+
+
+describe("LayoutWrapper styles", () => {
+  it("applies default styling", ()=>{
+    const tree = mount(<LayoutWrapper />);
+    expect(tree).toHaveStyleRule('width', '100%');
+    expect(tree).toHaveStyleRule('height', '100%');
+  })
+} );
