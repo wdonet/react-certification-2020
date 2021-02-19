@@ -24,6 +24,8 @@ const Header = () => {
 
   const isMenuOpen = Boolean(anchorEl);
 
+  const handleChecked = (e) => setChecked(e.target.checked);
+
   const handleMenuOpen = (e) => setAnchorEl(e.currentTarget);
 
   const handleMenuClose = () => setAnchorEl(null);
@@ -55,13 +57,14 @@ const Header = () => {
             control={
               <StyledSwitch
                 checked={checked}
-                onChange={(e) => setChecked(e.target.checked)}
+                onChange={handleChecked}
                 aria-label="dark mode switch"
               />
             }
           />
           <IconButton
             edge="end"
+            data-testid="iconbutton-testid"
             aria-label="account of current user"
             aria-controls="menuId"
             aria-haspopup="true"
@@ -72,6 +75,7 @@ const Header = () => {
           </IconButton>
           <Menu
             id="menuId"
+            data-testid="menu-testid"
             anchorEl={anchorEl}
             open={isMenuOpen}
             onClose={handleMenuClose}
