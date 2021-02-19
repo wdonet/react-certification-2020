@@ -1,6 +1,7 @@
 import React, { useLayoutEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
+import { createGlobalStyle } from 'styled-components';
 import AuthProvider from '../../providers/Auth';
 import HomePage from '../../pages/Home';
 import LoginPage from '../../pages/Login';
@@ -30,10 +31,17 @@ function App() {
     };
   }, []);
 
+  const GlobalStyle = createGlobalStyle`
+body {
+  margin: 0;
+}
+`;
+
   return (
     <BrowserRouter>
       <AuthProvider>
         <Layout>
+          <GlobalStyle />
           <Switch>
             <Route exact path="/">
               <HomePage />
