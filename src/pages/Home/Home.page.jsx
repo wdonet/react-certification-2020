@@ -28,7 +28,13 @@ function HomePage() {
           </HomeView>
         </>
       ) : (
-        <Link to="/login">let me in →</Link>
+        <>
+          <HomeView>
+            <Link to="/" onClick={deAuthenticate}>
+              logout
+            </Link>
+          </HomeView>
+        </>
       )}
     </section>
   );
