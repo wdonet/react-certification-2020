@@ -3,7 +3,7 @@ import Styled from './NavigationBarSearch.styled';
 
 function NavigationBarSearch() {
   return (
-    <Styled.Form className="d-flex flex-grow-1">
+    <Styled.Form className="d-flex flex-grow-1" data-testid="NavigationBarSearch">
       <Styled.Field
         className="form-control me-2"
         type="search"

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const Container = styled.div`
   margin-right: 20px;
   margin-left: 20px;
+  margin-top: 8px;
 `;
 const Content = styled.div``;
 const Label = styled.label``;

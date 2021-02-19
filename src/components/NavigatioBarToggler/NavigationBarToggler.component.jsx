@@ -11,6 +11,7 @@ function NavigationBarToggler() {
       aria-controls="navbarMenu"
       aria-expanded="false"
       aria-label="Toggle navigation"
+      data-testid="NavigationBarToggler"
     >
       <span className="navbar-toggler-icon" />
     </Styled.TogglerButton>

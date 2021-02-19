@@ -7,7 +7,10 @@ import NavigationBarMenu from '../NavigationBarMenu';
 
 function NavigationBar() {
   return (
-    <Styled.Container className="navbar fixed-top navbar-expand-md">
+    <Styled.Container
+      className="navbar fixed-top navbar-expand-md"
+      data-testid="navigationBar"
+    >
       <Styled.Content className="container-fluid">
         <NavigationBarBrand />
         <NavigationBarSearch />

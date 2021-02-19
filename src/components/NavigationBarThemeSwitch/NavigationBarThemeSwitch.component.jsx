@@ -3,7 +3,7 @@ import Styled from './NavigationBarThemeSwitch.styled';
 
 function NavigationBarThemeSwitch() {
   return (
-    <Styled.Container className="nav-item">
+    <Styled.Container className="nav-item" data-testid="NavigationBarThemeSwitch">
       <Styled.Content className="form-check form-switch">
         <Styled.Label className="form-check-label" htmlFor="themeSwitchOptions">
           <Styled.Input

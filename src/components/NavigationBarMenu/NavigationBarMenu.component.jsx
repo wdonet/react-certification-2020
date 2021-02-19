@@ -8,6 +8,7 @@ function NavigationBarMenu() {
     <Styled.Container
       className="collapse navbar-collapse flex-shrink-1 justify-content-end"
       id="navbarMenu"
+      data-testid="NavigationBarMenu"
     >
       <Styled.Content className="navbar-nav ">
         <NavigationBarThemeSwitch />
