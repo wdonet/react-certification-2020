@@ -8,9 +8,14 @@ import LoginPage from '../../pages/Login';
 import NotFound from '../../pages/NotFound';
 import SecretPage from '../../pages/Secret';
 import Private from '../Private';
-import Fortune from '../Fortune';
 import Layout from '../Layout';
 import { random } from '../../utils/fns';
+
+const GlobalStyle = createGlobalStyle`
+body {
+  margin: 0;
+}
+`;
 
 function App() {
   useLayoutEffect(() => {
@@ -31,12 +36,6 @@ function App() {
     };
   }, []);
 
-  const GlobalStyle = createGlobalStyle`
-body {
-  margin: 0;
-}
-`;
-
   return (
     <BrowserRouter>
       <AuthProvider>
@@ -56,7 +55,6 @@ body {
               <NotFound />
             </Route>
           </Switch>
-          <Fortune />
         </Layout>
       </AuthProvider>
     </BrowserRouter>
