@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function SecretPage() {
   return (
-    <section>
+    <section data-testid="secret-page">
       <pre>
         welcome, voyager...
         <Link to="/"> ← go back</Link>

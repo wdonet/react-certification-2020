@@ -15,7 +15,7 @@ function LoginPage() {
   }
 
   return (
-    <section className="login">
+    <section className="login" data-testid="login">
       <h1>Welcome back!</h1>
       <form onSubmit={authenticate} className="login-form">
         <div className="form-group">
