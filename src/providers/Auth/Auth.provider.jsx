@@ -5,15 +5,15 @@ import { storage } from '../../utils/storage';
 
 const AuthContext = React.createContext(null);
 
-function useAuth() {
+const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {
     throw new Error(`Can't use "useAuth" without an AuthProvider!`);
   }
   return context;
-}
+};
 
-function AuthProvider({ children }) {
+const AuthProvider = ({ children }) => {
   const [authenticated, setAuthenticated] = useState(false);
 
   useEffect(() => {
@@ -38,7 +38,7 @@ function AuthProvider({ children }) {
       {children}
     </AuthContext.Provider>
   );
-}
+};
 
 export { useAuth };
 export default AuthProvider;
