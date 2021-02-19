@@ -11,12 +11,14 @@ const StyledNavbar = styled.div`
 `;
 
 const Navbar = () => {
-  return (<StyledNavbar data-testid="navbar">
-    <div data-testid="hamburguer-icon"></div>
-    <div data-testid="search-input"></div>
-    <div data-testid="theme-mode-switch"></div>
-    <div data-testid="user-avatar"></div>
-  </StyledNavbar>);
+  return (
+    <StyledNavbar data-testid="navbar">
+      <div data-testid="hamburguer-icon" />
+      <div data-testid="search-input" />
+      <div data-testid="theme-mode-switch" />
+      <div data-testid="user-avatar" />
+    </StyledNavbar>
+  );
 };
 
 export default Navbar;

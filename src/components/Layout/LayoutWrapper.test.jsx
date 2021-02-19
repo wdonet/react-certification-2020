@@ -4,15 +4,15 @@ import 'jest-styled-components';
 import { render, unmountComponentAtNode } from 'react-dom';
 import toJson from 'enzyme-to-json';
 import { getByTestId } from '@testing-library/react';
-import LayoutWrapper from './LayoutWrapper';
 import { mount } from 'enzyme';
+import LayoutWrapper from './LayoutWrapper';
 
 let container;
 const build = () => {
   render(<LayoutWrapper />, container);
   return {
-    Navbar: () => getByTestId(container, 'navbar'),
-    MainContent: () => getByTestId(container, 'main-content'),
+    Header: () => getByTestId(container, 'navbar'),
+    HomeView: () => getByTestId(container, 'main-content'),
   };
 };
 
@@ -28,25 +28,24 @@ afterEach(() => {
   return container;
 });
 
-describe("LayoutWrapper", () => {
+describe('LayoutWrapper', () => {
   it('renders', () => {
     const wrapper = build(<LayoutWrapper />);
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
-  it('displays Navbar and MainContent', () => {
-    const { Navbar, MainContent } = build();
+  it('displays Header and HomeView', () => {
+    const { Header, HomeView } = build();
 
-    expect(Navbar()).toBeInTheDocument();
-    expect(MainContent()).toBeInTheDocument();
+    expect(Header()).toBeInTheDocument();
+    expect(HomeView()).toBeInTheDocument();
   });
 });
 
-
-describe("LayoutWrapper styles", () => {
-  it("applies default styling", ()=>{
+describe('LayoutWrapper styles', () => {
+  it('applies default styling', () => {
     const tree = mount(<LayoutWrapper />);
     expect(tree).toHaveStyleRule('width', '100%');
     expect(tree).toHaveStyleRule('height', '100%');
-  })
-} );
+  });
+});

@@ -3,12 +3,12 @@ import '../../utils/testing';
 import 'jest-styled-components';
 import { render, unmountComponentAtNode } from 'react-dom';
 import toJson from 'enzyme-to-json';
-import MainContent from './MainContent';
 import { mount } from 'enzyme';
+import HomeView from './HomeView';
 
 let container;
 const build = () => {
-  render(<MainContent />, container);
+  render(<HomeView />, container);
 };
 
 beforeEach(() => {
@@ -23,17 +23,17 @@ afterEach(() => {
   return container;
 });
 
-describe("MainContent", () => {
+describe('HomeView', () => {
   it('renders', () => {
-    const wrapper = build(<MainContent />);
+    const wrapper = build(<HomeView />);
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 });
 
-
-describe("MainContent styles", () => {
-  it("applies default styling", ()=>{
-    const tree = mount(<MainContent />);
-    expect(tree).toHaveStyleRule("margin-top", "64px");
-  })
-} );
+describe('HomeView styles', () => {
+  it('applies default styling', () => {
+    const tree = mount(<HomeView />);
+    expect(tree).toHaveStyleRule('padding-top', '64px');
+    expect(tree).toHaveStyleRule('height', 'calc(100% - 64px)');
+  });
+});

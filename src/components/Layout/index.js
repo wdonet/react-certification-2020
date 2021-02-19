@@ -1,3 +1,3 @@
 export { default as LayoutWrapper } from './LayoutWrapper';
-export { default as Navbar } from './Navbar';
-export { default as MainContent } from './MainContent';
+export { default as Header } from './Header';
+export { default as HomeView } from './HomeView';

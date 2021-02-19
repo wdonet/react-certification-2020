@@ -4,12 +4,12 @@ import 'jest-styled-components';
 import { render, unmountComponentAtNode } from 'react-dom';
 import toJson from 'enzyme-to-json';
 import { getByTestId } from '@testing-library/react';
-import Navbar from './Navbar';
 import { mount } from 'enzyme';
+import Header from './Header';
 
 let container;
 const build = () => {
-  render(<Navbar />, container);
+  render(<Header />, container);
   return {
     HamburguerIcon: () => getByTestId(container, 'hamburguer-icon'),
     SearchInput: () => getByTestId(container, 'search-input'),
@@ -30,35 +30,29 @@ afterEach(() => {
   return container;
 });
 
-describe("Navbar", () => {
+describe('Header', () => {
   it('renders', () => {
-    const wrapper = build(<Navbar />);
+    const wrapper = build(<Header />);
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('displays its default content', () => {
-    const { 
-        HamburguerIcon, 
-        SearchInput, 
-        ThemeModeSwitch, 
-        UserAvatar,
-    } = build();
-    expect(HamburguerIcon()).toBeInTheDocument(); 
-    expect(SearchInput()).toBeInTheDocument(); 
-    expect(ThemeModeSwitch()).toBeInTheDocument(); 
+    const { HamburguerIcon, SearchInput, ThemeModeSwitch, UserAvatar } = build();
+    expect(HamburguerIcon()).toBeInTheDocument();
+    expect(SearchInput()).toBeInTheDocument();
+    expect(ThemeModeSwitch()).toBeInTheDocument();
     expect(UserAvatar()).toBeInTheDocument();
   });
 });
 
-
-describe("Navbar styles", () => {
-  it("applies default styling", ()=>{
-    const tree = mount(<Navbar />);
-    expect(tree).toHaveStyleRule("width", "100%");
-    expect(tree).toHaveStyleRule("height", "64px");
-    expect(tree).toHaveStyleRule("background-color", "#849492");
-    expect(tree).toHaveStyleRule("overflow", "hidden");
-    expect(tree).toHaveStyleRule("position", "fixed");
-    expect(tree).toHaveStyleRule("top", "0");
-  })
-} );
+describe('Header styles', () => {
+  it('applies default styling', () => {
+    const tree = mount(<Header />);
+    expect(tree).toHaveStyleRule('width', '100%');
+    expect(tree).toHaveStyleRule('height', '64px');
+    expect(tree).toHaveStyleRule('background-color', '#849492');
+    expect(tree).toHaveStyleRule('overflow', 'hidden');
+    expect(tree).toHaveStyleRule('position', 'fixed');
+    expect(tree).toHaveStyleRule('top', '0');
+  });
+});

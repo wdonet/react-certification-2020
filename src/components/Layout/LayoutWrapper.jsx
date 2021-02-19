@@ -1,7 +1,7 @@
 import React from 'react';
-import Navbar from './Navbar';
-import MainContent from './MainContent';
 import styled from 'styled-components';
+import Header from './Header';
+import HomeView from './HomeView';
 
 const StyledLayoutWrapper = styled.div`
   width: 100%;
@@ -11,8 +11,8 @@ const StyledLayoutWrapper = styled.div`
 const LayoutWrapper = () => {
   return (
     <StyledLayoutWrapper data-testid="layout-wrapper">
-      <Navbar />
-      <MainContent />
+      <Header />
+      <HomeView />
     </StyledLayoutWrapper>
   );
 };
