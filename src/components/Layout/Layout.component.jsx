@@ -5,7 +5,7 @@ import Styled from './Layout.styled';
 function Layout({ children }) {
   return (
     <>
-      <Styled.Header>
+      <Styled.Header data-testid="Layout">
         <NavigationBar />
       </Styled.Header>
       <Styled.Container>
