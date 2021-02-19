@@ -1,6 +1,6 @@
-import { Card, CardActionArea, Grid, Typography } from '@material-ui/core';
+import { Card, CardActionArea, CardMedia, Grid, Typography } from '@material-ui/core';
 import React from 'react';
-import { CustomCardContent, CustomCardMedia } from './VideoMosaic.styled';
+import { CustomCardContent } from './VideoMosaic.styled';
 
 function VideoMosaic(props) {
   const { title, thumbnails, description } = props.snippet;
@@ -9,7 +9,7 @@ function VideoMosaic(props) {
       <Grid item xs={4}>
         <Card>
           <CardActionArea>
-            <CustomCardMedia
+            <CardMedia
               component="img"
               src={thumbnails.high.url}
               title={title}

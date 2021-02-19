@@ -7,7 +7,6 @@ export const CustomAppBar = styled(AppBar)`
 `;
 
 export const CustomToolbar = styled(Toolbar)`
-  display: flex;
   justify-content: space-between;
 `;
 

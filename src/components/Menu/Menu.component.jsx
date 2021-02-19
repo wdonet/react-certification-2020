@@ -2,6 +2,7 @@ import React from 'react';
 import { IconButton, Typography, Button } from '@material-ui/core';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import SearchIcon from '@material-ui/icons/Search';
+import { useHistory } from 'react-router-dom';
 import {
   CustomAppBar,
   CustomInputBase,
@@ -13,9 +14,8 @@ import {
 } from './Menu.styled';
 
 function Menu() {
-  const [checked, setChecked] = React.useState({
-    checked: false,
-  });
+  const history = useHistory();
+  const [checked, setChecked] = React.useState(false);
 
   const handleChange = () => {
     setChecked(!checked);
@@ -23,7 +23,13 @@ function Menu() {
 
   function MenuButton() {
     return (
-      <IconButton className="title" edge="start" color="inherit" aria-label="menu">
+      <IconButton
+        onClick={() => history.push('/')}
+        className="title"
+        edge="start"
+        color="inherit"
+        aria-label="menu"
+      >
         <YouTubeIcon />
         <Typography variant="body1" noWrap>
           MyTube
@@ -45,7 +51,7 @@ function Menu() {
 
   return (
     <>
-      <CustomAppBar position="static">
+      <CustomAppBar position="fixed">
         <CustomToolbar>
           <ToolbarSection>
             {MenuButton()}

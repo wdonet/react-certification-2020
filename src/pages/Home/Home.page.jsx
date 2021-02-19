@@ -6,12 +6,18 @@ import mockData from '../../utils/youtube-videos-mock';
 function HomePage() {
   const sectionRef = useRef(null);
 
+  function getVideos() {
+    return mockData.items
+      .filter((item) => item.id.kind === 'youtube#video')
+      .map((item) => {
+        return <VideoMosaic key={item.id.videoId} snippet={item.snippet} />;
+      });
+  }
+
   return (
     <section className="homepage" ref={sectionRef}>
       <Grid container spacing={2}>
-        {mockData.items.map((item) => {
-          return <VideoMosaic snippet={item.snippet} />;
-        })}
+        {getVideos()}
       </Grid>
     </section>
   );
