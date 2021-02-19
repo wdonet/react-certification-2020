@@ -1,9 +1,13 @@
 import React from 'react';
-
-import './Layout.styles.css';
+import Header from '../Header';
 
 function Layout({ children }) {
-  return <main className="container">{children}</main>;
+  return (
+    <>
+      <Header />
+      <main>{children}</main>
+    </>
+  );
 }
 
 export default Layout;
