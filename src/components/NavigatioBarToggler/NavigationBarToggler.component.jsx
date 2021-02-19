@@ -1,5 +1,5 @@
 import React from 'react';
-import Styled from '../NavigationBar/NavigationBar.styled';
+import Styled from './NavigationBarToggler.styled';
 
 function NavigationBarToggler() {
   return (

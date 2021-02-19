@@ -7,13 +7,13 @@ import NavigationBarMenu from '../NavigationBarMenu';
 
 function NavigationBar() {
   return (
-    <Styled.Container className="navbar fixed-top navbar-expand-sm">
-      <div className="container-fluid">
+    <Styled.Container className="navbar fixed-top navbar-expand-md">
+      <Styled.Content className="container-fluid">
         <NavigationBarBrand />
         <NavigationBarSearch />
         <NavigationBarToggler />
         <NavigationBarMenu />
-      </div>
+      </Styled.Content>
     </Styled.Container>
   );
 }

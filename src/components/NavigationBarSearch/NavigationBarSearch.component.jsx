@@ -1,19 +1,19 @@
 import React from 'react';
-// import Styled from '../NavigationBar/NavigationBar.styled';
+import Styled from './NavigationBarSearch.styled';
 
 function NavigationBarSearch() {
   return (
-    <form className="d-flex flex-grow-1">
-      <input
+    <Styled.Form className="d-flex flex-grow-1">
+      <Styled.Field
         className="form-control me-2"
         type="search"
         placeholder="Search"
         aria-label="Search"
       />
-      <button className="btn btn-outline-success" type="submit">
+      <Styled.Button className="btn btn-outline-light" type="submit">
         Search
-      </button>
-    </form>
+      </Styled.Button>
+    </Styled.Form>
   );
 }
 

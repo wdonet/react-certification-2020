@@ -1,11 +1,17 @@
 import React from 'react';
-// import Styled from '../NavigationBar/NavigationBar.styled';
+import Styled from './NavigationBarBrand.styled';
 
 function NavigationBarBrand() {
   return (
-    <a className="navbar-brand" href="/">
-      <img src="" alt="" width="30" height="24" className="d-inline-block align-top" />
-    </a>
+    <Styled.Container className="navbar-brand" href="/">
+      <Styled.Image
+        src=""
+        alt=""
+        width="30"
+        height="24"
+        className="d-inline-block align-top"
+      />
+    </Styled.Container>
   );
 }
 

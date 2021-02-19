@@ -1,8 +1,8 @@
 import React from 'react';
-// import Styled from '../NavigationBar/NavigationBar.styled';
+import Styled from './NavigationBarUser.styled';
 
 function NavigationBarUser() {
-  return <div className="nav-item">user</div>;
+  return <Styled.Container className="nav-item">user</Styled.Container>;
 }
 
 export default NavigationBarUser;
