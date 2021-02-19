@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout Components should take a snapshot 1`] = `
+<DocumentFragment>
+  <main
+    class="container"
+  />
+</DocumentFragment>
+`;
