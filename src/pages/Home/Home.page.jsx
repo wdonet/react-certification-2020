@@ -4,7 +4,7 @@ import { useAuth } from '../../providers/Auth';
 import './Home.styles.css';
 import Styled from './styledHome';
 import data from './youtube-videos-mock.json';
-import VideoContainer from './videoContainer.js'
+import VideoContainer from './videoContainer.js';
 
 function HomePage() {
   const history = useHistory();
@@ -32,11 +32,11 @@ function HomePage() {
           </span>
           <Styled.WrapperVideo>
             {data.items.map((item) => (
-              <VideoContainer 
-                key = {item.etag}
-                title = {item.snippet.title}
-                description = {item.snippet.description}
-                url = {item.snippet.thumbnails.medium.url}
+              <VideoContainer
+                key={item.etag}
+                title={item.snippet.title}
+                description={item.snippet.description}
+                url={item.snippet.thumbnails.medium.url}
               />
             ))}
           </Styled.WrapperVideo>

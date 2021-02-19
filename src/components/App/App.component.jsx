@@ -1,7 +1,7 @@
 import React, { useLayoutEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 import AuthProvider from '../../providers/Auth';
 import HomePage from '../../pages/Home';
 import LoginPage from '../../pages/Login';
