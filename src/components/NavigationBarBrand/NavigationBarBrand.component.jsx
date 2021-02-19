@@ -5,10 +5,10 @@ function NavigationBarBrand() {
   return (
     <Styled.Container className="navbar-brand" href="/" data-testid="NavigationBarBrand">
       <Styled.Image
-        src=""
+        src="./logo120.png"
         alt=""
         width="30"
-        height="24"
+        height="30"
         className="d-inline-block align-top"
       />
     </Styled.Container>

@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 const Form = styled.form`
-  margin-left: 20px;
-  margin-right: 20px;
+  @media (max-width: 375px) {
+    flex: 0 1 180px;
+  }
 `;
 const Field = styled.input``;
 const Button = styled.button``;

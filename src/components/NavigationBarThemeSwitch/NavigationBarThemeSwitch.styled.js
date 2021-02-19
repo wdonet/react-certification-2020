@@ -4,6 +4,11 @@ const Container = styled.div`
   margin-right: 20px;
   margin-left: 20px;
   margin-top: 8px;
+  @media (max-width: 768px) {
+    margin-right: 0;
+    margin-left: 0;
+    margin-top: 10px;
+  }
 `;
 const Content = styled.div``;
 const Label = styled.label``;
