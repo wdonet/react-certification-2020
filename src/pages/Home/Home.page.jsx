@@ -3,6 +3,11 @@ import { Link, useHistory } from 'react-router-dom';
 
 import { useAuth } from '../../providers/Auth';
 import './Home.styles.css';
+import mockedData from "./mocked-youtube.json";
+import Header from '../../components/Header'
+import VideoCard from '../../components/VideoCard'
+
+const { } = mockedData;
 
 function HomePage() {
   const history = useHistory();
@@ -17,17 +22,11 @@ function HomePage() {
 
   return (
     <section className="homepage" ref={sectionRef}>
-      <h1>Hello stranger!</h1>
-      {authenticated ? (
+      {authenticated || true ? (
         <>
-          <h2>Good to have you back</h2>
-          <span>
-            <Link to="/" onClick={deAuthenticate}>
-              ← logout
-            </Link>
-            <span className="separator" />
-            <Link to="/secret">show me something cool →</Link>
-          </span>
+          <Header></Header>
+          <h1>Welcome to my YouTube Custom Client!</h1>
+          <VideoCard></VideoCard>
         </>
       ) : (
         <Link to="/login">let me in →</Link>
