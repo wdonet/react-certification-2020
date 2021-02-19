@@ -1,16 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
-import './NotFound.styles.css';
+import { IoArrowUndo } from 'react-icons/io5';
+import { Container, HomeLink } from './NotFound.styles';
 
 function NotFoundPage() {
   return (
-    <section className="not-found">
-      <Link to="/" className="home-link">
-        home
-      </Link>
+    <Container>
       <img src="404.gif" alt="page not found" />
-    </section>
+      <div>
+        <HomeLink to="/">
+          <IoArrowUndo />
+          Back to Home
+        </HomeLink>
+      </div>
+    </Container>
   );
 }
 
