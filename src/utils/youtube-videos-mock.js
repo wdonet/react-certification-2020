@@ -1,4 +1,4 @@
-{
+const mockData = JSON.parse(`{
   "kind": "youtube#searchListResponse",
   "etag": "LRviZfd_p3HDDD2uBk5Qv7zaEQU",
   "nextPageToken": "CBkQAA",
@@ -853,4 +853,6 @@
       }
     }
   ]
-}
+}`);
+
+export default mockData;

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { fade } from '@material-ui/core/styles';
 
 export const CustomAppBar = styled(AppBar)`
-  background-color: ${(props) => props.theme.colors.blueGrey} !important;
+  background-color: ${(props) => props.theme.colors.blueGrey.normal} !important;
 `;
 
 export const CustomToolbar = styled(Toolbar)`

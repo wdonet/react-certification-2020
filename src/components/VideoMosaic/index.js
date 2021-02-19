@@ -1,1 +1,1 @@
-export { default } from './Menu.component';
+export { default } from './VideoMosaic.component';

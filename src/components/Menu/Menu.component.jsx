@@ -21,26 +21,35 @@ function Menu() {
     setChecked(!checked);
   };
 
+  function MenuButton() {
+    return (
+      <IconButton className="title" edge="start" color="inherit" aria-label="menu">
+        <YouTubeIcon />
+        <Typography variant="body1" noWrap>
+          MyTube
+        </Typography>
+      </IconButton>
+    );
+  }
+
+  function SearchBar() {
+    return (
+      <SearchContainer>
+        <SearchIconContainer>
+          <SearchIcon />
+        </SearchIconContainer>
+        <CustomInputBase placeholder="Search…" inputProps={{ 'aria-label': 'search' }} />
+      </SearchContainer>
+    );
+  }
+
   return (
     <>
       <CustomAppBar position="static">
         <CustomToolbar>
           <ToolbarSection>
-            <IconButton className="title" edge="start" color="inherit" aria-label="menu">
-              <YouTubeIcon />
-              <Typography variant="body1" noWrap>
-                MyTube
-              </Typography>
-            </IconButton>
-            <SearchContainer>
-              <SearchIconContainer>
-                <SearchIcon />
-              </SearchIconContainer>
-              <CustomInputBase
-                placeholder="Search…"
-                inputProps={{ 'aria-label': 'search' }}
-              />
-            </SearchContainer>
+            {MenuButton()}
+            {SearchBar()}
           </ToolbarSection>
           <ToolbarSection>
             <ThemeSwitch checked={checked} onChange={handleChange} color="default" />
