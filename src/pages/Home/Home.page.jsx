@@ -1,39 +1,24 @@
-import React, { useRef } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-
-import { useAuth } from '../../providers/Auth';
-import './Home.styles.css';
+import React from 'react';
+import HeaderSection from '../Header/Header.page';
+import Card from '../Card/Card.page';
+import mockedData from '../../data/mockItems.json';
 
 function HomePage() {
-  const history = useHistory();
-  const sectionRef = useRef(null);
-  const { authenticated, logout } = useAuth();
-
-  function deAuthenticate(event) {
-    event.preventDefault();
-    logout();
-    history.push('/');
-  }
-
-  return (
-    <section className="homepage" ref={sectionRef}>
-      <h1>Hello stranger!</h1>
-      {authenticated ? (
-        <>
-          <h2>Good to have you back</h2>
-          <span>
-            <Link to="/" onClick={deAuthenticate}>
-              ← logout
-            </Link>
-            <span className="separator" />
-            <Link to="/secret">show me something cool →</Link>
-          </span>
-        </>
-      ) : (
-        <Link to="/login">let me in →</Link>
-      )}
-    </section>
-  );
+    return (
+        <div>
+            <HeaderSection />
+            {mockedData.items.map((item) => (
+                <Card
+                    key={item.etag}
+                    title={item.snippet.title}
+                    description={item.snippet.description}
+                    image={item.snippet.thumbnails.default.url}
+                    width={item.snippet.thumbnails.default?.width ?? 120}
+                    height={item.snippet.thumbnails.default?.height ?? 90}
+                />
+            ))}
+        </div>
+    );
 }
 
 export default HomePage;
