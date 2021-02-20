@@ -15,14 +15,16 @@ const VideosContainer = styled.div`
 const VideoCard = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 5px;
-  border: 1px solid gray;
   width: 250px;
-  height: 280px;
   margin: 10px;
+  border: 1px solid lightgray;
 `;
 
 const VideoPreview = styled.img``;
+
+const VideoContent = styled.div`
+  padding: 10px;
+`;
 
 const VideoTitle = styled.h2`
   font-size: 15px;
@@ -34,4 +36,12 @@ const VideoDescription = styled.p`
   margin: 0;
 `;
 
-export { Title, VideosContainer, VideoCard, VideoPreview, VideoTitle, VideoDescription };
+export {
+  Title,
+  VideosContainer,
+  VideoCard,
+  VideoPreview,
+  VideoContent,
+  VideoTitle,
+  VideoDescription,
+};

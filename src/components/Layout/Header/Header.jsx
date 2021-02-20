@@ -5,17 +5,13 @@ const Header = () => {
   return (
     <HeaderContainer>
       <Col>Header</Col>
-
       <Col>
         <Search placeholder="Search" />
       </Col>
-
       <Space />
-
       <Col>
         <Switch>theme switch placeholder</Switch>
       </Col>
-
       <Col>
         <User>user login placeholder</User>
       </Col>
