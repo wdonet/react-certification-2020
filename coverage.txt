@@ -1,0 +1,11 @@
+yarn run v1.22.10
+$ react-scripts test --coverage
+No tests found related to files changed since last commit.
+----------|----------|----------|----------|----------|-------------------|
+File      |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
+----------|----------|----------|----------|----------|-------------------|
+All files |        0 |        0 |        0 |        0 |                   |
+----------|----------|----------|----------|----------|-------------------|
+
+
+[1B[JDone in 7.95s.
