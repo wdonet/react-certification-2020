@@ -12,7 +12,7 @@ import Layout from '../Layout';
 import { random } from '../../utils/fns';
 
 function App() {
-  useLayoutEffect(() => {
+/*  useLayoutEffect(() => {
     const { body } = document;
 
     function rotateBackground() {
@@ -28,7 +28,7 @@ function App() {
       clearInterval(intervalId);
       body.removeEventListener('click', rotateBackground);
     };
-  }, []);
+  }, []);*/
 
   return (
     <BrowserRouter>
