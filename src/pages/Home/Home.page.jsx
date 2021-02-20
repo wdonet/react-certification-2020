@@ -10,7 +10,7 @@ function HomePage() {
   const { items = [] } = videos;
 
   return (
-    <Homepage className="homepage">
+    <Homepage className="homepage" data-testid="home-page">
       <Sidebar />
       <Main>
         <Header />

@@ -3,7 +3,7 @@ import { HeaderPanel, SearchInput, ControlPanel, Toggle } from './styled';
 
 const Header = () => {
   return (
-    <HeaderPanel>
+    <HeaderPanel data-testid="header">
       <div className="ui icon button toggle-button">
         <i className="bars icon"></i>
       </div>

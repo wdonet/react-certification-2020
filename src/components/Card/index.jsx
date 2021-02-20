@@ -3,14 +3,14 @@ import { Image, CardWrapper } from './styled';
 
 const Card = ({title, imageURL, description, publishedDate}) => {
   return (
-    <CardWrapper className="ui card">
+    <CardWrapper className="ui card" data-testid="card-wrapper">
       <a className="image" href="/">
         <Image style={{backgroundImage: `url(${imageURL})`}} />
       </a>
       <div className="content">
         <a className="header" href="/">{title}</a>
         <div className="meta">
-          <a href="/">{publishedDate}</a>
+          <a className="published-date" href="/">{publishedDate}</a>
         </div>
         <div className="description">{description}</div>
       </div>
