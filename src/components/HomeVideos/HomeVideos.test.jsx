@@ -35,8 +35,11 @@ describe('HomeVideos', () => {
 describe('HomeVideos styles and props', () => {
   it('applies default styling', () => {
     const tree = mount(<HomeVideos />);
+    expect(tree).toHaveStyleRule('justify-content', 'center');
     expect(tree).toHaveStyleRule('height', '100%');
     expect(tree).toHaveStyleRule('width', '100%');
+    expect(tree).toHaveStyleRule('display', 'flex');
+    expect(tree).toHaveStyleRule('flex-flow', 'row wrap');
   });
 });
 

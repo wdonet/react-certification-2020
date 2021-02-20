@@ -27,6 +27,7 @@ const StyledCardImage = styled.img`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  object-fit: cover;
 `;
 
 const StyledCardTitle = styled.h2`

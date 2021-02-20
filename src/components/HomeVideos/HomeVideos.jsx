@@ -6,6 +6,9 @@ import { data } from './mockData';
 const StyledDiv = styled.div`
   height: 100%;
   width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
 `;
 
 const HomeVideos = () => {
