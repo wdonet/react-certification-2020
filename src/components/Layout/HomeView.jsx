@@ -6,12 +6,8 @@ const StyledHomeView = styled.div`
   height: calc(100% - 64px);
 `;
 
-const HomeView = ({children}) => {
-  return (
-    <StyledHomeView data-testid="main-content">
-      {children}
-    </StyledHomeView>
-  );
+const HomeView = ({ children }) => {
+  return <StyledHomeView data-testid="main-content">{children}</StyledHomeView>;
 };
 
 export default HomeView;

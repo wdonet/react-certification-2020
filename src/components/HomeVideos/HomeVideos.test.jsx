@@ -4,9 +4,9 @@ import 'jest-styled-components';
 import { render, unmountComponentAtNode } from 'react-dom';
 import toJson from 'enzyme-to-json';
 import { mount } from 'enzyme';
-import HomeVideos from './HomeVideos';
 import { getAllByTestId } from '@testing-library/react';
-import { data } from "./mockData"
+import HomeVideos from './HomeVideos';
+import { data } from './mockData';
 
 let container;
 const build = () => {
@@ -43,7 +43,7 @@ describe('HomeVideos styles and props', () => {
 describe('HomeVideos shows home videos', () => {
   it('displays all videos', () => {
     build();
-    const videos = getAllByTestId(container, (id) => id.includes("video-card-"));
+    const videos = getAllByTestId(container, (id) => id.includes('video-card-'));
     expect(videos).toHaveLength(data.items.length);
-  })
-})
+  });
+});
