@@ -1,58 +1,41 @@
-import React, { useLayoutEffect } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-
-import AuthProvider from '../../providers/Auth';
+import React, { useState } from 'react';
+import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import HomePage from '../../pages/Home';
-import LoginPage from '../../pages/Login';
-import NotFound from '../../pages/NotFound';
-import SecretPage from '../../pages/Secret';
-import Private from '../Private';
-import Fortune from '../Fortune';
-import Layout from '../Layout';
-import { random } from '../../utils/fns';
+import Button from '../Button';
+
+const lightTheme = {
+    bg: '#fff',
+    text: '#121212',
+};
+
+const darkTheme = {
+    bg: '#121212',
+    text: '#fff',
+};
+
+const GlobalStyles = createGlobalStyle`body{
+  color: ${(props) => props.theme.text};
+  background-color: ${(props) => props.theme.bg};
+  transition: 0.5s;
+}`;
 
 function App() {
-  useLayoutEffect(() => {
-    const { body } = document;
+    const [mode, setMode] = useState('light');
 
-    function rotateBackground() {
-      const xPercent = random(100);
-      const yPercent = random(100);
-      body.style.setProperty('--bg-position', `${xPercent}% ${yPercent}%`);
-    }
-
-    const intervalId = setInterval(rotateBackground, 3000);
-    body.addEventListener('click', rotateBackground);
-
-    return () => {
-      clearInterval(intervalId);
-      body.removeEventListener('click', rotateBackground);
-    };
-  }, []);
-
-  return (
-    <BrowserRouter>
-      <AuthProvider>
-        <Layout>
-          <Switch>
-            <Route exact path="/">
-              <HomePage />
-            </Route>
-            <Route exact path="/login">
-              <LoginPage />
-            </Route>
-            <Private exact path="/secret">
-              <SecretPage />
-            </Private>
-            <Route path="*">
-              <NotFound />
-            </Route>
-          </Switch>
-          <Fortune />
-        </Layout>
-      </AuthProvider>
-    </BrowserRouter>
-  );
+    return (
+        <ThemeProvider theme={mode === 'light' ? lightTheme : darkTheme}>
+            <GlobalStyles />
+            <Button
+                size="10px"
+                onClick={() => setMode(mode === 'light' ? 'dark' : 'light')}
+            >
+                Change Theme
+            </Button>
+            <div id="home-section">
+                <HomePage />
+            </div>
+        </ThemeProvider>
+    );
 }
 
 export default App;
