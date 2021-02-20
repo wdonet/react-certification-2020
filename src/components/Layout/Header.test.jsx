@@ -48,9 +48,12 @@ describe('Header', () => {
 describe('Header styles', () => {
   it('applies default styling', () => {
     const tree = mount(<Header />);
+    expect(tree).toHaveStyleRule('display', 'flex');
+    expect(tree).toHaveStyleRule('align-items', 'center');
+    expect(tree).toHaveStyleRule('justify-content', 'space-between');
     expect(tree).toHaveStyleRule('width', '100%');
     expect(tree).toHaveStyleRule('height', '64px');
-    expect(tree).toHaveStyleRule('background-color', '#849492');
+    expect(tree).toHaveStyleRule('background-color', '#00695c');
     expect(tree).toHaveStyleRule('overflow', 'hidden');
     expect(tree).toHaveStyleRule('position', 'fixed');
     expect(tree).toHaveStyleRule('top', '0');
