@@ -1,38 +1,27 @@
-import React, { useRef } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React from 'react';
+import Header from '../../components/Header';
+import Card from '../../components/Card';
+import { Container } from './Home.styled';
 
-import { useAuth } from '../../providers/Auth';
-import './Home.styles.css';
+import mock from '../../mocks/videos.json';
 
 function HomePage() {
-  const history = useHistory();
-  const sectionRef = useRef(null);
-  const { authenticated, logout } = useAuth();
-
-  function deAuthenticate(event) {
-    event.preventDefault();
-    logout();
-    history.push('/');
-  }
-
   return (
-    <section className="homepage" ref={sectionRef}>
-      <h1>Hello stranger!</h1>
-      {authenticated ? (
-        <>
-          <h2>Good to have you back</h2>
-          <span>
-            <Link to="/" onClick={deAuthenticate}>
-              ← logout
-            </Link>
-            <span className="separator" />
-            <Link to="/secret">show me something cool →</Link>
-          </span>
-        </>
-      ) : (
-        <Link to="/login">let me in →</Link>
-      )}
-    </section>
+    <>
+      <Header />
+      <Container>
+        {mock.items.map((v) => {
+          return (
+            <Card
+              title={v.snippet.title}
+              description={v.snippet.description}
+              imgUrl={v.snippet.thumbnails.medium.url}
+              channelTitle={v.snippet.channelTitle}
+            />
+          );
+        })}
+      </Container>
+    </>
   );
 }
 

@@ -2,7 +2,7 @@ html {
   font-size: 1.125rem;
   line-height: 1.6;
   font-weight: 400;
-  font-family: sans-serif;
+  font-family: 'Roobert', sans-serif;
   box-sizing: border-box;
   scroll-behavior: smooth;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -50,4 +50,14 @@ a:active {
 }
 
 hr {
+}
+
+input {
+  text-rendering: auto;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  text-align: start;
 }
