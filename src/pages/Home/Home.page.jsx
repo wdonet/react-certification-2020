@@ -6,7 +6,7 @@ import VideosList from '../../components/VideosList';
 import mockedData from '../../youtube-videos-mock.json';
 
 function HomePage() {
-  const history = useHistory();
+//  const history = useHistory();
   const sectionRef = useRef(null);
   const { authenticated, logout } = useAuth();
 
