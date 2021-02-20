@@ -1,38 +1,39 @@
-import React, { useRef } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-
-import { useAuth } from '../../providers/Auth';
-import './Home.styles.css';
+import React, { useState } from 'react';
+import VideoCard from '../../components/VideoCard/VideoCard.component';
+import { SearchResults } from './Home.styled';
 
 function HomePage() {
-  const history = useHistory();
-  const sectionRef = useRef(null);
-  const { authenticated, logout } = useAuth();
+  const [searchResult, setSearchResult] = useState(null);
 
-  function deAuthenticate(event) {
-    event.preventDefault();
-    logout();
-    history.push('/');
+  async function getSearchResult() {
+    const response = await fetch(
+      'https://gist.githubusercontent.com/jparciga/1d4dd34fb06ba74237f8966e2e777ff5/raw/f3af25f1505deb67e2cc9ee625a633f24d8983ff/youtube-videos-mock.json'
+    );
+    return response.json();
+  }
+
+  if (searchResult == null) {
+    getSearchResult()
+      .then((data) => {
+        const videoData = data.items.filter((item) => item.id.videoId);
+        setSearchResult(videoData);
+      })
+      .catch((error) => console.log(error));
   }
 
   return (
-    <section className="homepage" ref={sectionRef}>
-      <h1>Hello stranger!</h1>
-      {authenticated ? (
-        <>
-          <h2>Good to have you back</h2>
-          <span>
-            <Link to="/" onClick={deAuthenticate}>
-              ← logout
-            </Link>
-            <span className="separator" />
-            <Link to="/secret">show me something cool →</Link>
-          </span>
-        </>
-      ) : (
-        <Link to="/login">let me in →</Link>
-      )}
-    </section>
+    searchResult && (
+      <SearchResults>
+        {searchResult.map(({ id, snippet }) => (
+          <VideoCard
+            key={id.videoId}
+            image={snippet.thumbnails.medium.url}
+            title={snippet.title}
+            description={snippet.description}
+          />
+        ))}
+      </SearchResults>
+    )
   );
 }
 
