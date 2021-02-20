@@ -4,10 +4,6 @@ const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
-  width: 100vw;
-  height: 100vh;
-  background-color: lightgray;
-  /* background-color: #0f0f0f;  */
 `;
 
 const Content = styled.div`

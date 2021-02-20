@@ -13,6 +13,7 @@ const HeaderContainer = styled.div`
   align-items: center;
   padding: 5px;
   border: 3px solid gray;
+  background-color: lightgray;
 `;
 
 const Search = styled.input`
