@@ -7,5 +7,5 @@ export const NotFoundContainer = styled(Container)`
 `;
 
 export const NotFoundText = styled(Typography)`
-  color: white;
+  color: ${(props) => props.theme.colors.white};
 `;
