@@ -116,22 +116,6 @@ const ToggleButton = styled.span`
   background-color: currentColor;
 `;
 
-const Container = styled.div`
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  box-sizing: border-box;
-`;
-
-const WelcomeLabel = styled.div`
-  padding: 12px;
-  font-size: 3.75rem;
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  font-weight: 300;
-  line-height: 1.2;
-  letter-spacing: -0.00833em;
-`;
-
 function HeaderComponent() {
   return (
     <Header>
