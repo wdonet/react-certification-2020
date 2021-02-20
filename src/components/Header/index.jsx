@@ -19,7 +19,7 @@ const Header = () => {
               d="M4 6h16M4 12h16M4 18h16"
             />
           </Styled.Icon>
-          <Styled.NavSearch type="text" placeholder="Search ..."></Styled.NavSearch>
+          <Styled.NavSearch type="text" placeholder="Search ..." />
         </Styled.NavMenu>
 
         <Styled.Icon
