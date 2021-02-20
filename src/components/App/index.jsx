@@ -7,7 +7,7 @@ import filterByYear from '../../utils/filter';
 
 function App() {
   const recent = filterByYear(items, '');
-  
+
   const list = recent.map((video) => (
     <VideoCard
       key={video.etag}
