@@ -4,12 +4,14 @@ import Card from '../Card/Card.page';
 import mockedData from '../../data/mockItems.json';
 
 function HomePage() {
+
+    console.table(mockedData.items);
+
     return (
         <div>
             <HeaderSection />
             {mockedData.items.map((item) => (
                 <Card
-                    key={item.etag}
                     title={item.snippet.title}
                     description={item.snippet.description}
                     image={item.snippet.thumbnails.default.url}

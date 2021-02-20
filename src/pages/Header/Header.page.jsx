@@ -23,7 +23,7 @@ function HeaderSection() {
             </Button>
 
             <Button size="1em">
-                <input type="search" id="site-search" placeholder="Search the site..." />
+                <input type="search" id="site-search" />
                 <Emoji symbol="🔍" />
             </Button>
         </CurrentDiv>

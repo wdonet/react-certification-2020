@@ -31,9 +31,7 @@ function App() {
             >
                 Change Theme
             </Button>
-            <div id="home-section">
-                <HomePage />
-            </div>
+            <HomePage />
         </ThemeProvider>
     );
 }
