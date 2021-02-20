@@ -1,1 +1,1 @@
-export { default } from './Header.page';
+export { default } from './Card.page';
