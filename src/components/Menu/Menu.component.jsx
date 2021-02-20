@@ -28,7 +28,7 @@ function Menu() {
         className="title"
         edge="start"
         color="inherit"
-        aria-label="menu"
+        data-testid="MenuButton"
       >
         <YouTubeIcon />
         <Typography variant="body1" noWrap>
@@ -44,21 +44,26 @@ function Menu() {
         <SearchIconContainer>
           <SearchIcon />
         </SearchIconContainer>
-        <CustomInputBase placeholder="Search…" inputProps={{ 'aria-label': 'search' }} />
+        <CustomInputBase placeholder="Search…" />
       </SearchContainer>
     );
   }
 
   return (
     <>
-      <CustomAppBar position="fixed">
+      <CustomAppBar position="fixed" data-testid="CustomAppBar">
         <CustomToolbar>
           <ToolbarSection>
             {MenuButton()}
             {SearchBar()}
           </ToolbarSection>
           <ToolbarSection>
-            <ThemeSwitch checked={checked} onChange={handleChange} color="default" />
+            <ThemeSwitch
+              data-testid="ThemeSwitch"
+              checked={checked}
+              onChange={handleChange}
+              color="default"
+            />
             <Button color="inherit">Login</Button>
           </ToolbarSection>
         </CustomToolbar>
