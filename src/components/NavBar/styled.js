@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { MenuAltLeft } from '@styled-icons/boxicons-regular/MenuAltLeft';
-import { AccountCircle } from '@styled-icons/material/AccountCircle';
+import { Dehaze } from '@styled-icons/material-outlined/Dehaze';
+import { AccountCircle } from '@styled-icons/material-outlined/AccountCircle';
 
-const MenuIcon = styled(MenuAltLeft)`
+const MenuIcon = styled(Dehaze)`
   color: white;
   width: 50px;
   height: 50px;

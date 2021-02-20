@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { CloseCircleOutline } from '@styled-icons/evaicons-outline/CloseCircleOutline';
+import { Close } from '@styled-icons/material-outlined/Close';
 
 const ContainerMenu = styled.div`
   display: flex;
@@ -52,13 +52,13 @@ const LinkText = styled.a`
   }
 `;
 
-const CloseIcon = styled(CloseCircleOutline)`
+const CloseIcon = styled(Close)`
   color: lightgray;
   width: 50px;
   height: 50px;
 `;
 
-const Close = styled.div`
+const CloseBtn = styled.div`
   text-align-last: end;
 `;
 
@@ -73,7 +73,7 @@ const Styled = {
   ContainerMenu,
   LinkText,
   CloseIcon,
-  Close,
+  CloseBtn,
   Links,
 };
 

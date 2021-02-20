@@ -5,9 +5,9 @@ const SideMenu = ({ open, setOpen }) => {
   return (
     <Styled.ContainerMenu open={open} data-testid="sideMenu">
       <Styled.SideMenu open={open}>
-        <Styled.Close>
+        <Styled.CloseBtn>
           <Styled.CloseIcon onClick={() => setOpen(!open)} />
-        </Styled.Close>
+        </Styled.CloseBtn>
         <Styled.Links>
           <Styled.LinkText href="/">
             <span role="img" aria-label="home">
