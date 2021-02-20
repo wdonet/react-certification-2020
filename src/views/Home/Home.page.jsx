@@ -1,6 +1,5 @@
 import React from 'react';
 import VideosCatalog from '../../components/VideosCatalog';
-import Grid from '@material-ui/core/Grid';
 
 function HomePage() {
 
