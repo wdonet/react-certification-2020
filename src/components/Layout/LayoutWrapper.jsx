@@ -8,11 +8,13 @@ const StyledLayoutWrapper = styled.div`
   height: 100%;
 `;
 
-const LayoutWrapper = () => {
+const LayoutWrapper = ({children}) => {
   return (
     <StyledLayoutWrapper data-testid="layout-wrapper">
       <Header />
-      <HomeView />
+      <HomeView>
+        { children }
+      </HomeView>
     </StyledLayoutWrapper>
   );
 };
