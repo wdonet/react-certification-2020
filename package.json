@@ -20,6 +20,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:coverage": "npm run test -- --coverage --watchAll=false >coverage.txt",
     "eject": "react-scripts eject",
     "lint": "eslint ./src --ext .js,.jsx",
     "lint:fix": "eslint ./src --ext .js,.jsx --fix"

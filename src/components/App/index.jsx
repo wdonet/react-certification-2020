@@ -3,9 +3,12 @@ import HeaderBar from '../HeaderBar';
 import Content from '../Content';
 import { items } from '../../assets/mockdata/mockdata.json';
 import VideoCard from '../VideoCard';
+import filterByYear from '../../utils/filter';
 
 function App() {
-  const list = items.map((video) => (
+  const recent = filterByYear(items, '');
+  
+  const list = recent.map((video) => (
     <VideoCard
       key={video.etag}
       title={video.snippet.title}
@@ -13,6 +16,7 @@ function App() {
       image={video.snippet.thumbnails.high.url}
     />
   ));
+
   return (
     <React.StrictMode>
       <HeaderBar />
