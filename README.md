@@ -3,6 +3,10 @@
 This was created using create-react-app 4
 Try it live @ Netlify -> https://uri-react.netlify.app/
 
+| Statements                  | Branches                | Functions                 | Lines             |
+| --------------------------- | ----------------------- | ------------------------- | ----------------- |
+| ![Statements](https://img.shields.io/badge/Coverage-6.19%25-red.svg) | ![Branches](https://img.shields.io/badge/Coverage-0%25-red.svg) | ![Functions](https://img.shields.io/badge/Coverage-5.88%25-red.svg) | ![Lines](https://img.shields.io/badge/Coverage-5.82%25-red.svg) |
+
 ## Application Dependenciess
 
 These are the system dependencies you need to have in order to run the application.
