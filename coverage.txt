@@ -1,0 +1,60 @@
+
+> react-certification-2020@0.1.0 test /Users/alejandro.santamaria/wzgit/react-certification-2021
+> react-scripts test "--coverage" "--watchAll=false"
+
+-----------------------------|----------|----------|----------|----------|-------------------|
+File                         |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
+-----------------------------|----------|----------|----------|----------|-------------------|
+All files                    |     38.1 |       35 |    38.78 |     38.1 |                   |
+ src                         |        0 |      100 |      100 |        0 |                   |
+  index.js                   |        0 |      100 |      100 |        0 |               6,7 |
+ src/components/App          |      100 |      100 |      100 |      100 |                   |
+  index.jsx                  |      100 |      100 |      100 |      100 |                   |
+ src/components/Content      |      100 |      100 |      100 |      100 |                   |
+  index.jsx                  |      100 |      100 |      100 |      100 |                   |
+ src/components/HeaderBar    |    83.33 |       50 |    69.23 |    83.33 |                   |
+  Avatar.jsx                 |      100 |      100 |      100 |      100 |                   |
+  MenuButton.jsx             |       90 |       50 |    85.71 |       90 |                43 |
+  SearchInput.jsx            |    66.67 |      100 |       25 |    66.67 |          66,69,81 |
+  index.jsx                  |      100 |      100 |      100 |      100 |                   |
+ src/components/LeftNav      |      100 |       50 |      100 |      100 |                   |
+  index.jsx                  |      100 |       50 |      100 |      100 |                 8 |
+ src/components/SwitchButton |      100 |      100 |      100 |      100 |                   |
+  index.jsx                  |      100 |      100 |      100 |      100 |                   |
+ src/components/VideoCard    |      100 |      100 |      100 |      100 |                   |
+  index.jsx                  |      100 |      100 |      100 |      100 |                   |
+ src/old_components/App      |        0 |      100 |        0 |        0 |                   |
+  App.component.jsx          |        0 |      100 |        0 |        0 |... 25,27,28,29,33 |
+  index.js                   |        0 |        0 |        0 |        0 |                   |
+ src/old_components/Fortune  |        0 |      100 |        0 |        0 |                   |
+  Fortune.component.jsx      |        0 |      100 |        0 |        0 |               7,9 |
+  index.js                   |        0 |        0 |        0 |        0 |                   |
+ src/old_components/Layout   |        0 |      100 |        0 |        0 |                   |
+  Layout.component.jsx       |        0 |      100 |        0 |        0 |                 6 |
+  index.js                   |        0 |        0 |        0 |        0 |                   |
+ src/old_components/Private  |        0 |        0 |        0 |        0 |                   |
+  Private.component.jsx      |        0 |        0 |        0 |        0 |            7,9,10 |
+  index.js                   |        0 |        0 |        0 |        0 |                   |
+ src/pages/Home              |        0 |        0 |        0 |        0 |                   |
+  Home.page.jsx              |        0 |        0 |        0 |        0 |8,9,10,13,14,15,18 |
+  index.js                   |        0 |        0 |        0 |        0 |                   |
+ src/pages/Login             |        0 |      100 |        0 |        0 |                   |
+  Login.page.jsx             |        0 |      100 |        0 |        0 |   8,9,12,13,14,17 |
+  index.js                   |        0 |        0 |        0 |        0 |                   |
+ src/pages/NotFound          |        0 |      100 |        0 |        0 |                   |
+  NotFound.page.jsx          |        0 |      100 |        0 |        0 |                 7 |
+  index.js                   |        0 |        0 |        0 |        0 |                   |
+ src/pages/Secret            |        0 |      100 |        0 |        0 |                   |
+  Secret.page.jsx            |        0 |      100 |        0 |        0 |                 5 |
+  index.js                   |        0 |        0 |        0 |        0 |                   |
+ src/providers/Auth          |        0 |        0 |        0 |        0 |                   |
+  Auth.provider.jsx          |        0 |        0 |        0 |        0 |... 28,31,32,33,36 |
+  index.js                   |        0 |        0 |        0 |        0 |                   |
+ src/utils                   |    15.38 |       50 |       20 |    15.38 |                   |
+  constants.js               |        0 |      100 |      100 |        0 |                 1 |
+  filter.js                  |       50 |       50 |       50 |       50 |               6,7 |
+  fns.js                     |        0 |      100 |        0 |        0 |                 2 |
+  storage.js                 |        0 |      100 |        0 |        0 |    1,3,4,5,7,8,13 |
+ src/utils/hooks             |        0 |      100 |        0 |        0 |                   |
+  useFortune.js              |        0 |      100 |        0 |        0 |... 17,19,21,25,28 |
+-----------------------------|----------|----------|----------|----------|-------------------|
