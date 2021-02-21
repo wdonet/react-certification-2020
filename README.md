@@ -1,6 +1,7 @@
 # Web Application
 
 This was created using create-react-app 4
+Try it live @ Netlify -> https://uri-react.netlify.app/
 
 ## Application Dependenciess
 
