@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Styles::Grid renders the component correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bdfBwQ dVyJfJ"
+    data-testid="Grid"
+  >
+    <div>
+      Item 1
+    </div>
+    <div>
+      Item 2
+    </div>
+    <div>
+      Item 3
+    </div>
+    <div>
+      Item 4
+    </div>
+  </div>
+</DocumentFragment>
+`;

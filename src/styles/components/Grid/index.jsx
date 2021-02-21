@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyledGrid } from './styled'
 
-const Grid = props => <StyledGrid>{props.children}</StyledGrid>
+const Grid = props => <StyledGrid data-testid="Grid">{props.children}</StyledGrid>
 
 Grid.propTypes = {}
 
