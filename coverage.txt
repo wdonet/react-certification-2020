@@ -1,0 +1,55 @@
+ PASS  src/components/VideoMosaic/VideoMosaic.test.jsx
+ PASS  src/components/Layout/Layout.test.jsx
+ PASS  src/components/Menu/Menu.test.jsx
+ PASS  src/components/App/App.test.jsx
+ PASS  src/pages/NotFound/NotFound.test.jsx
+ › 1 snapshot written.
+----------------------------|----------|----------|----------|----------|-------------------|
+File                        |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
+----------------------------|----------|----------|----------|----------|-------------------|
+All files                   |    97.62 |      100 |      100 |     97.5 |                   |
+ src                        |        0 |      100 |      100 |        0 |                   |
+  index.js                  |        0 |      100 |      100 |        0 |                 7 |
+ src/components/App         |      100 |      100 |      100 |      100 |                   |
+  App.component.jsx         |      100 |      100 |      100 |      100 |                   |
+  App.styled.jsx            |      100 |      100 |      100 |      100 |                   |
+  index.js                  |        0 |        0 |        0 |        0 |                   |
+ src/components/Layout      |      100 |      100 |      100 |      100 |                   |
+  Layout.component.jsx      |      100 |      100 |      100 |      100 |                   |
+  Layout.styled.jsx         |      100 |      100 |      100 |      100 |                   |
+  index.js                  |        0 |        0 |        0 |        0 |                   |
+ src/components/Menu        |      100 |      100 |      100 |      100 |                   |
+  Menu.component.jsx        |      100 |      100 |      100 |      100 |                   |
+  Menu.styled.jsx           |      100 |      100 |      100 |      100 |                   |
+  index.js                  |        0 |        0 |        0 |        0 |                   |
+ src/components/VideoMosaic |      100 |      100 |      100 |      100 |                   |
+  VideoMosaic.component.jsx |      100 |      100 |      100 |      100 |                   |
+  VideoMosaic.styled.jsx    |      100 |      100 |      100 |      100 |                   |
+  index.js                  |        0 |        0 |        0 |        0 |                   |
+ src/pages/Home             |      100 |      100 |      100 |      100 |                   |
+  Home.page.jsx             |      100 |      100 |      100 |      100 |                   |
+  Home.page.styled.jsx      |        0 |        0 |        0 |        0 |                   |
+  index.js                  |        0 |        0 |        0 |        0 |                   |
+ src/pages/NotFound         |      100 |      100 |      100 |      100 |                   |
+  NotFound.page.jsx         |      100 |      100 |      100 |      100 |                   |
+  NotFound.styled.jsx       |      100 |      100 |      100 |      100 |                   |
+  index.js                  |        0 |        0 |        0 |        0 |                   |
+ src/providers/Auth         |        0 |        0 |        0 |        0 |                   |
+  Auth.provider.jsx         |        0 |        0 |        0 |        0 |                   |
+  index.js                  |        0 |        0 |        0 |        0 |                   |
+ src/utils                  |      100 |      100 |      100 |      100 |                   |
+  constants.js              |        0 |        0 |        0 |        0 |                   |
+  storage.js                |        0 |        0 |        0 |        0 |                   |
+  youtube-videos-mock.js    |      100 |      100 |      100 |      100 |                   |
+----------------------------|----------|----------|----------|----------|-------------------|
+
+Snapshot Summary
+ › 1 snapshot written from 1 test suite.
+
+Test Suites: 5 passed, 5 total
+Tests:       7 passed, 7 total
+Snapshots:   1 written, 3 passed, 4 total
+Time:        4.277s
+Ran all test suites.
+
+Watch Usage: Press w to show more.
