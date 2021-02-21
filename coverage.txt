@@ -1,0 +1,78 @@
+------------------------------------|----------|----------|----------|----------|----------------|
+File                                |  % Stmts | % Branch |  % Funcs |  % Lines |Uncovered Lines |
+------------------------------------|----------|----------|----------|----------|----------------|
+ src/                               |        0 |      100 |      100 |        0 |                |
+  index.js                          |        0 |      100 |      100 |        0 |          11,22 |
+  setupTest.js                      |      100 |      100 |      100 |      100 |                |
+ src/components/Layout/             |        0 |        0 |        0 |        0 |                |
+  index.jsx                         |        0 |        0 |        0 |        0 |... 55,59,73,83 |
+  styled.js                         |        0 |      100 |      100 |        0 |              3 |
+ src/config/                        |      100 |      100 |      100 |      100 |                |
+  customs.js                        |      100 |      100 |      100 |      100 |                |
+  themes.js                         |      100 |      100 |      100 |      100 |                |
+ src/hooks/                         |        0 |        0 |        0 |        0 |                |
+  useCounter.jsx                    |        0 |        0 |        0 |        0 |       5,7,8,11 |
+  useCustom.jsx                     |        0 |        0 |        0 |        0 |      4,5,6,7,9 |
+  useGradient.jsx                   |        0 |        0 |        0 |        0 |... 37,38,39,42 |
+  useInterval.jsx                   |        0 |        0 |        0 |        0 |... 14,16,17,18 |
+  useThemeStyles.jsx                |        0 |        0 |        0 |        0 |     4,5,6,7,11 |
+ src/providers/Custom/              |        0 |        0 |        0 |        0 |                |
+  index.jsx                         |        0 |        0 |        0 |        0 |... 23,26,31,34 |
+ src/providers/ThemeStyles/         |        0 |        0 |        0 |        0 |                |
+  index.jsx                         |        0 |        0 |        0 |        0 |... 25,28,35,45 |
+ src/services/                      |        0 |        0 |        0 |        0 |                |
+  reportWebVitals.js                |        0 |        0 |        0 |        0 |1,2,3,4,5,6,7,8 |
+ src/styles/components/Content/     |      100 |      100 |      100 |      100 |                |
+  index.jsx                         |      100 |      100 |      100 |      100 |                |
+  styled.js                         |      100 |      100 |      100 |      100 |                |
+ src/styles/components/Footer/      |      100 |      100 |      100 |      100 |                |
+  index.jsx                         |      100 |      100 |      100 |      100 |                |
+  styled.js                         |      100 |      100 |      100 |      100 |                |
+ src/styles/components/Grid/        |      100 |      100 |      100 |      100 |                |
+  index.jsx                         |      100 |      100 |      100 |      100 |                |
+  styled.js                         |      100 |      100 |      100 |      100 |                |
+ src/styles/components/Header/      |        0 |        0 |        0 |        0 |                |
+  index.jsx                         |        0 |        0 |        0 |        0 |      5,6,13,19 |
+  styled.js                         |        0 |      100 |      100 |        0 |     3,13,19,23 |
+ src/styles/components/Hero/        |        0 |      100 |        0 |        0 |                |
+  index.jsx                         |        0 |      100 |        0 |        0 |   6,7,13,24,31 |
+  styled.js                         |        0 |      100 |      100 |        0 |              4 |
+ src/styles/components/Icon/        |        0 |        0 |        0 |        0 |                |
+  index.jsx                         |        0 |        0 |        0 |        0 |... 25,27,34,40 |
+  styled.js                         |        0 |        0 |        0 |        0 |          4,6,8 |
+ src/styles/components/Image/       |        0 |        0 |        0 |        0 |                |
+  index.jsx                         |        0 |      100 |        0 |        0 |      5,6,11,16 |
+  styled.js                         |        0 |        0 |        0 |        0 |         4,8,11 |
+ src/styles/components/InputSearch/ |        0 |      100 |        0 |        0 |                |
+  index.jsx                         |        0 |      100 |        0 |        0 |         4,5,10 |
+  styled.js                         |        0 |      100 |        0 |        0 |            3,7 |
+ src/styles/components/Main/        |        0 |      100 |        0 |        0 |                |
+  index.jsx                         |        0 |      100 |        0 |        0 |            4,6 |
+  styled.js                         |        0 |      100 |      100 |        0 |              3 |
+ src/styles/components/Menu/        |        0 |      100 |        0 |        0 |                |
+  index.jsx                         |        0 |      100 |        0 |        0 |       5,6,8,15 |
+  styled.js                         |        0 |      100 |      100 |        0 |           3,10 |
+ src/styles/components/Tile/        |        0 |      100 |        0 |        0 |                |
+  index.jsx                         |        0 |      100 |        0 |        0 |         4,5,10 |
+  styled.js                         |        0 |      100 |        0 |        0 |          3,5,8 |
+ src/styles/global/Baseline/        |        0 |      100 |      100 |        0 |                |
+  index.jsx                         |        0 |      100 |      100 |        0 |              3 |
+ src/styles/global/Layout/          |        0 |      100 |      100 |        0 |                |
+  index.jsx                         |        0 |      100 |      100 |        0 |              3 |
+ src/styles/global/Theme/           |        0 |      100 |        0 |        0 |                |
+  index.jsx                         |        0 |      100 |        0 |        0 |... 7,8,9,10,11 |
+ src/styles/icons/                  |      100 |      100 |      100 |      100 |                |
+  index.js                          |      100 |      100 |      100 |      100 |                |
+ src/styles/icons/Moon/             |        0 |      100 |        0 |        0 |                |
+  index.jsx                         |        0 |      100 |        0 |        0 |      5,6,28,32 |
+  styled.js                         |        0 |      100 |      100 |        0 |              3 |
+ src/styles/icons/Sun/              |        0 |      100 |        0 |        0 |                |
+  index.jsx                         |        0 |      100 |        0 |        0 |      5,6,65,69 |
+  styled.js                         |        0 |      100 |      100 |        0 |              3 |
+ src/utils/                         |      100 |      100 |      100 |      100 |                |
+  index.js                          |      100 |      100 |      100 |      100 |                |
+------------------------------------|----------|----------|----------|----------|----------------|
+All files                           |     6.19 |        0 |     5.88 |     5.82 |                |
+------------------------------------|----------|----------|----------|----------|----------------|
+
+Done
