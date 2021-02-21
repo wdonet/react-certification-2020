@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import VideoMosaic from './VideoMosaic.component';
-import Theme from '../App/Theme.styled';
+import Theme from '../App/App.styled';
 import mockData from '../../utils/youtube-videos-mock';
 
 export function getVideosOnly() {

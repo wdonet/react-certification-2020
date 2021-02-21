@@ -2,18 +2,15 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import Menu from './Menu.component';
-import Theme from '../App/Theme.styled';
-import AuthProvider from '../../providers/Auth';
+import Theme from '../App/App.styled';
 
 describe('Menu Component Tests', () => {
   const setup = () => {
     const utils = render(
       <BrowserRouter>
-        <AuthProvider>
-          <Theme>
-            <Menu />
-          </Theme>
-        </AuthProvider>
+        <Theme>
+          <Menu />
+        </Theme>
       </BrowserRouter>
     );
     return {
