@@ -1,0 +1,7 @@
+{
+  "*.{js,jsx,css,json}": [
+    "npm run lint:fix",
+    "npm run test:coverage",
+    "pretty-quick --staged"
+  ]
+}

@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Styles::Content renders the content correctly 1`] = `
+<DocumentFragment>
+  <section
+    class="sc-bdfBwQ heMalg"
+    data-testid="Content"
+  >
+    <h1>
+      Test
+    </h1>
+  </section>
+</DocumentFragment>
+`;

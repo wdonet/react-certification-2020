@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Styles::Header renders the component correctly 1`] = `
+<DocumentFragment>
+  <header
+    class="sc-bdfBwQ dOGREB"
+    data-testid="Header"
+  >
+    <div
+      class="sc-gsTCUz gyFdkb"
+    >
+      <h1>
+        Main
+      </h1>
+    </div>
+    <div
+      class="sc-dlfnbm dBczOt"
+    >
+      <div>
+        Secondary
+      </div>
+    </div>
+    <div
+      class="sc-hKgILt gEEuyV"
+    >
+      <div>
+        Corner
+      </div>
+    </div>
+  </header>
+</DocumentFragment>
+`;

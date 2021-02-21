@@ -1,12 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-
-import App from './components/App';
-import './global.css';
+/* eslint-disable */
+import React from 'react'
+import ReactDOM from 'react-dom'
+import 'normalize.css'
+import 'reset-css'
+import Layout from './components/Layout'
+import reportWebVitals from './services/reportWebVitals'
+import ThemeStylesProvider from './providers/ThemeStyles'
+import CustomProvider from './providers/Custom'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <CustomProvider>
+      <ThemeStylesProvider>
+        <Layout />
+      </ThemeStylesProvider>
+    </CustomProvider>
   </React.StrictMode>,
   document.getElementById('root')
-);
+)
+
+reportWebVitals()

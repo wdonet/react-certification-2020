@@ -1,6 +1,9 @@
 {
-  "extends": ["react-app", "airbnb", "prettier", "prettier/react"],
-  "plugins": ["prettier"],
+  "extends": ["react-app", "react-app/jest", "airbnb", "prettier", "prettier/react", "plugin:compat/recommended", "plugin:security/recommended"],
+  "plugins": ["prettier", "compat", "security"],
+  "env": {
+    "browser": true
+  },
   "rules": {
     "prettier/prettier": "error",
     "react/jsx-filename-extension": "error",

@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Styles::Footer renders the component correctly 1`] = `
+<DocumentFragment>
+  <footer
+    class="sc-bdfBwQ dxvMQe"
+    data-testid="Footer"
+  >
+    <h1>
+      Test
+    </h1>
+  </footer>
+</DocumentFragment>
+`;
