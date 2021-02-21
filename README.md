@@ -5,7 +5,7 @@ Try it live @ Netlify -> https://uri-react.netlify.app/
 
 | Statements                  | Branches                | Functions                 | Lines             |
 | --------------------------- | ----------------------- | ------------------------- | ----------------- |
-| ![Statements](https://img.shields.io/badge/Coverage-6.19%25-red.svg) | ![Branches](https://img.shields.io/badge/Coverage-0%25-red.svg) | ![Functions](https://img.shields.io/badge/Coverage-5.88%25-red.svg) | ![Lines](https://img.shields.io/badge/Coverage-5.82%25-red.svg) |
+| ![Statements](https://img.shields.io/badge/Coverage-12.82%25-red.svg) | ![Branches](https://img.shields.io/badge/Coverage-10.81%25-red.svg) | ![Functions](https://img.shields.io/badge/Coverage-9.8%25-red.svg) | ![Lines](https://img.shields.io/badge/Coverage-12.11%25-red.svg) |
 
 ## Application Dependenciess
 
