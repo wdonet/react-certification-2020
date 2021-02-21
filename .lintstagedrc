@@ -1,5 +1,5 @@
 {
-  "*.{js, jsx, css, json}": [
+  "*.{js,jsx,css,json}": [
     "npm run lint:fix",
     "pretty-quick --staged",
     "npm run test:coverage"
