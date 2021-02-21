@@ -19,8 +19,9 @@ describe('Menu Component Tests', () => {
   };
 
   it('Should render the menu component', () => {
-    const { getByTestId } = setup();
+    const { getByTestId, asFragment } = setup();
     expect(getByTestId('CustomAppBar')).toBeInTheDocument();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   it('Should redirect to home', async () => {

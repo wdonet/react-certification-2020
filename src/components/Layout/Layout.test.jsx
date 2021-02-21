@@ -16,8 +16,9 @@ describe('Layout Component Tests', () => {
   };
 
   it('Should render the layout component', async () => {
-    const { getByTestId } = setup();
+    const { getByTestId, asFragment } = setup();
     expect(getByTestId('CustomAppBar')).toBeInTheDocument();
     expect(getByTestId('ContentContainer')).toBeInTheDocument();
+    expect(asFragment()).toMatchSnapshot();
   });
 });

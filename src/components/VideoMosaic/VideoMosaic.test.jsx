@@ -22,9 +22,10 @@ describe('Video Mosaic Component Tests', () => {
   };
 
   it('Should render the video mosaic', () => {
-    const { getByText, getByTitle } = setup();
+    const { getByText, getByTitle, asFragment } = setup();
     expect(getByText(mockVideo.snippet.title)).toBeInTheDocument();
     expect(getByText(mockVideo.snippet.description)).toBeInTheDocument();
     expect(getByTitle(mockVideo.snippet.title)).toBeInTheDocument();
+    expect(asFragment()).toMatchSnapshot();
   });
 });
