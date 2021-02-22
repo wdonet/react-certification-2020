@@ -2,12 +2,8 @@ import React, { useRef } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import { useAuth } from '../../providers/Auth';
-import './Home.styles.css';
-import mockedData from "./mocked-youtube.json";
-import Header from '../../components/Header'
-import VideoCard from '../../components/VideoCard'
-
-const { } = mockedData;
+import mockedData from '../../utils/mocked-youtube.json';
+import VideoList from '../../components/VideoList';
 
 function HomePage() {
   const history = useHistory();
@@ -20,14 +16,16 @@ function HomePage() {
     history.push('/');
   }
 
+  const { items } = mockedData;
+
   return (
-    <section className="homepage" ref={sectionRef}>
+    <section ref={sectionRef}>
       {authenticated || true ? (
-        <>
-          <Header></Header>
-          <h1>Welcome to my YouTube Custom Client!</h1>
-          <VideoCard></VideoCard>
-        </>
+        <VideoList
+          title="Welcome to Orlando's YouTube Client"
+          items={items}
+          filter="videos"
+        />
       ) : (
         <Link to="/login">let me in →</Link>
       )}

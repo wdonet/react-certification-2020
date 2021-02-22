@@ -1,0 +1,42 @@
+$ npm test -- --coverage
+
+> react-certification-2021@0.1.0 test D:\Orlando\react
+> react-scripts test "--coverage"
+
+PASS src/utils/tests/videos.spec.js (6.207s)
+  Video Utilities
+    √ validates undefined filter (3ms)
+    √ validates no filter
+    √ validates videos filter
+    √ validates channels filter (1ms)
+    √ validates unknown filter
+    √ validates exception on invalid data (2ms)
+
+--------------------------|----------|----------|----------|----------|-------------------|
+File                      |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
+--------------------------|----------|----------|----------|----------|-------------------|
+All files                 |    20.45 |       75 |       20 |    20.45 |                   |
+ src                      |        0 |      100 |      100 |        0 |                   |
+  index.js                |        0 |      100 |      100 |        0 |                 6 |
+ src/components/App       |        0 |      100 |        0 |        0 |                   |
+  App.component.jsx       |        0 |      100 |        0 |        0 |                14 |
+ src/components/Header    |        0 |      100 |        0 |        0 |                   |
+  Header.component.jsx    |        0 |      100 |        0 |        0 |               4,5 |
+  Header.styles.js        |        0 |      100 |      100 |        0 | 3,5,7,11,16,21,50 |
+ src/components/VideoCard |        0 |      100 |        0 |        0 |                   |
+  VideoCard.component.jsx |        0 |      100 |        0 |        0 |               4,5 |
+  VideoCard.styles.js     |        0 |      100 |      100 |        0 |     3,12,14,16,20 |
+ src/components/VideoList |        0 |      100 |        0 |        0 |                   |
+  VideoList.component.jsx |        0 |      100 |        0 |        0 |      7,8,10,16,18 |
+  VideoList.styles.js     |        0 |      100 |      100 |        0 |          3,5,9,15 |
+  index.js                |        0 |        0 |        0 |        0 |                   |
+ src/pages/Home           |        0 |        0 |        0 |        0 |                   |
+  Home.page.jsx           |        0 |        0 |        0 |        0 |... 14,15,16,19,21 |
+ src/utils                |      100 |      100 |      100 |      100 |                   |
+  videos.js               |      100 |      100 |      100 |      100 |                   |
+--------------------------|----------|----------|----------|----------|-------------------|
+Test Suites: 1 passed, 1 total
+Tests:       6 passed, 6 total
+Snapshots:   0 total
+Time:        11.049s
+Ran all test suites related to changed files.

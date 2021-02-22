@@ -1,17 +1,12 @@
 import React from 'react';
+import Styled from './VideoCard.styles';
 
-import './VideoCard.styles.css'
-
-class VideoCard extends React.Component {
-  render() {
-    return (
-      <div className="">
-        <img href=""></img>
-        <h2>TITLE</h2>
-        <span>SUBTITLE</span>
-      </div>
-    );
-  }
-}
+const VideoCard = ({ thumbnail, title, body }) => (
+  <Styled.Container>
+    <Styled.Preview src={thumbnail} />
+    <Styled.Title>{title}</Styled.Title>
+    <Styled.Body>{body}</Styled.Body>
+  </Styled.Container>
+);
 
 export default VideoCard;
