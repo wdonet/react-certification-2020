@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledInput } from './SearchInput.styles';
+import { StyledInput } from './styled';
 
 const SearchInput = () => {
   return <StyledInput placeHolder="Search" />;

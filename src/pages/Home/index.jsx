@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledSection, Title } from './Home.styles';
+import { StyledSection, Title } from './styled';
 import videos from '../../mocks/youtube-videos-mock.json';
 
 const HomePage = () => {
