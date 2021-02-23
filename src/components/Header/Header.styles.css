@@ -1,0 +1,39 @@
+.ui.menu {
+  margin: 0;
+}
+
+.ui.menu .item:before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 0;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+div.link.icon.item i.icon {
+  line-height: 1;
+  vertical-align: middle;
+  font-size: 2rem;
+}
+
+@media only screen and (max-width: 630px) {
+  div.right.menu .darkMode {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  div.right.menu .userIcon {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  div.ui.menu .searchInput {
+    width: 80%;
+  }
+}
