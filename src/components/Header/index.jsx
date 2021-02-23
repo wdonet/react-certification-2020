@@ -2,7 +2,9 @@ import React from 'react';
 
 import {
   HeaderContainer,
-  StyledBars,
+  StyledBarsIcon,
+  StyledUserIcon,
+  StyledHeartIcon,
   LeftItems,
   CenterItems,
   RightItems,
@@ -16,7 +18,7 @@ const Header = () => {
     <HeaderContainer>
       <LeftItems>
         <HeaderButton onClick={() => {}}>
-          <StyledBars />
+          <StyledBarsIcon />
         </HeaderButton>
       </LeftItems>
       <CenterItems>
@@ -24,7 +26,10 @@ const Header = () => {
       </CenterItems>
       <RightItems>
         <HeaderButton onClick={() => {}}>
-          <StyledBars />
+          <StyledHeartIcon />
+        </HeaderButton>
+        <HeaderButton onClick={() => {}}>
+          <StyledUserIcon />
         </HeaderButton>
       </RightItems>
     </HeaderContainer>

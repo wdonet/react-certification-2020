@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Bars } from '../Icons';
+import { Bars, User, Heart } from '../Icons';
 
 const HeaderContainer = styled.div`
   height: 60px;
@@ -14,10 +14,7 @@ const HeaderContainer = styled.div`
 `;
 
 const LeftItems = styled.div`
-  display: flex;
-  align-items: center;
   text-align: left;
-  padding: 0 0 0 20px;
 `;
 
 const CenterItems = styled.div`
@@ -26,11 +23,26 @@ const CenterItems = styled.div`
 
 const RightItems = styled.div`
   text-align: right;
-  padding: 0 20px 0 0;
 `;
 
-const StyledBars = styled(Bars)`
+const StyledBarsIcon = styled(Bars)`
   height: 40px;
 `;
 
-export { HeaderContainer, StyledBars, LeftItems, CenterItems, RightItems };
+const StyledUserIcon = styled(User)`
+  height: 30px;
+`;
+
+const StyledHeartIcon = styled(Heart)`
+  height: 40px;
+`;
+
+export {
+  HeaderContainer,
+  StyledBarsIcon,
+  StyledUserIcon,
+  StyledHeartIcon,
+  LeftItems,
+  CenterItems,
+  RightItems,
+};
