@@ -1,60 +1,45 @@
 import React from 'react';
-import '../../../utils/testing';
 import 'jest-styled-components';
-import { render, unmountComponentAtNode } from 'react-dom';
-import toJson from 'enzyme-to-json';
-import { mount } from 'enzyme';
 import Card from './Card';
+import { render } from '@testing-library/react';
 
-let container;
-const build = () => {
-  render(<Card />, container);
-};
-
-beforeEach(() => {
-  container = document.createElement('div');
-  document.body.appendChild(container);
-});
-
-afterEach(() => {
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
-  return container;
-});
+const build = (Component = <Card />) => {
+  const { container } = render(Component);
+  return { container };
+}
 
 describe('Card', () => {
   it('renders', () => {
-    const wrapper = build(<Card />);
-    expect(toJson(wrapper)).toMatchSnapshot();
+    const container = build();
+    expect(container).toMatchSnapshot();
   });
 });
 
 describe('Card styles and props', () => {
   it('applies default styling', () => {
-    const tree = mount(<Card />);
-    expect(tree).toHaveStyleRule('overflow', 'hidden');
-    expect(tree).toHaveStyleRule('height', '345px');
-    expect(tree).toHaveStyleRule('width', '345px');
-    expect(tree).toHaveStyleRule('margin', '8px');
-    expect(tree).toHaveStyleRule('box-shadow', '2px 2px 2px 2px #ccc');
-    expect(tree).toHaveStyleRule('border-radius', '5px');
+    const { firstChild } = build().container;
+    expect(firstChild).toHaveStyle('overflow: hidden');
+    expect(firstChild).toHaveStyle('height: 345px');
+    expect(firstChild).toHaveStyle('width: 345px');
+    expect(firstChild).toHaveStyle('margin: 8px');
+    expect(firstChild).toHaveStyle('box-shadow: 2px 2px 2px 2px #ccc');
+    expect(firstChild).toHaveStyle('border-radius: 5px');
   });
 
   it('has all passed props', () => {
-    const EXPECTED_IMAGE = 'image';
+    const EXPECTED_IMAGE = 'https://i.picsum.photos/id/237/536/354.jpg';
     const EXPECTED_TITLE = 'title';
     const EXPECTED_DESCRIPTION = 'description';
-    const mounted = mount(
+    const { container } = build(
       <Card
         image={EXPECTED_IMAGE}
         title={EXPECTED_TITLE}
         description={EXPECTED_DESCRIPTION}
       />
     );
-    const srcImage = mounted.find('img').props();
-    expect(srcImage.src).toBe(EXPECTED_IMAGE);
-    expect(mounted.text()).toContain(EXPECTED_TITLE);
-    expect(mounted.text()).toContain(EXPECTED_DESCRIPTION);
+    const img = container.querySelector("img");
+    expect(img).toHaveProperty("src", EXPECTED_IMAGE);
+    expect(container.textContent).toContain(EXPECTED_TITLE);
+    expect(container.textContent).toContain(EXPECTED_DESCRIPTION);
   });
 });

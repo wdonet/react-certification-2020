@@ -1,16 +1,12 @@
 import React from 'react';
-import '../../utils/testing';
 import 'jest-styled-components';
-import { render, unmountComponentAtNode } from 'react-dom';
-import toJson from 'enzyme-to-json';
-import { getByTestId } from '@testing-library/react';
-import { mount } from 'enzyme';
+import { getByTestId, render } from '@testing-library/react';
 import Header from './Header';
 
-let container;
-const build = () => {
-  render(<Header />, container);
+const build = (Component = <Header />) => {
+  const { container } = render(Component);
   return {
+    container,
     HamburguerIcon: () => getByTestId(container, 'hamburguer-icon'),
     SearchInput: () => getByTestId(container, 'search-input'),
     ThemeModeSwitch: () => getByTestId(container, 'theme-mode-switch'),
@@ -18,22 +14,10 @@ const build = () => {
   };
 };
 
-beforeEach(() => {
-  container = document.createElement('div');
-  document.body.appendChild(container);
-});
-
-afterEach(() => {
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
-  return container;
-});
-
 describe('Header', () => {
   it('renders', () => {
-    const wrapper = build(<Header />);
-    expect(toJson(wrapper)).toMatchSnapshot();
+    const { container } = build();
+    expect(container).toMatchSnapshot();
   });
 
   it('displays its default content', () => {
@@ -47,15 +31,15 @@ describe('Header', () => {
 
 describe('Header styles', () => {
   it('applies default styling', () => {
-    const tree = mount(<Header />);
-    expect(tree).toHaveStyleRule('display', 'flex');
-    expect(tree).toHaveStyleRule('align-items', 'center');
-    expect(tree).toHaveStyleRule('justify-content', 'space-between');
-    expect(tree).toHaveStyleRule('width', '100%');
-    expect(tree).toHaveStyleRule('height', '64px');
-    expect(tree).toHaveStyleRule('background-color', '#00695c');
-    expect(tree).toHaveStyleRule('overflow', 'hidden');
-    expect(tree).toHaveStyleRule('position', 'fixed');
-    expect(tree).toHaveStyleRule('top', '0');
+    const { firstChild } = build().container;
+    expect(firstChild).toHaveStyle('display: flex');
+    expect(firstChild).toHaveStyle('align-items: center');
+    expect(firstChild).toHaveStyle('justify-content: space-between');
+    expect(firstChild).toHaveStyle('width: 100%');
+    expect(firstChild).toHaveStyle('height: 64px');
+    expect(firstChild).toHaveStyle('background-color: #00695c');
+    expect(firstChild).toHaveStyle('overflow: hidden');
+    expect(firstChild).toHaveStyle('position: fixed');
+    expect(firstChild).toHaveStyle('top: 0');
   });
 });

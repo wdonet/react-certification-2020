@@ -1,3 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Card renders 1`] = `undefined`;
+exports[`Card renders 1`] = `
+Object {
+  "container": <div>
+    <div
+      class="sc-bdVaJa cKRAMj"
+    >
+      <img
+        alt="card--undefined"
+        class="sc-htpNat ifWGsL"
+      />
+      <div
+        class="sc-bwzfXH eECKLl"
+      >
+        <h2
+          class="sc-bxivhb dBAQPL"
+        />
+        <p
+          class="sc-ifAKCX bmQoso"
+        />
+      </div>
+    </div>
+  </div>,
+}
+`;

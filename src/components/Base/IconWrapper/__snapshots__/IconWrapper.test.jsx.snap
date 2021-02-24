@@ -1,3 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`IconWrapper renders 1`] = `undefined`;
+exports[`IconWrapper renders 1`] = `
+<div>
+  <img
+    alt="ok"
+    class="sc-bdVaJa eGfAyK"
+    src="hamburguer.png"
+  />
+</div>
+`;

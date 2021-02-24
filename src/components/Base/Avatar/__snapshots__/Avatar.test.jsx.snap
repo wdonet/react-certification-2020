@@ -1,3 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Avatar renders 1`] = `undefined`;
+exports[`Avatar renders 1`] = `
+<div>
+  <img
+    class="sc-bdVaJa ieaWl"
+    src="avatar"
+  />
+</div>
+`;

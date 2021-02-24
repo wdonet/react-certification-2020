@@ -1,39 +1,24 @@
 import React from 'react';
-import '../../utils/testing';
 import 'jest-styled-components';
-import { render, unmountComponentAtNode } from 'react-dom';
-import toJson from 'enzyme-to-json';
-import { mount } from 'enzyme';
 import HomeView from './HomeView';
+import { render } from '@testing-library/react';
 
-let container;
-const build = () => {
-  render(<HomeView />, container);
-};
-
-beforeEach(() => {
-  container = document.createElement('div');
-  document.body.appendChild(container);
-});
-
-afterEach(() => {
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
-  return container;
-});
+const build = (Component = <HomeView/>) => {
+  const { container } = render(Component);
+  return { container };
+}
 
 describe('HomeView', () => {
   it('renders', () => {
-    const wrapper = build(<HomeView />);
-    expect(toJson(wrapper)).toMatchSnapshot();
+    const { container } = build();
+    expect(container).toMatchSnapshot();
   });
 });
 
 describe('HomeView styles', () => {
   it('applies default styling', () => {
-    const tree = mount(<HomeView />);
-    expect(tree).toHaveStyleRule('padding-top', '64px');
-    expect(tree).toHaveStyleRule('height', 'calc(100% - 64px)');
+    const { firstChild } = build().container;
+    expect(firstChild).toHaveStyle('padding-top: 64px');
+    expect(firstChild).toHaveStyle('height: calc(100% - 64px)');
   });
 });

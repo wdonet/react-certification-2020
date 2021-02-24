@@ -1,32 +1,17 @@
 import React from 'react';
-import '../../../utils/testing';
 import 'jest-styled-components';
-import { render, unmountComponentAtNode } from 'react-dom';
-import toJson from 'enzyme-to-json';
-// import { mount, shallow } from 'enzyme';
 import Switch from './Switch';
+import { render } from '@testing-library/react';
 
-let container;
-const build = () => {
-  render(<Switch />, container);
+const build = (Component = <Switch/>) => {
+  const { container } = render(Component);
+  return { container };
 };
-
-beforeEach(() => {
-  container = document.createElement('div');
-  document.body.appendChild(container);
-});
-
-afterEach(() => {
-  unmountComponentAtNode(container);
-  container.remove();
-  container = null;
-  return container;
-});
 
 describe('Switch', () => {
   it('renders', () => {
-    const wrapper = build(<Switch />);
-    expect(toJson(wrapper)).toMatchSnapshot();
+    const { container } = build();
+    expect(container).toMatchSnapshot();
   });
 });
 
