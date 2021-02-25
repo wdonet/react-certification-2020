@@ -1,18 +1,23 @@
-import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-
+import React, { useState } from 'react';
 import HomePage from '../../views/Home';
 import Header from '../Navbar';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 function App() {
 
+  const [search, setSearch] = useState("");
+
+  function handleSearch(searchValue) {
+    setSearch(searchValue);
+  }
+
   return (
     <BrowserRouter>
-      <Header />
+      <Header handleSearch={handleSearch} />
       <Switch>
-        <Route exact path="/">
-          <HomePage />
-        </Route>
+        <Route path="/" exact render={(props) => (
+          <HomePage {...props} search={search}></HomePage>
+        )}/>
       </Switch>
     </BrowserRouter>
   );

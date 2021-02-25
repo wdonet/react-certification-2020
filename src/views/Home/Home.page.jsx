@@ -1,13 +1,10 @@
 import React from 'react';
 import VideosCatalog from '../../components/VideosCatalog';
 
-function HomePage() {
+function HomePage({search}) {
 
   return (
-    <div>
-      <VideosCatalog />
-    </div>
-      
+    <VideosCatalog search={search}/>
   );
 }
 
