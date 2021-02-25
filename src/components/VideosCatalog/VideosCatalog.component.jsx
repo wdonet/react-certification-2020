@@ -25,7 +25,7 @@ export default function VideosCatalog({search}) {
                     part: 'snippet',
                     chart: 'mostPopular',
                     maxResults: 20,
-                    key: 'AIzaSyDdCvn8cIfFpDn-9sVkGHiJ_SYVbeoHVwA',
+                    key: process.env.REACT_APP_YOUTUBE_API_KEY,
                 }
             }
         )
@@ -41,7 +41,7 @@ export default function VideosCatalog({search}) {
                     q: search,
                     maxResults: 20,
                     type: 'video',
-                    key: 'AIzaSyDdCvn8cIfFpDn-9sVkGHiJ_SYVbeoHVwA',
+                    key: process.env.REACT_APP_YOUTUBE_API_KEY,
                 }
             }
         )
