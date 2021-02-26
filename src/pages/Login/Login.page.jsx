@@ -1,8 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router';
-
 import { useAuth } from '../../providers/Auth';
-import './Login.styles.css';
+import { FormGroup, Container, Form, Title, FormLabel, FormInput } from './Login.styles';
 
 function LoginPage() {
   const { login } = useAuth();
@@ -15,24 +14,22 @@ function LoginPage() {
   }
 
   return (
-    <section className="login">
-      <h1>Welcome back!</h1>
-      <form onSubmit={authenticate} className="login-form">
-        <div className="form-group">
-          <label htmlFor="username">
-            <strong>username </strong>
-            <input required type="text" id="username" />
-          </label>
-        </div>
-        <div className="form-group">
-          <label htmlFor="password">
-            <strong>password </strong>
-            <input required type="password" id="password" />
-          </label>
-        </div>
-        <button type="submit">login</button>
-      </form>
-    </section>
+    <Container>
+      <Form onSubmit={authenticate}>
+        <Title>Welcome back!</Title>
+        <FormGroup>
+          <FormLabel htmlFor="username">Username </FormLabel>
+          <FormInput required type="text" id="username" />
+        </FormGroup>
+        <FormGroup>
+          <FormLabel htmlFor="password">Password </FormLabel>
+          <FormInput required type="password" id="password" />
+        </FormGroup>
+        <button type="submit" data-testid="btn-login">
+          Login
+        </button>
+      </Form>
+    </Container>
   );
 }
 

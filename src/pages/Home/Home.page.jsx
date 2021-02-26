@@ -1,39 +1,76 @@
 import React, { useRef } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-
+import { useHistory } from 'react-router-dom';
+import { IoEnterOutline, IoExitOutline, IoFlame } from 'react-icons/io5';
+import VideoCard from '../../components/VideoCard';
 import { useAuth } from '../../providers/Auth';
-import './Home.styles.css';
+import searchResult from '../../mock/youtube-videos-mock.json';
+import {
+  ButtonLinkWarning,
+  ButtonLinkInfo,
+  ButtonsContainer,
+  Card,
+  CardList,
+  Container,
+  Header,
+} from './Home.styles';
+import { formatDate } from '../../utils/fns';
 
-function HomePage() {
+const HomePage = () => {
   const history = useHistory();
   const sectionRef = useRef(null);
   const { authenticated, logout } = useAuth();
 
-  function deAuthenticate(event) {
+  const deAuthenticate = (event) => {
     event.preventDefault();
     logout();
     history.push('/');
-  }
+  };
 
   return (
-    <section className="homepage" ref={sectionRef}>
-      <h1>Hello stranger!</h1>
-      {authenticated ? (
-        <>
-          <h2>Good to have you back</h2>
-          <span>
-            <Link to="/" onClick={deAuthenticate}>
-              ← logout
-            </Link>
-            <span className="separator" />
-            <Link to="/secret">show me something cool →</Link>
-          </span>
-        </>
-      ) : (
-        <Link to="/login">let me in →</Link>
-      )}
-    </section>
+    <Container ref={sectionRef}>
+      <Header>
+        <h1>Hello stranger!</h1>
+        {authenticated ? (
+          <>
+            <h2>Good to have you back</h2>
+            <ButtonsContainer>
+              <ButtonLinkWarning to="/" onClick={deAuthenticate} data-testid="btn-logout">
+                <IoExitOutline />
+                Logout
+              </ButtonLinkWarning>
+              <ButtonLinkInfo to="/secret">
+                <IoFlame />
+                Show me something cool
+              </ButtonLinkInfo>
+            </ButtonsContainer>
+          </>
+        ) : (
+          <ButtonsContainer>
+            <ButtonLinkWarning to="/login">
+              <IoEnterOutline />
+              Let me in
+            </ButtonLinkWarning>
+          </ButtonsContainer>
+        )}
+      </Header>
+      <hr />
+      <CardList>
+        {searchResult.items.map((item) => {
+          return (
+            <Card key={item.etag}>
+              <VideoCard
+                title={item.snippet.title}
+                channel={item.snippet.channelTitle}
+                date={formatDate(item.snippet.publishTime)}
+                thumbnail={item.snippet.thumbnails.medium.url}
+                liveBroadcastContent={item.snippet.liveBroadcastContent}
+              />
+            </Card>
+          );
+        })}
+      </CardList>
+    </Container>
   );
-}
+};
 
 export default HomePage;

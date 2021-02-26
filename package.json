@@ -1,5 +1,5 @@
 {
-  "name": "react-certification-2020",
+  "name": "react-certification-2021",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,14 +8,18 @@
     "@testing-library/user-event": "^12.1.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-icons": "^4.2.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "react-test-renderer": "^17.0.1",
+    "styled-components": "5.2.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:coverage": "react-scripts test --coverage --watchAll=false && istanbul report --include coverage/coverage-final.json text > coverage.txt",
     "eject": "react-scripts eject",
     "lint": "eslint ./src --ext .js,.jsx",
     "lint:fix": "eslint ./src --ext .js,.jsx --fix"
@@ -30,6 +34,7 @@
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-react-hooks": "^4.1.0",
     "husky": "^4.2.5",
+    "istanbul": "0.4.5",
     "lint-staged": "^10.2.13",
     "prettier": "^2.1.1",
     "pretty-quick": "^3.0.0"
@@ -56,6 +61,22 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
+    }
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!node_modules/**",
+      "!**/index.{js,jsx}",
+      "!**/config/**"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 60,
+        "functions": 60,
+        "lines": 60,
+        "statements": 60
+      }
     }
   }
 }
