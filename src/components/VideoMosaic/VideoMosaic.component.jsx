@@ -1,12 +1,20 @@
 import { Card, CardActionArea, CardMedia, Grid, Typography } from '@material-ui/core';
 import React from 'react';
-import { CustomCardContent } from './VideoMosaic.styled';
+import { CustomCardContent, CustomCardContentTitle } from './VideoMosaic.styled';
+
+function shortenTitle(title) {
+  if (title.length > 45) {
+    const croppedTitle = title.substring(0, 44);
+    return `${croppedTitle}...`;
+  }
+  return title;
+}
 
 function VideoMosaic(props) {
   const { title, thumbnails, description } = props.snippet;
   return (
     <>
-      <Grid item xs={4}>
+      <Grid item xs={12} sm={6} md={4}>
         <Card>
           <CardActionArea>
             <CardMedia
@@ -16,9 +24,11 @@ function VideoMosaic(props) {
               alt={title}
             />
             <CustomCardContent>
-              <Typography gutterBottom variant="h5" component="h2">
-                {title}
-              </Typography>
+              <CustomCardContentTitle>
+                <Typography gutterBottom variant="h5" component="h2">
+                  {shortenTitle(title)}
+                </Typography>
+              </CustomCardContentTitle>
               <Typography variant="body2" component="p">
                 {description}
               </Typography>

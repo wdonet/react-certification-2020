@@ -18,7 +18,7 @@ function HomePage() {
 
   return (
     <section ref={sectionRef}>
-      <Grid container spacing={2}>
+      <Grid container spacing={1}>
         {getVideos()}
       </Grid>
     </section>
