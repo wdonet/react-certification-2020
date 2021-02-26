@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBar component renders properly 1`] = `
+.c0 {
+  position: relative;
+  width: 100%;
+}
+
+.c2 {
+  margin-left: 30px;
+  height: 100%;
+  width: 100%;
+  border-radius: 3px;
+  font-size: 1.2rem;
+  border: none;
+  outline: none;
+  padding: 5px 20px 5px 45px;
+}
+
+.c1 {
+  position: absolute;
+  font-size: 1.4rem;
+  left: 40px;
+}
+
+@media (max-width:768px) {
+  .c2 {
+    margin-left: 15px;
+  }
+}
+
+<form
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <span
+      aria-label="magnifying-glass"
+      role="img"
+    >
+      🔎
+    </span>
+  </div>
+  <input
+    className="c2"
+  />
+</form>
+`;

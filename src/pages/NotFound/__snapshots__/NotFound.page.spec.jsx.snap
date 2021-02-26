@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFound component renders properly 1`] = `
+<section
+  className="not-found"
+>
+  <a
+    className="home-link"
+    href="/"
+    onClick={[Function]}
+  >
+    home
+  </a>
+  <img
+    alt="page not found"
+    src="404.gif"
+  />
+</section>
+`;

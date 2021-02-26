@@ -1,0 +1,91 @@
+
+> react-certification-2020@0.1.0 test:coverage /Users/yvan.menuet/Documents/training/academy/react-bootcamp-2021/react-certification-2021
+> npm test -- --coverage --watchAll --coverageThreshold='{"global":{"statements":70}}'
+
+
+> react-certification-2020@0.1.0 test /Users/yvan.menuet/Documents/training/academy/react-bootcamp-2021/react-certification-2021
+> react-scripts test "--coverage" "--watchAll" "--coverageThreshold={\"global\":{\"statements\":70}}"
+
+-------------------------------|----------|----------|----------|----------|-------------------|
+File                           |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
+-------------------------------|----------|----------|----------|----------|-------------------|
+All files                      |     70.8 |       50 |    71.43 |    70.27 |                   |
+ src                           |        0 |      100 |      100 |        0 |                   |
+  index.jsx                    |        0 |      100 |      100 |        0 |                 6 |
+ src/components/App            |      100 |      100 |      100 |      100 |                   |
+  App.component.jsx            |      100 |      100 |      100 |      100 |                   |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+  styled.js                    |      100 |      100 |      100 |      100 |                   |
+ src/components/Avatar         |      100 |       50 |      100 |      100 |                   |
+  Avatar.component.jsx         |      100 |       50 |      100 |      100 |                 8 |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+  styled.js                    |      100 |      100 |      100 |      100 |                   |
+ src/components/Content        |      100 |      100 |      100 |      100 |                   |
+  Content.component.jsx        |      100 |      100 |      100 |      100 |                   |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+  styled.js                    |      100 |      100 |      100 |      100 |                   |
+ src/components/Fortune        |        0 |      100 |        0 |        0 |                   |
+  Fortune.component.jsx        |        0 |      100 |        0 |        0 |               7,9 |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+ src/components/Header         |      100 |      100 |      100 |      100 |                   |
+  Header.component.jsx         |      100 |      100 |      100 |      100 |                   |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+  styled.js                    |      100 |      100 |      100 |      100 |                   |
+ src/components/Icons/MoonIcon |      100 |      100 |      100 |      100 |                   |
+  Moon.icon.jsx                |      100 |      100 |      100 |      100 |                   |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+  styled.js                    |      100 |      100 |      100 |      100 |                   |
+ src/components/Icons/SunIcon  |      100 |      100 |      100 |      100 |                   |
+  Sun.icon.jsx                 |      100 |      100 |      100 |      100 |                   |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+  styled.js                    |      100 |      100 |      100 |      100 |                   |
+ src/components/Layout         |      100 |      100 |      100 |      100 |                   |
+  Layout.component.jsx         |      100 |      100 |      100 |      100 |                   |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+  styled.js                    |      100 |      100 |      100 |      100 |                   |
+ src/components/MenuToggle     |      100 |      100 |      100 |      100 |                   |
+  MenuToggle.component.jsx     |      100 |      100 |      100 |      100 |                   |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+  styled.js                    |      100 |      100 |      100 |      100 |                   |
+ src/components/Private        |        0 |        0 |        0 |        0 |                   |
+  Private.component.jsx        |        0 |        0 |        0 |        0 |            7,9,10 |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+ src/components/SearchBar      |      100 |      100 |      100 |      100 |                   |
+  SearchBar.component.jsx      |      100 |      100 |      100 |      100 |                   |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+  styled.js                    |      100 |      100 |      100 |      100 |                   |
+ src/components/ThemeSwitch    |      100 |      100 |      100 |      100 |                   |
+  ThemeSwitch.component.jsx    |      100 |      100 |      100 |      100 |                   |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+  styled.js                    |      100 |      100 |      100 |      100 |                   |
+ src/components/VideoCard      |      100 |      100 |      100 |      100 |                   |
+  VideoCard.component.jsx      |      100 |      100 |      100 |      100 |                   |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+  styled.js                    |      100 |      100 |      100 |      100 |                   |
+ src/pages/Home                |      100 |      100 |      100 |      100 |                   |
+  Home.page.jsx                |      100 |      100 |      100 |      100 |                   |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+  styled.js                    |      100 |      100 |      100 |      100 |                   |
+ src/pages/Login               |        0 |      100 |        0 |        0 |                   |
+  Login.page.jsx               |        0 |      100 |        0 |        0 |   8,9,12,13,14,17 |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+ src/pages/NotFound            |      100 |      100 |      100 |      100 |                   |
+  NotFound.page.jsx            |      100 |      100 |      100 |      100 |                   |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+ src/pages/Secret              |        0 |      100 |        0 |        0 |                   |
+  Secret.page.jsx              |        0 |      100 |        0 |        0 |                 5 |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+ src/providers/Auth            |    70.59 |       50 |       60 |    70.59 |                   |
+  Auth.provider.jsx            |    70.59 |       50 |       60 |    70.59 |    11,27,28,32,33 |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+ src/theme                     |      100 |      100 |      100 |      100 |                   |
+  index.js                     |      100 |      100 |      100 |      100 |                   |
+ src/utils                     |    66.67 |      100 |    66.67 |    66.67 |                   |
+  constants.js                 |      100 |      100 |      100 |      100 |                   |
+  fns.js                       |      100 |      100 |      100 |      100 |                   |
+  storage.js                   |    57.14 |      100 |       50 |    57.14 |            7,8,13 |
+ src/utils/hooks               |        0 |      100 |        0 |        0 |                   |
+  useFortune.js                |        0 |      100 |        0 |        0 |... 17,19,21,25,28 |
+-------------------------------|----------|----------|----------|----------|-------------------|
+
+

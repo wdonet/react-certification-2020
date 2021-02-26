@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuToggle component renders properly 1`] = `
+.c0 {
+  margin: 10px;
+  cursor: pointer;
+}
+
+.c1 {
+  display: block;
+  width: 22px;
+  height: 3px;
+  margin-bottom: 4px;
+  margin-top: 4px;
+  position: relative;
+  border-radius: 3px;
+}
+
+<div
+  className="c0"
+>
+  <span
+    className="c1"
+  />
+  <span
+    className="c1"
+  />
+  <span
+    className="c1"
+  />
+</div>
+`;
