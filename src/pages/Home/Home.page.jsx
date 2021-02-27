@@ -3,23 +3,22 @@ import React, { useRef } from 'react';
 import VideoMosaic from '../../components/VideoMosaic';
 import mockData from '../../utils/youtube-videos-mock';
 
-export function getVideosOnly() {
-  return mockData.items.filter((item) => item.id.kind === 'youtube#video');
+export function getVideosOnly(mockYTData) {
+  return mockYTData.items.filter((item) => item.id.kind === 'youtube#video');
+}
+
+function getVideoMosaics() {
+  return getVideosOnly(mockData).map((item) => {
+    return <VideoMosaic key={item.id.videoId} snippet={item.snippet} />;
+  });
 }
 
 function HomePage() {
   const sectionRef = useRef(null);
-
-  function getVideos() {
-    return getVideosOnly().map((item) => {
-      return <VideoMosaic key={item.id.videoId} snippet={item.snippet} />;
-    });
-  }
-
   return (
     <section ref={sectionRef}>
-      <Grid container spacing={1}>
-        {getVideos()}
+      <Grid data-testid="Home" container spacing={1}>
+        {getVideoMosaics()}
       </Grid>
     </section>
   );

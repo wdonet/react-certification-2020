@@ -1,21 +1,24 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import App from './App.component';
 import Theme from './App.styled';
 
 describe('App Component Tests', () => {
-  const setup = () => {
-    const utils = render(
+  beforeEach(() => {
+    render(
       <Theme>
         <App />
       </Theme>
     );
-    return {
-      ...utils,
-    };
-  };
+  });
 
-  it('Should render the App component', async () => {
-    setup();
+  it('Should render the App component showing the home page', async () => {
+    expect(screen.getByTestId('Home')).toBeInTheDocument();
+  });
+
+  it('Should redirect to home the home button', async () => {
+    const menuButton = screen.getByTestId('MenuButton');
+    menuButton.click();
+    expect(screen.getByTestId('Home')).toBeInTheDocument();
   });
 });

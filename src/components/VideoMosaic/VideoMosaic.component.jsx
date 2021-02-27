@@ -2,7 +2,7 @@ import { Card, CardActionArea, CardMedia, Grid, Typography } from '@material-ui/
 import React from 'react';
 import { CustomCardContent, CustomCardContentTitle } from './VideoMosaic.styled';
 
-function shortenTitle(title) {
+export function shortenTitle(title) {
   if (title.length > 45) {
     const croppedTitle = title.substring(0, 44);
     return `${croppedTitle}...`;
@@ -14,7 +14,7 @@ function VideoMosaic(props) {
   const { title, thumbnails, description } = props.snippet;
   return (
     <>
-      <Grid item xs={12} sm={6} md={4}>
+      <Grid item xs={12} sm={6} md={4} lg={3}>
         <Card>
           <CardActionArea>
             <CardMedia

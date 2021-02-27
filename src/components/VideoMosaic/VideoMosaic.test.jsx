@@ -1,30 +1,23 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import VideoMosaic from './VideoMosaic.component';
+import { render, screen } from '@testing-library/react';
+import VideoMosaic, { shortenTitle } from './VideoMosaic.component';
 import Theme from '../App/App.styled';
 import mockData from '../../utils/youtube-videos-mock';
+import { getVideosOnly } from '../../pages/Home';
 
-export function getVideosOnly() {
-  return mockData.items.filter((item) => item.id.kind === 'youtube#video');
-}
-
-const mockVideo = getVideosOnly()[0];
+const mockVideo = getVideosOnly(mockData)[1];
 describe('Video Mosaic Component Tests', () => {
-  const setup = () => {
-    const utils = render(
+  beforeEach(() => {
+    render(
       <Theme>
         <VideoMosaic key={mockVideo.id.videoId} snippet={mockVideo.snippet} />
       </Theme>
     );
-    return {
-      ...utils,
-    };
-  };
+  });
 
   it('Should render the video mosaic', () => {
-    const { getByText, getByTitle } = setup();
-    expect(getByText(mockVideo.snippet.title)).toBeInTheDocument();
-    expect(getByText(mockVideo.snippet.description)).toBeInTheDocument();
-    expect(getByTitle(mockVideo.snippet.title)).toBeInTheDocument();
+    expect(screen.getByText(shortenTitle(mockVideo.snippet.title))).toBeInTheDocument();
+    expect(screen.getByText(mockVideo.snippet.description)).toBeInTheDocument();
+    expect(screen.getByTitle(mockVideo.snippet.title)).toBeInTheDocument();
   });
 });
