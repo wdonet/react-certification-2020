@@ -1,17 +1,16 @@
 import React from 'react';
-import '../../global.css';
 import { FcManager } from 'react-icons/fc';
+import InputSearch from '../InputSearch';
+import {NavBarStyled} from './NavBar.styles';
 
 function NavBar() {
   return (
-    <div className="Navbar">
-      <div className="leftSide">
-        <input type="text" placeholder="Search" />
-      </div>
-      <div className="rightSide">
+    <NavBarStyled>
+        <InputSearch />
+      <div>
         <FcManager size="60" />
       </div>
-    </div>
+    </NavBarStyled>
   );
 }
 
