@@ -21,19 +21,17 @@ const VideoCard = ({ video }) => {
     snippet: {
       title,
       description,
-      thumbnails: {
-        high: { url: thumbnailsHigh },
-      },
-    },
+      thumbnails: { high: { url: thumbnailsHigh } = {} } = {},
+    } = {},
   } = video;
   return (
-    <Grid item xs={12} sm={6} md={3} key={etag} id={`video-${etag}`}>
+    <Grid item xs={12} sm={6} md={3} id={`video-${etag}`}>
       <StyledCard>
         <CardActionArea>
           <StyledCardMedia image={thumbnailsHigh} title="image" />
           <CardContent>
-            <h2>{he.decode(title)}</h2>
-            <p>{he.decode(description)}</p>
+            <h2>{he.decode(title || '')}</h2>
+            <p>{he.decode(description || '')}</p>
           </CardContent>
         </CardActionArea>
       </StyledCard>

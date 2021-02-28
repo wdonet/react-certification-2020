@@ -1,16 +1,31 @@
 import Grid from '@material-ui/core/Grid';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import Videos from '../../mocks/youtube-videos-mock.json';
 import VideoCard from '../VideoCard';
 
+const fetchVideoList = async () => {
+  const videosRequest = await fetch(
+    `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&channelId=UCPGzT4wecuWM0BH9mPiulXg&order=date&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`
+  );
+  const { items: videos } = await videosRequest.json();
+  return videos;
+};
+
 const VideoList = () => {
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    fetchVideoList().then((videoList) => {
+      setVideos(videoList);
+    });
+  }, []);
+
   return (
     <div>
       <h1>Youtube Video List</h1>
       <Grid container spacing={3} id="video-list">
-        {Videos.items.map((video) => (
-          <VideoCard video={video} />
+        {videos.map((video) => (
+          <VideoCard key={video.etag} video={video} />
         ))}
       </Grid>
     </div>
