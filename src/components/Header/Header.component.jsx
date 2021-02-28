@@ -1,24 +1,31 @@
 import React from 'react';
-import Styled from './Header.styles';
+import {
+  Container,
+  BurgerButton,
+  Search,
+  RightHolder,
+  ToggleButton,
+  ProfileButton,
+} from './Header.styles';
 
 const Header = () => (
-  <Styled.Container>
-    <Styled.BurgerButton
+  <Container>
+    <BurgerButton
       type="image"
       src="https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/menu-alt-512.png"
       alt=""
     />
-    <Styled.Search placeholder="Type something cool" />
-    <Styled.RightHolder>
-      <Styled.ToggleButton id="darkMode" type="checkbox" />
+    <Search placeholder="Type something cool" />
+    <RightHolder>
+      <ToggleButton id="darkMode" type="checkbox" />
       <span>Dark Mode</span>
-      <Styled.ProfileButton
+      <ProfileButton
         type="image"
         src="https://img2.freepng.es/20180422/wee/kisspng-computer-icons-user-profile-login-clip-art-my-account-icon-5adc5dd8d9ca10.9425519815243913848921.jpg"
         alt=""
       />
-    </Styled.RightHolder>
-  </Styled.Container>
+    </RightHolder>
+  </Container>
 );
 
 export default Header;

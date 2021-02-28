@@ -1,5 +1,5 @@
 import React from 'react';
-import Styled from './VideoList.styles';
+import { Container, Title, List } from './VideoList.styles';
 import Header from '../Header';
 import VideoCard from '../VideoCard';
 import { getVisibleVideos } from '../../utils/videos';
@@ -8,10 +8,10 @@ const VideoList = ({ title, items, filter }) => {
   const visibleItems = getVisibleVideos(items, filter);
 
   return (
-    <Styled.Container>
+    <Container>
       <Header />
-      <Styled.Title>{title}</Styled.Title>
-      <Styled.List>
+      <Title>{title}</Title>
+      <List>
         {visibleItems
           .filter((item) => item.id.kind !== 'youtube#channel')
           .map(({ id, snippet }) => (
@@ -22,8 +22,8 @@ const VideoList = ({ title, items, filter }) => {
               body={snippet.description}
             />
           ))}
-      </Styled.List>
-    </Styled.Container>
+      </List>
+    </Container>
   );
 };
 

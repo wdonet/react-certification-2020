@@ -1,12 +1,12 @@
 import React from 'react';
-import Styled from './VideoCard.styles';
+import { Container, Preview, Title, Body } from './VideoCard.styles';
 
 const VideoCard = ({ thumbnail, title, body }) => (
-  <Styled.Container>
-    <Styled.Preview src={thumbnail} />
-    <Styled.Title>{title}</Styled.Title>
-    <Styled.Body>{body}</Styled.Body>
-  </Styled.Container>
+  <Container>
+    <Preview src={thumbnail} />
+    <Title>{title}</Title>
+    <Body>{body}</Body>
+  </Container>
 );
 
 export default VideoCard;

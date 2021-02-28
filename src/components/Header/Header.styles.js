@@ -1,24 +1,24 @@
 import styled from 'styled-components';
 
-const Container = styled.div``;
+export const Container = styled.div``;
 
-const Search = styled.input``;
+export const Search = styled.input``;
 
-const RightHolder = styled.span`
+export const RightHolder = styled.span`
   float: right;
 `;
 
-const BurgerButton = styled.input`
+export const BurgerButton = styled.input`
   width: 30px;
   height: 30px;
 `;
 
-const ProfileButton = styled.input`
+export const ProfileButton = styled.input`
   width: 50px;
   height: 30px;
 `;
 
-const ToggleButton = styled.input`
+export const ToggleButton = styled.input`
   -webkit-appearance: none;
   position: relative;
   outline: none;
@@ -46,14 +46,3 @@ const ToggleButton = styled.input`
     transform: translate(100%);
   }
 `;
-
-const Styled = {
-  Container,
-  Search,
-  RightHolder,
-  BurgerButton,
-  ProfileButton,
-  ToggleButton,
-};
-
-export default Styled;
