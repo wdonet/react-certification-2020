@@ -10,6 +10,14 @@ export function shortenTitle(title) {
   return title;
 }
 
+export function shortenDescription(description) {
+  if (description.length > 150) {
+    const croppedDescription = description.substring(0, 149);
+    return `${croppedDescription}...`;
+  }
+  return description;
+}
+
 function VideoMosaic(props) {
   const { title, thumbnails, description } = props.snippet;
   return (
@@ -30,7 +38,7 @@ function VideoMosaic(props) {
                 </Typography>
               </CustomCardContentTitle>
               <Typography variant="body2" component="p">
-                {description}
+                {shortenDescription(description)}
               </Typography>
             </CustomCardContent>
           </CardActionArea>

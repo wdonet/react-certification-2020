@@ -1,11 +1,10 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import VideoMosaic, { shortenTitle } from './VideoMosaic.component';
+import VideoMosaic, { shortenTitle, shortenDescription } from './VideoMosaic.component';
 import Theme from '../App/App.styled';
-import mockData from '../../utils/youtube-videos-mock';
-import { getVideosOnly } from '../../pages/Home';
+import mockData from '../../utils/youtube-videos-mock-v2.json';
 
-const mockVideo = getVideosOnly(mockData)[1];
+const mockVideo = mockData.items[2];
 describe('Video Mosaic Component Tests', () => {
   beforeEach(() => {
     render(
@@ -17,7 +16,9 @@ describe('Video Mosaic Component Tests', () => {
 
   it('Should render the video mosaic', () => {
     expect(screen.getByText(shortenTitle(mockVideo.snippet.title))).toBeInTheDocument();
-    expect(screen.getByText(mockVideo.snippet.description)).toBeInTheDocument();
+    expect(
+      screen.getByText(shortenDescription(mockVideo.snippet.description))
+    ).toBeInTheDocument();
     expect(screen.getByTitle(mockVideo.snippet.title)).toBeInTheDocument();
   });
 });

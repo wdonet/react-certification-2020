@@ -1,1 +1,1 @@
-export { default, getVideosOnly } from './Home.page';
+export { default } from './Home.page';
