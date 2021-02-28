@@ -4,7 +4,7 @@ import HomePage from '../../pages/Home';
 
 function App() {
   return (
-    <div className="body">
+    <div>
       <NavBar />
       <HomePage />
     </div>

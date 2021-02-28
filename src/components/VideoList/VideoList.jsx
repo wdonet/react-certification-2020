@@ -1,34 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
+import VideoCard from '../VideoCard';
 import mockData from '../../youtube-videos-mock.json';
 
-const { items } = mockData;
-
-const VideoCardContainer = styled.div`
-  border: 1px solid #cccccc;
-  border-radius: 5px;
-  padding: 20px;
-  background-color: #e7e7fc;
+const VideoListContainer = styled.div`
+  background-color: #2c2c1f;
+  text-align: center;
+  display: inline-block;
 `;
-
-const VideoCard = ({ info }) => (
-  <VideoCardContainer>
-    <img alt="" src={info.thumbnails.medium.url} />
-    <div>
-      <h2>{info.title}</h2>
-    </div>
-    <div>
-      <h3>{info.description}</h3>
-    </div>
-  </VideoCardContainer>
-);
+const { items } = mockData;
 
 export default function VideoList() {
   return (
-    <div>
+    <VideoListContainer>
       {items.slice(1).map(({ snippet }) => (
         <VideoCard key={Math.random()} info={snippet} />
       ))}
-    </div>
+    </VideoListContainer>
   );
 }
