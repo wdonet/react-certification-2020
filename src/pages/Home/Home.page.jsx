@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import VideoCard from '../../components/VideoCard/VideoCard.component';
-import { SearchResults } from './Home.styled';
+import VideoGrid from '../../components/VideoGrid';
 
 function HomePage() {
   const [searchResult, setSearchResult] = useState(null);
@@ -21,20 +20,7 @@ function HomePage() {
       .catch((error) => console.log(error));
   }
 
-  return (
-    searchResult && (
-      <SearchResults>
-        {searchResult.map(({ id, snippet }) => (
-          <VideoCard
-            key={id.videoId}
-            image={snippet.thumbnails.medium.url}
-            title={snippet.title}
-            description={snippet.description}
-          />
-        ))}
-      </SearchResults>
-    )
-  );
+  return searchResult && <VideoGrid videos={searchResult} />;
 }
 
 export default HomePage;

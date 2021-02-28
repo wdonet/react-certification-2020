@@ -5,7 +5,7 @@ function Header() {
   return (
     <HeaderContainer>
       <Menu>Menu</Menu>
-      <SearchInput />
+      <SearchInput placeholder="Search for videos..." />
       <ThemeToggle>Dark Mode</ThemeToggle>
       <Loggin>Login</Loggin>
     </HeaderContainer>

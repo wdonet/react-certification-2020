@@ -1,17 +1,18 @@
 import styled from 'styled-components';
 
 export const VideoCardContainer = styled.div`
-  width: 345px;
-  height: 345px;
-  margin: 10px;
+  width: 20em;
+  height: 20em;
+  margin: 0.75em;
   overflow: hidden;
-  box-shadow: 0px 1px 3px 0px rgba(255, 255, 255, 0.88);
-  border-radius: 4px;
-  color: #ececec;
+  background-color: ${(props) => props.theme.videoCardBackground};
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 2px;
+  color: ${(props) => props.theme.videoCardTextColor};
 
   & img {
-    width: 345px;
-    height: 140px;
+    width: 100%;
+    height: 40%;
   }
 
   & h2 {
@@ -28,5 +29,5 @@ export const VideoCardContainer = styled.div`
 `;
 
 export const Details = styled.div`
-  padding: 16px;
+  padding: 1em;
 `;

@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router';
 
 import { useAuth } from '../../providers/Auth';
-import './Login.styles.css';
+import './Login.styled.css';
 
 function LoginPage() {
   const { login } = useAuth();
