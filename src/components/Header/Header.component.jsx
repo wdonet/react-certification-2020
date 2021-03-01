@@ -5,7 +5,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import Button from '@material-ui/core/Button';
 import AppBar from '@material-ui/core/AppBar';
-import React from 'react';
+import React, { useState } from 'react';
 import Toolbar from '@material-ui/core/Toolbar';
 import styled from 'styled-components';
 import InputBase from '@material-ui/core/InputBase';
@@ -23,7 +23,18 @@ const StyledInputBase = styled(InputBase)`
   padding: 4px;
 `;
 
-const Header = () => {
+const Header = ({ searchVideos }) => {
+  const [search, setSearch] = useState('');
+
+  const handleChange = (event) => {
+    setSearch(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    searchVideos(search);
+    event.preventDefault();
+  };
+
   return (
     <AppBar position="static">
       <StyledToolbar>
@@ -32,7 +43,13 @@ const Header = () => {
             <MenuIcon />
           </IconButton>
           <Hidden xsDown>
-            <StyledInputBase placeholder="Search..." />
+            <form style={{ display: 'inline' }} onSubmit={handleSubmit}>
+              <StyledInputBase
+                placeholder="Search..."
+                value={search}
+                onChange={handleChange}
+              />
+            </form>
           </Hidden>
         </div>
         <div>

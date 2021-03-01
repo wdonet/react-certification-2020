@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import StyledVideoList from '../../components/VideoList';
 import Header from '../../components/Header';
 
 function HomePage() {
+  const [search, setSearch] = useState('');
+
   return (
     <>
-      <Header />
-      <StyledVideoList />
+      <Header searchVideos={setSearch} />
+      <StyledVideoList search={search} />
     </>
   );
 }
