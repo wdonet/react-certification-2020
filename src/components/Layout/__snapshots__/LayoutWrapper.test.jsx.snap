@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LayoutWrapper renders 1`] = `
+<div>
+  <div
+    class="sc-gzVnrw gjCjCa"
+    data-testid="layout-wrapper"
+    role="application"
+  >
+    <div
+      class="sc-ifAKCX fOhgAo"
+      data-testid="navbar"
+      role="toolbar"
+    >
+      <div
+        class="sc-EHOje hecEEV"
+      >
+        <div>
+          <img
+            alt="hamburguer"
+            class="sc-bwzfXH eRyTNY"
+            role="button"
+            src="hamburguer.png"
+          />
+        </div>
+        <div
+          data-testid="search-input"
+        >
+          <input
+            class="sc-bdVaJa kHpFHH"
+            role="search"
+          />
+        </div>
+      </div>
+      <div
+        class="sc-EHOje hecEEV"
+      >
+        <div
+          data-testid="theme-mode-switch"
+        >
+          <input
+            class="sc-bxivhb bUZGRr"
+            role="switch"
+            type="checkbox"
+          />
+        </div>
+        <div
+          data-testid="user-avatar"
+        >
+          <img
+            alt="profile"
+            class="sc-htpNat ihTYrT"
+            role="button"
+            src="default_user.jpg"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-bZQynM hXDntW"
+      data-testid="main-content"
+      role="main"
+    />
+  </div>
+</div>
+`;

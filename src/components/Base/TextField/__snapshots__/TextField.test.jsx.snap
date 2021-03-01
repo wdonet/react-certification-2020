@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextField renders 1`] = `
+<div>
+  <input
+    class="sc-bdVaJa kHpFHH"
+  />
+</div>
+`;

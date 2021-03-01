@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomeView renders 1`] = `
+<div>
+  <div
+    class="sc-bdVaJa fLGNui"
+    data-testid="main-content"
+    role="main"
+  />
+</div>
+`;
