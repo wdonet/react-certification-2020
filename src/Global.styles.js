@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import colors from './config/colors';
 import device from './config/device';
 
 const GlobalStyles = createGlobalStyle`
@@ -106,16 +105,27 @@ ul {
   padding-left: 0;
 }
 
-button {
+button{
   border-radius: ${(props) => props.theme.borderRadiusLg};
-  background-color: ${(props) => props.theme.primary};
-  color: ${colors.gray100};
+  background-color: transparent;
+  color: ${(props) => props.theme.primary};
+  cursor: pointer;
   border: none;
   display: inline-block;
   font-size: 1.4rem;
   font-weight: 700;
   padding: 2rem 3rem;
   text-decoration: none;
+  &:focus {
+    outline: none;
+    box-shadow: none;
+    // box-shadow: 0 0 0.8rem 0.1rem ${(props) => props.theme.primary};
+  }
+  &:active {
+    animation-name: button-animation;
+    animation-timing-function: ease-in;
+    animation-duration: 300ms;
+  }
 }
 
 hr {
@@ -129,6 +139,51 @@ img{
   display: inline-block;
   max-width: 100%;
 }
+
+@keyframes button-animation {
+    0% {
+      transform: scale(0.95, 0.95);
+    }
+    60% {
+      transform: scale(1.1, 1.1);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }
+
+  @keyframes menu-button-animation {
+    0% {
+      transform: scale(1, 0);
+    }
+    60% {
+      transform: scale(1, 1.2);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }
+
+  @keyframes popup-animation-enter {
+    0% {
+      transform: scale(1, 0);
+    }
+    80% {
+      transform: scale(1, 1.1);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }
+
+  @keyframes popup-animation-exit {
+    0% {
+      transform: scale(1, 1);
+    }
+    100% {
+      transform: scale(1, 0);
+    }
+  }
 `;
 
 export default GlobalStyles;

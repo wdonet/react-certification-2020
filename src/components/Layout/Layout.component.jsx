@@ -1,78 +1,110 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   IoEnterOutline,
+  IoExitOutline,
   IoHomeOutline,
   IoOptions,
-  IoPersonCircle,
-  IoSearchOutline,
   IoStar,
 } from 'react-icons/io5';
+import { useHistory } from 'react-router';
+import { useAuth } from '../../providers/Auth';
+import Searchbar from '../Searchbar/Searchbar.component';
+import UserImage from '../UserImage';
 import {
   Container,
   Header,
   Menu,
   MenuList,
   MenuItem,
+  MenuLink,
   HeaderLeft,
   HeaderRight,
   HeaderCenter,
   MainContent,
   MenuIcon,
-  Search,
-  SearchInput,
-  User,
+  MenuHamburger,
+  Logo,
 } from './Layout.styles';
 
-function Layout({ children }) {
+const Layout = ({ children }) => {
+  const [isMenuExpanded, setIsMenuExpanded] = useState(false);
+  const history = useHistory();
+  const { authenticated, logout } = useAuth();
+
+  const deAuthenticate = (event) => {
+    event.preventDefault();
+    logout();
+    history.push('/');
+  };
+
+  const toggleMenu = () => {
+    setIsMenuExpanded(!isMenuExpanded);
+  };
+
   return (
-    <Container>
+    <Container isMenuExpanded={isMenuExpanded}>
       <Header>
         <HeaderLeft>
-          <h3>Brand</h3>
+          <MenuHamburger
+            isMenuExpanded={isMenuExpanded}
+            onClick={toggleMenu}
+            data-testid="button-menu"
+          />
+          <Logo to="/">
+            <h3>Brand</h3>
+          </Logo>
         </HeaderLeft>
         <HeaderCenter>
-          <Search>
-            <IoSearchOutline />
-            <SearchInput type="text" placeholder="Search" />
-          </Search>
+          <Searchbar />
         </HeaderCenter>
         <HeaderRight>
-          <User>
-            <IoPersonCircle />
-          </User>
+          <UserImage />
         </HeaderRight>
       </Header>
       <Menu>
         <MenuList>
           <MenuItem active>
-            <MenuIcon>
-              <IoHomeOutline />
-              <small>Home</small>
-            </MenuIcon>
+            <MenuLink to="/">
+              <MenuIcon isMenuExpanded={isMenuExpanded}>
+                <IoHomeOutline />
+                <span>Home</span>
+              </MenuIcon>
+            </MenuLink>
           </MenuItem>
-          <MenuItem>
-            <MenuIcon>
+          <MenuItem disabled>
+            <MenuIcon isMenuExpanded={isMenuExpanded}>
               <IoStar />
-              <small>Favorites</small>
+              <span>Favorites</span>
             </MenuIcon>
           </MenuItem>
-          <MenuItem>
-            <MenuIcon>
+          <MenuItem disabled>
+            <MenuIcon isMenuExpanded={isMenuExpanded}>
               <IoOptions />
-              <small>Options</small>
+              <span>Options</span>
             </MenuIcon>
           </MenuItem>
           <MenuItem>
-            <MenuIcon>
-              <IoEnterOutline />
-              <small>Login</small>
-            </MenuIcon>
+            {authenticated ? (
+              <MenuLink to="/" onClick={deAuthenticate} data-testid="button-logout">
+                <MenuIcon isMenuExpanded={isMenuExpanded}>
+                  <IoExitOutline />
+                  <span>Logout</span>
+                </MenuIcon>
+              </MenuLink>
+            ) : (
+              <MenuLink to="/login">
+                <MenuIcon isMenuExpanded={isMenuExpanded}>
+                  <IoEnterOutline />
+                  <span>Login</span>
+                </MenuIcon>
+              </MenuLink>
+            )}
           </MenuItem>
         </MenuList>
       </Menu>
       <MainContent>{children}</MainContent>
     </Container>
   );
-}
+};
 
 export default Layout;

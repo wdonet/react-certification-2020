@@ -8,6 +8,8 @@ const commonTheme = {
   link: colors.purple100,
   tagBackground: colors.orange400,
   tagText: colors.gray100,
+  transitionDefault: 'all 200ms ease 0ms',
+  transitionFast: 'all 100ms ease 0ms',
 };
 
 const light = {
@@ -24,6 +26,8 @@ const light = {
   cardSubtitle: colors.gray600,
   cardText: colors.gray400,
   heroBackground: colors.gray300,
+  menuButton: colors.purple400,
+  menuButtonActive: colors.purple900,
 };
 
 const dark = {
@@ -40,6 +44,8 @@ const dark = {
   cardSubtitle: colors.gray300,
   cardText: colors.gray400,
   heroBackground: colors.gray700,
+  menuButton: colors.gray300,
+  menuButtonActive: colors.gray100,
 };
 
 export const theme = { light, dark };

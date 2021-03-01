@@ -2,23 +2,36 @@
 
 exports[`Layout component Validates Layout snapshot 1`] = `
 <div
-  className="sc-bdfBwQ iGzSrb"
+  className="sc-crrsfI kBzXPL"
 >
   <header
-    className="sc-gsTCUz bASDNS"
+    className="sc-dQppl hIRzVH"
   >
     <div
-      className="sc-dlfnbm sc-hKgILt mMVyH bEbniD"
+      className="sc-bqyKva sc-kstrdz dVlxRI buBnca"
     >
-      <h3>
-        Brand
-      </h3>
+      <button
+        className="sc-fFubgz bRZgui"
+        data-testid="button-menu"
+        onClick={[Function]}
+      />
+      <a
+        className="sc-bkzZxe icEZqn"
+        href="/"
+        onClick={[Function]}
+      >
+        <h3>
+          Brand
+        </h3>
+      </a>
     </div>
     <div
-      className="sc-dlfnbm sc-eCssSg mMVyH beFDfs"
+      className="sc-bqyKva sc-hBEYos dVlxRI bTIMvA"
     >
       <div
-        className="sc-dlfnbm sc-gKsewC mMVyH kLoGAS"
+        className="sc-bdfBwQ gmamkS"
+        data-testid="searchbar"
+        onClick={[Function]}
       >
         <svg
           fill="currentColor"
@@ -48,18 +61,30 @@ exports[`Layout component Validates Layout snapshot 1`] = `
             strokeWidth="32"
           />
         </svg>
-        <input
-          className="sc-iBPRYJ cA-djgn"
-          placeholder="Search"
-          type="text"
-        />
+        <form
+          data-testid="form-search"
+          onSubmit={[Function]}
+        >
+          <input
+            className="sc-gsTCUz eSCwiF"
+            data-testid="input-search"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="Search"
+            type="search"
+            value=""
+          />
+        </form>
       </div>
     </div>
     <div
-      className="sc-dlfnbm sc-jSgupP mMVyH bbslsP"
+      className="sc-bqyKva sc-fodVxV dVlxRI ebSHBZ"
     >
-      <div
-        className="sc-dlfnbm sc-fubCfw mMVyH jzGwLo"
+      <button
+        className="sc-eCssSg byGTwv"
+        data-testid="user-default-icon"
+        onClick={[Function]}
+        type="button"
       >
         <svg
           fill="currentColor"
@@ -79,60 +104,67 @@ exports[`Layout component Validates Layout snapshot 1`] = `
             d="M256 48C141.31 48 48 141.31 48 256s93.31 208 208 208 208-93.31 208-208S370.69 48 256 48zm-50.22 116.82C218.45 151.39 236.28 144 256 144s37.39 7.44 50.11 20.94c12.89 13.68 19.16 32.06 17.68 51.82C320.83 256 290.43 288 256 288s-64.89-32-67.79-71.25c-1.47-19.92 4.79-38.36 17.57-51.93zM256 432a175.49 175.49 0 01-126-53.22 122.91 122.91 0 0135.14-33.44C190.63 329 222.89 320 256 320s65.37 9 90.83 25.34A122.87 122.87 0 01382 378.78 175.45 175.45 0 01256 432z"
           />
         </svg>
-      </div>
+      </button>
     </div>
   </header>
   <nav
-    className="sc-pFZIQ loupFY"
+    className="sc-idOhPF iuTeJk"
   >
     <ul
-      className="sc-jrAGrp bKstHo"
+      className="sc-dIUggk cEXoPP"
     >
       <li
-        className="sc-kEjbxe dDbtsF"
+        className="sc-hHftDr jCcBdi"
       >
-        <div
-          className="sc-iqHYGH ihJcjr"
+        <a
+          className="sc-dmlrTW bZGunv"
+          href="/"
+          onClick={[Function]}
         >
-          <svg
-            fill="currentColor"
-            height="1em"
-            stroke="currentColor"
-            strokeWidth="0"
-            style={
-              Object {
-                "color": undefined,
-              }
-            }
-            viewBox="0 0 512 512"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
+          <div
+            className="sc-kfzAmx bYBNVj"
           >
-            <path
-              d="M80 212v236a16 16 0 0016 16h96V328a24 24 0 0124-24h80a24 24 0 0124 24v136h96a16 16 0 0016-16V212"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="32"
-            />
-            <path
-              d="M480 256L266.89 52c-5-5.28-16.69-5.34-21.78 0L32 256m368-77V64h-48v69"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="32"
-            />
-          </svg>
-          <small>
-            Home
-          </small>
-        </div>
+            <svg
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 512 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M80 212v236a16 16 0 0016 16h96V328a24 24 0 0124-24h80a24 24 0 0124 24v136h96a16 16 0 0016-16V212"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="32"
+              />
+              <path
+                d="M480 256L266.89 52c-5-5.28-16.69-5.34-21.78 0L32 256m368-77V64h-48v69"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="32"
+              />
+            </svg>
+            <span>
+              Home
+            </span>
+          </div>
+        </a>
       </li>
       <li
-        className="sc-kEjbxe iocGHd"
+        className="sc-hHftDr icLTVl"
+        disabled={true}
       >
         <div
-          className="sc-iqHYGH ihJcjr"
+          className="sc-kfzAmx bYBNVj"
         >
           <svg
             fill="currentColor"
@@ -152,16 +184,17 @@ exports[`Layout component Validates Layout snapshot 1`] = `
               d="M394 480a16 16 0 01-9.39-3L256 383.76 127.39 477a16 16 0 01-24.55-18.08L153 310.35 23 221.2a16 16 0 019-29.2h160.38l48.4-148.95a16 16 0 0130.44 0l48.4 149H480a16 16 0 019.05 29.2L359 310.35l50.13 148.53A16 16 0 01394 480z"
             />
           </svg>
-          <small>
+          <span>
             Favorites
-          </small>
+          </span>
         </div>
       </li>
       <li
-        className="sc-kEjbxe iocGHd"
+        className="sc-hHftDr icLTVl"
+        disabled={true}
       >
         <div
-          className="sc-iqHYGH ihJcjr"
+          className="sc-kfzAmx bYBNVj"
         >
           <svg
             fill="currentColor"
@@ -181,55 +214,61 @@ exports[`Layout component Validates Layout snapshot 1`] = `
               d="M64 144h226.75a48 48 0 0090.5 0H448a16 16 0 000-32h-66.75a48 48 0 00-90.5 0H64a16 16 0 000 32zm384 224h-66.75a48 48 0 00-90.5 0H64a16 16 0 000 32h226.75a48 48 0 0090.5 0H448a16 16 0 000-32zm0-128H221.25a48 48 0 00-90.5 0H64a16 16 0 000 32h66.75a48 48 0 0090.5 0H448a16 16 0 000-32z"
             />
           </svg>
-          <small>
+          <span>
             Options
-          </small>
+          </span>
         </div>
       </li>
       <li
-        className="sc-kEjbxe iocGHd"
+        className="sc-hHftDr icLTVl"
       >
-        <div
-          className="sc-iqHYGH ihJcjr"
+        <a
+          className="sc-dmlrTW bZGunv"
+          href="/login"
+          onClick={[Function]}
         >
-          <svg
-            fill="currentColor"
-            height="1em"
-            stroke="currentColor"
-            strokeWidth="0"
-            style={
-              Object {
-                "color": undefined,
-              }
-            }
-            viewBox="0 0 512 512"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
+          <div
+            className="sc-kfzAmx bYBNVj"
           >
-            <path
-              d="M176 176v-40a40 40 0 0140-40h208a40 40 0 0140 40v240a40 40 0 01-40 40H216a40 40 0 01-40-40v-40"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="32"
-            />
-            <path
-              d="M272 336l80-80-80-80M48 256h288"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="32"
-            />
-          </svg>
-          <small>
-            Login
-          </small>
-        </div>
+            <svg
+              fill="currentColor"
+              height="1em"
+              stroke="currentColor"
+              strokeWidth="0"
+              style={
+                Object {
+                  "color": undefined,
+                }
+              }
+              viewBox="0 0 512 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M176 176v-40a40 40 0 0140-40h208a40 40 0 0140 40v240a40 40 0 01-40 40H216a40 40 0 01-40-40v-40"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="32"
+              />
+              <path
+                d="M272 336l80-80-80-80M48 256h288"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="32"
+              />
+            </svg>
+            <span>
+              Login
+            </span>
+          </div>
+        </a>
       </li>
     </ul>
   </nav>
   <main
-    className="sc-crrsfI jZLqQj"
+    className="sc-fKFyDc SBWAZ"
   />
 </div>
 `;
