@@ -5,7 +5,7 @@ exports[`Login Page Validates Layout snapshot 1`] = `
   className="sc-bdfBwQ kQORl"
 >
   <form
-    className="sc-dlfnbm dmjNoP"
+    className="sc-dlfnbm GCGce"
     onSubmit={[Function]}
   >
     <h1
@@ -46,6 +46,7 @@ exports[`Login Page Validates Layout snapshot 1`] = `
       />
     </div>
     <button
+      className="sc-gKsewC hhyEnx"
       data-testid="btn-login"
       type="submit"
     >

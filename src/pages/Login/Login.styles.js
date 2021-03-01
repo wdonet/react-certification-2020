@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import colors from '../../config/colors';
 
 const Container = styled.section`
   display: flex;
@@ -18,6 +19,7 @@ const Form = styled.form`
   flex: 1;
   max-width: 40rem;
   padding: 2rem;
+  margin: 2rem;
   background-color: ${(props) => props.theme.cardBackground};
   border-radius: ${(props) => props.theme.borderRadiusLg};
 `;
@@ -37,4 +39,9 @@ const FormInput = styled.input`
   width: 100%;
 `;
 
-export { FormGroup, Container, Form, FormInput, FormLabel, Title };
+const FormSubmit = styled.button`
+  background-color: ${(props) => props.theme.primary};
+  color: ${colors.gray100};
+`;
+
+export { FormGroup, Container, Form, FormInput, FormLabel, Title, FormSubmit };

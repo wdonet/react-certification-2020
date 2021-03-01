@@ -1,7 +1,15 @@
 import React from 'react';
 import { useHistory } from 'react-router';
 import { useAuth } from '../../providers/Auth';
-import { FormGroup, Container, Form, Title, FormLabel, FormInput } from './Login.styles';
+import {
+  FormGroup,
+  Container,
+  Form,
+  Title,
+  FormLabel,
+  FormInput,
+  FormSubmit,
+} from './Login.styles';
 
 function LoginPage() {
   const { login } = useAuth();
@@ -25,9 +33,9 @@ function LoginPage() {
           <FormLabel htmlFor="password">Password </FormLabel>
           <FormInput required type="password" id="password" />
         </FormGroup>
-        <button type="submit" data-testid="btn-login">
+        <FormSubmit type="submit" data-testid="btn-login">
           Login
-        </button>
+        </FormSubmit>
       </Form>
     </Container>
   );
