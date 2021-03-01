@@ -43,7 +43,7 @@ const StyledCardDescription = styled.p`
 const Card = ({ title, image, description }) => {
   return (
     <StyledDiv>
-      <StyledCardImage src={image} alt={`card--${title}`} />
+      <StyledCardImage src={image} alt={title} />
       <StyledCardContent>
         <StyledCardTitle>{title}</StyledCardTitle>
         <StyledCardDescription>{description}</StyledCardDescription>

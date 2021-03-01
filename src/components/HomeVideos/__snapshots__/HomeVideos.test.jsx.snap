@@ -12,7 +12,7 @@ exports[`HomeVideos renders 1`] = `
         class="sc-bdVaJa cKRAMj"
       >
         <img
-          alt="card--Wizeline"
+          alt="Wizeline"
           class="sc-htpNat ifWGsL"
           src="https://yt3.ggpht.com/ytc/AAUvwnighSReQlmHl_S_vSfvnWBAG5Cw4A0YxtE0tm5OpQ=s800-c-k-c0xffffffff-no-rj-mo"
         />
@@ -39,7 +39,7 @@ exports[`HomeVideos renders 1`] = `
         class="sc-bdVaJa cKRAMj"
       >
         <img
-          alt="card--Video Tour | Welcome to Wizeline Guadalajara"
+          alt="Video Tour | Welcome to Wizeline Guadalajara"
           class="sc-htpNat ifWGsL"
           src="https://i.ytimg.com/vi/nmXMgqjQzls/hqdefault.jpg"
         />
@@ -66,7 +66,7 @@ exports[`HomeVideos renders 1`] = `
         class="sc-bdVaJa cKRAMj"
       >
         <img
-          alt="card--Wizeline Guadalajara | Bringing Silicon Valley to Mexico"
+          alt="Wizeline Guadalajara | Bringing Silicon Valley to Mexico"
           class="sc-htpNat ifWGsL"
           src="https://i.ytimg.com/vi/HYyRZiwBWc8/hqdefault.jpg"
         />
@@ -93,7 +93,7 @@ exports[`HomeVideos renders 1`] = `
         class="sc-bdVaJa cKRAMj"
       >
         <img
-          alt="card--Wizeline hace sentir a empleados como en casa"
+          alt="Wizeline hace sentir a empleados como en casa"
           class="sc-htpNat ifWGsL"
           src="https://i.ytimg.com/vi/Po3VwR_NNGk/hqdefault.jpg"
         />
@@ -120,7 +120,7 @@ exports[`HomeVideos renders 1`] = `
         class="sc-bdVaJa cKRAMj"
       >
         <img
-          alt="card--We Are Wizeline"
+          alt="We Are Wizeline"
           class="sc-htpNat ifWGsL"
           src="https://i.ytimg.com/vi/7PtYNO6g7eI/hqdefault.jpg"
         />
@@ -147,7 +147,7 @@ exports[`HomeVideos renders 1`] = `
         class="sc-bdVaJa cKRAMj"
       >
         <img
-          alt="card--Wizeline Thrives in Mexico City"
+          alt="Wizeline Thrives in Mexico City"
           class="sc-htpNat ifWGsL"
           src="https://i.ytimg.com/vi/YuW0CE_8i1I/hqdefault.jpg"
         />
@@ -174,7 +174,7 @@ exports[`HomeVideos renders 1`] = `
         class="sc-bdVaJa cKRAMj"
       >
         <img
-          alt="card--Wizeline"
+          alt="Wizeline"
           class="sc-htpNat ifWGsL"
           src="https://i.ytimg.com/vi/CHzlSGRvWPs/hqdefault.jpg"
         />
@@ -201,7 +201,7 @@ exports[`HomeVideos renders 1`] = `
         class="sc-bdVaJa cKRAMj"
       >
         <img
-          alt="card--A Day in the Life of an Engineering Manager at Wizeline"
+          alt="A Day in the Life of an Engineering Manager at Wizeline"
           class="sc-htpNat ifWGsL"
           src="https://i.ytimg.com/vi/cjO2fJy8asM/hqdefault.jpg"
         />
@@ -228,7 +228,7 @@ exports[`HomeVideos renders 1`] = `
         class="sc-bdVaJa cKRAMj"
       >
         <img
-          alt="card--Wizeline Technical Writing Academy | Featuring Eduardo Ocejo"
+          alt="Wizeline Technical Writing Academy | Featuring Eduardo Ocejo"
           class="sc-htpNat ifWGsL"
           src="https://i.ytimg.com/vi/zClI9OjgKXM/hqdefault.jpg"
         />
@@ -253,7 +253,7 @@ exports[`HomeVideos renders 1`] = `
         class="sc-bdVaJa cKRAMj"
       >
         <img
-          alt="card--Silicon Valley en México"
+          alt="Silicon Valley en México"
           class="sc-htpNat ifWGsL"
           src="https://i.ytimg.com/vi/8bz9R61oY5o/hqdefault.jpg"
         />
@@ -280,7 +280,7 @@ exports[`HomeVideos renders 1`] = `
         class="sc-bdVaJa cKRAMj"
       >
         <img
-          alt="card--Why Wizeline? featuring Juan Pablo Villa in Mexico City"
+          alt="Why Wizeline? featuring Juan Pablo Villa in Mexico City"
           class="sc-htpNat ifWGsL"
           src="https://i.ytimg.com/vi/7dJFraOqcoQ/hqdefault.jpg"
         />
@@ -307,7 +307,7 @@ exports[`HomeVideos renders 1`] = `
         class="sc-bdVaJa cKRAMj"
       >
         <img
-          alt="card--Wizeline&#39;s 2020 Year in Review"
+          alt="Wizeline&#39;s 2020 Year in Review"
           class="sc-htpNat ifWGsL"
           src="https://i.ytimg.com/vi/w-Qwc_XJrWc/hqdefault.jpg"
         />
@@ -334,7 +334,7 @@ exports[`HomeVideos renders 1`] = `
         class="sc-bdVaJa cKRAMj"
       >
         <img
-          alt="card--Why Wizeline? featuring Hugo Lopez in Mexico City"
+          alt="Why Wizeline? featuring Hugo Lopez in Mexico City"
           class="sc-htpNat ifWGsL"
           src="https://i.ytimg.com/vi/rjir_cHTl5w/hqdefault.jpg"
         />
@@ -359,7 +359,7 @@ exports[`HomeVideos renders 1`] = `
         class="sc-bdVaJa cKRAMj"
       >
         <img
-          alt="card--Why Wizeline? (We&#39;re Hiring in Mexico!)"
+          alt="Why Wizeline? (We&#39;re Hiring in Mexico!)"
           class="sc-htpNat ifWGsL"
           src="https://i.ytimg.com/vi/DcFK1x3NHGY/hqdefault.jpg"
         />
@@ -386,7 +386,7 @@ exports[`HomeVideos renders 1`] = `
         class="sc-bdVaJa cKRAMj"
       >
         <img
-          alt="card--Why Wizeline? featuring Oswaldo Herrera in Mexico City"
+          alt="Why Wizeline? featuring Oswaldo Herrera in Mexico City"
           class="sc-htpNat ifWGsL"
           src="https://i.ytimg.com/vi/3BzYWAqZgFw/hqdefault.jpg"
         />
@@ -413,7 +413,7 @@ exports[`HomeVideos renders 1`] = `
         class="sc-bdVaJa cKRAMj"
       >
         <img
-          alt="card--Caso de Éxito AWS: Wizeline [Spanish]"
+          alt="Caso de Éxito AWS: Wizeline [Spanish]"
           class="sc-htpNat ifWGsL"
           src="https://i.ytimg.com/vi/3KVFmT-Tp2w/hqdefault.jpg"
         />
@@ -440,7 +440,7 @@ exports[`HomeVideos renders 1`] = `
         class="sc-bdVaJa cKRAMj"
       >
         <img
-          alt="card--Wizeline&#39;s 2019 Year in Review"
+          alt="Wizeline&#39;s 2019 Year in Review"
           class="sc-htpNat ifWGsL"
           src="https://i.ytimg.com/vi/aKuPmY2m1Ro/hqdefault.jpg"
         />
@@ -465,7 +465,7 @@ exports[`HomeVideos renders 1`] = `
         class="sc-bdVaJa cKRAMj"
       >
         <img
-          alt="card--[1 of 2] Wizeline CEO shares career lessons from Google"
+          alt="[1 of 2] Wizeline CEO shares career lessons from Google"
           class="sc-htpNat ifWGsL"
           src="https://i.ytimg.com/vi/24sTHUyWhRM/hqdefault.jpg"
         />
@@ -492,7 +492,7 @@ exports[`HomeVideos renders 1`] = `
         class="sc-bdVaJa cKRAMj"
       >
         <img
-          alt="card--Wizeline Data Engineering featuring Tania Reyes"
+          alt="Wizeline Data Engineering featuring Tania Reyes"
           class="sc-htpNat ifWGsL"
           src="https://i.ytimg.com/vi/IxGc1gSqB3A/hqdefault.jpg"
         />
@@ -519,7 +519,7 @@ exports[`HomeVideos renders 1`] = `
         class="sc-bdVaJa cKRAMj"
       >
         <img
-          alt="card--Wizeline Querétaro | Mexico&#39;s New Knowledge Economy (We&#39;re hiring!)"
+          alt="Wizeline Querétaro | Mexico&#39;s New Knowledge Economy (We&#39;re hiring!)"
           class="sc-htpNat ifWGsL"
           src="https://i.ytimg.com/vi/NP1gAnbeNno/hqdefault.jpg"
         />
@@ -546,7 +546,7 @@ exports[`HomeVideos renders 1`] = `
         class="sc-bdVaJa cKRAMj"
       >
         <img
-          alt="card--Miriam Godinez | Women in Leadership at Wizeline"
+          alt="Miriam Godinez | Women in Leadership at Wizeline"
           class="sc-htpNat ifWGsL"
           src="https://i.ytimg.com/vi/F6Krwu6lUc8/hqdefault.jpg"
         />
@@ -573,7 +573,7 @@ exports[`HomeVideos renders 1`] = `
         class="sc-bdVaJa cKRAMj"
       >
         <img
-          alt="card--Welcome Back to Wizeline Vietnam | Extended Version"
+          alt="Welcome Back to Wizeline Vietnam | Extended Version"
           class="sc-htpNat ifWGsL"
           src="https://i.ytimg.com/vi/RFq7gfvhtCk/hqdefault.jpg"
         />
@@ -600,7 +600,7 @@ exports[`HomeVideos renders 1`] = `
         class="sc-bdVaJa cKRAMj"
       >
         <img
-          alt="card--How does Wizeline work?"
+          alt="How does Wizeline work?"
           class="sc-htpNat ifWGsL"
           src="https://i.ytimg.com/vi/E1Vq_A3WKK8/hqdefault.jpg"
         />
@@ -627,7 +627,7 @@ exports[`HomeVideos renders 1`] = `
         class="sc-bdVaJa cKRAMj"
       >
         <img
-          alt="card--12 Wishes from Wizeline | Happy Holidays 2019"
+          alt="12 Wishes from Wizeline | Happy Holidays 2019"
           class="sc-htpNat ifWGsL"
           src="https://i.ytimg.com/vi/ZmkslANDz0Q/hqdefault.jpg"
         />
@@ -652,7 +652,7 @@ exports[`HomeVideos renders 1`] = `
         class="sc-bdVaJa cKRAMj"
       >
         <img
-          alt="card--Why Wizeline?"
+          alt="Why Wizeline?"
           class="sc-htpNat ifWGsL"
           src="https://i.ytimg.com/vi/Nss3EmTDD3s/hqdefault.jpg"
         />

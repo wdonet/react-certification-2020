@@ -23,13 +23,13 @@ const StyledSection = styled.div`
 
 const Navbar = () => {
   return (
-    <StyledNavbar data-testid="navbar">
+    <StyledNavbar role="toolbar" data-testid="navbar">
       <StyledSection>
-        <div data-testid="hamburguer-icon">
-          <IconWrapper src={hamburger} alt="hamburger" />
+        <div>
+          <IconWrapper role="button" src={hamburger} alt="hamburguer" />
         </div>
         <div data-testid="search-input">
-          <TextField />
+          <TextField role="search"/>
         </div>
       </StyledSection>
       <StyledSection>
@@ -37,7 +37,7 @@ const Navbar = () => {
           <Switch />
         </div>
         <div data-testid="user-avatar">
-          <Avatar src={defaultUser} />
+          <Avatar role="button" alt="profile" src={defaultUser} />
         </div>
       </StyledSection>
     </StyledNavbar>

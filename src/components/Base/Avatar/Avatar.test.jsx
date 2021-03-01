@@ -27,8 +27,10 @@ describe('Avatar styles and props', () => {
   });
 
   it('has all passed props', () => {
-    const EXPECTED_SRC = 'https://i.picsum.photos/id/237/536/354.jpg';;
-    const { firstChild } = build(<Avatar src={EXPECTED_SRC} />).container;
+    const EXPECTED_SRC = 'https://i.picsum.photos/id/237/536/354.jpg';
+    const EXPECTED_ALT = 'profile_image';
+    const { firstChild } = build(<Avatar src={EXPECTED_SRC} alt={EXPECTED_ALT} />).container;
     expect(firstChild).toHaveAttribute("src", EXPECTED_SRC);
+    expect(firstChild).toHaveAttribute("alt", EXPECTED_ALT);
   });
 });

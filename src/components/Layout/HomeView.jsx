@@ -7,7 +7,7 @@ const StyledHomeView = styled.div`
 `;
 
 const HomeView = ({ children }) => {
-  return <StyledHomeView data-testid="main-content">{children}</StyledHomeView>;
+  return <StyledHomeView role="main" data-testid="main-content">{children}</StyledHomeView>;
 };
 
 export default HomeView;

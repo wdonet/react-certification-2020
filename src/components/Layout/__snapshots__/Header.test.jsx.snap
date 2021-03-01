@@ -5,16 +5,16 @@ exports[`Header renders 1`] = `
   <div
     class="sc-ifAKCX fOhgAo"
     data-testid="navbar"
+    role="toolbar"
   >
     <div
       class="sc-EHOje hecEEV"
     >
-      <div
-        data-testid="hamburguer-icon"
-      >
+      <div>
         <img
-          alt="hamburger"
+          alt="hamburguer"
           class="sc-bwzfXH eRyTNY"
+          role="button"
           src="hamburguer.png"
         />
       </div>
@@ -23,6 +23,7 @@ exports[`Header renders 1`] = `
       >
         <input
           class="sc-bdVaJa kHpFHH"
+          role="search"
         />
       </div>
     </div>
@@ -34,6 +35,7 @@ exports[`Header renders 1`] = `
       >
         <input
           class="sc-bxivhb bUZGRr"
+          role="switch"
           type="checkbox"
         />
       </div>
@@ -41,7 +43,9 @@ exports[`Header renders 1`] = `
         data-testid="user-avatar"
       >
         <img
+          alt="profile"
           class="sc-htpNat ihTYrT"
+          role="button"
           src="default_user.jpg"
         />
       </div>

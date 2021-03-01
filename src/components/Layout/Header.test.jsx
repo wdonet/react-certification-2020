@@ -1,16 +1,16 @@
 import React from 'react';
 import 'jest-styled-components';
-import { getByTestId, render } from '@testing-library/react';
+import { getByRole, render } from '@testing-library/react';
 import Header from './Header';
 
 const build = (Component = <Header />) => {
   const { container } = render(Component);
   return {
     container,
-    HamburguerIcon: () => getByTestId(container, 'hamburguer-icon'),
-    SearchInput: () => getByTestId(container, 'search-input'),
-    ThemeModeSwitch: () => getByTestId(container, 'theme-mode-switch'),
-    UserAvatar: () => getByTestId(container, 'user-avatar'),
+    HamburguerIcon: () => getByRole(container, "button", { name: "hamburguer" }),
+    SearchInput: () => getByRole(container, 'search'),
+    ThemeModeSwitch: () => getByRole(container, 'switch'),
+    UserAvatar: () => getByRole(container, "button", { name: "profile" }),
   };
 };
 

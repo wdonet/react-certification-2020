@@ -5,6 +5,7 @@ exports[`HomeView renders 1`] = `
   <div
     class="sc-bdVaJa fLGNui"
     data-testid="main-content"
+    role="main"
   />
 </div>
 `;

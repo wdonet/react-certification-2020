@@ -5,20 +5,21 @@ exports[`LayoutWrapper renders 1`] = `
   <div
     class="sc-gzVnrw gjCjCa"
     data-testid="layout-wrapper"
+    role="application"
   >
     <div
       class="sc-ifAKCX fOhgAo"
       data-testid="navbar"
+      role="toolbar"
     >
       <div
         class="sc-EHOje hecEEV"
       >
-        <div
-          data-testid="hamburguer-icon"
-        >
+        <div>
           <img
-            alt="hamburger"
+            alt="hamburguer"
             class="sc-bwzfXH eRyTNY"
+            role="button"
             src="hamburguer.png"
           />
         </div>
@@ -27,6 +28,7 @@ exports[`LayoutWrapper renders 1`] = `
         >
           <input
             class="sc-bdVaJa kHpFHH"
+            role="search"
           />
         </div>
       </div>
@@ -38,6 +40,7 @@ exports[`LayoutWrapper renders 1`] = `
         >
           <input
             class="sc-bxivhb bUZGRr"
+            role="switch"
             type="checkbox"
           />
         </div>
@@ -45,7 +48,9 @@ exports[`LayoutWrapper renders 1`] = `
           data-testid="user-avatar"
         >
           <img
+            alt="profile"
             class="sc-htpNat ihTYrT"
+            role="button"
             src="default_user.jpg"
           />
         </div>
@@ -54,6 +59,7 @@ exports[`LayoutWrapper renders 1`] = `
     <div
       class="sc-bZQynM hXDntW"
       data-testid="main-content"
+      role="main"
     />
   </div>
 </div>

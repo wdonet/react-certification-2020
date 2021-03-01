@@ -1,14 +1,14 @@
 import React from 'react';
 import 'jest-styled-components';
-import { getByTestId, render } from '@testing-library/react';
+import { getByRole, render } from '@testing-library/react';
 import LayoutWrapper from './LayoutWrapper';
 
 const build = (Component = <LayoutWrapper />) => {
   const { container } = render(Component);
   return {
     container,
-    Header: () => getByTestId(container, 'navbar'),
-    HomeView: () => getByTestId(container, 'main-content'),
+    Header: () => getByRole(container, "toolbar"),
+    HomeView: () => getByRole(container, 'main'),
   };
 };
 

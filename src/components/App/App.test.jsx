@@ -1,12 +1,12 @@
 import React from 'react';
-import { getByTestId, render } from '@testing-library/react';
+import { getByRole, render } from '@testing-library/react';
 import App from './index';
 
 const build = () => {
   const { container } = render(<App />);
   return {
     container,
-    LayoutWrapper: () => getByTestId(container, 'layout-wrapper'),
+    LayoutWrapper: () => getByRole(container, 'application'),
   };
 };
 

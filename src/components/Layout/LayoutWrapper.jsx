@@ -10,7 +10,7 @@ const StyledLayoutWrapper = styled.div`
 
 const LayoutWrapper = ({ children }) => {
   return (
-    <StyledLayoutWrapper data-testid="layout-wrapper">
+    <StyledLayoutWrapper role="application" data-testid="layout-wrapper">
       <Header />
       <HomeView>{children}</HomeView>
     </StyledLayoutWrapper>
