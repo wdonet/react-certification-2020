@@ -1,24 +1,24 @@
 import React from 'react';
+import { faBars, faHeart, faUser } from '@fortawesome/free-solid-svg-icons';
 
 import {
   HeaderContainer,
-  StyledBarsIcon,
-  StyledUserIcon,
-  StyledHeartIcon,
   LeftItems,
   CenterItems,
   RightItems,
+  StyledIcon,
 } from './styled';
 
 import SearchInput from '../SearchInput';
 import HeaderButton from '../HeaderButton';
+import Icon from '../Icon';
 
 const Header = () => {
   return (
     <HeaderContainer>
       <LeftItems>
         <HeaderButton onClick={() => {}}>
-          <StyledBarsIcon />
+          <StyledIcon icon={faBars} size="xsmall" />
         </HeaderButton>
       </LeftItems>
       <CenterItems>
@@ -26,10 +26,10 @@ const Header = () => {
       </CenterItems>
       <RightItems>
         <HeaderButton onClick={() => {}}>
-          <StyledHeartIcon />
+          <Icon icon={faHeart} size="xsmall" />
         </HeaderButton>
         <HeaderButton onClick={() => {}}>
-          <StyledUserIcon />
+          <Icon icon={faUser} size="xsmall" />
         </HeaderButton>
       </RightItems>
     </HeaderContainer>

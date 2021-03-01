@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Bars, User, Heart } from '../Icons';
+import Icon from '../Icon';
 
 const HeaderContainer = styled.div`
   height: 60px;
@@ -25,24 +25,8 @@ const RightItems = styled.div`
   text-align: right;
 `;
 
-const StyledBarsIcon = styled(Bars)`
-  height: 40px;
+const StyledIcon = styled(Icon)`
+  color: black;
 `;
 
-const StyledUserIcon = styled(User)`
-  height: 30px;
-`;
-
-const StyledHeartIcon = styled(Heart)`
-  height: 40px;
-`;
-
-export {
-  HeaderContainer,
-  StyledBarsIcon,
-  StyledUserIcon,
-  StyledHeartIcon,
-  LeftItems,
-  CenterItems,
-  RightItems,
-};
+export { HeaderContainer, LeftItems, CenterItems, RightItems, StyledIcon };
