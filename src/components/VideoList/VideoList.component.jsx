@@ -2,6 +2,7 @@ import Grid from '@material-ui/core/Grid';
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import VideoCard from '../VideoCard';
+// import videoList from '../../mocks/youtube-videos.mock.json';
 
 const fetchVideoList = async ({ search }) => {
   const params = {
@@ -24,21 +25,26 @@ const fetchVideoList = async ({ search }) => {
   return videos || [];
 };
 
-const VideoList = ({ search }) => {
+const VideoList = ({ className, search, selectVideo }) => {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
     fetchVideoList({ search }).then((videoList) => {
       setVideos(videoList);
     });
+    // setVideos(videoList.items);
   }, [search]);
 
   return (
-    <div>
+    <div className={className}>
       <h1>Youtube Video List</h1>
       <Grid container spacing={3} id="video-list">
         {videos.map((video) => (
-          <VideoCard key={video.etag} video={video} />
+          <VideoCard
+            key={video.etag}
+            video={video}
+            selectVideo={(videoId) => selectVideo(videoId)}
+          />
         ))}
       </Grid>
     </div>

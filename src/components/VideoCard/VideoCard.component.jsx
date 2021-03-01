@@ -15,9 +15,10 @@ const StyledCard = styled(Card)`
   height: 350px;
 `;
 
-const VideoCard = ({ video }) => {
+const VideoCard = ({ video, selectVideo }) => {
   const {
     etag,
+    id: { videoId },
     snippet: {
       title,
       description,
@@ -25,7 +26,14 @@ const VideoCard = ({ video }) => {
     } = {},
   } = video;
   return (
-    <Grid item xs={12} sm={6} md={3} id={`video-${etag}`}>
+    <Grid
+      item
+      xs={12}
+      sm={6}
+      md={3}
+      id={`video-${etag}`}
+      onClick={() => selectVideo(videoId)}
+    >
       <StyledCard>
         <CardActionArea>
           <StyledCardMedia image={thumbnailsHigh} title="image" />
