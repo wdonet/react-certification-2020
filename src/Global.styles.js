@@ -72,9 +72,10 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Lato', sans-serif;
-  margin: 0.5rem 0;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
   letter-spacing: 0.1rem;
+  margin: 0.5rem 0;
 }
 
 h1 {
