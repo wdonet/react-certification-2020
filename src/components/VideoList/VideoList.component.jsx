@@ -1,39 +1,11 @@
 import Grid from '@material-ui/core/Grid';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import VideoCard from '../VideoCard';
-// import videoList from '../../mocks/youtube-videos.mock.json';
-
-const fetchVideoList = async ({ search }) => {
-  const params = {
-    maxResults: 25,
-    channelId: 'UCPGzT4wecuWM0BH9mPiulXg',
-    order: 'date',
-    apiKey: process.env.REACT_APP_YOUTUBE_API_KEY,
-  };
-  const videosRequest = await fetch(
-    `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=${params.maxResults}&channelId=${params.channelId}&order=${params.order}&key=${params.apiKey}&q=${search}`
-  );
-  const { items: videos, error: { message } = {} } = await videosRequest.json();
-
-  if (message) {
-    console.error(message);
-    alert(message);
-    return [];
-  }
-
-  return videos || [];
-};
+import useVideoList from '../../hooks/useVideoList';
 
 const VideoList = ({ className, search, selectVideo }) => {
-  const [videos, setVideos] = useState([]);
-
-  useEffect(() => {
-    fetchVideoList({ search }).then((videoList) => {
-      setVideos(videoList);
-    });
-    // setVideos(videoList.items);
-  }, [search]);
+  const videos = useVideoList(search);
 
   return (
     <div className={className}>
