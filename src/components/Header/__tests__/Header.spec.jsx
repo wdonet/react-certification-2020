@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
+import renderer from 'react-test-renderer';
 
 import Header from '..';
 import { StyledSwitch } from '../Header.styles';
@@ -45,6 +46,12 @@ describe('<Header />', () => {
     fireEvent.click(element);
     expect(handleOnChange).toHaveBeenCalled();
     expect(checked).toBeTruthy();
+  });
+
+  it('renders and match checked switch', () => {
+    const tree = renderer.create(<StyledSwitch checked />).toJSON();
+
+    expect(tree).toMatchSnapshot();
   });
 
   it('shows account menu', () => {

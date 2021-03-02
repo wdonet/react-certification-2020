@@ -20,7 +20,7 @@ import {
 
 const Header = () => {
   const [checked, setChecked] = useState(false);
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
 
