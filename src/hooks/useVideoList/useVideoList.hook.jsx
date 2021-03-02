@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-// import videoList from '../../mocks/youtube-videos.mock.json';
 
 const fetchVideoList = async ({ search, relatedToVideoId }) => {
   const params = {
@@ -17,7 +16,7 @@ const fetchVideoList = async ({ search, relatedToVideoId }) => {
       params.apiKey
     }&q=${search}&type=${params.type}${
       relatedToVideoId ? `&relatedToVideoId=${relatedToVideoId}` : ''
-    }`,
+    }`
   );
   const { items: videos, error: { message } = {} } = await videosRequest.json();
 
@@ -36,7 +35,6 @@ const useVideoList = (search = '', relatedToVideoId = '') => {
     fetchVideoList({ search, relatedToVideoId }).then((videoList) => {
       setVideos(videoList);
     });
-    // setVideos(videoList.items);
   }, [search, relatedToVideoId]);
   return videos;
 };

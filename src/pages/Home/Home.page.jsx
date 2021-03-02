@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Header from '../../components/Header';
 import VideoDetailsView from '../../components/VideoDetailsView';
-import StyledVideoList from '../../components/VideoList';
+import VideoList from '../../components/VideoList';
 
 function HomePage() {
   const [search, setSearch] = useState('');
@@ -13,10 +13,7 @@ function HomePage() {
       {video.id ? (
         <VideoDetailsView id={video.id} />
       ) : (
-        <StyledVideoList
-          search={search}
-          selectVideo={(videoId) => setVideo({ id: videoId })}
-        />
+        <VideoList search={search} selectVideo={(videoId) => setVideo({ id: videoId })} />
       )}
     </>
   );
