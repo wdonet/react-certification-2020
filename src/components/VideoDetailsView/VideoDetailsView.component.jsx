@@ -104,9 +104,8 @@ const VideoDetailsView = ({ id }) => {
     snippet: { title: '', description: '' },
   });
 
-  console.log(videoId);
   useEffect(() => {
-    fetchVideoDetails({ id }).then((videoDetails) => {
+    fetchVideoDetails({ id: videoId }).then((videoDetails) => {
       setVideo(videoDetails);
     });
     // setVideo(videoDetails[id].items[0]);
