@@ -1,38 +1,21 @@
-import React, { useRef } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-
-import { useAuth } from '../../providers/Auth';
-import './Home.styles.css';
+import React, { useState } from 'react';
+import Header from '../../components/Header';
+import VideoDetailsView from '../../components/VideoDetailsView';
+import VideoList from '../../components/VideoList';
 
 function HomePage() {
-  const history = useHistory();
-  const sectionRef = useRef(null);
-  const { authenticated, logout } = useAuth();
-
-  function deAuthenticate(event) {
-    event.preventDefault();
-    logout();
-    history.push('/');
-  }
+  const [search, setSearch] = useState('');
+  const [video, setVideo] = useState({ id: null });
 
   return (
-    <section className="homepage" ref={sectionRef}>
-      <h1>Hello stranger!</h1>
-      {authenticated ? (
-        <>
-          <h2>Good to have you back</h2>
-          <span>
-            <Link to="/" onClick={deAuthenticate}>
-              ← logout
-            </Link>
-            <span className="separator" />
-            <Link to="/secret">show me something cool →</Link>
-          </span>
-        </>
+    <>
+      <Header searchVideos={setSearch} />
+      {video.id ? (
+        <VideoDetailsView id={video.id} />
       ) : (
-        <Link to="/login">let me in →</Link>
+        <VideoList search={search} selectVideo={(videoId) => setVideo({ id: videoId })} />
       )}
-    </section>
+    </>
   );
 }
 
