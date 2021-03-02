@@ -1,10 +1,10 @@
 import React from 'react';
-import { VideoCardContainer, Details } from './VideoCard.styled';
+import { VideoCardContainer, Details, ImageContainer } from './VideoCard.styled';
 
 function VideoCard({ image, title, description }) {
   return (
     <VideoCardContainer>
-      <img src={image} alt={title} />
+      <ImageContainer img={image} />
       <Details>
         <h2>{title}</h2>
         <p>{description}</p>

@@ -9,11 +9,19 @@ export const VideoCardContainer = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 2px;
   color: ${(props) => props.theme.videoCardTextColor};
+`;
 
-  & img {
-    width: 100%;
-    height: 40%;
-  }
+export const ImageContainer = styled.div`
+  width: 100%;
+  height: 40%;
+  background-image: url(${({ img }) => img});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+`;
+
+export const Details = styled.div`
+  padding: 1em;
 
   & h2 {
     font-size: 1rem;
@@ -26,8 +34,4 @@ export const VideoCardContainer = styled.div`
     font-weight: 400;
     margin: 0;
   }
-`;
-
-export const Details = styled.div`
-  padding: 1em;
 `;

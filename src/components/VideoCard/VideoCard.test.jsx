@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import VideoCard from '.';
-import { Details, VideoCardContainer } from './VideoCard.styled';
+import { Details, ImageContainer, VideoCardContainer } from './VideoCard.styled';
 
 const container = document.createElement('div');
 const image = 'http://placecorgi.com/250';
@@ -15,14 +15,13 @@ const videoCardContainer = container.getElementsByClassName(
   VideoCardContainer.styledComponentId
 )[0];
 const details = videoCardContainer.getElementsByClassName(Details.styledComponentId)[0];
+const thumbnail = videoCardContainer.getElementsByClassName(
+  ImageContainer.styledComponentId
+)[0];
 
 test("VideoCard contains all of it's parts", () => {
   expect(container.children).toContain(videoCardContainer);
   expect(videoCardContainer.children).toContain(details);
-});
-
-test('VideoCard renders thumbnail', () => {
-  const thumbnail = container.querySelector(`img[src='${image}'][alt='${title}']`);
   expect(videoCardContainer.children).toContain(thumbnail);
 });
 
