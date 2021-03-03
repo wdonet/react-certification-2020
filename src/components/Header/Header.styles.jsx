@@ -44,6 +44,10 @@ export const SearchIconDiv = styled.div`
   align-items: center;
 `;
 
+export const StyledForm = styled.form`
+  width: 100%;
+`;
+
 export const StyledInputBase = styled(InputBase)`
   color: inherit;
 `;

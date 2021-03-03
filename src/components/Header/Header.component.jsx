@@ -12,6 +12,7 @@ import {
   StyledIconButton,
   StyledSearchDiv,
   SearchIconDiv,
+  StyledForm,
   StyledInputBase,
   StyledInput,
   StyledDarkModeDiv,
@@ -25,7 +26,7 @@ const Header = () => {
   const [searchTerm, setSearchTerm] = useState('wizeline');
   const [anchorEl, setAnchorEl] = useState(null);
   const { darkMode, switchDarkMode, updateSearchResult } = useCustom();
-  const yt = useYoutubeSearch({ type: 'channel' });
+  const yt = useYoutubeSearch({ type: 'video' });
 
   const isMenuOpen = Boolean(anchorEl);
   const handleMenuOpen = (e) => setAnchorEl(e.currentTarget);
@@ -39,7 +40,7 @@ const Header = () => {
 
   useEffect(() => {
     updateSearchResult(yt.result);
-  }, [yt.result]);
+  }, [yt.result, updateSearchResult]);
 
   return (
     <StyledAppBar position="static">
@@ -53,7 +54,7 @@ const Header = () => {
             <SearchIcon />
           </SearchIconDiv>
 
-          <form onSubmit={handleSearchOnSubmit}>
+          <StyledForm onSubmit={handleSearchOnSubmit}>
             <StyledInputBase
               placeholder="Search…"
               inputComponent={StyledInput}
@@ -61,7 +62,7 @@ const Header = () => {
               value={searchTerm}
               onChange={handleSearchOnChange}
             />
-          </form>
+          </StyledForm>
         </StyledSearchDiv>
 
         <StyledGrowDiv />
