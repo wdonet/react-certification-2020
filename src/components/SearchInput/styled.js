@@ -1,23 +1,20 @@
 import styled from 'styled-components';
 
 const StyledInput = styled.input`
-  font-size: 16px;
-  border: solid 1px #bdbcbc;
+  border: solid 1px ${({ theme }) => theme.font.tertiary};
   border-radius: 3px;
-  color: #262626;
   padding: 7px 33px;
-  border-radius: 3px;
-  color: #999;
+  color: ${({ theme }) => theme.font.primary};
   cursor: text;
   font-size: 14px;
   font-weight: 300;
   text-align: center;
-  background: #fafafa;
+  background: ${({ theme }) => theme.background.primary};
 
   &:active,
   &:focus {
     text-align: left;
-    outline: #e9a6a5 auto 1px;
+    outline: ${({ theme }) => `${theme.font.highlight} auto 1px`};
   }
 `;
 

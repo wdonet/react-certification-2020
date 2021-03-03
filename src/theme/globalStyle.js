@@ -1,3 +1,6 @@
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
 html {
   font-size: 1.125rem;
   line-height: 1.6;
@@ -18,15 +21,7 @@ body {
   margin: 0;
   padding: 0;
   text-rendering: optimizeLegibility;
-  background-image: linear-gradient(
-    120deg,
-    #eea2a2 0,
-    #bbc1bf 19%,
-    #57c6e1 42%,
-    #b49fda 79%,
-    #7ac5d8 100%
-  );
-  background-size: 400% 400%;
+  background-color: ${({ theme }) => theme.background.tertiary};
   background-position: var(--bg-position);
   transition: background-position 2s ease;
   -webkit-font-smoothing: antialiased;
@@ -39,15 +34,6 @@ body {
   padding: 0.4rem;
 }
 
-a {
-  text-decoration: none;
-  font-weight: bold;
-  color: white;
-}
+`;
 
-a:active {
-  color: blueviolet;
-}
-
-hr {
-}
+export default GlobalStyle;

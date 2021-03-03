@@ -3,10 +3,10 @@ import styled from 'styled-components';
 const StyledLink = styled.a`
   padding: 0 20px 0 20px;
   cursor: pointer;
-  color: #bdbcbc;
+  color: ${({ theme }) => theme.font.tertiary};
   line-height: initial;
   &:hover {
-    color: #eea2a2;
+    color: ${({ theme }) => theme.font.highlight};
   }
 `;
 

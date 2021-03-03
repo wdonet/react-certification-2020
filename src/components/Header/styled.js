@@ -1,9 +1,8 @@
 import styled from 'styled-components';
-import Icon from '../Icon';
 
 const HeaderContainer = styled.div`
   height: 60px;
-  background-color: white;
+  background-color: ${({ theme }) => theme.background.secondary};
   padding: 10px 0 10px 0;
   box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%),
     0px 1px 10px 0px rgb(0 0 0 / 12%);
@@ -25,8 +24,8 @@ const RightItems = styled.div`
   text-align: right;
 `;
 
-const StyledIcon = styled(Icon)`
-  color: black;
+const ToggleContainer = styled.span`
+  height: 100%;
 `;
 
-export { HeaderContainer, LeftItems, CenterItems, RightItems, StyledIcon };
+export { HeaderContainer, LeftItems, CenterItems, RightItems, ToggleContainer };

@@ -4,7 +4,7 @@ const CardContainer = styled.div`
   border-radius: 10px;
   height: 250px;
   width: 250px;
-  background-color: white;
+  background-color: ${({ theme }) => theme.background.secondary};
   transition: all 0.2s ease-in-out;
   cursor: pointer;
   padding: 10px;

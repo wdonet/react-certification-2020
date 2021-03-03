@@ -6,20 +6,24 @@ import {
   LeftItems,
   CenterItems,
   RightItems,
-  StyledIcon,
+  ToggleContainer,
 } from './styled';
 
 import SearchInput from '../SearchInput';
 import HeaderButton from '../HeaderButton';
 import Icon from '../Icon';
+import Toggle from '../Toggle';
 
-const Header = () => {
+const Header = ({ handleThemeSwitch }) => {
   return (
     <HeaderContainer>
       <LeftItems>
         <HeaderButton onClick={() => {}}>
-          <StyledIcon icon={faBars} size="xsmall" />
+          <Icon icon={faBars} size="xsmall" />
         </HeaderButton>
+        <ToggleContainer>
+          <Toggle onChange={handleThemeSwitch} />
+        </ToggleContainer>
       </LeftItems>
       <CenterItems>
         <SearchInput />
