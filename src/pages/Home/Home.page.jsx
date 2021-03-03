@@ -4,7 +4,7 @@ import { Typography } from '@material-ui/core';
 
 import Content from '../../components/Content';
 
-import videosMock from '../../youtube-videos-mock.json';
+import { useCustom } from '../../providers/Custom';
 
 const Title = styled(Typography).attrs(() => ({
   variant: 'h2',
@@ -15,7 +15,9 @@ const Title = styled(Typography).attrs(() => ({
 
 function HomePage() {
   const sectionRef = useRef(null);
-  const items = videosMock.items.slice(1);
+  const { searchResult } = useCustom();
+
+  const { items } = searchResult;
 
   return (
     <section className="homepage" ref={sectionRef}>
