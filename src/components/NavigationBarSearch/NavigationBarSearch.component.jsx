@@ -1,14 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Styled from './NavigationBarSearch.styled';
 
 function NavigationBarSearch() {
+  const [searchTerm, setSearchterm] = useState('');
+
+  const termChanged = (e) => {
+    console.log(e.target.value);
+    const { value } = e.target;
+    setSearchterm(value);
+  };
+  const formSubmited = (e) => {
+    e.preventDefault();
+    console.log('form sent');
+  };
+
   return (
-    <Styled.Form className="d-flex" data-testid="NavigationBarSearch">
+    <Styled.Form
+      className="d-flex"
+      data-testid="NavigationBarSearch"
+      onSubmit={formSubmited}
+    >
       <Styled.Field
         className="form-control me-2"
         type="search"
         placeholder="Search"
         aria-label="Search"
+        value={searchTerm}
+        onChange={termChanged}
       />
       <Styled.Button className="btn btn-outline-light" type="submit">
         <svg
