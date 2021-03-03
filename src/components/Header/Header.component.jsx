@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Toolbar, IconButton, FormControlLabel, Menu, MenuItem } from '@material-ui/core';
 import {
   Menu as MenuIcon,
@@ -18,17 +18,28 @@ import {
   StyledSwitch,
 } from './Header.styles';
 
+import { useCustom } from '../../providers/Custom';
+import { useYoutubeSearch } from '../../utils/hooks';
+
 const Header = () => {
-  const [checked, setChecked] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('wizeline');
   const [anchorEl, setAnchorEl] = useState(null);
+  const { darkMode, switchDarkMode, updateSearchResult } = useCustom();
+  const yt = useYoutubeSearch({ type: 'channel' });
 
   const isMenuOpen = Boolean(anchorEl);
-
-  const handleChecked = (e) => setChecked(e.target.checked);
-
   const handleMenuOpen = (e) => setAnchorEl(e.currentTarget);
-
   const handleMenuClose = () => setAnchorEl(null);
+  const handleSearchOnChange = ({ target: { value } }) => setSearchTerm(value);
+  const handleSearchOnSubmit = (e) => {
+    e.preventDefault();
+
+    yt.search(searchTerm);
+  };
+
+  useEffect(() => {
+    updateSearchResult(yt.result);
+  }, [yt.result]);
 
   return (
     <StyledAppBar position="static">
@@ -42,11 +53,15 @@ const Header = () => {
             <SearchIcon />
           </SearchIconDiv>
 
-          <StyledInputBase
-            placeholder="Search…"
-            inputComponent={StyledInput}
-            inputProps={{ 'aria-label': 'search' }}
-          />
+          <form onSubmit={handleSearchOnSubmit}>
+            <StyledInputBase
+              placeholder="Search…"
+              inputComponent={StyledInput}
+              inputProps={{ 'aria-label': 'search' }}
+              value={searchTerm}
+              onChange={handleSearchOnChange}
+            />
+          </form>
         </StyledSearchDiv>
 
         <StyledGrowDiv />
@@ -56,8 +71,8 @@ const Header = () => {
             label="Dark mode"
             control={
               <StyledSwitch
-                checked={checked}
-                onChange={handleChecked}
+                checked={darkMode}
+                onChange={switchDarkMode}
                 aria-label="dark mode switch"
               />
             }
