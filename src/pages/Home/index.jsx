@@ -1,21 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Grid from '../../components/Grid';
 import VideoCard from '../../components/VideoCard';
+
+import { useYoutubeData } from '../../providers/YoutubeData';
+
 import { StyledSection, Title } from './styled';
-import videos from '../../mocks/youtube-videos-mock.json';
 
 const HomePage = () => {
-  const { items = [] } = videos;
+  const { getVideosByQuery } = useYoutubeData();
+  const [videos, setVideos] = useState([]);
 
-  console.log({ items });
+  useEffect(() => {
+    const fetchVideos = async () => {
+      const response = await getVideosByQuery();
+      if (response) setVideos(response);
+    };
+    fetchVideos();
+  }, []);
 
-  const videosParsed = items.map((video) => {
-    const {
-      etag,
-      snippet: { title, description },
-    } = video;
-    return <VideoCard key={etag} title={title} description={description} />;
-  });
+  const videosParsed = videos
+    ? videos.map((video) => {
+        const {
+          etag,
+          snippet: { title, description },
+        } = video;
+        return <VideoCard key={etag} title={title} description={description} />;
+      })
+    : [];
 
   return (
     <StyledSection>
