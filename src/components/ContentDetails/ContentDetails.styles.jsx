@@ -1,5 +1,7 @@
+import React from 'react';
 import styled from 'styled-components';
-import { Typography } from '@material-ui/core';
+import { Typography, Button } from '@material-ui/core';
+import { ArrowBack as ArrowBackIcon } from '@material-ui/icons';
 
 export const StyledVideoDiv = styled.div`
   width: 70%;
@@ -62,11 +64,14 @@ export const SnippetDescription = styled(Typography).attrs(() => ({
   }
 `;
 
-export const StyledButton = styled.button.attrs(() => ({
-  type: 'button',
+export const StyledBackButton = styled(Button).attrs(() => ({
+  variant: 'outlined',
+  startIcon: <ArrowBackIcon />,
 }))`
-  width: 150px;
-  height: 40px;
-  margin-top: 30px;
-  cursor: pointer;
+  && {
+    width: 150px;
+    height: 40px;
+    margin-top: 30px;
+    cursor: pointer;
+  }
 `;

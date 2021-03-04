@@ -9,7 +9,7 @@ import {
   StyledSnippetDiv,
   SnippetTitle,
   SnippetDescription,
-  StyledButton,
+  StyledBackButton,
 } from './ContentDetails.styles';
 import RelatedItem from '../RelatedItem';
 
@@ -30,7 +30,7 @@ const ContentDetails = ({ item, relatedItems }) => {
         <StyledSnippetDiv>
           <SnippetTitle dangerouslySetInnerHTML={{ __html: item.snippet.title }} />
           <SnippetDescription>{item.snippet.description}</SnippetDescription>
-          <StyledButton onClick={handleGoBack}>Go back</StyledButton>
+          <StyledBackButton onClick={handleGoBack}>Go back</StyledBackButton>
         </StyledSnippetDiv>
       </StyledVideoDiv>
       <StyledRelatedDiv>
