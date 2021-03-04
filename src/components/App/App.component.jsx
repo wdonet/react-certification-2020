@@ -1,16 +1,13 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import AuthProvider from '../../providers/Auth';
 import CustomProvider from '../../providers/Custom';
 
-import HomePage from '../../pages/Home';
-import LoginPage from '../../pages/Login';
-import NotFound from '../../pages/NotFound';
-import SecretPage from '../../pages/Secret';
-import Private from '../Private';
-import Fortune from '../Fortune';
 import Layout from '../Layout';
+import HomePage from '../../pages/Home';
+import VideoPage from '../../pages/Video';
+import NotFound from '../../pages/NotFound';
 
 function App() {
   return (
@@ -22,17 +19,16 @@ function App() {
               <Route exact path="/">
                 <HomePage />
               </Route>
-              <Route exact path="/login">
-                <LoginPage />
+              <Route exact path="/home">
+                <Redirect to="/" />
               </Route>
-              <Private exact path="/secret">
-                <SecretPage />
-              </Private>
+              <Route path="/:videoId">
+                <VideoPage />
+              </Route>
               <Route path="*">
                 <NotFound />
               </Route>
             </Switch>
-            <Fortune />
           </Layout>
         </CustomProvider>
       </AuthProvider>
