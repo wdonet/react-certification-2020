@@ -1,13 +1,17 @@
 import React from 'react';
 import 'jest-styled-components';
 import { getByRole, render } from '@testing-library/react';
+import { ThemeProvider } from 'styled-components';
 import LayoutWrapper from './LayoutWrapper';
+import { lightTheme } from '../../providers/theme/themes';
 
 const build = (Component = <LayoutWrapper />) => {
-  const { container } = render(Component);
+  const { container } = render(
+    <ThemeProvider theme={{ theme: lightTheme }}>{Component}</ThemeProvider>
+  );
   return {
     container,
-    Header: () => getByRole(container, "toolbar"),
+    Header: () => getByRole(container, 'toolbar'),
     HomeView: () => getByRole(container, 'main'),
   };
 };

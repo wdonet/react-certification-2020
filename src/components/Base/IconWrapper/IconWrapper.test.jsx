@@ -1,13 +1,13 @@
 import React from 'react';
 import 'jest-styled-components';
+import { render } from '@testing-library/react';
 import IconWrapper from './IconWrapper';
 import hamburger from '../../../assets/icons/hamburguer.png';
-import { render } from '@testing-library/react';
 
 const build = (Component = <IconWrapper />) => {
   const { container } = render(Component);
   return { container };
-}
+};
 
 describe('IconWrapper', () => {
   it('renders', () => {
@@ -33,7 +33,7 @@ describe('IconWrapper styles and props', () => {
     const { firstChild } = build(
       <IconWrapper src={EXPECTED_SRC} alt={EXPECTED_ALT} />
     ).container;
-    expect(firstChild).toHaveAttribute("src", EXPECTED_SRC);
-    expect(firstChild).toHaveAttribute("alt", EXPECTED_ALT);
+    expect(firstChild).toHaveAttribute('src', EXPECTED_SRC);
+    expect(firstChild).toHaveAttribute('alt', EXPECTED_ALT);
   });
 });

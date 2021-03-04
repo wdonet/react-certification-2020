@@ -1,16 +1,19 @@
 import React from 'react';
 import 'jest-styled-components';
 import { getByRole, render } from '@testing-library/react';
+import { ThemeProvider } from 'styled-components';
 import Header from './Header';
 
 const build = (Component = <Header />) => {
-  const { container } = render(Component);
+  const { container } = render(
+    <ThemeProvider theme={{ switchTheme: jest.fn() }}>{Component}</ThemeProvider>
+  );
   return {
     container,
-    HamburguerIcon: () => getByRole(container, "button", { name: "hamburguer" }),
+    HamburguerIcon: () => getByRole(container, 'button', { name: 'hamburguer' }),
     SearchInput: () => getByRole(container, 'search'),
     ThemeModeSwitch: () => getByRole(container, 'switch'),
-    UserAvatar: () => getByRole(container, "button", { name: "profile" }),
+    UserAvatar: () => getByRole(container, 'button', { name: 'profile' }),
   };
 };
 

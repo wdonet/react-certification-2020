@@ -1,12 +1,12 @@
 import React from 'react';
 import 'jest-styled-components';
-import HomeView from './HomeView';
 import { render } from '@testing-library/react';
+import HomeView from './HomeView';
 
-const build = (Component = <HomeView/>) => {
+const build = (Component = <HomeView />) => {
   const { container } = render(Component);
   return { container };
-}
+};
 
 describe('HomeView', () => {
   it('renders', () => {

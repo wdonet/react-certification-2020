@@ -19,11 +19,7 @@ const HomeVideos = () => {
         const { title, description, thumbnails } = video.snippet;
         return (
           <div key={key} data-testid={`video-card-${key}`}>
-            <Card 
-              image={thumbnails.high.url} 
-              title={title} 
-              description={description} 
-            />
+            <Card image={thumbnails.high.url} title={title} description={description} />
           </div>
         );
       })}

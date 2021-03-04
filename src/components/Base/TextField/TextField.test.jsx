@@ -1,12 +1,12 @@
 import React from 'react';
 import 'jest-styled-components';
-import TextField from './TextField';
 import { render } from '@testing-library/react';
+import TextField from './TextField';
 
 const build = (Component = <TextField />) => {
   const { container } = render(Component);
   return { container };
-}
+};
 
 describe('TextField', () => {
   it('renders', () => {

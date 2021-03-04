@@ -1,12 +1,12 @@
 import React from 'react';
 import 'jest-styled-components';
-import Card from './Card';
 import { render } from '@testing-library/react';
+import Card from './Card';
 
 const build = (Component = <Card />) => {
   const { container } = render(Component);
   return { container };
-}
+};
 
 describe('Card', () => {
   it('renders', () => {
@@ -37,8 +37,8 @@ describe('Card styles and props', () => {
         description={EXPECTED_DESCRIPTION}
       />
     );
-    const img = container.querySelector("img");
-    expect(img).toHaveProperty("src", EXPECTED_IMAGE);
+    const img = container.querySelector('img');
+    expect(img).toHaveProperty('src', EXPECTED_IMAGE);
     expect(container.textContent).toContain(EXPECTED_TITLE);
     expect(container.textContent).toContain(EXPECTED_DESCRIPTION);
   });

@@ -1,13 +1,12 @@
 import React from 'react';
 import 'jest-styled-components';
-import Avatar from './Avatar';
 import { render } from '@testing-library/react';
-
+import Avatar from './Avatar';
 
 const build = (Component = <Avatar />) => {
   const { container } = render(Component);
-  return  { container };
-}
+  return { container };
+};
 
 describe('Avatar', () => {
   it('renders', () => {
@@ -29,8 +28,10 @@ describe('Avatar styles and props', () => {
   it('has all passed props', () => {
     const EXPECTED_SRC = 'https://i.picsum.photos/id/237/536/354.jpg';
     const EXPECTED_ALT = 'profile_image';
-    const { firstChild } = build(<Avatar src={EXPECTED_SRC} alt={EXPECTED_ALT} />).container;
-    expect(firstChild).toHaveAttribute("src", EXPECTED_SRC);
-    expect(firstChild).toHaveAttribute("alt", EXPECTED_ALT);
+    const { firstChild } = build(
+      <Avatar src={EXPECTED_SRC} alt={EXPECTED_ALT} />
+    ).container;
+    expect(firstChild).toHaveAttribute('src', EXPECTED_SRC);
+    expect(firstChild).toHaveAttribute('alt', EXPECTED_ALT);
   });
 });

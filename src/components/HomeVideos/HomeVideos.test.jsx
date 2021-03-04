@@ -7,7 +7,7 @@ import { data } from './mockData';
 const build = (Component = <HomeVideos />) => {
   const { container } = render(Component);
   return { container };
-}
+};
 
 describe('HomeVideos', () => {
   it('renders', () => {
@@ -31,6 +31,6 @@ describe('HomeVideos shows home videos', () => {
   it('displays all videos', () => {
     const { container } = build();
     const videos = getAllByTestId(container, (id) => id.includes('video-card-'));
-    expect( videos ).toHaveLength(data.items.length);
+    expect(videos).toHaveLength(data.items.length);
   });
 });

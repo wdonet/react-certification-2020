@@ -7,6 +7,7 @@ const build = () => {
   return {
     container,
     LayoutWrapper: () => getByRole(container, 'application'),
+    ThemeSwitch: () => getByRole(container, 'switch'),
   };
 };
 
@@ -18,7 +19,6 @@ describe('App layout', () => {
 
   it('displays layout wrapper', () => {
     const { LayoutWrapper } = build();
-
     expect(LayoutWrapper()).toBeInTheDocument();
   });
 });

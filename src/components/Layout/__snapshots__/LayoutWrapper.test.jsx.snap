@@ -3,13 +3,13 @@
 exports[`LayoutWrapper renders 1`] = `
 <div>
   <div
-    class="sc-gzVnrw gjCjCa"
+    class="sc-gzVnrw hKDnqC"
     data-testid="layout-wrapper"
     role="application"
   >
     <div
       class="sc-ifAKCX fOhgAo"
-      data-testid="navbar"
+      data-testid="header"
       role="toolbar"
     >
       <div

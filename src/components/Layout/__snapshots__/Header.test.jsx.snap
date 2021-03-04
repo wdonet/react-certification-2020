@@ -4,7 +4,7 @@ exports[`Header renders 1`] = `
 <div>
   <div
     class="sc-ifAKCX fOhgAo"
-    data-testid="navbar"
+    data-testid="header"
     role="toolbar"
   >
     <div

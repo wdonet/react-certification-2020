@@ -1,9 +1,9 @@
 import React from 'react';
 import 'jest-styled-components';
-import Switch from './Switch';
 import { render } from '@testing-library/react';
+import Switch from './Switch';
 
-const build = (Component = <Switch/>) => {
+const build = (Component = <Switch />) => {
   const { container } = render(Component);
   return { container };
 };
@@ -14,9 +14,3 @@ describe('Switch', () => {
     expect(container).toMatchSnapshot();
   });
 });
-
-// describe('Switch styles and props', () => {
-//   it('applies default styling', () => {
-//     const tree = mount(<Switch />);
-//   });
-// });

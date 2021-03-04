@@ -10,7 +10,7 @@ const StyledTextField = styled.input`
 `;
 
 const TextField = ({ role }) => {
-  return <StyledTextField role={role}/>;
+  return <StyledTextField role={role} />;
 };
 
 export default TextField;
