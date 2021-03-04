@@ -22,6 +22,9 @@ function SearchProvider({ children }) {
   // }, []);
 
   const [searchTerm, setSearchterm] = useState('wizeline');
+  const [selectedVideoId, setSelectedVideoId] = useState('');
+  const [selectedVideoTitle, setSelectedVideoTitle] = useState('');
+  const [selectedVideoDescription, setSelectedVideoDescription] = useState('');
 
   const debouncedSearch = debounce((v) => {
     const searchFor = v === '' ? 'wizeline' : v;
@@ -40,8 +43,26 @@ function SearchProvider({ children }) {
     e.preventDefault();
   }, []);
 
+  const updateSelectedVideo = useCallback((e) => {
+    console.log('videoUodated');
+    const { id, title, description } = e.currentTarget.dataset;
+    setSelectedVideoId(id);
+    setSelectedVideoTitle(title);
+    setSelectedVideoDescription(description);
+  }, []);
+
   return (
-    <SearchContext.Provider value={{ termChanged, searchSubmited, searchTerm }}>
+    <SearchContext.Provider
+      value={{
+        termChanged,
+        searchSubmited,
+        updateSelectedVideo,
+        searchTerm,
+        selectedVideoId,
+        selectedVideoTitle,
+        selectedVideoDescription,
+      }}
+    >
       {children}
     </SearchContext.Provider>
   );

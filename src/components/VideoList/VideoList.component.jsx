@@ -8,8 +8,9 @@ function VideoList({ items }) {
       className="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 "
       data-testid="VideoList"
     >
-      {items.map(({ snippet, etag }) => (
+      {items.map(({ id, snippet, etag }) => (
         <VideoListItem
+          videoID={id.videoId}
           title={snippet.title}
           description={snippet.description}
           thumbnails={snippet.thumbnails}
