@@ -7,6 +7,7 @@ const MyLi = styled.li`
     margin: 0 2vw;
     font-size: 3vh;
     color: white;
+    padding: 1vw;
 `;
 
 const MyA = styled.a`
@@ -24,13 +25,25 @@ const MyUl = styled.ul`
     display: flex;
 `;
 
+const MyInput = styled.input`
+    display: flex;
+    padding: 1vw;
+    height: 30px;
+    border: 1px solid grey;
+    border-radius: 5px;
+`;
+
 function NavBar(){
     return(
         <MyNav>
             <MyUl>
                 <MyLi><a href="http://">Login</a></MyLi>
                 <MyLi>Theme</MyLi>
-                <MyLi>Search</MyLi>
+                <MyLi>
+                    <form action="" method="post">
+                        <MyInput type="text" placeholder="Search..."></MyInput>
+                    </form>
+                </MyLi>
             </MyUl>
         </MyNav>
     )
