@@ -1,6 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
-import { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 
 import GlobalStyle, { lightTheme, darkTheme } from '../../globalStyles';
 import Header from '../Header';

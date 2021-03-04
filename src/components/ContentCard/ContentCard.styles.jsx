@@ -26,6 +26,7 @@ export const StyledCardMedia = styled(CardMedia)`
 export const Title = styled(Typography).attrs(() => ({
   component: 'h2',
   variant: 'subtitle1',
+  gutterBottom: true,
 }))`
   && {
     color: ${({ theme }) => theme.body.color};
@@ -35,6 +36,7 @@ export const Title = styled(Typography).attrs(() => ({
 export const Description = styled(Typography).attrs(() => ({
   component: 'p',
   variant: 'body2',
+  color: 'textSecondary',
 }))`
   && {
     color: ${({ theme }) => theme.cardText.color};
