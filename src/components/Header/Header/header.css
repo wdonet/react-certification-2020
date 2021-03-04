@@ -1,0 +1,15 @@
+.header-bar {
+  margin-left: 350px;
+  width: 800px;
+  top: 30px;
+  position: absolute;
+  font-size: 16px;
+}
+
+.login-link {
+  text-align: center;
+}
+
+.login-user {
+  font-size: 14px;
+}
