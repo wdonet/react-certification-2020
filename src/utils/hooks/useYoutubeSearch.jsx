@@ -31,7 +31,7 @@ const instance = axios.create({
 const defaultParams = {
   q: '',
   maxResults: 24,
-  part: 'snippet',
+  part: ['id', 'snippet'].join(','),
   type: ['channel', 'video', 'playlist'].join(','),
 };
 
