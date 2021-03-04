@@ -1,21 +1,21 @@
-import React, { useContext } from 'react';
+import React from 'react';
+import { useSearch } from '../../providers/Search.provider';
 import Styled from './NavigationBarSearch.styled';
 
 function NavigationBarSearch() {
-  const actions = useContext();
+  const { searchSubmited, termChanged } = useSearch();
   return (
     <Styled.Form
       className="d-flex"
       data-testid="NavigationBarSearch"
-      onSubmit={actions.searchSubmited}
+      onSubmit={searchSubmited}
     >
       <Styled.Field
         className="form-control me-2"
         type="search"
         placeholder="Search"
         aria-label="Search"
-        value={actions.searchTerm}
-        onChange={actions.termChanged}
+        onChange={termChanged}
       />
       <Styled.Button className="btn btn-outline-light" type="submit">
         <svg

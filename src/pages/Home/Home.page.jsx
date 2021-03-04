@@ -2,10 +2,12 @@ import React, { useRef, useEffect, useState } from 'react';
 import VideoList from '../../components/VideoList';
 import useYoutubeAPI from '../../hooks/useYoutubeAPI';
 import { filterItemsByKind } from '../../utils/contenFilter';
+import { useSearch } from '../../providers/Search.provider';
 
 function HomePage() {
   const sectionRef = useRef(null);
-  const { searchResult, loading } = useYoutubeAPI('wizeline');
+  const { searchTerm } = useSearch();
+  const { searchResult, loading } = useYoutubeAPI(searchTerm);
   const [items, setItems] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
 

@@ -8,11 +8,11 @@ const useYoutubeAPI = (searchTerm) => {
     const fetchResults = async () => {
       try {
         setLoading(true);
+        console.log('---- FETCH ----');
         const response = await fetch(
           `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${searchTerm}&key=${process.env.REACT_APP_YOUTUBE_API}`
         );
         const json = await response.json();
-        console.log('---- FETCH ----');
         console.log(response);
         // const data = await response.json();
         // console.log(data.result);

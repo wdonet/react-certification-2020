@@ -1,3 +1,4 @@
+import { debounce } from 'debounce';
 import React, { useState, useContext, useCallback } from 'react';
 
 const SearchContext = React.createContext(null);
@@ -20,16 +21,23 @@ function SearchProvider({ children }) {
   //   setAuthenticated(isAuthenticated);
   // }, []);
 
-  const [searchTerm, setSearchterm] = useState('');
+  const [searchTerm, setSearchterm] = useState('wizeline');
 
-  const termChanged = useCallback((e) => {
-    console.log(e.target.value);
-    const { value } = e.target;
-    setSearchterm(value);
-  }, []);
+  const debouncedSearch = debounce((v) => {
+    const searchFor = v === '' ? 'wizeline' : v;
+    setSearchterm(searchFor);
+  }, 700);
+
+  const termChanged = useCallback(
+    (e) => {
+      const { value } = e.target;
+      debouncedSearch(value);
+    },
+    [debouncedSearch]
+  );
+
   const searchSubmited = useCallback((e) => {
     e.preventDefault();
-    console.log('form sent');
   }, []);
 
   return (
