@@ -61,3 +61,12 @@ export const SnippetDescription = styled(Typography).attrs(() => ({
     color: ${({ theme }) => theme.cardText.color};
   }
 `;
+
+export const StyledButton = styled.button.attrs(() => ({
+  type: 'button',
+}))`
+  width: 150px;
+  height: 40px;
+  margin-top: 30px;
+  cursor: pointer;
+`;
