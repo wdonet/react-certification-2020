@@ -1,7 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 
+import GlobalStyle, { lightTheme, darkTheme } from '../../globalStyles';
 import Header from '../Header';
+
+import { useCustom } from '../../providers/Custom';
 
 const StyledGrowDiv = styled.div`
   flex-grow: 1;
@@ -9,11 +13,16 @@ const StyledGrowDiv = styled.div`
 `;
 
 function Layout({ children }) {
+  const { darkMode } = useCustom();
+
   return (
-    <StyledGrowDiv>
-      <Header />
-      {children}
-    </StyledGrowDiv>
+    <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+      <GlobalStyle />
+      <StyledGrowDiv>
+        <Header />
+        {children}
+      </StyledGrowDiv>
+    </ThemeProvider>
   );
 }
 

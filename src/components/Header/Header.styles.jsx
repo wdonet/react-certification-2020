@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { AppBar, IconButton, InputBase, Switch } from '@material-ui/core';
+import { AppBar, IconButton, InputBase, Switch, Menu } from '@material-ui/core';
 
 export const StyledGrowDiv = styled.div`
   flex-grow: 1;
@@ -7,7 +7,7 @@ export const StyledGrowDiv = styled.div`
 
 export const StyledAppBar = styled(AppBar)`
   && {
-    background-color: #1c5476;
+    background-color: ${({ theme }) => theme.appBar.backgroundColor};
   }
 `;
 
@@ -86,4 +86,11 @@ export const StyledSwitch = styled(Switch)`
         }
       }
     `};
+`;
+
+export const StyledMenu = styled(Menu)`
+  .MuiPaper-root {
+    color: ${({ theme }) => theme.body.color};
+    background-color: ${({ theme }) => theme.body.backgroundColor};
+  }
 `;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Toolbar, IconButton, FormControlLabel, Menu, MenuItem } from '@material-ui/core';
+import { Toolbar, IconButton, FormControlLabel, MenuItem } from '@material-ui/core';
 import {
   Menu as MenuIcon,
   Search as SearchIcon,
@@ -17,6 +17,7 @@ import {
   StyledInput,
   StyledDarkModeDiv,
   StyledSwitch,
+  StyledMenu,
 } from './Header.styles';
 
 import { useCustom } from '../../providers/Custom';
@@ -89,7 +90,7 @@ const Header = () => {
           >
             <AccountCircleIcon />
           </IconButton>
-          <Menu
+          <StyledMenu
             id="menuId"
             data-testid="menu-testid"
             anchorEl={anchorEl}
@@ -101,7 +102,7 @@ const Header = () => {
           >
             <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
             <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-          </Menu>
+          </StyledMenu>
         </StyledDarkModeDiv>
       </Toolbar>
     </StyledAppBar>

@@ -1,7 +1,7 @@
 import React from 'react';
-import { CardContent, CardActionArea, Typography } from '@material-ui/core';
+import { CardContent, CardActionArea } from '@material-ui/core';
 
-import { StyledCard, StyledCardMedia } from './ContentCard.styles';
+import { StyledCard, StyledCardMedia, Title, Description } from './ContentCard.styles';
 
 const ContentCard = ({ item }) => (
   <StyledCard>
@@ -11,15 +11,8 @@ const ContentCard = ({ item }) => (
         title={item.snippet.title}
       />
       <CardContent>
-        <Typography
-          gutterBottom
-          component="h2"
-          variant="subtitle1"
-          dangerouslySetInnerHTML={{ __html: item.snippet.title }}
-        />
-        <Typography color="textSecondary" component="p" variant="body2">
-          {item.snippet.description}
-        </Typography>
+        <Title gutterBottom dangerouslySetInnerHTML={{ __html: item.snippet.title }} />
+        <Description color="textSecondary">{item.snippet.description}</Description>
       </CardContent>
     </CardActionArea>
   </StyledCard>
