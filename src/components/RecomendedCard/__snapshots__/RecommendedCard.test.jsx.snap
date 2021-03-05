@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RecommendedCard Validates VideoCard snapshot 1`] = `
+<a
+  className="sc-bdfBwQ iEkQBl"
+  href="/video/wodwkc9bzqY"
+  onClick={[Function]}
+>
+  <div
+    className="sc-gsTCUz gbEMKB"
+  >
+    <img
+      alt="SNAKES AND LADDERS | Comedy Family Challenge | Biggest Saap Sidi | Aayu and Pihu Show"
+    />
+    
+  </div>
+  <div
+    className="sc-dlfnbm fOolBg"
+  >
+    <h5
+      className="sc-eCssSg eMkQAo"
+      title="SNAKES AND LADDERS | Comedy Family Challenge | Biggest Saap Sidi | Aayu and Pihu Show"
+    >
+      SNAKES AND LADDERS | Comedy Family Challenge | Biggest Saap Sidi | Aayu and Pihu Show
+    </h5>
+    <h6
+      className="sc-jSgupP hHNFVW"
+    >
+      Aayu and Pihu Show
+    </h6>
+  </div>
+</a>
+`;
