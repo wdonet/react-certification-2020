@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useVideo } from '../../state';
+import useImportScript from '../../utils/hooks/useImportScrip';
 
 const Header = styled.header`
   color: #fff;
@@ -11,9 +13,6 @@ const Header = styled.header`
   box-sizing: border-box;
   flex-shrink: 0;
   flex-direction: column;
-
-  pointer-events: none;
-  opacity: 0.5;
 `;
 
 const NavBar = styled.div`
@@ -116,9 +115,26 @@ const ToggleButton = styled.span`
   background-color: currentColor;
 `;
 
+const Client = (props) => {
+  useImportScript('https://apis.google.com/js/api.js');
+  useImportScript('youtube-request.js');
+  return null;
+};
+
 function HeaderComponent() {
+  const { state, dispatch } = useVideo();
+  const { search } = state;
+
+  async function submitHandler(event) {
+    event.preventDefault();
+    await window.loadClient(process.env.REACT_APP_KEY);
+    const result = await window.execute(search);
+    dispatch({ type: 'SUBMIT', payload: result.items });
+  }
+
   return (
     <Header>
+      <Client />
       <NavBar>
         <Button>
           <span>
@@ -134,7 +150,14 @@ function HeaderComponent() {
             </SvgIcon>
           </SearchIconDiv>
           <SearchInputDiv>
-            <SearchInput type="text" placeholder="Search..."></SearchInput>
+            <form onSubmit={submitHandler}>
+              <SearchInput
+                type="text"
+                placeholder="Search..."
+                value={search}
+                onChange={(e) => dispatch({ type: 'EDIT', payload: e.target.value })}
+              ></SearchInput>
+            </form>
           </SearchInputDiv>
         </SearchBox>
         <ToggleDiv>
