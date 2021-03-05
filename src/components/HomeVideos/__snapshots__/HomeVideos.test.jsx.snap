@@ -9,7 +9,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#channel\\",\\"channelId\\":\\"UCPGzT4wecuWM0BH9mPiulXg\\"}"
     >
       <div
-        class="sc-bdVaJa cKRAMj"
+        class="sc-bdVaJa kLsaJV"
       >
         <img
           alt="Wizeline"
@@ -36,7 +36,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"nmXMgqjQzls\\"}"
     >
       <div
-        class="sc-bdVaJa cKRAMj"
+        class="sc-bdVaJa kLsaJV"
       >
         <img
           alt="Video Tour | Welcome to Wizeline Guadalajara"
@@ -63,7 +63,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"HYyRZiwBWc8\\"}"
     >
       <div
-        class="sc-bdVaJa cKRAMj"
+        class="sc-bdVaJa kLsaJV"
       >
         <img
           alt="Wizeline Guadalajara | Bringing Silicon Valley to Mexico"
@@ -90,7 +90,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"Po3VwR_NNGk\\"}"
     >
       <div
-        class="sc-bdVaJa cKRAMj"
+        class="sc-bdVaJa kLsaJV"
       >
         <img
           alt="Wizeline hace sentir a empleados como en casa"
@@ -117,7 +117,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"7PtYNO6g7eI\\"}"
     >
       <div
-        class="sc-bdVaJa cKRAMj"
+        class="sc-bdVaJa kLsaJV"
       >
         <img
           alt="We Are Wizeline"
@@ -144,7 +144,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"YuW0CE_8i1I\\"}"
     >
       <div
-        class="sc-bdVaJa cKRAMj"
+        class="sc-bdVaJa kLsaJV"
       >
         <img
           alt="Wizeline Thrives in Mexico City"
@@ -171,7 +171,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"CHzlSGRvWPs\\"}"
     >
       <div
-        class="sc-bdVaJa cKRAMj"
+        class="sc-bdVaJa kLsaJV"
       >
         <img
           alt="Wizeline"
@@ -198,7 +198,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"cjO2fJy8asM\\"}"
     >
       <div
-        class="sc-bdVaJa cKRAMj"
+        class="sc-bdVaJa kLsaJV"
       >
         <img
           alt="A Day in the Life of an Engineering Manager at Wizeline"
@@ -225,7 +225,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"zClI9OjgKXM\\"}"
     >
       <div
-        class="sc-bdVaJa cKRAMj"
+        class="sc-bdVaJa kLsaJV"
       >
         <img
           alt="Wizeline Technical Writing Academy | Featuring Eduardo Ocejo"
@@ -250,7 +250,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"8bz9R61oY5o\\"}"
     >
       <div
-        class="sc-bdVaJa cKRAMj"
+        class="sc-bdVaJa kLsaJV"
       >
         <img
           alt="Silicon Valley en México"
@@ -277,7 +277,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"7dJFraOqcoQ\\"}"
     >
       <div
-        class="sc-bdVaJa cKRAMj"
+        class="sc-bdVaJa kLsaJV"
       >
         <img
           alt="Why Wizeline? featuring Juan Pablo Villa in Mexico City"
@@ -304,7 +304,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"w-Qwc_XJrWc\\"}"
     >
       <div
-        class="sc-bdVaJa cKRAMj"
+        class="sc-bdVaJa kLsaJV"
       >
         <img
           alt="Wizeline&#39;s 2020 Year in Review"
@@ -331,7 +331,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"rjir_cHTl5w\\"}"
     >
       <div
-        class="sc-bdVaJa cKRAMj"
+        class="sc-bdVaJa kLsaJV"
       >
         <img
           alt="Why Wizeline? featuring Hugo Lopez in Mexico City"
@@ -356,7 +356,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"DcFK1x3NHGY\\"}"
     >
       <div
-        class="sc-bdVaJa cKRAMj"
+        class="sc-bdVaJa kLsaJV"
       >
         <img
           alt="Why Wizeline? (We&#39;re Hiring in Mexico!)"
@@ -383,7 +383,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"3BzYWAqZgFw\\"}"
     >
       <div
-        class="sc-bdVaJa cKRAMj"
+        class="sc-bdVaJa kLsaJV"
       >
         <img
           alt="Why Wizeline? featuring Oswaldo Herrera in Mexico City"
@@ -410,7 +410,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"3KVFmT-Tp2w\\"}"
     >
       <div
-        class="sc-bdVaJa cKRAMj"
+        class="sc-bdVaJa kLsaJV"
       >
         <img
           alt="Caso de Éxito AWS: Wizeline [Spanish]"
@@ -437,7 +437,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"aKuPmY2m1Ro\\"}"
     >
       <div
-        class="sc-bdVaJa cKRAMj"
+        class="sc-bdVaJa kLsaJV"
       >
         <img
           alt="Wizeline&#39;s 2019 Year in Review"
@@ -462,7 +462,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"24sTHUyWhRM\\"}"
     >
       <div
-        class="sc-bdVaJa cKRAMj"
+        class="sc-bdVaJa kLsaJV"
       >
         <img
           alt="[1 of 2] Wizeline CEO shares career lessons from Google"
@@ -489,7 +489,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"IxGc1gSqB3A\\"}"
     >
       <div
-        class="sc-bdVaJa cKRAMj"
+        class="sc-bdVaJa kLsaJV"
       >
         <img
           alt="Wizeline Data Engineering featuring Tania Reyes"
@@ -516,7 +516,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"NP1gAnbeNno\\"}"
     >
       <div
-        class="sc-bdVaJa cKRAMj"
+        class="sc-bdVaJa kLsaJV"
       >
         <img
           alt="Wizeline Querétaro | Mexico&#39;s New Knowledge Economy (We&#39;re hiring!)"
@@ -543,7 +543,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"F6Krwu6lUc8\\"}"
     >
       <div
-        class="sc-bdVaJa cKRAMj"
+        class="sc-bdVaJa kLsaJV"
       >
         <img
           alt="Miriam Godinez | Women in Leadership at Wizeline"
@@ -570,7 +570,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"RFq7gfvhtCk\\"}"
     >
       <div
-        class="sc-bdVaJa cKRAMj"
+        class="sc-bdVaJa kLsaJV"
       >
         <img
           alt="Welcome Back to Wizeline Vietnam | Extended Version"
@@ -597,7 +597,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"E1Vq_A3WKK8\\"}"
     >
       <div
-        class="sc-bdVaJa cKRAMj"
+        class="sc-bdVaJa kLsaJV"
       >
         <img
           alt="How does Wizeline work?"
@@ -624,7 +624,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"ZmkslANDz0Q\\"}"
     >
       <div
-        class="sc-bdVaJa cKRAMj"
+        class="sc-bdVaJa kLsaJV"
       >
         <img
           alt="12 Wishes from Wizeline | Happy Holidays 2019"
@@ -649,7 +649,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"Nss3EmTDD3s\\"}"
     >
       <div
-        class="sc-bdVaJa cKRAMj"
+        class="sc-bdVaJa kLsaJV"
       >
         <img
           alt="Why Wizeline?"

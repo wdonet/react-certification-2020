@@ -1,10 +1,11 @@
 import React from 'react';
 import 'jest-styled-components';
-import { render } from '@testing-library/react';
+import { renderWithTheme } from '../../../utils/testing';
+import { lightTheme } from '../../../providers/theme/themes';
 import Card from './Card';
 
-const build = (Component = <Card />) => {
-  const { container } = render(Component);
+const build = (Component = <Card />, theme = lightTheme) => {
+  const { container } = renderWithTheme(Component, theme);
   return { container };
 };
 

@@ -10,6 +10,7 @@ const StyledLayoutWrapper = styled.div`
 `;
 
 const LayoutWrapper = ({ children }) => {
+  
   const { theme } = useContext(ThemeContext);
 
   return (

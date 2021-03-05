@@ -1,5 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useContext } from 'react';
+import styled, { ThemeContext } from 'styled-components';
+import { lightTheme } from '../../../providers/theme/themes';
 
 const StyledDiv = styled.div`
   overflow: hidden;
@@ -8,6 +9,7 @@ const StyledDiv = styled.div`
   margin: 8px;
   box-shadow: 2px 2px 2px 2px #ccc;
   border-radius: 5px;
+  background: ${ ({ theme }) => theme.color.surface };
 
   &:hover {
     background: lightgray;
@@ -41,8 +43,11 @@ const StyledCardDescription = styled.p`
 `;
 
 const Card = ({ title, image, description }) => {
+
+  const { theme } = useContext(ThemeContext);
+
   return (
-    <StyledDiv>
+    <StyledDiv theme={theme}>
       <StyledCardImage src={image} alt={title} />
       <StyledCardContent>
         <StyledCardTitle>{title}</StyledCardTitle>

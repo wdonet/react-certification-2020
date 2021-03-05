@@ -8,7 +8,7 @@ const build = (Component = <Switch />) => {
   return { container };
 };
 
-describe('Swithc functionality', () => {
+describe('Switch functionality', () => {
   it("triggers 'onClick' funcion", () => {
     const onClickFunction = jest.fn();
     const { container } = build(<Switch onClick={onClickFunction} />);

@@ -2,9 +2,10 @@ import React from 'react';
 import { fireEvent, getByRole, render } from '@testing-library/react';
 import { darkTheme, lightTheme } from '../../providers/theme/themes';
 import App from './index';
+import { renderWithTheme } from '../../utils/testing';
 
-const build = () => {
-  const { container } = render(<App />);
+const build = (Component = <App />, theme = lightTheme) => {
+  const { container } = renderWithTheme(Component, theme);
   return {
     container,
     LayoutWrapper: () => getByRole(container, 'application'),
