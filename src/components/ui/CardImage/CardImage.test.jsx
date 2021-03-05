@@ -20,8 +20,10 @@ describe('CardImage', () => {
   });
 
   it('shows image', () => {
+    const EXPECTED_ALT= 'alternative text';
     const EXPECTED_SRC = '/image.png';
-    const { firstChild } = build(<CardImage src={EXPECTED_SRC} />).container;
+    const { firstChild } = build(<CardImage src={EXPECTED_SRC} alt={EXPECTED_ALT}/>).container;
     expect(firstChild).toHaveAttribute('src', EXPECTED_SRC);
+    expect(firstChild).toHaveAttribute('alt', EXPECTED_ALT);
   });
 });

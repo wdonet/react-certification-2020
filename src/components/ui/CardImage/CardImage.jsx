@@ -12,8 +12,8 @@ const StyledCardImage = styled.img`
 `;
 
 const CardImage = (props) => {
-  const { src } = props;
-  return <StyledCardImage src={src} />;
+  const { src, alt } = props;
+  return (<StyledCardImage src={src} alt={alt} />);
 };
 
 export default CardImage;

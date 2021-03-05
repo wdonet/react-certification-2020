@@ -8,8 +8,7 @@ const StyledCardContent = styled.div`
 `;
 
 const CardContent = (props) => {
-  const content = props.children || null;
-  return <StyledCardContent>{content}</StyledCardContent>;
+  return (<StyledCardContent>{props.children}</StyledCardContent>);
 };
 
 export default CardContent;

@@ -7,8 +7,8 @@ const StyledCardTitle = styled.h2`
 `;
 
 const CardTitle = (props) => {
-  const { children } = props;
-  return <StyledCardTitle>{children}</StyledCardTitle>;
+  const { children, title } = props;
+  return <StyledCardTitle title={title}>{children}</StyledCardTitle>;
 };
 
 export default CardTitle;

@@ -2,6 +2,7 @@ import React from 'react';
 import 'jest-styled-components';
 import { renderWithTheme } from '../../../utils/testing';
 import { lightTheme } from '../../../providers/theme/themes';
+import { getByRole } from '@testing-library/react';
 import Card from './Card';
 
 const build = (Component = <Card />, theme = lightTheme) => {
@@ -27,9 +28,11 @@ describe('Card styles and props', () => {
     expect(firstChild).toHaveStyle('border-radius: 5px');
   });
 
-  it('has all passed props', () => {
+  it('has role and all passed props', () => {
+    const EXPECTED_ROLE = "figure";
     const EXPECTED_CONTENT = "Hi, I'm your card content";
-    const { firstChild } = build(<Card>{EXPECTED_CONTENT}</Card>).container;
-    expect(firstChild).toHaveTextContent(EXPECTED_CONTENT);
+    const { container } = build(<Card role={EXPECTED_ROLE}>{EXPECTED_CONTENT}</Card>);
+    expect( getByRole(container, EXPECTED_ROLE) ).toBeInTheDocument();
+    expect(container).toHaveTextContent(EXPECTED_CONTENT);
   });
 });

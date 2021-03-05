@@ -3,17 +3,17 @@
 exports[`Header renders 1`] = `
 <div>
   <div
-    class="sc-ifAKCX fOhgAo"
+    class="sc-dnqmqq NHvrK"
     data-testid="header"
     role="toolbar"
   >
     <div
-      class="sc-EHOje hecEEV"
+      class="sc-iwsKbI hQBmBE"
     >
       <div>
         <img
           alt="hamburguer"
-          class="sc-bwzfXH eRyTNY"
+          class="sc-bZQynM fQIdZv"
           role="button"
           src="hamburguer.png"
         />
@@ -22,19 +22,19 @@ exports[`Header renders 1`] = `
         data-testid="search-input"
       >
         <input
-          class="sc-bdVaJa kHpFHH"
+          class="sc-htoDjs qDjDL"
           role="search"
         />
       </div>
     </div>
     <div
-      class="sc-EHOje hecEEV"
+      class="sc-iwsKbI hQBmBE"
     >
       <div
         data-testid="theme-mode-switch"
       >
         <input
-          class="sc-bxivhb bUZGRr"
+          class="sc-gzVnrw ibZhkv"
           role="switch"
           type="checkbox"
         />
@@ -44,7 +44,7 @@ exports[`Header renders 1`] = `
       >
         <img
           alt="profile"
-          class="sc-htpNat ihTYrT"
+          class="sc-bdVaJa ieaWl"
           role="button"
           src="default_user.jpg"
         />
