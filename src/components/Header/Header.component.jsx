@@ -1,17 +1,30 @@
 import './Header.styles.css';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Checkbox, Icon, Input, Menu, Dropdown } from 'semantic-ui-react';
 
 import { useAuth } from '../../providers/Auth';
+import useQueryParams from '../../hooks/useQueryParams';
 
 const Header = ({ onOpenSidebar, onOpenModal, onDarkMode, isDarkMode }) => {
   const history = useHistory();
+  const [searchedText, setSearchedText] = useState('');
   const { authenticated, logout } = useAuth();
+  const queryParam = useQueryParams().searchedText;
+
+  useEffect(() => {
+    setSearchedText(queryParam || '');
+  }, [queryParam]);
 
   const deAuthenticate = () => {
     logout();
     history.push('/');
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      history.push({ pathname: '/results', search: `?searchedText=${searchedText}` });
+    }
   };
 
   return (
@@ -26,7 +39,14 @@ const Header = ({ onOpenSidebar, onOpenModal, onDarkMode, isDarkMode }) => {
           />
         </Menu.Item>
         <Menu.Item className="searchInput">
-          <Input icon="search" placeholder="Search..." />
+          <Input
+            data-testid="header-search"
+            icon="search"
+            placeholder="Search..."
+            value={searchedText}
+            onKeyDown={handleKeyDown}
+            onChange={(event) => setSearchedText(event.target.value)}
+          />
         </Menu.Item>
 
         <Menu.Menu position="right">

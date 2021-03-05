@@ -2,27 +2,34 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 
 import { useAuth } from '../../providers/Auth';
+import useQueryParams from '../../hooks/useQueryParams';
 import Header from './Header.component';
 
 const mockHistoryPush = jest.fn();
 const mockLogout = jest.fn();
 
 jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
   useHistory: () => ({
     push: mockHistoryPush,
   }),
 }));
 
-jest.mock('../../providers/Auth', () => ({
-  useAuth: jest.fn(() => ({ authenticated: false })),
-}));
+jest.mock('../../providers/Auth');
+
+jest.mock('../../hooks/useQueryParams');
 
 describe('Header', () => {
+  beforeEach(() => {
+    useAuth.mockImplementation(() => ({ authenticated: false }));
+    useQueryParams.mockImplementation(() => ({}));
+  });
+
   it('should renders', () => {
-    render(<Header />);
+    const { container } = render(<Header />);
 
     expect(screen.getByTestId('header-menu')).toBeTruthy();
+
+    expect(container).toMatchSnapshot();
   });
 
   it('should opens sidebar', () => {
@@ -80,5 +87,28 @@ describe('Header', () => {
     fireEvent.click(screen.getByTestId('header-dropdown-logout'));
     expect(mockLogout).toHaveBeenCalledTimes(1);
     expect(mockHistoryPush).toHaveBeenLastCalledWith('/');
+  });
+
+  it('should redirect when user press enter on input search', () => {
+    const expected = {
+      pathname: '/results',
+      search: '?searchedText=Wizeline',
+    };
+    render(<Header />);
+
+    const input = screen.getByRole('textbox');
+    fireEvent.change(input, { target: { value: 'Wizeline' } });
+    fireEvent.keyDown(input, { key: 'Enter', code: 'Enter' });
+    expect(mockHistoryPush).toHaveBeenCalledTimes(1);
+    expect(mockHistoryPush).toHaveBeenLastCalledWith(expected);
+  });
+
+  it('should not redirect when user press any other key on input search', () => {
+    render(<Header />);
+
+    const input = screen.getByRole('textbox');
+    fireEvent.change(input, { target: { value: 'Wizeline' } });
+    fireEvent.keyDown(input, { key: 'Space', code: 'Space' });
+    expect(mockHistoryPush).toHaveBeenCalledTimes(0);
   });
 });

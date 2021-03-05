@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Favorites should renders 1`] = `
+<div>
+  <section
+    class="sc-bdfBwQ jMKfTJ"
+  >
+    <h1
+      class="sc-gsTCUz eybKbR"
+      data-testid="favorites-message"
+    >
+      Favorites
+    </h1>
+  </section>
+</div>
+`;

@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFound should renders 1`] = `
+<div>
+  <section
+    class="sc-bdfBwQ dDpctk"
+  >
+    <h1
+      class="sc-gsTCUz ifuuBC"
+    >
+      Page Not Found
+    </h1>
+    <img
+      alt="Page Not Found"
+      data-testid="gif"
+      src="404.gif"
+    />
+    <div
+      class="sc-dlfnbm cWLLzh"
+    >
+      <a
+        class="home-link"
+        data-testid="go-home"
+        href="/"
+      >
+        Go back home
+      </a>
+    </div>
+  </section>
+</div>
+`;

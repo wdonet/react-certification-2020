@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home should renders without videos 1`] = `
+<div>
+  <section
+    class="sc-iBPRYJ htirTG"
+  >
+    <h1
+      class="sc-fubCfw kKkKkM"
+      data-testid="home-message"
+    >
+      Welcome to the Challenge!
+    </h1>
+    <div
+      class="sc-gKsewC ikKpsV"
+      data-testid="video-list"
+    />
+  </section>
+</div>
+`;

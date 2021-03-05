@@ -6,7 +6,7 @@ import NotFound from './NotFound.page';
 
 describe('NotFound', () => {
   it('should renders', () => {
-    render(
+    const { container } = render(
       <MemoryRouter initialEntries={['/notfound']}>
         <NotFound />
       </MemoryRouter>
@@ -15,5 +15,7 @@ describe('NotFound', () => {
     expect(screen.getByText('Page Not Found')).toBeTruthy();
     expect(screen.getByTestId('go-home').getAttribute('href')).toBe('/');
     expect(screen.getByTestId('gif').getAttribute('alt')).toBe('Page Not Found');
+
+    expect(container).toMatchSnapshot();
   });
 });

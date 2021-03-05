@@ -5,15 +5,21 @@ import { loginModalClosed, loginModalOpened } from '../../__mocks__/loginMock';
 import { useAuth } from '../../providers/Auth';
 import Login from './Login.component';
 
-jest.mock('../../providers/Auth', () => ({
-  useAuth: jest.fn(() => ({ authenticated: false })),
-}));
+const mockLogin = jest.fn();
+
+jest.mock('../../providers/Auth');
 
 describe('Login', () => {
+  beforeEach(() => {
+    useAuth.mockImplementation(() => ({ authenticated: false }));
+  });
+
   it('should renders when modal is opened', () => {
-    const { getByTestId } = render(<Login {...loginModalOpened} />);
+    const { container, getByTestId } = render(<Login {...loginModalOpened} />);
 
     expect(getByTestId('login-modal')).toBeInTheDocument();
+
+    expect(container).toMatchSnapshot();
   });
 
   it('should not renders when modal is closed', () => {
@@ -23,7 +29,7 @@ describe('Login', () => {
   });
 
   it('should allows user to login', () => {
-    useAuth.mockImplementation(() => ({ authenticated: true, login: jest.fn() }));
+    useAuth.mockImplementation(() => ({ authenticated: true, login: mockLogin }));
     const { getByTestId } = render(<Login {...loginModalOpened} />);
 
     const usernameInput = getByTestId('login-username-input');
@@ -37,5 +43,7 @@ describe('Login', () => {
     fireEvent.click(getByTestId('login-button'));
     expect(usernameInput.value).toBe('');
     expect(passwordInput.value).toBe('');
+
+    expect(mockLogin).toHaveBeenCalledTimes(1);
   });
 });

@@ -4,11 +4,11 @@ import VideoItem from '../VideoItem';
 import { GridContainer } from './VideoList.styles';
 
 const VideoList = ({ videos }) => {
-  const renderedVideos = videos.map(({ etag, snippet }) => {
-    return <VideoItem key={etag} video={snippet} />;
+  const renderedVideos = videos.map((video) => {
+    return <VideoItem key={video.id.videoId} video={video} videos={videos} />;
   });
 
-  return <GridContainer>{renderedVideos}</GridContainer>;
+  return <GridContainer data-testid="video-list">{renderedVideos}</GridContainer>;
 };
 
 export default VideoList;

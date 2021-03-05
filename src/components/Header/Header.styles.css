@@ -1,5 +1,6 @@
 .ui.menu {
   margin: 0;
+  background-color: skyblue;
 }
 
 .ui.menu .item:before {

@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Watch should renders 1`] = `
+<div>
+  <section
+    class="sc-bdfBwQ ggNUPL"
+  >
+    <div
+      class="sc-eCssSg gIaHdG"
+    >
+      <div
+        class="sc-jSgupP eAqXwZ"
+      >
+        <iframe
+          allowfullscreen=""
+          class="sc-iBPRYJ kFCpgj"
+          src="https://www.youtube.com/embed/VideoId"
+          title="video-player"
+        />
+        <div
+          class="sc-fubCfw nHWfQ"
+        >
+          <div
+            class="sc-pFZIQ ldojFV"
+          >
+            Title
+          </div>
+          <button
+            class="sc-jrAGrp koSfab"
+          >
+            Add To Favorites 
+            <i
+              aria-hidden="true"
+              class="favorite icon"
+            />
+          </button>
+        </div>
+        <hr />
+        <p
+          class="sc-kEjbxe kySdlX"
+        >
+          Description
+        </p>
+      </div>
+      <div
+        class="sc-gKsewC dcfKuV"
+      >
+        <div
+          class="sc-gsTCUz dcMcIP"
+          data-testid="related-video-item"
+        >
+          <img
+            alt="Video Tour | Welcome to Wizeline Guadalajara"
+            class="sc-dlfnbm gXZbgX"
+            src="https://i.ytimg.com/vi/nmXMgqjQzls/default.jpg"
+          />
+          <p
+            class="sc-hKgILt cXOrwW"
+          >
+            Video Tour | Welcome to Wizeline Guadalajara
+          </p>
+        </div>
+        <div
+          class="sc-gsTCUz dcMcIP"
+          data-testid="related-video-item"
+        >
+          <img
+            alt="Title"
+            class="sc-dlfnbm gXZbgX"
+            src="https://i.ytimg.com/vi/nmXMgqjQzls/default.jpg"
+          />
+          <p
+            class="sc-hKgILt cXOrwW"
+          >
+            Title
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+`;
