@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const HeaderContainer = styled.div`
-  height: 60px;
   background-color: ${({ theme }) => theme.background.secondary};
   padding: 10px 0 10px 0;
   box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%),
@@ -10,6 +9,15 @@ const HeaderContainer = styled.div`
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
+  @media (max-width: 900px) {
+    height: 60px;
+  }
+  @media (max-width: 700px) {
+    height: 50px;
+  }
+  @media (max-width: 400px) {
+    height: 40px;
+  }
 `;
 
 const LeftItems = styled.div`
@@ -18,6 +26,7 @@ const LeftItems = styled.div`
 
 const CenterItems = styled.div`
   text-align: center;
+  width: 40%;
 `;
 
 const RightItems = styled.div`

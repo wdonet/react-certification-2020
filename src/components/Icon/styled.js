@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const LayoutContainer = styled.main`
   width: 100vw;
@@ -6,6 +6,6 @@ const LayoutContainer = styled.main`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-`
+`;
 
-export { LayoutContainer }
+export { LayoutContainer };
