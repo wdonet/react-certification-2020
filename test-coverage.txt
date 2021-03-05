@@ -1,61 +1,75 @@
 yarn run v1.22.10
 $ npm test -- --coverage --watchAll --coverageThreshold='{"global":{"statements":70}}'
 
-> react-certification-2020@0.1.0 test /Users/saul.meneses/Documents/code/react-certification-2021
+> react-certification-2021@0.1.0 test /Users/saul.meneses/Documents/code/react-certification-2021
 > react-scripts test "--coverage" "--watchAll" "--coverageThreshold={\"global\":{\"statements\":70}}"
 
-----------------------------|----------|----------|----------|----------|-------------------|
-File                        |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
-----------------------------|----------|----------|----------|----------|-------------------|
-All files                   |    80.22 |     87.5 |    77.42 |    81.61 |                   |
- src                        |        0 |      100 |      100 |        0 |                   |
-  index.js                  |        0 |      100 |      100 |        0 |                 7 |
- src/components/App         |      100 |      100 |      100 |      100 |                   |
-  App.component.jsx         |      100 |      100 |      100 |      100 |                   |
-  index.js                  |        0 |        0 |        0 |        0 |                   |
- src/components/Content     |      100 |      100 |      100 |      100 |                   |
-  Content.component.jsx     |      100 |      100 |      100 |      100 |                   |
-  Content.styles.jsx        |      100 |      100 |      100 |      100 |                   |
-  index.jsx                 |        0 |        0 |        0 |        0 |                   |
- src/components/ContentCard |      100 |      100 |      100 |      100 |                   |
-  ContentCard.component.jsx |      100 |      100 |      100 |      100 |                   |
-  ContentCard.styles.jsx    |      100 |      100 |      100 |      100 |                   |
-  index.jsx                 |        0 |        0 |        0 |        0 |                   |
- src/components/Fortune     |      100 |      100 |      100 |      100 |                   |
-  Fortune.component.jsx     |      100 |      100 |      100 |      100 |                   |
-  index.js                  |        0 |        0 |        0 |        0 |                   |
- src/components/Header      |    90.48 |      100 |       60 |      100 |                   |
-  Header.component.jsx      |    81.82 |      100 |       50 |      100 |                   |
-  Header.styles.jsx         |      100 |      100 |      100 |      100 |                   |
-  index.jsx                 |        0 |        0 |        0 |        0 |                   |
- src/components/Layout      |      100 |      100 |      100 |      100 |                   |
-  Layout.component.jsx      |      100 |      100 |      100 |      100 |                   |
-  index.js                  |        0 |        0 |        0 |        0 |                   |
- src/components/Private     |      100 |      100 |      100 |      100 |                   |
-  Private.component.jsx     |      100 |      100 |      100 |      100 |                   |
-  index.js                  |        0 |        0 |        0 |        0 |                   |
- src/pages/Home             |      100 |      100 |      100 |      100 |                   |
-  Home.page.jsx             |      100 |      100 |      100 |      100 |                   |
-  index.js                  |        0 |        0 |        0 |        0 |                   |
- src/pages/Login            |      100 |      100 |      100 |      100 |                   |
-  Login.page.jsx            |      100 |      100 |      100 |      100 |                   |
-  index.js                  |        0 |        0 |        0 |        0 |                   |
- src/pages/NotFound         |      100 |      100 |      100 |      100 |                   |
-  NotFound.page.jsx         |      100 |      100 |      100 |      100 |                   |
-  index.js                  |        0 |        0 |        0 |        0 |                   |
- src/pages/Secret           |        0 |      100 |        0 |        0 |                   |
-  Secret.page.jsx           |        0 |      100 |        0 |        0 |                 5 |
-  index.js                  |        0 |        0 |        0 |        0 |                   |
- src/providers/Auth         |    70.59 |       50 |       60 |    70.59 |                   |
-  Auth.provider.jsx         |    70.59 |       50 |       60 |    70.59 |    11,27,28,32,33 |
-  index.jsx                 |        0 |        0 |        0 |        0 |                   |
- src/utils                  |    55.56 |      100 |    33.33 |    55.56 |                   |
-  constants.js              |      100 |      100 |      100 |      100 |                   |
-  fns.js                    |        0 |      100 |        0 |        0 |                 2 |
-  storage.js                |    57.14 |      100 |       50 |    57.14 |            7,8,13 |
- src/utils/hooks            |    58.33 |      100 |      100 |    58.33 |                   |
-  useFortune.js             |    58.33 |      100 |      100 |    58.33 |    14,16,17,19,21 |
-----------------------------|----------|----------|----------|----------|-------------------|
+-------------------------------|----------|----------|----------|----------|-------------------|
+File                           |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
+-------------------------------|----------|----------|----------|----------|-------------------|
+All files                      |    78.39 |    55.17 |    76.12 |    80.56 |                   |
+ src                           |    91.67 |      100 |      100 |    91.67 |                   |
+  globalStyles.js              |      100 |      100 |      100 |      100 |                   |
+  index.jsx                    |        0 |      100 |      100 |        0 |                 6 |
+ src/components/App            |      100 |      100 |      100 |      100 |                   |
+  App.component.jsx            |      100 |      100 |      100 |      100 |                   |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+ src/components/Content        |      100 |      100 |      100 |      100 |                   |
+  Content.component.jsx        |      100 |      100 |      100 |      100 |                   |
+  Content.styles.jsx           |      100 |      100 |      100 |      100 |                   |
+  index.jsx                    |        0 |        0 |        0 |        0 |                   |
+ src/components/ContentCard    |    91.67 |      100 |       80 |      100 |                   |
+  ContentCard.component.jsx    |       80 |      100 |       50 |      100 |                   |
+  ContentCard.styles.jsx       |      100 |      100 |      100 |      100 |                   |
+  index.jsx                    |        0 |        0 |        0 |        0 |                   |
+ src/components/ContentDetails |      100 |      100 |      100 |      100 |                   |
+  ContentDetails.component.jsx |      100 |      100 |      100 |      100 |                   |
+  ContentDetails.styles.jsx    |      100 |      100 |      100 |      100 |                   |
+  index.jsx                    |        0 |        0 |        0 |        0 |                   |
+ src/components/Header         |    96.67 |      100 |    85.71 |      100 |                   |
+  Header.component.jsx         |    94.44 |      100 |    83.33 |      100 |                   |
+  Header.styles.jsx            |      100 |      100 |      100 |      100 |                   |
+  index.jsx                    |        0 |        0 |        0 |        0 |                   |
+ src/components/Layout         |      100 |       50 |      100 |      100 |                   |
+  Layout.component.jsx         |      100 |       50 |      100 |      100 |                18 |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+ src/components/Private        |      100 |      100 |      100 |      100 |                   |
+  Private.component.jsx        |      100 |      100 |      100 |      100 |                   |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+ src/components/RelatedItem    |    92.31 |      100 |       80 |      100 |                   |
+  RelatedItem.component.jsx    |    83.33 |      100 |       50 |      100 |                   |
+  RelatedItem.styles.jsx       |      100 |      100 |      100 |      100 |                   |
+  index.jsx                    |        0 |        0 |        0 |        0 |                   |
+ src/pages/Home                |      100 |      100 |      100 |      100 |                   |
+  Home.page.jsx                |      100 |      100 |      100 |      100 |                   |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+ src/pages/Login               |      100 |      100 |      100 |      100 |                   |
+  Login.page.jsx               |      100 |      100 |      100 |      100 |                   |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+ src/pages/NotFound            |      100 |      100 |      100 |      100 |                   |
+  NotFound.page.jsx            |      100 |      100 |      100 |      100 |                   |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+ src/pages/Secret              |        0 |      100 |        0 |        0 |                   |
+  Secret.page.jsx              |        0 |      100 |        0 |        0 |                 5 |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+ src/pages/Video               |        0 |        0 |        0 |        0 |                   |
+  Video.page.jsx               |        0 |        0 |        0 |        0 |... 17,18,21,24,32 |
+  index.js                     |        0 |        0 |        0 |        0 |                   |
+ src/providers/Auth            |    70.59 |       50 |       60 |    70.59 |                   |
+  Auth.provider.jsx            |    70.59 |       50 |       60 |    70.59 |    11,27,28,32,33 |
+  index.jsx                    |        0 |        0 |        0 |        0 |                   |
+ src/providers/Custom          |    76.47 |       50 |       60 |    92.86 |                   |
+  Custom.provider.jsx          |    76.47 |       50 |       60 |    92.86 |                11 |
+  index.jsx                    |        0 |        0 |        0 |        0 |                   |
+ src/utils                     |    45.83 |      100 |       25 |    45.45 |                   |
+  axiosConfig.js               |      100 |      100 |      100 |      100 |                   |
+  constants.js                 |      100 |      100 |      100 |      100 |                   |
+  fns.js                       |    23.08 |      100 |    16.67 |    18.18 |... 10,12,15,17,19 |
+  storage.js                   |    57.14 |      100 |       50 |    57.14 |            7,8,13 |
+ src/utils/hooks               |    71.43 |    44.44 |      100 |       75 |                   |
+  index.jsx                    |        0 |        0 |        0 |        0 |                   |
+  useYoutubeSearch.jsx         |    71.43 |    44.44 |      100 |       75 |    15,19,44,46,49 |
+-------------------------------|----------|----------|----------|----------|-------------------|
 
 
-Done in 39.44s.
+[1B[JDone in 17.92s.

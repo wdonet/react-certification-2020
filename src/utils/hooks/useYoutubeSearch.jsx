@@ -1,7 +1,7 @@
 import { useEffect, useReducer, useCallback } from 'react';
-import axios from 'axios';
 
 import * as types from '../constants';
+import { ytInstance as instance } from '../axiosConfig';
 
 const initialState = { loading: false, result: null };
 
@@ -20,13 +20,6 @@ const reducer = (state = initialState, { type, payload }) => {
     }
   }
 };
-
-const instance = axios.create({
-  baseURL: 'https://www.googleapis.com/youtube/v3/search',
-  params: {
-    key: process.env.REACT_APP_YOUTUBE_DATA_API_V3_KEY,
-  },
-});
 
 const defaultParams = {
   q: '',
