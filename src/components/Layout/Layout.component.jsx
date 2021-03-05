@@ -43,7 +43,7 @@ const Layout = ({ children }) => {
 
   return (
     <Container isMenuExpanded={isMenuExpanded}>
-      <Header>
+      <Header data-testid="header">
         <HeaderLeft>
           <MenuHamburger
             isMenuExpanded={isMenuExpanded}
@@ -61,10 +61,10 @@ const Layout = ({ children }) => {
           <UserImage />
         </HeaderRight>
       </Header>
-      <Menu>
+      <Menu data-testid="menu">
         <MenuList>
-          <MenuItem active>
-            <MenuLink to="/">
+          <MenuItem>
+            <MenuLink to="/" exact>
               <MenuIcon isMenuExpanded={isMenuExpanded}>
                 <IoHomeOutline />
                 <span>Home</span>
@@ -85,14 +85,19 @@ const Layout = ({ children }) => {
           </MenuItem>
           <MenuItem>
             {authenticated ? (
-              <MenuLink to="/" onClick={deAuthenticate} data-testid="button-logout">
+              <MenuLink
+                to="/login"
+                exact
+                onClick={deAuthenticate}
+                data-testid="button-logout"
+              >
                 <MenuIcon isMenuExpanded={isMenuExpanded}>
                   <IoExitOutline />
                   <span>Logout</span>
                 </MenuIcon>
               </MenuLink>
             ) : (
-              <MenuLink to="/login">
+              <MenuLink to="/login" exact>
                 <MenuIcon isMenuExpanded={isMenuExpanded}>
                   <IoEnterOutline />
                   <span>Login</span>
@@ -102,7 +107,7 @@ const Layout = ({ children }) => {
           </MenuItem>
         </MenuList>
       </Menu>
-      <MainContent>{children}</MainContent>
+      <MainContent data-testid="main-content">{children}</MainContent>
     </Container>
   );
 };

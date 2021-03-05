@@ -1,24 +1,27 @@
 import {
+  fireEvent,
+  queryByTestId,
   render,
   screen,
-  fireEvent,
   getByTestId,
-  queryByTestId,
 } from '@testing-library/react';
-import renderer from 'react-test-renderer';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import renderer from 'react-test-renderer';
 import AuthProvider from '../../providers/Auth';
-import Layout from './Layout.component';
-import { storage } from '../../utils/storage';
+import SearchProvider from '../../providers/Search';
 import { AUTH_STORAGE_KEY } from '../../utils/constants';
+import { storage } from '../../utils/storage';
+import Layout from './Layout.component';
 
 describe('Layout component', () => {
   it('Should check all Menu Items in Layout', () => {
     render(
       <BrowserRouter>
         <AuthProvider>
-          <Layout />
+          <SearchProvider>
+            <Layout />
+          </SearchProvider>
         </AuthProvider>
       </BrowserRouter>
     );
@@ -34,7 +37,9 @@ describe('Layout component', () => {
     render(
       <BrowserRouter>
         <AuthProvider>
-          <Layout />
+          <SearchProvider>
+            <Layout />
+          </SearchProvider>
         </AuthProvider>
       </BrowserRouter>
     );
@@ -49,7 +54,9 @@ describe('Layout component', () => {
     const { container } = render(
       <BrowserRouter>
         <AuthProvider>
-          <Layout />
+          <SearchProvider>
+            <Layout />
+          </SearchProvider>
         </AuthProvider>
       </BrowserRouter>
     );
@@ -65,7 +72,9 @@ describe('Layout component', () => {
     const { container } = render(
       <BrowserRouter>
         <AuthProvider>
-          <Layout />
+          <SearchProvider>
+            <Layout />
+          </SearchProvider>
         </AuthProvider>
       </BrowserRouter>
     );
@@ -80,7 +89,9 @@ describe('Layout component', () => {
     const component = renderer.create(
       <BrowserRouter>
         <AuthProvider>
-          <Layout />
+          <SearchProvider>
+            <Layout />
+          </SearchProvider>
         </AuthProvider>
       </BrowserRouter>
     );

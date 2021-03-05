@@ -10,6 +10,8 @@ import Private from '../Private';
 import Layout from '../Layout';
 import { theme } from '../../config/theme';
 import GlobalStyles from '../../Global.styles';
+import VideoPage from '../../pages/Video';
+import SearchProvider from '../../providers/Search/Search.provider';
 
 function App() {
   const isSystemDarkMode =
@@ -19,23 +21,28 @@ function App() {
     <BrowserRouter>
       <AuthProvider>
         <ThemeProvider theme={isSystemDarkMode ? theme.dark : theme.light}>
-          <GlobalStyles />
-          <Layout>
-            <Switch>
-              <Route exact path="/">
-                <HomePage />
-              </Route>
-              <Route exact path="/login">
-                <LoginPage />
-              </Route>
-              <Private exact path="/secret">
-                <SecretPage />
-              </Private>
-              <Route path="*">
-                <NotFound />
-              </Route>
-            </Switch>
-          </Layout>
+          <SearchProvider>
+            <GlobalStyles />
+            <Layout>
+              <Switch>
+                <Route exact path="/">
+                  <HomePage />
+                </Route>
+                <Route exact path="/login">
+                  <LoginPage />
+                </Route>
+                <Route exact path="/video/:id">
+                  <VideoPage />
+                </Route>
+                <Private exact path="/secret">
+                  <SecretPage />
+                </Private>
+                <Route path="*">
+                  <NotFound />
+                </Route>
+              </Switch>
+            </Layout>
+          </SearchProvider>
         </ThemeProvider>
       </AuthProvider>
     </BrowserRouter>

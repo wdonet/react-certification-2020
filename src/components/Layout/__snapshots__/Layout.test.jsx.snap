@@ -6,6 +6,7 @@ exports[`Layout component Validates Layout snapshot 1`] = `
 >
   <header
     className="sc-dQppl hIRzVH"
+    data-testid="header"
   >
     <div
       className="sc-bqyKva sc-kstrdz dVlxRI buBnca"
@@ -69,10 +70,8 @@ exports[`Layout component Validates Layout snapshot 1`] = `
             className="sc-gsTCUz eSCwiF"
             data-testid="input-search"
             onBlur={[Function]}
-            onChange={[Function]}
             placeholder="Search"
             type="search"
-            value=""
           />
         </form>
       </div>
@@ -109,17 +108,20 @@ exports[`Layout component Validates Layout snapshot 1`] = `
   </header>
   <nav
     className="sc-idOhPF iuTeJk"
+    data-testid="menu"
   >
     <ul
       className="sc-dIUggk cEXoPP"
     >
       <li
-        className="sc-hHftDr jCcBdi"
+        className="sc-hHftDr bTDXXn"
       >
         <a
-          className="sc-dmlrTW bZGunv"
+          aria-current="page"
+          className="sc-dmlrTW emuAJt active"
           href="/"
           onClick={[Function]}
+          style={Object {}}
         >
           <div
             className="sc-kfzAmx bYBNVj"
@@ -160,7 +162,7 @@ exports[`Layout component Validates Layout snapshot 1`] = `
         </a>
       </li>
       <li
-        className="sc-hHftDr icLTVl"
+        className="sc-hHftDr bTDXXn"
         disabled={true}
       >
         <div
@@ -190,7 +192,7 @@ exports[`Layout component Validates Layout snapshot 1`] = `
         </div>
       </li>
       <li
-        className="sc-hHftDr icLTVl"
+        className="sc-hHftDr bTDXXn"
         disabled={true}
       >
         <div
@@ -220,10 +222,11 @@ exports[`Layout component Validates Layout snapshot 1`] = `
         </div>
       </li>
       <li
-        className="sc-hHftDr icLTVl"
+        className="sc-hHftDr bTDXXn"
       >
         <a
-          className="sc-dmlrTW bZGunv"
+          aria-current={null}
+          className="sc-dmlrTW emuAJt"
           href="/login"
           onClick={[Function]}
         >
@@ -269,6 +272,7 @@ exports[`Layout component Validates Layout snapshot 1`] = `
   </nav>
   <main
     className="sc-fKFyDc SBWAZ"
+    data-testid="main-content"
   />
 </div>
 `;

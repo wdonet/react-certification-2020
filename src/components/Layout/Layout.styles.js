@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import colors from '../../config/colors';
 import device from '../../config/device';
@@ -128,7 +128,7 @@ const MenuList = styled.ul`
 `;
 
 const MenuItem = styled.li`
-  color: ${(props) => (props.active ? colors.gray100 : props.theme.textSecondary)};
+  color: ${(props) => props.theme.textSecondary};
   padding: 0.5rem;
   width: 5rem;
   height: 5rem;
@@ -138,40 +138,46 @@ const MenuItem = styled.li`
   @media ${device.laptop} {
     width: 100%;
   }
-  &[disabled] {
-    cursor: not-allowed;
-  }
-  &:not([disabled]) {
-    &::before {
-      content: '';
-      background-color: ${(props) =>
-        props.active ? props.theme.primary : 'transparent'};
-      border-radius: ${(props) => props.theme.borderRadiusLg};
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: -1;
-      transition: ${(props) => props.theme.transitionDefault};
-    }
-    &:hover {
-      color: ${colors.gray100};
-      &::before {
-        background-color: ${(props) => props.theme.primary};
-        animation-name: ${(props) => (props.active ? '' : 'menu-button-animation')};
-        animation-timing-function: ease-in;
-        animation-duration: 300ms;
-      }
-    }
-  }
 `;
 
-const MenuLink = styled(Link)`
+const MenuLink = styled(NavLink)`
   color: inherit;
   text-decoration: none;
   width: 100%;
   height: 100%;
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
+
+  &::before {
+    content: '';
+    background-color: transparent;
+    border-radius: ${(props) => props.theme.borderRadiusLg};
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: ${(props) => props.theme.transitionDefault};
+  }
+
+  &:hover:not(.active) {
+    color: ${colors.gray100};
+    &::before {
+      background-color: ${(props) => props.theme.primary};
+      animation-name: menu-button-animation;
+      animation-timing-function: ease-in;
+      animation-duration: 300ms;
+    }
+  }
+  &.active {
+    color: ${colors.gray100};
+    &::before {
+      background-color: ${(props) => props.theme.primary};
+    }
+  }
 `;
 
 const MenuIcon = styled.div`
