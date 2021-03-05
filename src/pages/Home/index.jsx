@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Grid from '../../components/Grid';
 import VideoCard from '../../components/VideoCard';
 
@@ -7,24 +7,30 @@ import { useYoutubeData } from '../../providers/YoutubeData';
 import { StyledSection, Title } from './styled';
 
 const HomePage = () => {
-  const { getVideosByQuery } = useYoutubeData();
-  const [videos, setVideos] = useState([]);
-
-  useEffect(() => {
-    const fetchVideos = async () => {
-      const response = await getVideosByQuery();
-      if (response) setVideos(response);
-    };
-    fetchVideos();
-  }, []);
+  const { videos } = useYoutubeData();
 
   const videosParsed = videos
     ? videos.map((video) => {
         const {
           etag,
-          snippet: { title, description },
+          snippet: {
+            title,
+            thumbnails: {
+              medium: { url },
+            },
+            publishedAt,
+            channelTitle,
+          },
         } = video;
-        return <VideoCard key={etag} title={title} description={description} />;
+        return (
+          <VideoCard
+            key={etag}
+            title={title}
+            channelTitle={channelTitle}
+            publishedAt={publishedAt}
+            image={url}
+          />
+        );
       })
     : [];
 
