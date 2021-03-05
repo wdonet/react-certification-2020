@@ -6,6 +6,9 @@ const Card = styled.div`
   overflow: hidden;
   width: 100%;
   height: 100%;
+  a {
+    text-decoration: none;
+  }
 `;
 
 const Header = styled.div`
@@ -18,7 +21,7 @@ const Header = styled.div`
 `;
 const Content = styled.div`
   text-align: left;
-  padding: 1rem;
+  padding: 2rem;
 `;
 
 const Tag = styled.h6`
@@ -40,10 +43,19 @@ const Tag = styled.h6`
 
 const Title = styled.h4`
   color: ${(props) => props.theme.cardTitle};
+  margin-bottom: 1rem;
+  font-weight: 500;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 `;
+
 const Subtitle = styled.h5`
   color: ${(props) => props.theme.cardSubtitle};
+  font-weight: 400;
 `;
+
 const Text = styled.p`
   color: ${(props) => props.theme.cardText};
   font-size: 1.2rem;

@@ -1,25 +1,35 @@
 import React from 'react';
 import { IoWifi } from 'react-icons/io5';
+import { Link } from 'react-router-dom';
 import { Card, Header, Content, Tag, Title, Subtitle, Text } from './VideoCard.styles';
 
-const VideoCard = ({ title, channel, date, thumbnail, liveBroadcastContent }) => {
+const VideoCard = ({ id, title, channel, date, thumbnail, liveBroadcastContent }) => {
   return (
     <Card>
       <Header>
-        <img src={thumbnail} alt={title} />
+        <Link to={`/video/${id}`}>
+          <img src={thumbnail} alt={title} />
+        </Link>
       </Header>
       <Content>
+        <Link to={`/video/${id}`}>
+          <Title title={title}>{title}</Title>
+        </Link>
+        <Link to={`/video/${id}`}>
+          <Subtitle>{channel}</Subtitle>
+        </Link>
+        <Text>{date}</Text>
         {liveBroadcastContent !== 'none' ? (
-          <Tag>
-            <IoWifi />
-            {liveBroadcastContent}
-          </Tag>
+          <footer>
+            <hr />
+            <Tag>
+              <IoWifi />
+              {liveBroadcastContent}
+            </Tag>
+          </footer>
         ) : (
           ''
         )}
-        <Title>{title}</Title>
-        <Subtitle>{channel}</Subtitle>
-        <Text>{date}</Text>
       </Content>
     </Card>
   );
