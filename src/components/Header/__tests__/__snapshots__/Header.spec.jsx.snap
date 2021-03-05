@@ -2,11 +2,11 @@
 
 exports[`<Header /> renders and match checked switch 1`] = `
 <span
-  className="MuiSwitch-root sc-fubCfw ctJYls"
+  className="MuiSwitch-root sc-pFZIQ FFIYX"
 >
   <span
     aria-disabled={false}
-    className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-17 MuiSwitch-switchBase MuiSwitch-colorSecondary PrivateSwitchBase-checked-18 Mui-checked"
+    className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-21 MuiSwitch-switchBase MuiSwitch-colorSecondary PrivateSwitchBase-checked-22 Mui-checked"
     onBlur={[Function]}
     onDragLeave={[Function]}
     onFocus={[Function]}
@@ -25,7 +25,7 @@ exports[`<Header /> renders and match checked switch 1`] = `
     >
       <input
         checked={true}
-        className="PrivateSwitchBase-input-20 MuiSwitch-input"
+        className="PrivateSwitchBase-input-24 MuiSwitch-input"
         onChange={[Function]}
         type="checkbox"
       />

@@ -3,17 +3,24 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 
 import Header from '..';
+import CustomProvider from '../../../providers/Custom';
 import { StyledSwitch } from '../Header.styles';
+
+const WrappedHeader = () => (
+  <CustomProvider>
+    <Header />
+  </CustomProvider>
+);
 
 describe('<Header />', () => {
   it('renders search bar', () => {
-    render(<Header />);
+    render(<WrappedHeader />);
 
     expect(screen.getByLabelText('search')).toBeInTheDocument();
   });
 
   it('typing on search bar', () => {
-    render(<Header />);
+    render(<WrappedHeader />);
 
     const searchElement = screen.getByLabelText('search');
     const value = 'wizeline';
@@ -22,8 +29,26 @@ describe('<Header />', () => {
     expect(searchElement.value).toBe(value);
   });
 
+  it('submits text in search bar', () => {
+    const mockedSubmit = jest.fn(() => {});
+
+    render(<WrappedHeader />);
+
+    const formElement = screen.getByLabelText('search form');
+    const inputElement = formElement.querySelector('input');
+    const value = 'dog';
+
+    formElement.onsubmit = mockedSubmit;
+
+    fireEvent.change(inputElement, { target: { value } });
+    fireEvent.submit(formElement);
+
+    expect(inputElement.value).toBe(value);
+    expect(mockedSubmit).toHaveBeenCalled();
+  });
+
   it('renders dark mode switch', () => {
-    render(<Header />);
+    render(<WrappedHeader />);
 
     expect(screen.getByLabelText('dark mode switch')).toBeInTheDocument();
   });
@@ -55,7 +80,7 @@ describe('<Header />', () => {
   });
 
   it('shows account menu', () => {
-    const renderRes = render(<Header />);
+    const renderRes = render(<WrappedHeader />);
 
     const element = renderRes.container.querySelector('button[aria-controls="menuId"]');
 
