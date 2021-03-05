@@ -1,39 +1,49 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { IoSearchOutline } from 'react-icons/io5';
+import { useHistory } from 'react-router';
+import { useSearch } from '../../providers/Search/Search.provider';
 import { Search, SearchInput } from './Searchbar.styles';
 
 const Searchbar = () => {
   const [isSearchActive, setIsSearchActive] = useState(false);
-  const [searchValue, setSearchValue] = useState('');
+  const history = useHistory();
+  const { search, searchQuery } = useSearch();
+  const inputEl = useRef(searchQuery);
+
+  useEffect(() => {
+    inputEl.current.value = searchQuery;
+  }, [searchQuery]);
 
   const toggleSearch = () => {
-    setIsSearchActive(searchValue ? true : !isSearchActive);
+    setIsSearchActive(searchQuery ? true : !isSearchActive);
+    inputEl.current.focus();
   };
 
-  const search = (event) => {
+  const newSearch = (query) => {
+    setIsSearchActive(query);
+    search(query);
+    history.push('/');
+  };
+
+  const submitSearch = (event) => {
     event.preventDefault();
-    console.log(searchValue);
-  };
-
-  const handleChange = (event) => {
-    setSearchValue(event.target.value);
+    newSearch(inputEl.current.value);
   };
 
   const handleBlur = () => {
-    setIsSearchActive(searchValue);
+    newSearch(inputEl.current.value);
   };
 
   return (
     <Search onClick={toggleSearch} data-testid="searchbar">
       <IoSearchOutline />
-      <form onSubmit={search} data-testid="form-search">
+      <form onSubmit={submitSearch} data-testid="form-search">
         <SearchInput
-          value={searchValue}
-          onChange={handleChange}
           onBlur={handleBlur}
           isSearchActive={isSearchActive}
           type="search"
           placeholder="Search"
+          ref={inputEl}
           data-testid="input-search"
         />
       </form>
