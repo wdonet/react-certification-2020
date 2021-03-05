@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useVideo } from '../../state';
 import VideoCard from '../VideoCard';
 
 const Container = styled.div`
-    display: block;
+  display: block;
 `;
 
 const Title = styled.h2`
@@ -16,14 +17,17 @@ const Title = styled.h2`
 
 const List = styled.div``;
 
-function VideosListComponent({ title, items }) {
+function VideosListComponent({ title }) {
+  const { state } = useVideo();
+  const { list } = state;
+
   return (
     <Container>
       <Title>{title}</Title>
       <List>
-        {items
-          .filter(({ id: { kind } }) => kind === "youtube#video")
-          .map(({ snippet:{title, description, thumbnails:{medium: {url}}} }) => (
+        {list
+          .filter(({ id: { kind } }) => kind === 'youtube#video')
+          .map(({ snippet: { title, description, thumbnails: { medium: { url } } } }) => (
             <VideoCard image={url} title={title} desc={description} />
           ))}
       </List>
