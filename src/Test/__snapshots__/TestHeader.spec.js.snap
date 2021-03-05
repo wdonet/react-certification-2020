@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Components should take a snapshot 1`] = `
+<DocumentFragment>
+  <header
+    class="sc-bdfBwQ fnpANp"
+  >
+    <div
+      class="sc-pFZIQ facKvC"
+    />
+    <img
+      class="sc-jrAGrp yihMn"
+      src="menu.png"
+    />
+    <div
+      class="sc-dlfnbm cfbaly"
+    >
+      <input
+        class="sc-gsTCUz cwBpJK"
+        placeholder="Wizeline"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      class="sc-fubCfw eiKTLY"
+    >
+      <img
+        class="sc-gKsewC boIWSl"
+        src="logo.png"
+      />
+      <div
+        class="sc-hKgILt iCZJBc"
+      >
+        <div
+          class="sc-iBPRYJ gRunDE"
+        >
+          Dark Mode
+        </div>
+        <input
+          class="sc-jSgupP cGCuVX"
+          id="checkbox"
+          type="checkbox"
+        />
+        <label
+          class="sc-eCssSg izygud"
+          for="checkbox"
+        />
+      </div>
+    </div>
+  </header>
+</DocumentFragment>
+`;

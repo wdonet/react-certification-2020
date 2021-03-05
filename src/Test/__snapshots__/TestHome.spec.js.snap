@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home Components should take a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bdfBwQ bPQZnB"
+  >
+    <div
+      class="sc-gsTCUz cfjDtT"
+    >
+      <div
+        class="sc-jSgupP gZoPUT"
+      >
+        <img
+          alt=""
+        />
+      </div>
+      <div
+        class="sc-hKgILt eHxubc"
+      >
+        <div
+          class="sc-dlfnbm hjMkDD"
+        />
+        <div
+          class="sc-eCssSg gkqYmv"
+        />
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

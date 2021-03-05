@@ -1,0 +1,52 @@
+yarn run v1.22.5
+$ yarn test -- --coverage --watchAll --coverageThreshold='{"global":{"statements":60}}'
+$ react-scripts test --coverage --watchAll '--coverageThreshold={"global":{"statements":60}}'
+------------------------|----------|----------|----------|----------|-------------------|
+File                    |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
+------------------------|----------|----------|----------|----------|-------------------|
+All files               |    73.68 |       50 |    71.43 |    73.68 |                   |
+ src                    |        0 |      100 |      100 |        0 |                   |
+  index.js              |        0 |      100 |      100 |        0 |                 7 |
+ src/components/App     |       75 |      100 |       75 |       75 |                   |
+  App.component.jsx     |       75 |      100 |       75 |       75 |          29,30,31 |
+  index.js              |        0 |        0 |        0 |        0 |                   |
+ src/components/Fortune |      100 |      100 |      100 |      100 |                   |
+  Fortune.component.jsx |      100 |      100 |      100 |      100 |                   |
+  index.js              |        0 |        0 |        0 |        0 |                   |
+ src/components/Header  |      100 |      100 |      100 |      100 |                   |
+  Header.component.jsx  |      100 |      100 |      100 |      100 |                   |
+  HeaderStyle.js        |      100 |      100 |      100 |      100 |                   |
+  index.js              |        0 |        0 |        0 |        0 |                   |
+ src/components/Layout  |      100 |      100 |      100 |      100 |                   |
+  Layout.component.jsx  |      100 |      100 |      100 |      100 |                   |
+  index.js              |        0 |        0 |        0 |        0 |                   |
+ src/components/Private |      100 |       50 |      100 |      100 |                   |
+  Private.component.jsx |      100 |       50 |      100 |      100 |                10 |
+  index.js              |        0 |        0 |        0 |        0 |                   |
+ src/pages/Home         |    76.47 |       50 |       50 |    76.47 |                   |
+  Home.page.jsx         |       50 |       50 |    33.33 |       50 |       15,16,17,35 |
+  index.js              |        0 |        0 |        0 |        0 |                   |
+  styledHome.js         |      100 |      100 |      100 |      100 |                   |
+  videoContainer.js     |      100 |      100 |      100 |      100 |                   |
+ src/pages/Login        |       50 |      100 |       50 |       50 |                   |
+  Login.page.jsx        |       50 |      100 |       50 |       50 |          12,13,14 |
+  index.js              |        0 |        0 |        0 |        0 |                   |
+ src/pages/NotFound     |      100 |      100 |      100 |      100 |                   |
+  NotFound.page.jsx     |      100 |      100 |      100 |      100 |                   |
+  index.js              |        0 |        0 |        0 |        0 |                   |
+ src/pages/Secret       |      100 |      100 |      100 |      100 |                   |
+  Secret.page.jsx       |      100 |      100 |      100 |      100 |                   |
+  index.js              |        0 |        0 |        0 |        0 |                   |
+ src/providers/Auth     |    70.59 |       50 |       60 |    70.59 |                   |
+  Auth.provider.jsx     |    70.59 |       50 |       60 |    70.59 |    11,27,28,32,33 |
+  index.js              |        0 |        0 |        0 |        0 |                   |
+ src/utils              |    55.56 |      100 |    33.33 |    55.56 |                   |
+  constants.js          |      100 |      100 |      100 |      100 |                   |
+  fns.js                |        0 |      100 |        0 |        0 |                 2 |
+  storage.js            |    57.14 |      100 |       50 |    57.14 |            7,8,13 |
+ src/utils/hooks        |    58.33 |      100 |      100 |    58.33 |                   |
+  useFortune.js         |    58.33 |      100 |      100 |    58.33 |    14,16,17,19,21 |
+------------------------|----------|----------|----------|----------|-------------------|
+
+
+[1B[JDone in 27.04s.
