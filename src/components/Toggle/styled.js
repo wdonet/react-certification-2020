@@ -8,7 +8,7 @@ const Slider = styled.span`
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: ${({ theme }) => theme.font.tertiary};
+  background-color: ${({ theme }) => theme.font.primary};
   -webkit-transition: 0.4s;
   transition: 0.4s;
   &:before {

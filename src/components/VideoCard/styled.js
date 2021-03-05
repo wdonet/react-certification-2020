@@ -1,13 +1,10 @@
 import styled from 'styled-components';
 
-const CardContainer = styled.div`
-  border-radius: 10px;
-  height: 250px;
-  width: 250px;
+const CardContainer = styled.li`
+  max-width: 350px;
   background-color: ${({ theme }) => theme.background.secondary};
   transition: all 0.2s ease-in-out;
   cursor: pointer;
-  padding: 10px;
   overflow: hidden;
 
   :hover {
@@ -15,12 +12,42 @@ const CardContainer = styled.div`
   }
 `;
 
-const Title = styled.h3`
-  color: black;
+const VideoImg = styled.img`
+  width: 100%;
+  max-height: 180px;
+`;
+
+const VideoDetails = styled.div`
+  padding: 0.5em;
+`;
+
+const TitleContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+const ChannelLogo = styled.img``;
+
+const Title = styled.p`
+  margin: 0px;
+  font-size: 0.9em;
+  color: ${({ theme }) => theme.font.primary};
+  font-weight: 600;
+  text-align: left;
 `;
 
 const Description = styled.p`
-  font-size: 14px;
+  font-size: 0.8em;
+  text-align: left;
+  margin: 8px;
 `;
 
-export { CardContainer, Title, Description };
+export {
+  CardContainer,
+  VideoDetails,
+  Title,
+  Description,
+  VideoImg,
+  TitleContainer,
+  ChannelLogo,
+};
