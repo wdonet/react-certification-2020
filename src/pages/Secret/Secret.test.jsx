@@ -5,14 +5,15 @@ import { BrowserRouter } from 'react-router-dom';
 import SecretPage from './Secret.page';
 
 describe('Secret Page', () => {
-  it('Check welcome message in page', () => {
+  it('Check welcome message and back button in page', () => {
     render(
       <BrowserRouter>
         <SecretPage />
       </BrowserRouter>
     );
 
-    expect(screen.queryByText('welcome, voyager...')).toBeInTheDocument();
+    expect(screen.queryByText('Welcome, voyager...')).toBeInTheDocument();
+    expect(screen.queryByText('Back to Home')).toBeInTheDocument();
   });
 
   it('Validates Secret snapshot', () => {

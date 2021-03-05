@@ -5,6 +5,7 @@ import AuthProvider from '../../providers/Auth';
 import Private from './Private.component';
 import { storage } from '../../utils/storage';
 import { AUTH_STORAGE_KEY } from '../../utils/constants';
+import SearchProvider from '../../providers/Search';
 
 const Component = () => {
   return <h1>Private component</h1>;
@@ -12,12 +13,16 @@ const Component = () => {
 
 describe('Private Component', () => {
   it('Should not Render component if user is not logged', () => {
+    storage.set(AUTH_STORAGE_KEY, false);
+
     render(
       <BrowserRouter>
         <AuthProvider>
-          <Private>
-            <Component />
-          </Private>
+          <SearchProvider>
+            <Private>
+              <Component />
+            </Private>
+          </SearchProvider>
         </AuthProvider>
       </BrowserRouter>
     );
@@ -31,9 +36,11 @@ describe('Private Component', () => {
     render(
       <BrowserRouter>
         <AuthProvider>
-          <Private>
-            <Component />
-          </Private>
+          <SearchProvider>
+            <Private>
+              <Component />
+            </Private>
+          </SearchProvider>
         </AuthProvider>
       </BrowserRouter>
     );
@@ -48,9 +55,11 @@ describe('Private Component', () => {
       render(
         <BrowserRouter>
           <AuthProvider>
-            <Private>
-              <Component />
-            </Private>
+            <SearchProvider>
+              <Private>
+                <Component />
+              </Private>
+            </SearchProvider>
           </AuthProvider>
         </BrowserRouter>
       )
