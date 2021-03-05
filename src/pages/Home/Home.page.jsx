@@ -3,10 +3,12 @@ import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../../providers/Auth';
 import './Home.styles.css';
 import Styled from './styledHome';
-import data from './youtube-videos-mock.json';
 import VideoContainer from './videoContainer.js';
 
-function HomePage() {
+
+
+function HomePage({ homeVideos }) {
+  
   const history = useHistory();
   const sectionRef = useRef(null);
   const { authenticated, logout } = useAuth();
@@ -28,18 +30,20 @@ function HomePage() {
               ← logout
             </Link>
             <span className="separator" />
-            <Link to="/secret">show me something cool →</Link>
+            <Link to="/secret">show me something cool →         
+          </Link>
           </span>
-          <Styled.WrapperVideo>
-            {data.items.map((item) => (
-              <VideoContainer
-                key={item.etag}
-                title={item.snippet.title}
-                description={item.snippet.description}
-                url={item.snippet.thumbnails.medium.url}
-              />
-            ))}
-          </Styled.WrapperVideo>
+              <Styled.WrapperVideo>
+                {homeVideos.map((video) => (
+                  <Link key={video.id.videoId}to={`/video/${video.id.videoId}/${video.snippet.title}`}>
+                  <VideoContainer
+                    title={video.snippet.title}
+                    description={video.snippet.description}
+                    url={video.snippet.thumbnails.medium.url}
+                  />
+                  </Link>
+                ))}
+              </Styled.WrapperVideo>
         </>
       ) : (
         <Link to="/login">let me in →</Link>

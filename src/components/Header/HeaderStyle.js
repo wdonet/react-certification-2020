@@ -21,7 +21,7 @@ const StyledHeader = styled.header`
   transition: 0.4s ease;
 `;
 
-const StyledInput = styled.input.attrs({ type: 'text', placeholder: 'Search ...' })`
+const StyledInput = styled.input.attrs({ type: 'text', placeholder: 'Wizeline' })`
   border-radius: 25px;
   display: block;
   border: 3px solid;

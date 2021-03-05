@@ -17,8 +17,9 @@ exports[`Header Components should take a snapshot 1`] = `
     >
       <input
         class="sc-gsTCUz cwBpJK"
-        placeholder="Search ..."
+        placeholder="Wizeline"
         type="text"
+        value=""
       />
     </div>
     <div
@@ -42,7 +43,7 @@ exports[`Header Components should take a snapshot 1`] = `
           type="checkbox"
         />
         <label
-          class="sc-eCssSg gHkzsH"
+          class="sc-eCssSg izygud"
           for="checkbox"
         />
       </div>

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const WrapperVideo = styled.div`
+  color: black;
   border-radius: 5px;
   width: 100%;
   flex: 1 1 0%;
@@ -32,7 +33,7 @@ const Info = styled.div`
 `;
 
 const Description = styled.div`
-  font-size: 14px;
+  font-size: 12px;
   text-align: justify;
 `;
 
