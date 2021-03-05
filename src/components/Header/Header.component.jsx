@@ -55,7 +55,7 @@ const Header = () => {
             <SearchIcon />
           </SearchIconDiv>
 
-          <StyledForm onSubmit={handleSearchOnSubmit}>
+          <StyledForm aria-label="search form" onSubmit={handleSearchOnSubmit}>
             <StyledInputBase
               placeholder="Search…"
               inputComponent={StyledInput}

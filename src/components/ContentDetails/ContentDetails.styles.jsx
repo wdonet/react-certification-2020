@@ -59,9 +59,6 @@ export const SnippetDescription = styled(Typography).attrs(() => ({
 }))`
   padding: 0px;
   box-sizing: border-box;
-  && {
-    color: ${({ theme }) => theme.cardText.color};
-  }
 `;
 
 export const StyledBackButton = styled(Button).attrs(() => ({

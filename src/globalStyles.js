@@ -1,5 +1,13 @@
 import { createGlobalStyle } from 'styled-components';
 
+import { StyledAppBar, StyledMenu } from './components/Header/Header.styles';
+import {
+  StyledCard,
+  Title,
+  Description,
+} from './components/ContentCard/ContentCard.styles';
+import { SnippetDescription } from './components/ContentDetails/ContentDetails.styles';
+
 export const lightTheme = {
   body: {
     color: 'rgba(0, 0, 0, 0.87)',
@@ -73,6 +81,36 @@ const GlobalStyles = createGlobalStyle`
 
   a:active {
     color: blueviolet;
+  }
+  
+  ${StyledAppBar} {
+    && {
+      background-color: ${({ theme }) => theme.appBar.backgroundColor};
+    }
+  }
+
+  ${StyledMenu} {
+    && {
+      .MuiPaper-root {
+        color: ${({ theme }) => theme.body.color};
+        background-color: ${({ theme }) => theme.body.backgroundColor};
+      }
+    }
+  }
+  ${StyledCard} {
+    && {
+      background-color: ${({ theme }) => theme.card.backgroundColor};
+    }
+  }
+  ${Title} {
+    && {
+      color: ${({ theme }) => theme.body.color};
+    }
+  }
+  ${Description}, ${SnippetDescription} {
+    && {
+      color: ${({ theme }) => theme.cardText.color};
+    }
   }
 `;
 

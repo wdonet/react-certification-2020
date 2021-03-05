@@ -30,7 +30,9 @@ const ContentDetails = ({ item, relatedItems }) => {
         <StyledSnippetDiv>
           <SnippetTitle dangerouslySetInnerHTML={{ __html: item.snippet.title }} />
           <SnippetDescription>{item.snippet.description}</SnippetDescription>
-          <StyledBackButton onClick={handleGoBack}>Go back</StyledBackButton>
+          <StyledBackButton aria-label="back button" onClick={handleGoBack}>
+            Go back
+          </StyledBackButton>
         </StyledSnippetDiv>
       </StyledVideoDiv>
       <StyledRelatedDiv>

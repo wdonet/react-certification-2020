@@ -5,11 +5,7 @@ export const StyledGrowDiv = styled.div`
   flex-grow: 1;
 `;
 
-export const StyledAppBar = styled(AppBar)`
-  && {
-    background-color: ${({ theme }) => theme.appBar.backgroundColor};
-  }
-`;
+export const StyledAppBar = styled(AppBar)``;
 
 export const StyledIconButton = styled(IconButton)`
   margin-right: 16px;
@@ -88,9 +84,4 @@ export const StyledSwitch = styled(Switch)`
     `};
 `;
 
-export const StyledMenu = styled(Menu)`
-  .MuiPaper-root {
-    color: ${({ theme }) => theme.body.color};
-    background-color: ${({ theme }) => theme.body.backgroundColor};
-  }
-`;
+export const StyledMenu = styled(Menu)``;
