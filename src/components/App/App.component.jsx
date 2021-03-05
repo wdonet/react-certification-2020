@@ -1,57 +1,69 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Layout } from 'antd';
+import 'antd/dist/antd.css';
+import styled from 'styled-components';
+import { useVideos } from 'utils/hooks/useVideos';
+import { getVideos, searchVideos } from 'utils/api';
+import { toggle } from 'utils/fns';
 
+import Sider from 'components/Sider';
+import Header from 'components/Header';
 import AuthProvider from '../../providers/Auth';
 import HomePage from '../../pages/Home';
 import LoginPage from '../../pages/Login';
 import NotFound from '../../pages/NotFound';
-import SecretPage from '../../pages/Secret';
-import Private from '../Private';
-import Fortune from '../Fortune';
-import Layout from '../Layout';
-import { random } from '../../utils/fns';
+import VideoDetail from '../../pages/VideoDetail';
+
+const { Content: AntContent } = Layout;
+
+const FullHeightLayout = styled(Layout)`
+  height: 100vh;
+`;
+
+const StyledContent = styled(AntContent)`
+  padding: 1rem;
+  overflow: scroll;
+`;
 
 function App() {
-  useLayoutEffect(() => {
-    const { body } = document;
+  const [videos, setVideos] = useVideos(getVideos);
+  const [isSiderHidden, setIsSiderHidden] = useState(true);
 
-    function rotateBackground() {
-      const xPercent = random(100);
-      const yPercent = random(100);
-      body.style.setProperty('--bg-position', `${xPercent}% ${yPercent}%`);
-    }
+  const toggleSider = () => {
+    setIsSiderHidden(toggle(isSiderHidden));
+  };
 
-    const intervalId = setInterval(rotateBackground, 3000);
-    body.addEventListener('click', rotateBackground);
-
-    return () => {
-      clearInterval(intervalId);
-      body.removeEventListener('click', rotateBackground);
-    };
-  }, []);
+  const handleSearch = async (text) => {
+    const res = await searchVideos(text);
+    setVideos(res.result.items);
+  };
 
   return (
-    <BrowserRouter>
-      <AuthProvider>
-        <Layout>
-          <Switch>
-            <Route exact path="/">
-              <HomePage />
-            </Route>
-            <Route exact path="/login">
-              <LoginPage />
-            </Route>
-            <Private exact path="/secret">
-              <SecretPage />
-            </Private>
-            <Route path="*">
-              <NotFound />
-            </Route>
-          </Switch>
-          <Fortune />
-        </Layout>
-      </AuthProvider>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <FullHeightLayout>
+          <Sider isHidden={isSiderHidden} onToggle={toggleSider} />
+          <Layout>
+            <Header onSearch={handleSearch} onToggle={toggleSider} />
+            <StyledContent aria-label="content">
+              <Switch>
+                <Route exact path="/">
+                  <HomePage videos={videos} />
+                </Route>
+                <Route exact path="/login">
+                  <LoginPage />
+                </Route>
+                <Route path="/watch" component={VideoDetail} />
+                <Route path="*">
+                  <NotFound />
+                </Route>
+              </Switch>
+            </StyledContent>
+          </Layout>
+        </FullHeightLayout>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 
