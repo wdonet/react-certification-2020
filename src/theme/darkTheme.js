@@ -2,7 +2,7 @@ const darkTheme = {
   background: {
     primary: '#C5C5C5',
     secondary: '#333333',
-    tertiary: '#4A4A4A',
+    tertiary: '#202020',
     highlight: '#eea2a2',
   },
   font: {

@@ -1,8 +1,12 @@
 import React from 'react';
-import { GridContainer } from './styled';
+import { GridContainer, List } from './styled';
 
-const VideosCarousel = ({ gridItems }) => {
-  return <GridContainer>{gridItems}</GridContainer>;
+const Grid = ({ gridItems }) => {
+  return (
+    <GridContainer>
+      <List> {gridItems}</List>
+    </GridContainer>
+  );
 };
 
-export default VideosCarousel;
+export default Grid;

@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 
-const GridContainer = styled.div`
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(auto-fill, 250px);
-  column-gap: 10px;
-  row-gap: 15px;
+const List = styled.ul`
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 1rem;
 `;
 
-export { GridContainer };
+const GridContainer = styled.div`
+  padding: 2rem;
+`;
+
+export { GridContainer, List };

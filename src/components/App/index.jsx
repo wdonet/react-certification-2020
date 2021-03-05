@@ -9,7 +9,6 @@ import YoutubeDataProvider from '../../providers/YoutubeData';
 
 import Header from '../Header';
 import HomePage from '../../pages/Home';
-import Layout from '../Layout';
 
 function App() {
   const [theme, setTheme] = useState('light');
@@ -26,13 +25,11 @@ function App() {
           <YoutubeDataProvider>
             <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
               <Header handleThemeSwitch={handleThemeSwitch} />
-              <Layout>
-                <Switch>
-                  <Route exact path="/">
-                    <HomePage />
-                  </Route>
-                </Switch>
-              </Layout>
+              <Switch>
+                <Route exact path="/">
+                  <HomePage />
+                </Route>
+              </Switch>
             </ThemeProvider>
           </YoutubeDataProvider>
         </AuthProvider>
