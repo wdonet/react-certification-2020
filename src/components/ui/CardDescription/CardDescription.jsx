@@ -7,7 +7,11 @@ const StyledCardDescription = styled.p`
 `;
 
 const CardDescription = (props) => {
-  return <StyledCardDescription role={props.role || ""}>{props.children}</StyledCardDescription>;
+  return (
+    <StyledCardDescription role={props.role || ''}>
+      {props.children}
+    </StyledCardDescription>
+  );
 };
 
 export default CardDescription;

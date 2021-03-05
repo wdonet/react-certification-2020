@@ -1,7 +1,7 @@
 import React from 'react';
 import 'jest-styled-components';
 import { renderWithTheme } from '../../../utils/testing';
-import { lightTheme } from '../../../providers/theme/themes';
+import { lightTheme } from '../../../providers/themes';
 import Card from './Card';
 
 const build = (Component = <Card />, theme = lightTheme) => {

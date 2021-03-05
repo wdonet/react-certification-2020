@@ -1,6 +1,6 @@
 import React from 'react';
 import 'jest-styled-components';
-import { lightTheme } from '../../providers/theme/themes';
+import { lightTheme } from '../../providers/themes';
 import { renderWithTheme } from '../../utils/testing';
 import HomeVideos from './HomeVideos';
 

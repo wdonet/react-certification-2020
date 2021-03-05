@@ -3,7 +3,7 @@ import 'jest-styled-components';
 import { getByRole, render } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 import LayoutWrapper from './LayoutWrapper';
-import { lightTheme } from '../../providers/theme/themes';
+import { lightTheme } from '../../providers/themes';
 
 const build = (Component = <LayoutWrapper />) => {
   const { container } = render(

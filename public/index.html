@@ -7,6 +7,16 @@
     <meta name="theme-color" content="#000000" />
     <meta name="description" content="Web site created using create-react-app" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script>
+      function start() {
+        gapi.client.init({
+          apiKey: 'AIzaSyCJwdVPNkyBkUry0R6FWUPUX-Bi6qeE0C0',
+        });
+      }
+      gapi.load('client', start);
+    </script>
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/

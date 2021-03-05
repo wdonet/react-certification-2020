@@ -17,7 +17,11 @@ describe('CardTitle', () => {
   it('displays title and contains "title" attribute', () => {
     const EXPECTED_TITLE_ATTRIBUTE_VALUE = 'Title';
     const EXPECTED_TITLE = '';
-    const { container } = build(<CardTitle title={EXPECTED_TITLE_ATTRIBUTE_VALUE}>{EXPECTED_TITLE}</CardTitle>);
-    expect( getByTitle(container, EXPECTED_TITLE_ATTRIBUTE_VALUE) ).toHaveTextContent(EXPECTED_TITLE);
+    const { container } = build(
+      <CardTitle title={EXPECTED_TITLE_ATTRIBUTE_VALUE}>{EXPECTED_TITLE}</CardTitle>
+    );
+    expect(getByTitle(container, EXPECTED_TITLE_ATTRIBUTE_VALUE)).toHaveTextContent(
+      EXPECTED_TITLE
+    );
   });
 });

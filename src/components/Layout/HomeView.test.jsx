@@ -21,4 +21,10 @@ describe('HomeView styles', () => {
     expect(firstChild).toHaveStyle('padding-top: 64px');
     expect(firstChild).toHaveStyle('height: calc(100% - 64px)');
   });
+
+  it('renders children content', () => {
+    const children = 'Children content';
+    const { firstChild } = build(<HomeView>{children}</HomeView>).container;
+    expect(firstChild).toHaveTextContent(children);
+  });
 });

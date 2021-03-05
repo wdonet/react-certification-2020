@@ -1,8 +1,8 @@
 import React from 'react';
 import 'jest-styled-components';
-import { renderWithTheme } from '../../../utils/testing';
-import { lightTheme } from '../../../providers/theme/themes';
 import { getByRole } from '@testing-library/react';
+import { renderWithTheme } from '../../../utils/testing';
+import { lightTheme } from '../../../providers/themes';
 import Card from './Card';
 
 const build = (Component = <Card />, theme = lightTheme) => {
@@ -29,10 +29,10 @@ describe('Card styles and props', () => {
   });
 
   it('has role and all passed props', () => {
-    const EXPECTED_ROLE = "figure";
+    const EXPECTED_ROLE = 'figure';
     const EXPECTED_CONTENT = "Hi, I'm your card content";
     const { container } = build(<Card role={EXPECTED_ROLE}>{EXPECTED_CONTENT}</Card>);
-    expect( getByRole(container, EXPECTED_ROLE) ).toBeInTheDocument();
+    expect(getByRole(container, EXPECTED_ROLE)).toBeInTheDocument();
     expect(container).toHaveTextContent(EXPECTED_CONTENT);
   });
 });

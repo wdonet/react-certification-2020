@@ -1,8 +1,13 @@
 import React from 'react';
 import { fireEvent, getByRole } from '@testing-library/react';
-import { darkTheme, lightTheme } from '../../providers/theme/themes';
+import { darkTheme, lightTheme } from '../../providers/themes';
 import App from './index';
 import { renderWithTheme } from '../../utils/testing';
+
+global.gapi = {
+  load: jest.fn(),
+  client: { request: jest.fn() },
+};
 
 const build = (Component = <App />, theme = lightTheme) => {
   const { container } = renderWithTheme(Component, theme);

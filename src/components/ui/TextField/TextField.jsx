@@ -9,8 +9,15 @@ const StyledTextField = styled.input`
   border: 0;
 `;
 
-const TextField = ({ role }) => {
-  return <StyledTextField role={role} />;
+const TextField = ({ role, onChange, onKeyPress }, ref) => {
+  return (
+    <StyledTextField
+      ref={ref}
+      role={role}
+      onChange={(event) => onChange && onChange(event.target.value)}
+      onKeyPress={(event) => onKeyPress && onKeyPress(event)}
+    />
+  );
 };
 
-export default TextField;
+export default React.forwardRef((props, ref) => TextField(props, ref));

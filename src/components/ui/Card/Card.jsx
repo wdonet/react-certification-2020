@@ -17,7 +17,11 @@ const StyledDiv = styled.div`
 
 const Card = (props) => {
   const { theme } = useContext(ThemeContext);
-  return <StyledDiv role={props.role || ""} theme={theme}>{props.children}</StyledDiv>;
+  return (
+    <StyledDiv role={props.role || ''} theme={theme}>
+      {props.children}
+    </StyledDiv>
+  );
 };
 
 export default Card;

@@ -20,6 +20,6 @@ describe('CardDescription', () => {
     const { container } = build(
       <CardDescription role={EXPECTED_ROLE}>{EXPECTED_CONTENT}</CardDescription>
     );
-    expect( getByRole(container, EXPECTED_ROLE) ).toHaveTextContent(EXPECTED_CONTENT);
+    expect(getByRole(container, EXPECTED_ROLE)).toHaveTextContent(EXPECTED_CONTENT);
   });
 });

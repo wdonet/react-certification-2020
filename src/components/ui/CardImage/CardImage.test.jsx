@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { getByRole, render } from '@testing-library/react';
 import CardImage from './CardImage';
 
 const build = (Component = <CardImage />) => {
@@ -9,21 +9,31 @@ const build = (Component = <CardImage />) => {
 
 describe('CardImage', () => {
   it('applies default styling', () => {
-    const { firstChild } = build().container;
-    expect(firstChild).toHaveStyle('height: 140px');
-    expect(firstChild).toHaveStyle('width: 100%');
-    expect(firstChild).toHaveStyle('display: block');
-    expect(firstChild).toHaveStyle('background-size: cover');
-    expect(firstChild).toHaveStyle('background-repeat: no-repeat');
-    expect(firstChild).toHaveStyle('background-position: center');
-    expect(firstChild).toHaveStyle('object-fit: cover');
+    const { container } = build();
+    const img = getByRole(container, 'img');
+    expect(img).toHaveStyle('height: 140px');
+    expect(img).toHaveStyle('width: 100%');
+    expect(img).toHaveStyle('display: block');
+    expect(img).toHaveStyle('background-size: cover');
+    expect(img).toHaveStyle('background-repeat: no-repeat');
+    expect(img).toHaveStyle('background-position: center');
+    expect(img).toHaveStyle('object-fit: cover');
   });
 
   it('shows image', () => {
-    const EXPECTED_ALT= 'alternative text';
+    const EXPECTED_ALT = 'alternative text';
     const EXPECTED_SRC = '/image.png';
-    const { firstChild } = build(<CardImage src={EXPECTED_SRC} alt={EXPECTED_ALT}/>).container;
-    expect(firstChild).toHaveAttribute('src', EXPECTED_SRC);
-    expect(firstChild).toHaveAttribute('alt', EXPECTED_ALT);
+    const EXPECTED_FIGCAPTION =
+      'This is the accesibility text intended to be read by the screen reader';
+    const { container } = build(
+      <CardImage src={EXPECTED_SRC} alt={EXPECTED_ALT} figcaption={EXPECTED_FIGCAPTION} />
+    );
+
+    const img = getByRole(container, 'img');
+    const figcaption = container.querySelector('figcaption');
+
+    expect(img).toHaveAttribute('src', EXPECTED_SRC);
+    expect(img).toHaveAttribute('alt', EXPECTED_ALT);
+    expect(figcaption).toHaveTextContent(EXPECTED_FIGCAPTION);
   });
 });

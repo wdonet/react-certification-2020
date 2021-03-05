@@ -1,8 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 import { TextField, IconWrapper, Avatar, Switch } from '../ui/index';
 import hamburger from '../../assets/icons/hamburguer.png';
 import defaultUser from '../../assets/icons/default_user.jpg';
+import SearchContext from '../../providers/SearchContext';
 
 const StyledHeader = styled.div`
   display: flex;
@@ -23,6 +24,8 @@ const StyledSection = styled.div`
 
 const Header = () => {
   const { switchTheme } = useContext(ThemeContext);
+  const { search } = useContext(SearchContext);
+  const ref = useRef(null);
 
   return (
     <StyledHeader role="toolbar" data-testid="header">
@@ -31,7 +34,11 @@ const Header = () => {
           <IconWrapper role="button" src={hamburger} alt="hamburguer" />
         </div>
         <div data-testid="search-input">
-          <TextField role="search" />
+          <TextField
+            role="search"
+            ref={ref}
+            onKeyPress={({ charCode }) => charCode === 13 && search(ref.current.value)}
+          />
         </div>
       </StyledSection>
       <StyledSection>
