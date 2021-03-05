@@ -137,6 +137,7 @@ hr {
 
 img{
   display: inline-block;
+  vertical-align: top;
   max-width: 100%;
 }
 

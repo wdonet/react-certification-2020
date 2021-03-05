@@ -11,6 +11,6 @@ describe('Utils Storage', () => {
       throw new Error('Custom error');
     });
 
-    expect(storage.get()).toBe(null);
+    expect(storage.get()).toBeNull();
   });
 });
