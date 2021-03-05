@@ -28,19 +28,8 @@ describe('Card styles and props', () => {
   });
 
   it('has all passed props', () => {
-    const EXPECTED_IMAGE = 'https://i.picsum.photos/id/237/536/354.jpg';
-    const EXPECTED_TITLE = 'title';
-    const EXPECTED_DESCRIPTION = 'description';
-    const { container } = build(
-      <Card
-        image={EXPECTED_IMAGE}
-        title={EXPECTED_TITLE}
-        description={EXPECTED_DESCRIPTION}
-      />
-    );
-    const img = container.querySelector('img');
-    expect(img).toHaveProperty('src', EXPECTED_IMAGE);
-    expect(container.textContent).toContain(EXPECTED_TITLE);
-    expect(container.textContent).toContain(EXPECTED_DESCRIPTION);
+    const EXPECTED_CONTENT = "Hi, I'm your card content";
+    const { firstChild } = build(<Card>{EXPECTED_CONTENT}</Card>).container;
+    expect(firstChild).toHaveTextContent(EXPECTED_CONTENT);
   });
 });

@@ -19,11 +19,8 @@ describe('Card', () => {
 describe('Card theme', () => {
   it('applies default styling', () => {
     const { firstChild } = build().container;
-    expect(firstChild).toHaveStyle(`background: ${ lightTheme.color.surface }`);
+    expect(firstChild).toHaveStyle(`background: ${lightTheme.color.surface}`);
   });
 
-  it('changes "light" theme to "dark" theme', () => {
-
-  });
-
+  it('changes "light" theme to "dark" theme', () => {});
 });

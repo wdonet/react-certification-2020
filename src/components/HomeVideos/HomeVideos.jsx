@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Card from '../Base/Card/Card';
+import Card from '../ui/Card/Card';
 import { data } from './mockData';
 
 const StyledDiv = styled.div`

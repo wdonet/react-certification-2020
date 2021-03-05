@@ -1,7 +1,7 @@
 import React from 'react';
 import 'jest-styled-components';
-import { data } from './mockData';
 import { getAllByTestId } from '@testing-library/react';
+import { data } from './mockData';
 import { lightTheme } from '../../providers/theme/themes';
 import { renderWithTheme } from '../../utils/testing';
 import HomeVideos from './HomeVideos';
@@ -10,7 +10,6 @@ const build = (Component = <HomeVideos />, theme = lightTheme) => {
   const { container } = renderWithTheme(Component, theme);
   return { container };
 };
-
 
 describe('HomeVideos', () => {
   it('renders', () => {

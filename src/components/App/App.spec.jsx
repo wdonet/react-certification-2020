@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent, getByRole, render } from '@testing-library/react';
+import { fireEvent, getByRole } from '@testing-library/react';
 import { darkTheme, lightTheme } from '../../providers/theme/themes';
 import App from './index';
 import { renderWithTheme } from '../../utils/testing';
