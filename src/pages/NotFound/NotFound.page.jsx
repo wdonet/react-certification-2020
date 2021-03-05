@@ -5,7 +5,7 @@ import { Container, HomeLink } from './NotFound.styles';
 function NotFoundPage() {
   return (
     <Container>
-      <img src="404.gif" alt="page not found" />
+      <img src="/404.gif" alt="page not found" />
       <div>
         <HomeLink to="/">
           <IoArrowUndo />

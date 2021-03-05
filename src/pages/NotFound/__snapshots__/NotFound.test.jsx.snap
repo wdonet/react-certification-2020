@@ -6,7 +6,7 @@ exports[`Not Found Page Validates NotFound snapshot 1`] = `
 >
   <img
     alt="page not found"
-    src="404.gif"
+    src="/404.gif"
   />
   <div>
     <a

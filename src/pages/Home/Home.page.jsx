@@ -1,9 +1,7 @@
-import React, { useRef } from 'react';
-import { useHistory } from 'react-router-dom';
-import { IoEnterOutline, IoExitOutline, IoFlame } from 'react-icons/io5';
+import React, { useEffect, useState } from 'react';
+import { IoEnterOutline, IoFlame } from 'react-icons/io5';
 import VideoCard from '../../components/VideoCard';
 import { useAuth } from '../../providers/Auth';
-import searchResult from '../../mock/youtube-videos-mock.json';
 import {
   ButtonLinkWarning,
   ButtonLinkInfo,
@@ -14,31 +12,32 @@ import {
   Header,
 } from './Home.styles';
 import { formatDate } from '../../utils/fns';
+import { YoutubeApi } from '../../api/youtube';
+import { useSearch } from '../../providers/Search/Search.provider';
 
 const HomePage = () => {
-  const history = useHistory();
-  const sectionRef = useRef(null);
-  const { authenticated, logout } = useAuth();
+  const [searchResults, setSearchResults] = useState({ items: [] });
+  const { searchQuery } = useSearch();
+  const { authenticated } = useAuth();
 
-  const deAuthenticate = (event) => {
-    event.preventDefault();
-    logout();
-    history.push('/');
-  };
+  useEffect(() => {
+    const fetchData = () => {
+      YoutubeApi.search(searchQuery).then((result) => {
+        setSearchResults(result);
+      });
+    };
+    fetchData();
+  }, [searchQuery]);
 
   return (
-    <Container ref={sectionRef}>
+    <Container>
       <Header>
         <h1>Hello stranger!</h1>
         {authenticated ? (
           <>
             <h2>Good to have you back</h2>
             <ButtonsContainer>
-              <ButtonLinkWarning to="/" onClick={deAuthenticate} data-testid="btn-logout">
-                <IoExitOutline />
-                Logout
-              </ButtonLinkWarning>
-              <ButtonLinkInfo to="/secret">
+              <ButtonLinkInfo to="/secret" data-testid="secret-button">
                 <IoFlame />
                 Show me something cool
               </ButtonLinkInfo>
@@ -46,7 +45,7 @@ const HomePage = () => {
           </>
         ) : (
           <ButtonsContainer>
-            <ButtonLinkWarning to="/login">
+            <ButtonLinkWarning to="/login" data-testid="login-button">
               <IoEnterOutline />
               Let me in
             </ButtonLinkWarning>
@@ -54,20 +53,33 @@ const HomePage = () => {
         )}
       </Header>
       <hr />
-      <CardList>
-        {searchResult.items.map((item) => {
-          return (
-            <Card key={item.etag}>
-              <VideoCard
-                title={item.snippet.title}
-                channel={item.snippet.channelTitle}
-                date={formatDate(item.snippet.publishTime)}
-                thumbnail={item.snippet.thumbnails.medium.url}
-                liveBroadcastContent={item.snippet.liveBroadcastContent}
-              />
-            </Card>
-          );
-        })}
+      <CardList data-testid="search-list">
+        {searchResults?.items?.map(
+          ({
+            etag,
+            id,
+            snippet: {
+              title,
+              channelTitle,
+              publishTime,
+              thumbnails,
+              liveBroadcastContent,
+            },
+          }) => {
+            return (
+              <Card key={etag}>
+                <VideoCard
+                  id={id.videoId || id}
+                  title={title}
+                  channel={channelTitle}
+                  date={formatDate(publishTime)}
+                  thumbnail={thumbnails.medium.url}
+                  liveBroadcastContent={liveBroadcastContent}
+                />
+              </Card>
+            );
+          }
+        )}
       </CardList>
     </Container>
   );

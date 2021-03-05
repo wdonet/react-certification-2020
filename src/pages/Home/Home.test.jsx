@@ -1,54 +1,66 @@
 import React from 'react';
-import { fireEvent, getByTestId, render, screen } from '@testing-library/react';
+import { screen, render, act } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
+import axios from 'axios';
 import AuthProvider from '../../providers/Auth';
 import HomePage from './Home.page';
+import SearchProvider from '../../providers/Search';
+import searchResult from '../../mock/youtube-videos-mock.json';
 import { storage } from '../../utils/storage';
 import { AUTH_STORAGE_KEY } from '../../utils/constants';
 
+jest.mock('axios');
+
 describe('Home Page', () => {
-  it('Should display login option if user is not authenticated', () => {
-    render(
-      <BrowserRouter>
-        <AuthProvider>
-          <HomePage />
-        </AuthProvider>
-      </BrowserRouter>
-    );
-
-    expect(screen.queryByText('Let me in')).toBeInTheDocument();
+  beforeEach(() => {
+    const response = { data: searchResult };
+    axios.get.mockResolvedValue(response);
   });
 
-  it('Should display logout option if user authenticated', () => {
-    storage.set(AUTH_STORAGE_KEY, true);
-
-    render(
-      <BrowserRouter>
-        <AuthProvider>
-          <HomePage />
-        </AuthProvider>
-      </BrowserRouter>
-    );
-
-    expect(screen.queryByText('Let me in')).not.toBeInTheDocument();
-    expect(screen.queryByText('Logout')).toBeInTheDocument();
+  afterEach(() => {
+    jest.clearAllMocks();
+    axios.mockRestore();
   });
 
-  it('Should trigger logout event', () => {
+  it('Should display login option if user is not authenticated', async () => {
+    await act(async () => {
+      render(
+        <BrowserRouter>
+          <AuthProvider>
+            <SearchProvider>
+              <HomePage />
+            </SearchProvider>
+          </AuthProvider>
+        </BrowserRouter>
+      );
+    });
+
+    expect(screen.queryByTestId('search-list').children.length).toBe(
+      searchResult.items.length
+    );
+    expect(screen.queryByTestId('login-button')).toBeInTheDocument();
+    expect(screen.queryByTestId('secret-button')).toBeFalsy();
+  });
+
+  it('Should display login option if user is authenticated', async () => {
     storage.set(AUTH_STORAGE_KEY, true);
 
-    const { container } = render(
-      <BrowserRouter>
-        <AuthProvider>
-          <HomePage />
-        </AuthProvider>
-      </BrowserRouter>
+    await act(async () => {
+      render(
+        <BrowserRouter>
+          <AuthProvider>
+            <SearchProvider>
+              <HomePage />
+            </SearchProvider>
+          </AuthProvider>
+        </BrowserRouter>
+      );
+    });
+
+    expect(screen.queryByTestId('search-list').children.length).toBe(
+      searchResult.items.length
     );
-    expect(screen.queryByText('Logout')).toBeInTheDocument();
-
-    const button = getByTestId(container, 'btn-logout');
-    fireEvent.click(button);
-
-    expect(screen.queryByText('Logout')).not.toBeInTheDocument();
+    expect(screen.queryByTestId('login-button')).toBeFalsy();
+    expect(screen.queryByTestId('secret-button')).toBeInTheDocument();
   });
 });
