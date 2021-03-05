@@ -22,7 +22,7 @@ const RelatedItem = ({ item, hideDivider }) => {
     },
   } = item;
 
-  const handleClick = () => history.push(`/${videoId}`);
+  const handleClick = () => history.push(`/v/${videoId}`);
 
   return (
     <>

@@ -19,15 +19,11 @@ function App() {
               <Route exact path="/">
                 <HomePage />
               </Route>
-              <Route exact path="/home">
-                <Redirect to="/" />
-              </Route>
-              <Route path="/:videoId">
+              <Redirect from="/home" to="/" />
+              <Route path="/v/:videoId">
                 <VideoPage />
               </Route>
-              <Route path="*">
-                <NotFound />
-              </Route>
+              <Route component={NotFound} />
             </Switch>
           </Layout>
         </CustomProvider>
