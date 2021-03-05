@@ -12,19 +12,8 @@ function useSearch() {
 }
 
 function SearchProvider({ children }) {
-  // const [authenticated, setAuthenticated] = useState(false);
-
-  // useEffect(() => {
-  //   const lastAuthState = storage.get(AUTH_STORAGE_KEY);
-  //   const isAuthenticated = Boolean(lastAuthState);
-
-  //   setAuthenticated(isAuthenticated);
-  // }, []);
-
   const [searchTerm, setSearchterm] = useState('wizeline');
-  const [selectedVideoId, setSelectedVideoId] = useState('');
-  const [selectedVideoTitle, setSelectedVideoTitle] = useState('');
-  const [selectedVideoDescription, setSelectedVideoDescription] = useState('');
+  const [selectedVideo, setSelectedVideo] = useState({});
 
   const debouncedSearch = debounce((v) => {
     const searchFor = v === '' ? 'wizeline' : v;
@@ -43,12 +32,8 @@ function SearchProvider({ children }) {
     e.preventDefault();
   }, []);
 
-  const updateSelectedVideo = useCallback((e) => {
-    console.log('videoUodated');
-    const { id, title, description } = e.currentTarget.dataset;
-    setSelectedVideoId(id);
-    setSelectedVideoTitle(title);
-    setSelectedVideoDescription(description);
+  const updateSelectedVideo = useCallback((id, title, description) => {
+    setSelectedVideo({ id, title, description });
   }, []);
 
   return (
@@ -58,9 +43,7 @@ function SearchProvider({ children }) {
         searchSubmited,
         updateSelectedVideo,
         searchTerm,
-        selectedVideoId,
-        selectedVideoTitle,
-        selectedVideoDescription,
+        selectedVideo,
       }}
     >
       {children}

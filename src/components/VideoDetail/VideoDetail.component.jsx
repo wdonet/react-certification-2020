@@ -3,18 +3,20 @@ import Styled from './VideoDetail.styled';
 import { useSearch } from '../../providers/Search.provider';
 
 function VideoDetail() {
-  const { selectedVideoId, selectedVideoTitle, selectedVideoDescription } = useSearch();
+  const { selectedVideo } = useSearch();
   return (
-    <Styled.VideoContainer data-testid="VideoDetail">
-      <iframe
-        title="videoFrame"
-        src={`https://www.youtube.com/embed/${selectedVideoId}?feature=oembed`}
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      />
-      <div>{selectedVideoTitle}</div>
-      <div>{selectedVideoDescription}</div>
+    <Styled.VideoContainer className="row" data-testid="VideoDetail">
+      <div className="col">
+        <iframe
+          title="videoFrame"
+          src={`https://www.youtube.com/embed/${selectedVideo.id}?feature=oembed`}
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      </div>
+      <div>{selectedVideo.title}</div>
+      <div>{selectedVideo.description}</div>
     </Styled.VideoContainer>
   );
 }
