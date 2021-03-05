@@ -9,13 +9,14 @@ const MOCK_VIDEO = VIDEOS.items[0];
 
 describe('Thumbnail', () => {
   it('renders an image', () => {
-    const { getByRole } = render(
+    const { getAllByRole } = render(
       <Router>
         <Thumbnail data={MOCK_VIDEO} />
       </Router>
     );
-    expect(getByRole('img')).not.toBeUndefined();
+    expect(getAllByRole('img')).not.toBeUndefined();
   });
+
   it('renders a title', () => {
     const { getAllByRole } = render(
       <Router>
@@ -24,6 +25,7 @@ describe('Thumbnail', () => {
     );
     expect(getAllByRole('heading')[0].tagName).toBe('H2');
   });
+
   it('renders a subtitle', () => {
     const { getAllByRole } = render(
       <Router>

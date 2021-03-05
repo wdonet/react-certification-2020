@@ -74,6 +74,11 @@ export const VIDEOS = {
         liveBroadcastContent: 'none',
         publishTime: '2019-09-30T23:54:32Z',
       },
+      statistics: {
+        viewCount: 100000,
+        likeCount: 100000,
+        dislikeCount: 100000,
+      },
     },
     {
       kind: 'youtube#searchResult',
@@ -108,6 +113,11 @@ export const VIDEOS = {
         channelTitle: 'Wizeline',
         liveBroadcastContent: 'none',
         publishTime: '2019-04-18T18:48:04Z',
+      },
+      statistics: {
+        viewCount: 100000,
+        likeCount: 100000,
+        dislikeCount: 100000,
       },
     },
     {
@@ -144,6 +154,11 @@ export const VIDEOS = {
         liveBroadcastContent: 'none',
         publishTime: '2019-03-05T03:52:55Z',
       },
+      statistics: {
+        viewCount: 100000,
+        likeCount: 100000,
+        dislikeCount: 100000,
+      },
     },
     {
       kind: 'youtube#searchResult',
@@ -178,6 +193,11 @@ export const VIDEOS = {
         channelTitle: 'Wizeline',
         liveBroadcastContent: 'none',
         publishTime: '2019-04-12T20:00:45Z',
+      },
+      statistics: {
+        viewCount: 100000,
+        likeCount: 100000,
+        dislikeCount: 100000,
       },
     },
     {
@@ -214,6 +234,11 @@ export const VIDEOS = {
         liveBroadcastContent: 'none',
         publishTime: '2018-12-13T21:51:39Z',
       },
+      statistics: {
+        viewCount: 100000,
+        likeCount: 100000,
+        dislikeCount: 100000,
+      },
     },
     {
       kind: 'youtube#searchResult',
@@ -248,6 +273,11 @@ export const VIDEOS = {
         channelTitle: 'Noticieros Televisa',
         liveBroadcastContent: 'none',
         publishTime: '2017-03-08T22:41:43Z',
+      },
+      statistics: {
+        viewCount: 100000,
+        likeCount: 100000,
+        dislikeCount: 100000,
       },
     },
     {
@@ -284,6 +314,11 @@ export const VIDEOS = {
         liveBroadcastContent: 'none',
         publishTime: '2018-09-25T17:45:19Z',
       },
+      statistics: {
+        viewCount: 100000,
+        likeCount: 100000,
+        dislikeCount: 100000,
+      },
     },
     {
       kind: 'youtube#searchResult',
@@ -317,6 +352,11 @@ export const VIDEOS = {
         channelTitle: 'Wizeline',
         liveBroadcastContent: 'none',
         publishTime: '2020-04-24T20:22:17Z',
+      },
+      statistics: {
+        viewCount: 100000,
+        likeCount: 100000,
+        dislikeCount: 100000,
       },
     },
     {
@@ -353,6 +393,11 @@ export const VIDEOS = {
         liveBroadcastContent: 'none',
         publishTime: '2019-09-26T15:28:46Z',
       },
+      statistics: {
+        viewCount: 100000,
+        likeCount: 100000,
+        dislikeCount: 100000,
+      },
     },
     {
       kind: 'youtube#searchResult',
@@ -387,6 +432,11 @@ export const VIDEOS = {
         channelTitle: 'Wizeline',
         liveBroadcastContent: 'none',
         publishTime: '2019-07-02T17:40:20Z',
+      },
+      statistics: {
+        viewCount: 100000,
+        likeCount: 100000,
+        dislikeCount: 100000,
       },
     },
     {
@@ -423,6 +473,11 @@ export const VIDEOS = {
         liveBroadcastContent: 'none',
         publishTime: '2020-12-31T16:26:44Z',
       },
+      statistics: {
+        viewCount: 100000,
+        likeCount: 100000,
+        dislikeCount: 100000,
+      },
     },
     {
       kind: 'youtube#searchResult',
@@ -456,6 +511,11 @@ export const VIDEOS = {
         channelTitle: 'Wizeline',
         liveBroadcastContent: 'none',
         publishTime: '2019-04-29T20:37:26Z',
+      },
+      statistics: {
+        viewCount: 100000,
+        likeCount: 100000,
+        dislikeCount: 100000,
       },
     },
     {
@@ -492,6 +552,11 @@ export const VIDEOS = {
         liveBroadcastContent: 'none',
         publishTime: '2016-09-01T18:02:11Z',
       },
+      statistics: {
+        viewCount: 100000,
+        likeCount: 100000,
+        dislikeCount: 100000,
+      },
     },
     {
       kind: 'youtube#searchResult',
@@ -526,6 +591,11 @@ export const VIDEOS = {
         channelTitle: 'Wizeline',
         liveBroadcastContent: 'none',
         publishTime: '2019-07-02T17:45:28Z',
+      },
+      statistics: {
+        viewCount: 100000,
+        likeCount: 100000,
+        dislikeCount: 100000,
       },
     },
     {
@@ -562,6 +632,11 @@ export const VIDEOS = {
         liveBroadcastContent: 'none',
         publishTime: '2019-02-11T17:55:19Z',
       },
+      statistics: {
+        viewCount: 100000,
+        likeCount: 100000,
+        dislikeCount: 100000,
+      },
     },
     {
       kind: 'youtube#searchResult',
@@ -595,6 +670,11 @@ export const VIDEOS = {
         channelTitle: 'Wizeline',
         liveBroadcastContent: 'none',
         publishTime: '2019-12-27T20:47:29Z',
+      },
+      statistics: {
+        viewCount: 100000,
+        likeCount: 100000,
+        dislikeCount: 100000,
       },
     },
     {
@@ -631,6 +711,11 @@ export const VIDEOS = {
         liveBroadcastContent: 'none',
         publishTime: '2016-10-05T00:03:32Z',
       },
+      statistics: {
+        viewCount: 100000,
+        likeCount: 100000,
+        dislikeCount: 100000,
+      },
     },
     {
       kind: 'youtube#searchResult',
@@ -665,6 +750,11 @@ export const VIDEOS = {
         channelTitle: 'Wizeline',
         liveBroadcastContent: 'none',
         publishTime: '2021-02-04T17:45:11Z',
+      },
+      statistics: {
+        viewCount: 100000,
+        likeCount: 100000,
+        dislikeCount: 100000,
       },
     },
     {
@@ -702,6 +792,11 @@ export const VIDEOS = {
         liveBroadcastContent: 'none',
         publishTime: '2019-11-12T20:45:18Z',
       },
+      statistics: {
+        viewCount: 100000,
+        likeCount: 100000,
+        dislikeCount: 100000,
+      },
     },
     {
       kind: 'youtube#searchResult',
@@ -736,6 +831,11 @@ export const VIDEOS = {
         channelTitle: 'Wizeline',
         liveBroadcastContent: 'none',
         publishTime: '2020-10-23T04:15:31Z',
+      },
+      statistics: {
+        viewCount: 100000,
+        likeCount: 100000,
+        dislikeCount: 100000,
       },
     },
     {
@@ -772,6 +872,11 @@ export const VIDEOS = {
         liveBroadcastContent: 'none',
         publishTime: '2020-05-23T00:11:23Z',
       },
+      statistics: {
+        viewCount: 100000,
+        likeCount: 100000,
+        dislikeCount: 100000,
+      },
     },
     {
       kind: 'youtube#searchResult',
@@ -807,6 +912,11 @@ export const VIDEOS = {
         liveBroadcastContent: 'none',
         publishTime: '2017-12-09T18:46:07Z',
       },
+      statistics: {
+        viewCount: 100000,
+        likeCount: 100000,
+        dislikeCount: 100000,
+      },
     },
     {
       kind: 'youtube#searchResult',
@@ -840,6 +950,11 @@ export const VIDEOS = {
         channelTitle: 'Wizeline',
         liveBroadcastContent: 'none',
         publishTime: '2019-12-18T19:22:44Z',
+      },
+      statistics: {
+        viewCount: 100000,
+        likeCount: 100000,
+        dislikeCount: 100000,
       },
     },
     {
@@ -875,6 +990,11 @@ export const VIDEOS = {
         channelTitle: 'Wizeline',
         liveBroadcastContent: 'none',
         publishTime: '2017-12-08T18:13:27Z',
+      },
+      statistics: {
+        viewCount: 100000,
+        likeCount: 100000,
+        dislikeCount: 100000,
       },
     },
   ],

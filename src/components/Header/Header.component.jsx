@@ -8,7 +8,7 @@ const { Header: AntHeader } = Layout;
 const { Search: AntSearch } = Input;
 
 const StyledHeader = styled(AntHeader)`
-  padding: 0 2rem 0 0;
+  padding: 0 2rem;
 `;
 
 const StyledMenuOutlined = styled(MenuOutlined)`
@@ -27,15 +27,28 @@ const Center = styled(Col)`
   align-items: center;
 `;
 
-const Header = () => {
+const Header = ({ onSearch, onToggle }) => {
+  const handleSearch = (event) => {
+    onSearch(event.target.value);
+  };
+
   return (
     <StyledHeader>
       <Row>
         <Col span={1}>
-          <StyledMenuOutlined name="sider-menu" />
+          <StyledMenuOutlined
+            aria-label="sider-menu-icon"
+            name="sider-menu"
+            onClick={onToggle}
+          />
         </Col>
         <Center span={22}>
-          <StyledSearch size="large" placeholder="Search" />
+          <StyledSearch
+            aria-label="search-bar"
+            size="large"
+            placeholder="Search"
+            onPressEnter={handleSearch}
+          />
         </Center>
         <Col span={1} align="end">
           <Link to="/login">
