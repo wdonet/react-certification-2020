@@ -15,7 +15,14 @@ function HomePage() {
   const loading = false;
   const [items, setItems] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
+  const [isVideoDetailVisible, setIsVideoDetailVisible] = useState(true);
 
+  const hideVideoDetail = () => {
+    if (isVideoDetailVisible) setIsVideoDetailVisible(!isVideoDetailVisible);
+  };
+  const showVideoDetail = () => {
+    if (!isVideoDetailVisible) setIsVideoDetailVisible(!isVideoDetailVisible);
+  };
   useEffect(() => {
     console.log('---- HOMEPAGE ----');
     console.log(searchResult);
@@ -29,8 +36,10 @@ function HomePage() {
   return (
     <section className="container" ref={sectionRef} data-testid="Home">
       <h1>Hello stranger!</h1>
-      <VideoDetail />
-      <VideoList items={filteredList} />
+      <div className="row">
+        {isVideoDetailVisible && <VideoDetail handle={hideVideoDetail} />}
+        <VideoList items={filteredList} handle={showVideoDetail} />
+      </div>
     </section>
   );
 }
