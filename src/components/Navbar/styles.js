@@ -14,9 +14,9 @@ const useStyles = makeStyles((theme) => ({
     search: {
       position: 'relative',
       borderRadius: theme.shape.borderRadius,
-      backgroundColor: fade(theme.palette.common.white, 0.15),
+      backgroundColor: fade(theme.palette.common.white, 0.40),
       '&:hover': {
-        backgroundColor: fade(theme.palette.common.white, 0.25),
+        backgroundColor: fade(theme.palette.common.white, 1),
       },
       marginRight: theme.spacing(2),
       marginLeft: 0,
@@ -52,9 +52,11 @@ const useStyles = makeStyles((theme) => ({
     },
     navbarTitle: {
       textTransform: 'uppercase',
-      fontWeight: 900,
+      fontWeight: 'bold',
       fontSize: '24px',
-      flexGrow: 1
+      flexGrow: 1,
+      textDecoration: 'none',
+      color: '#fb5607'
     },
     loginBtn: {
       background: 'linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)',

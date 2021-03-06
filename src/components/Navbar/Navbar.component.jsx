@@ -8,13 +8,16 @@ import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 import MenuIcon from '@material-ui/icons/Menu';
 import { useStyles } from './styles';
+import { Link, useHistory } from 'react-router-dom';
 
 export default function Navbar(props){
     const classes = useStyles();
     const width = window.innerWidth;
+    const history = useHistory();
 
     function handleSearch(event){
         if(event.key === 'Enter'){
+            history.push('/');
             props.handleSearch(event.target.value)
         }
     }
@@ -26,9 +29,11 @@ export default function Navbar(props){
                   <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
                     <MenuIcon />
                   </IconButton>
-                  <Typography variant="h6" className={classes.navbarTitle}>
-                    { width < 480 ? "RB" : "React Bootcamp" }
-                  </Typography>
+                  <Link to='/' className={classes.navbarTitle}>
+                    <Typography variant="h6" >
+                      { width < 480 ? "RB" : "React Bootcamp" }
+                    </Typography>
+                  </Link>
                   <div className={classes.search}>
                       <div className={classes.searchIcon}>
                         <SearchIcon />

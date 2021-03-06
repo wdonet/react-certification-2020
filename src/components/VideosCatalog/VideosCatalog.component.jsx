@@ -13,7 +13,6 @@ export default function VideosCatalog({search}) {
             fetchInitialVideos();
         } else {
             fetchSearchVideos();
-            console.log(videos);
         }
         
     }, [search]);
@@ -48,15 +47,18 @@ export default function VideosCatalog({search}) {
 
         setVideos(response.data.items);
     }
+
     
     return (
         <Container maxWidth={false}>
             <Grid container justify="center" spacing={3}>
-            {videos.map((video) => {
-                return (
-                    <VideoCard key={video.etag} videoInfo={video}></VideoCard>
-                )
-            })}
+                {videos.map((video) => {
+                    let videoId = (typeof video.id === 'object') ? video.id.videoId : video.id;
+
+                    return (
+                        <VideoCard key={videoId} videoInfo={video}></VideoCard>
+                    )
+                })}
             </Grid>
         </Container>
         
