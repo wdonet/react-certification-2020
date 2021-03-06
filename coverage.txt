@@ -1,0 +1,30 @@
+
+> react-certification-2020@0.1.0 test
+> react-scripts test "--coverage" "--watchAll"
+
+------------------------------|----------|----------|----------|----------|-------------------|
+File                          |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
+------------------------------|----------|----------|----------|----------|-------------------|
+All files                     |    84.21 |       50 |    88.89 |    82.35 |                   |
+ src                          |        0 |      100 |      100 |        0 |                   |
+  index.js                    |        0 |      100 |      100 |        0 |                 7 |
+ src/components/App           |      100 |      100 |      100 |      100 |                   |
+  App.component.jsx           |      100 |      100 |      100 |      100 |                   |
+  index.js                    |        0 |        0 |        0 |        0 |                   |
+ src/components/Navbar        |    71.43 |       25 |    66.67 |    66.67 |                   |
+  Navbar.component.jsx        |       60 |       25 |       50 |       60 |             17,18 |
+  index.js                    |        0 |        0 |        0 |        0 |                   |
+  styles.js                   |      100 |      100 |      100 |      100 |                   |
+ src/components/VideoCard     |      100 |      100 |      100 |      100 |                   |
+  VideoCard.component.jsx     |      100 |      100 |      100 |      100 |                   |
+  index.js                    |        0 |        0 |        0 |        0 |                   |
+ src/components/VideosCatalog |      100 |      100 |      100 |      100 |                   |
+  VideosCatalog.component.jsx |      100 |      100 |      100 |      100 |                   |
+  index.js                    |        0 |        0 |        0 |        0 |                   |
+ src/views/Home               |      100 |      100 |      100 |      100 |                   |
+  Home.page.jsx               |      100 |      100 |      100 |      100 |                   |
+  index.js                    |        0 |        0 |        0 |        0 |                   |
+------------------------------|----------|----------|----------|----------|-------------------|
+
+
+[1B[J
