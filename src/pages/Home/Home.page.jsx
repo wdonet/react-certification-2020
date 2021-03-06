@@ -1,38 +1,67 @@
-import React, { useRef } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import VideoList from '../../components/VideoList';
+import VideoDetail from '../../components/VideoDetail';
+import youtube from '../../apis/youtube';
 
-import { useAuth } from '../../providers/Auth';
-import './Home.styles.css';
+const HomeBody = styled.div`
+  background-color: #1a243b;
+  text-align: center;
+  display: flex;
+`;
+const VideoRelatedWrap = styled.div`
+  text-align: center;
+  flex: 3;
+  margin-top: 100px;
+`;
+const H4 = styled.h4`
+  color: #b9b1b1;
+`;
+const VideoListWrap = styled.div`
+  text-align: center;
+  flex: 4;
+`;
+const VideoDetailWrap = styled.div`
+  text-align: center;
+  flex: 5;
+`;
+function HomePage({ videos }) {
+  const [video, setVideo] = useState(null);
+  const [videoRelated, setVideoRelated] = useState(null);
 
-function HomePage() {
-  const history = useHistory();
-  const sectionRef = useRef(null);
-  const { authenticated, logout } = useAuth();
+  const handleVideoSelected = (videoSelected) => {
+    console.log(videoSelected);
+    setVideo(videoSelected);
+  };
 
-  function deAuthenticate(event) {
-    event.preventDefault();
-    logout();
-    history.push('/');
-  }
-
+  useEffect(() => {
+    async function fetchData(videoId) {
+      const response = await youtube.get('/search', {
+        params: {
+          relatedToVideoId: videoId,
+          type: 'video',
+        },
+      });
+      console.log(response.data.items);
+      setVideoRelated(response.data.items);
+    }
+    if (video) {
+      fetchData(video.id.videoId);
+    }
+  }, [video]);
   return (
-    <section className="homepage" ref={sectionRef}>
-      <h1>Hello stranger!</h1>
-      {authenticated ? (
-        <>
-          <h2>Good to have you back</h2>
-          <span>
-            <Link to="/" onClick={deAuthenticate}>
-              ← logout
-            </Link>
-            <span className="separator" />
-            <Link to="/secret">show me something cool →</Link>
-          </span>
-        </>
-      ) : (
-        <Link to="/login">let me in →</Link>
-      )}
-    </section>
+    <HomeBody>
+      <VideoRelatedWrap>
+        <H4>Related Videos</H4>
+        <VideoList videos={videoRelated} handleVideoSelected={handleVideoSelected} />
+      </VideoRelatedWrap>
+      <VideoDetailWrap>
+        <VideoDetail video={video} />
+      </VideoDetailWrap>
+      <VideoListWrap>
+        <VideoList videos={videos} handleVideoSelected={handleVideoSelected} />
+      </VideoListWrap>
+    </HomeBody>
   );
 }
 
