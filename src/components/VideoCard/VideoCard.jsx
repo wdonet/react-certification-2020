@@ -1,18 +1,18 @@
 import React from 'react';
-import { Container } from './VideoCard.styles';
+import { Container, Title } from './VideoCard.styles';
 
-const VideoCard = ({ info }) => {
+const VideoCard = ({ video, handleVideoSelected }) => {
   return (
     <Container>
-      <div>
-        <img alt="" src={info.thumbnails.medium.url} />
+      <div role="button">
+        <img alt={video.snippet.description} src={video.snippet.thumbnails.default.url} />
         <div>
-          <h2>{info.title}</h2>
-        </div>
-        <div>
-          <h3>{info.description}</h3>
+          <Title>{video.snippet.title}</Title>
         </div>
       </div>
+      <button type="button" onClick={() => handleVideoSelected(video)}>
+        View details
+      </button>
     </Container>
   );
 };

@@ -1,12 +1,12 @@
 import React from 'react';
 import { FcManager } from 'react-icons/fc';
 import InputSearch from '../InputSearch';
-import {NavBarStyled} from './NavBar.styles';
+import { NavBarStyled } from './NavBar.styles';
 
-function NavBar() {
+function NavBar({ search }) {
   return (
     <NavBarStyled>
-        <InputSearch />
+      <InputSearch search={search} />
       <div>
         <FcManager size="60" />
       </div>
