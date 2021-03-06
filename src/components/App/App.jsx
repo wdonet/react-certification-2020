@@ -3,7 +3,6 @@ import NavBar from '../NavBar';
 import HomePage from '../../pages/Home';
 import youtube from '../../apis/youtube';
 
-
 function App() {
   const [search, setSearch] = useState('Wizeline');
   const [videos, setVideos] = useState([]);
@@ -12,8 +11,6 @@ function App() {
     setSearch(e.target.value);
     console.log(search);
   };
-
-
 
   useEffect(() => {
     async function fetchData() {
