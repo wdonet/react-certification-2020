@@ -1,0 +1,44 @@
+------------------------------|----------|----------|----------|----------|-------------------|
+File                          |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
+------------------------------|----------|----------|----------|----------|-------------------|
+All files                     |    61.61 |       50 |       50 |    62.16 |                   |
+ components/Account           |    78.57 |       50 |       40 |    84.62 |                   |
+  index.jsx                   |       70 |       50 |       25 |    77.78 |             23,26 |
+  styled.js                   |      100 |       50 |      100 |      100 |                14 |
+ components/App               |        0 |      100 |        0 |        0 |                   |
+  App.component.jsx           |        0 |      100 |        0 |        0 | 14,15,17,18,19,23 |
+ components/Layout            |      100 |      100 |      100 |      100 |                   |
+  index.jsx                   |      100 |      100 |      100 |      100 |                   |
+  styled.js                   |      100 |      100 |      100 |      100 |                   |
+ components/NavBar            |    90.91 |      100 |       50 |    90.91 |                   |
+  index.jsx                   |       75 |      100 |       50 |       75 |                22 |
+  styled.js                   |      100 |      100 |      100 |      100 |                   |
+ components/SearchInput       |    92.31 |      100 |       75 |    92.31 |                   |
+  index.jsx                   |    91.67 |      100 |       75 |    91.67 |                21 |
+  styled.js                   |      100 |      100 |      100 |      100 |                   |
+ components/SideMenu          |    92.31 |       50 |       75 |    92.31 |                   |
+  index.jsx                   |       80 |       50 |       50 |       80 |                22 |
+  styled.js                   |      100 |       50 |      100 |      100 |              9,26 |
+ components/VideoCard         |      100 |      100 |      100 |      100 |                   |
+  index.jsx                   |      100 |      100 |      100 |      100 |                   |
+  styled.js                   |      100 |      100 |      100 |      100 |                   |
+ components/VideoGrid         |      100 |      100 |      100 |      100 |                   |
+  index.jsx                   |      100 |      100 |      100 |      100 |                   |
+  styled.js                   |      100 |      100 |      100 |      100 |                   |
+ components/VideosList        |        0 |        0 |        0 |        0 |                   |
+  index.jsx                   |        0 |        0 |        0 |        0 |          5,6,9,13 |
+ components/VideosListElement |        0 |      100 |        0 |        0 |                   |
+  index.jsx                   |        0 |      100 |        0 |        0 |               4,5 |
+  styled.js                   |        0 |      100 |        0 |        0 |      3,9,10,20,26 |
+ lib                          |      100 |       50 |      100 |      100 |                   |
+  youTubeApi.js               |      100 |       50 |      100 |      100 |               7,9 |
+ pages/Home                   |      100 |      100 |      100 |      100 |                   |
+  Home.page.jsx               |      100 |      100 |      100 |      100 |                   |
+  styled.js                   |      100 |      100 |      100 |      100 |                   |
+ pages/Login                  |        0 |      100 |        0 |        0 |                   |
+  Login.page.jsx              |        0 |      100 |        0 |        0 |   8,9,12,13,14,17 |
+ pages/VideoDetail            |        0 |        0 |        0 |        0 |                   |
+  VideoDetail.page.jsx        |        0 |        0 |        0 |        0 |... 20,21,23,24,27 |
+  index.js                    |        0 |        0 |        0 |        0 |                   |
+  styled.js                   |        0 |      100 |      100 |        0 |   3,7,18,27,31,38 |
+------------------------------|----------|----------|----------|----------|-------------------|
