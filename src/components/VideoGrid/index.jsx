@@ -1,21 +1,21 @@
 import React from 'react';
 import VideoCard from '../VideoCard';
-import Styled from './styled';
+import { Grid, Row, Col } from './styled';
 
 const VideoGrid = ({ videos }) => (
-  <Styled.Grid data-testid="grid">
-    <Styled.Row data-testid="row">
-      {videos.map(({ id, snippet }) =>
-        id.videoId ? (
-          <Styled.Col key={id.videoId}>
-            <VideoCard key={id.videoId} snippet={snippet} id={id} />
-          </Styled.Col>
+  <Grid data-testid="grid">
+    <Row data-testid="row">
+      {videos.map((video) =>
+        video.id.videoId ? (
+          <Col key={video.id.videoId}>
+            <VideoCard key={video.id.videoId} video={video} />
+          </Col>
         ) : (
           ''
         )
       )}
-    </Styled.Row>
-  </Styled.Grid>
+    </Row>
+  </Grid>
 );
 
 export default VideoGrid;

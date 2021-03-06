@@ -1,11 +1,11 @@
 import React from 'react';
-import Styled from './styled';
+import { Container } from './styled';
 
 function Layout({ children }) {
   return (
-    <Styled.Container className="container" data-testid="layout">
+    <Container className="container" data-testid="layout">
       {children}
-    </Styled.Container>
+    </Container>
   );
 }
 

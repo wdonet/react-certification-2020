@@ -7,8 +7,4 @@ const Container = styled.main`
   align-items: center;
 `;
 
-const Styled = {
-  Container,
-};
-
-export default Styled;
+export { Container };

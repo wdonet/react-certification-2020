@@ -1,10 +1,18 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { render, screen } from '@testing-library/react';
 import NavBar from '.';
+import AuthProvider from '../../providers/Auth';
 
 describe('NavBar', () => {
   beforeEach(() => {
-    render(<NavBar />);
+    render(
+      <BrowserRouter>
+        <AuthProvider>
+          <NavBar />
+        </AuthProvider>
+      </BrowserRouter>
+    );
   });
 
   it('renders NavBar and its elements', () => {

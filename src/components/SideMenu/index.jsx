@@ -1,29 +1,37 @@
 import React from 'react';
-import Styled from './styled';
+import { AUTH_STORAGE_KEY } from '../../utils/constants';
+import { storage } from '../../utils/storage';
+import { LinkText, ContainerMenu, SideMen, CloseBtn, Links, CloseIcon } from './styled';
 
 const SideMenu = ({ open, setOpen }) => {
+  const isLogged = storage.get(AUTH_STORAGE_KEY);
+
+  const favorites = (
+    <LinkText href="/">
+      <span role="img" aria-label="favorites">
+        ⭐️
+      </span>
+      Favorites
+    </LinkText>
+  );
+
   return (
-    <Styled.ContainerMenu open={open} data-testid="sideMenu">
-      <Styled.SideMenu open={open}>
-        <Styled.CloseBtn>
-          <Styled.CloseIcon onClick={() => setOpen(!open)} />
-        </Styled.CloseBtn>
-        <Styled.Links>
-          <Styled.LinkText href="/">
+    <ContainerMenu open={open} data-testid="sideMenu">
+      <SideMen open={open}>
+        <CloseBtn>
+          <CloseIcon onClick={() => setOpen(!open)} />
+        </CloseBtn>
+        <Links>
+          <LinkText href="/">
             <span role="img" aria-label="home">
               🏠
             </span>
             Home
-          </Styled.LinkText>
-          <Styled.LinkText href="/">
-            <span role="img" aria-label="favorites">
-              ⭐️
-            </span>
-            Favorites
-          </Styled.LinkText>
-        </Styled.Links>
-      </Styled.SideMenu>
-    </Styled.ContainerMenu>
+          </LinkText>
+          {isLogged ? favorites : ''}
+        </Links>
+      </SideMen>
+    </ContainerMenu>
   );
 };
 

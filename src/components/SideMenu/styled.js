@@ -19,7 +19,7 @@ const ContainerMenu = styled.div`
   position: fixed;
 `;
 
-const SideMenu = styled.div`
+const SideMen = styled.div`
   flex-direction: column;
   justify-content: center;
   background: #d1f4f5;
@@ -68,13 +68,4 @@ const Links = styled.div`
   flex-direction: column;
 `;
 
-const Styled = {
-  SideMenu,
-  ContainerMenu,
-  LinkText,
-  CloseIcon,
-  CloseBtn,
-  Links,
-};
-
-export default Styled;
+export { SideMen, ContainerMenu, LinkText, CloseIcon, CloseBtn, Links };

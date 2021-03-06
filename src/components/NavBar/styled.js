@@ -1,36 +1,10 @@
 import styled from 'styled-components';
 import { Dehaze } from '@styled-icons/material-outlined/Dehaze';
-import { AccountCircle } from '@styled-icons/material-outlined/AccountCircle';
 
 const MenuIcon = styled(Dehaze)`
   color: white;
   width: 50px;
   height: 50px;
-`;
-
-const AccountIcon = styled(AccountCircle)`
-  color: white;
-  width: 50px;
-  height: 50px;
-  float: right;
-  margin-left: 30px;
-`;
-
-const Input = styled.input`
-  ::placeholder {
-    color: palevioletred;
-  }
-  color: gray;
-  font-size: 1.2rem;
-  padding: 0.4rem 0.6rem;
-  border-radius: 3px;
-  background-color: rgba(255, 255, 255, 0.6);
-  border: none;
-  outline: none;
-  margin-left: 40px;
-  @media screen and (max-width: 768px) {
-    width: 150px;
-  }
 `;
 
 const Nav = styled.div`
@@ -110,15 +84,12 @@ const NavElementsWrapper = styled.ul`
   }
 `;
 
-const Styled = {
+export {
   Nav,
   NavContent,
   MenuIcon,
-  AccountIcon,
-  Input,
   CheckBoxWrapper,
   CheckBoxLabel,
   CheckBox,
   NavElementsWrapper,
 };
-export default Styled;

@@ -1,30 +1,31 @@
 import styled from 'styled-components';
 
-export const Card = styled.div`
+const Card = styled.div`
   width: 100%;
 `;
 
-export const CardImg = styled.div`
+const CardImg = styled.div`
   background-image: url(${(props) => props.img});
   height: 180px;
+  display: block;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 `;
 
-export const CardContent = styled.div`
+const CardContent = styled.div`
   padding: 2px 16px;
   overflow: hidden;
   flex-wrap: wrap;
 `;
 
-export const CardTitle = styled.div`
+const CardTitle = styled.div`
   color: black;
   margin: 0px;
   font-size: 22px;
 `;
 
-export const CardDescription = styled.div`
+const CardDescription = styled.div`
   color: black;
   margin: 0px;
   height: 100px;
@@ -32,11 +33,4 @@ export const CardDescription = styled.div`
   font-size: 15px;
 `;
 
-const Styled = {
-  Card,
-  CardImg,
-  CardContent,
-  CardTitle,
-  CardDescription,
-};
-export default Styled;
+export { Card, CardImg, CardContent, CardTitle, CardDescription };

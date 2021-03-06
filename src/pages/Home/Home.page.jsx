@@ -1,17 +1,12 @@
 import React from 'react';
 import VideoGrid from '../../components/VideoGrid';
-import mockedData from '../../mockData/mockData.json';
-import Styled from './styled';
+import { Welcome } from './styled';
 
-const { items } = mockedData;
-
-function HomePage() {
+function HomePage({ videos }) {
   return (
     <section>
-      <div>
-        <Styled.Welcome>Welcome</Styled.Welcome>
-        <VideoGrid videos={items} />
-      </div>
+      <Welcome>Welcome</Welcome>
+      <VideoGrid videos={videos} />
     </section>
   );
 }

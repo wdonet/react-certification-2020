@@ -1,14 +1,21 @@
 import React from 'react';
-import Styled from './styled';
+import { Link } from 'react-router-dom';
+import { Card, CardImg, CardContent, CardTitle, CardDescription } from './styled';
 
-const VideoCard = ({ snippet }) => (
-  <Styled.Card data-testid="card">
-    <Styled.CardImg img={snippet.thumbnails.medium.url} />
-    <Styled.CardContent>
-      <Styled.CardTitle>{snippet.title}</Styled.CardTitle>
-      <Styled.CardDescription>{snippet.description}</Styled.CardDescription>
-    </Styled.CardContent>
-  </Styled.Card>
-);
+const VideoCard = ({ video }) => {
+  const { snippet, id } = video;
+
+  return (
+    <Link to={{ pathname: `/${id.videoId}`, state: { video } }}>
+      <Card data-testid="card">
+        <CardImg img={snippet.thumbnails.medium.url} />
+        <CardContent>
+          <CardTitle>{snippet.title}</CardTitle>
+          <CardDescription>{snippet.description}</CardDescription>
+        </CardContent>
+      </Card>
+    </Link>
+  );
+};
 
 export default VideoCard;

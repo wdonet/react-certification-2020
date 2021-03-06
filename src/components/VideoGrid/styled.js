@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Grid = styled.div`
+const Grid = styled.div`
   width: 100%;
   height: 100%;
   background-color: white;
@@ -8,7 +8,7 @@ export const Grid = styled.div`
   padding: 30px 60px;
 `;
 
-export const Row = styled.div`
+const Row = styled.div`
   max-width: 100%;
   margin: 0 auto;
   display: grid;
@@ -21,16 +21,10 @@ export const Row = styled.div`
   }
 `;
 
-export const Col = styled.div`
+const Col = styled.div`
   border: 1px solid lightgray;
   color: white;
   flex-wrap: wrap;
 `;
 
-const Styled = {
-  Grid,
-  Col,
-  Row,
-};
-
-export default Styled;
+export { Grid, Col, Row };
