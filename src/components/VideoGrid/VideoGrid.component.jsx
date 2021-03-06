@@ -1,5 +1,5 @@
 import React from 'react';
-import VideoCard from '../VideoCard/VideoCard.component';
+import VideoCard from '../VideoCard';
 import { VideoGridContainer } from './VideoGrid.styled';
 
 function VideoGrid({ videos }) {

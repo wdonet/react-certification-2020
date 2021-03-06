@@ -5,7 +5,7 @@ import AuthProvider from '../../providers/Auth';
 import HomePage from '../../pages/Home';
 import NotFound from '../../pages/NotFound';
 import Layout from '../Layout';
-import Header from '../Header/Header.component';
+import Header from '../Header';
 
 function App() {
   return (

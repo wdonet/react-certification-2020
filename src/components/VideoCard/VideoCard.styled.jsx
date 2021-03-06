@@ -3,12 +3,12 @@ import styled from 'styled-components';
 export const VideoCardContainer = styled.div`
   width: 20em;
   height: 20em;
-  margin: 0.75em;
+  margin: 0.5em;
   overflow: hidden;
-  background-color: ${(props) => props.theme.videoCardBackground};
+  background-color: ${({ theme }) => theme.videoCardBackground};
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 2px;
-  color: ${(props) => props.theme.videoCardTextColor};
+  color: ${({ theme }) => theme.videoCardTextColor};
 `;
 
 export const ImageContainer = styled.div`
