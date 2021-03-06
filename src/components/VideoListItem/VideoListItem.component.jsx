@@ -13,8 +13,8 @@ function VideoListItem({ videoID, thumbnails, title, description, handler }) {
 
   return (
     <Styled.Column
-      // className="col"
-      className="card"
+      // className="col-3"
+      // className="card"
       data-testid="VideoListItem"
     >
       <Styled.Row className="card" onClick={updateVideo}>

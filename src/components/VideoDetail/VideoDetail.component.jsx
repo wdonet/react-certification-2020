@@ -2,18 +2,16 @@ import React from 'react';
 import Styled from './VideoDetail.styled';
 import { useSearch } from '../../providers/Search.provider';
 
-function VideoDetail({ handle }) {
+function VideoDetail({ handle, isVideoDetailVisible }) {
   const { selectedVideo } = useSearch();
   return (
-    <Styled.Container className="col-8" data-testid="VideoDetail">
+    <Styled.Container videoDetail={isVideoDetailVisible} data-testid="VideoDetail">
       <div>
         <button type="button" onClick={handle}>
           Close Detail
         </button>
       </div>
-      <Styled.VideoContainer
-      //  className="col"
-      >
+      <Styled.VideoContainer>
         <Styled.VideoiFrame
           title="videoFrame"
           src={`https://www.youtube.com/embed/${selectedVideo.id}?feature=oembed`}
@@ -22,8 +20,8 @@ function VideoDetail({ handle }) {
           allowFullScreen
         />
       </Styled.VideoContainer>
-      <div>{selectedVideo.title}</div>
-      <div>{selectedVideo.description}</div>
+      <Styled.VideoTitle>{selectedVideo.title}</Styled.VideoTitle>
+      <Styled.VideoDescription>{selectedVideo.description}</Styled.VideoDescription>
     </Styled.Container>
   );
 }
