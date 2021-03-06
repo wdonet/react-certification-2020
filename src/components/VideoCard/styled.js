@@ -14,7 +14,6 @@ const CardContainer = styled.li`
 
 const VideoImg = styled.img`
   width: 100%;
-  max-height: 180px;
 `;
 
 const VideoDetails = styled.div`
@@ -39,7 +38,9 @@ const Title = styled.p`
 const Description = styled.p`
   font-size: 0.8em;
   text-align: left;
+  color: ${({ theme }) => theme.font.secondary};
   margin: 8px;
+  font-weight: 500;
 `;
 
 export {

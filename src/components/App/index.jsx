@@ -9,6 +9,7 @@ import YoutubeDataProvider from '../../providers/YoutubeData';
 
 import Header from '../Header';
 import HomePage from '../../pages/Home';
+import VideoPage from '../../pages/Video';
 
 function App() {
   const [theme, setTheme] = useState('light');
@@ -28,6 +29,9 @@ function App() {
               <Switch>
                 <Route exact path="/">
                   <HomePage />
+                </Route>
+                <Route exact path="/:videoId">
+                  <VideoPage />
                 </Route>
               </Switch>
             </ThemeProvider>

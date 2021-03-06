@@ -1,24 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import { getVideoDetails, getVideosByQuery } from './api';
+import { getVideosByQuery, getRelatedToVideo } from './api';
 
 const YoutubeDataContext = React.createContext(null);
 
-const params = {
-  baseUrl: 'https://www.googleapis.com/youtube/v3/',
-  apiKey: process.env.REACT_APP_YOUTUBE_API_KEY,
-  channelId: 'UCPGzT4wecuWM0BH9mPiulXg',
-  order: 'date',
-  type: 'video',
-  maxResults: 25,
-};
-
 const YoutubeDataProvider = ({ children }) => {
   const [videos, setVideos] = useState([]);
+  const [selectedVideo, setSelectedVideo] = useState({});
+  const [iframeApiReady, setIframeApiReady] = useState(false);
 
   const fetchVideos = async (query) => {
+    console.log('FETCHING VIDEOS');
     try {
-      const newVideos = await getVideosByQuery(params, query);
+      const newVideos = await getVideosByQuery(query);
       setVideos(newVideos);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const fetchRelatedTo = async (videoId) => {
+    console.log('FETCHING RELATED TO');
+    try {
+      const relatedVideos = await getRelatedToVideo(videoId);
+      return relatedVideos;
     } catch (error) {
       console.error(error);
     }
@@ -26,19 +30,20 @@ const YoutubeDataProvider = ({ children }) => {
 
   useEffect(() => {
     fetchVideos();
+    window.onYouTubeIframeAPIReady = () => setIframeApiReady(true);
   }, []);
 
-  const fetchVideoData = async (videoId) => {
-    try {
-      const videoDetails = await getVideoDetails(params, videoId);
-      return videoDetails;
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   return (
-    <YoutubeDataContext.Provider value={{ videos, fetchVideos, fetchVideoData }}>
+    <YoutubeDataContext.Provider
+      value={{
+        videos,
+        fetchVideos,
+        selectedVideo,
+        setSelectedVideo,
+        iframeApiReady,
+        fetchRelatedTo,
+      }}
+    >
       {children}
     </YoutubeDataContext.Provider>
   );
