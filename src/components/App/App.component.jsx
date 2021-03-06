@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useState,  useLayoutEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import AuthProvider from '../../providers/Auth';
@@ -7,7 +7,6 @@ import LoginPage from '../../pages/Login';
 import NotFound from '../../pages/NotFound';
 import SecretPage from '../../pages/Secret';
 import Private from '../Private';
-import Fortune from '../Fortune';
 import Layout from '../Layout';
 import Navigation from '../Navigation';
 import { random } from '../../utils/fns';
@@ -31,14 +30,16 @@ function App() {
     };
   }, []);
 
+  const [search, setSearch] = useState('');
+
   return (
     <BrowserRouter>
       <AuthProvider>
-        <Navigation />
+        <Navigation searchVideos={setSearch}  />
         <Layout>
           <Switch>
             <Route exact path="/">
-              <HomePage />
+              <HomePage search={search} />
             </Route>
             <Route exact path="/login">
               <LoginPage />
@@ -50,7 +51,6 @@ function App() {
               <NotFound />
             </Route>
           </Switch>
-          <Fortune />
         </Layout>
       </AuthProvider>
     </BrowserRouter>

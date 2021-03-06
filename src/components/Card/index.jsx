@@ -1,13 +1,14 @@
-import React from "react";
+import React, {useState} from "react";
 import Styled from "./styled";
 
-function Card(props) {
+const Card = ({ video, handleVideoSelected }) =>{
+    
     return (
         <Styled.Card>
-            <Styled.CardImg imgUrl={props.imgUrl} ></Styled.CardImg>
+            <Styled.CardImg imgUrl={video.snippet.thumbnails.medium.url} onClick={() => handleVideoSelected(video)} ></Styled.CardImg>
             <Styled.CardContent>
-                <Styled.CardTitle> {props.title} </Styled.CardTitle>
-                <Styled.CardDescription> {props.description} </Styled.CardDescription>
+                <Styled.CardTitle onClick={() => handleVideoSelected(video)}> {video.snippet.title} </Styled.CardTitle>
+                <Styled.CardDescription> {video.snippet.description} </Styled.CardDescription>
             </Styled.CardContent>
         </Styled.Card>
     );

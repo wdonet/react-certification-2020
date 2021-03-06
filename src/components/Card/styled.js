@@ -15,6 +15,7 @@ const CardImg = styled.div`
     background-position: center top;
     background-size: auto 100%;
     background-image: url(${props => props.imgUrl});
+    cursor: pointer;
 `;
 
 const CardContent = styled.div`
@@ -29,6 +30,7 @@ const CardTitle = styled.h3`
     font-weight: 500;
     line-height: 1.6;
     letter-spacing: 0.0075em;
+    cursor: pointer;
 `;
 
 const CardDescription = styled.p`
