@@ -3,10 +3,13 @@ import 'jest-styled-components';
 import { getByRole, render } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 import Header from './Header';
+import AppContext from '../../providers/AppContext';
+import { contextWrapper } from '../../utils';
 
 const build = (Component = <Header />) => {
+  const WrapInAppContext = contextWrapper(AppContext, {setHomeVideosView:jest.fn()}, Component);
   const { container } = render(
-    <ThemeProvider theme={{ switchTheme: jest.fn() }}>{Component}</ThemeProvider>
+    <ThemeProvider theme={{ switchTheme: jest.fn() }}>{WrapInAppContext}</ThemeProvider>
   );
   return {
     container,

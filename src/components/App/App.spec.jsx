@@ -56,22 +56,22 @@ describe('App playback', () => {
     expect(container).toBeVisible();
   });
 
-  it('changes video on clicked video on list', async () => {
-    const wrapper = await build();
-    const { firstChild: videoCard } = getAllByTestId(wrapper.container, (id) =>
-      id.includes('video-card-')
-    )[0];
+  // it('changes video on clicked video on list', async () => {
+  //   const wrapper = await build();
+  //   const { firstChild: videoCard } = getAllByTestId(wrapper.container, (id) =>
+  //     id.includes('video-card-')
+  //   )[0];
 
-    await act(async () => {
-      fireEvent.click(videoCard);
-    });
+  //   await act(async () => {
+  //     fireEvent.click(videoCard);
+  //   });
 
-    const container = getByTestId(wrapper.container, 'video-player-container');
-    const realatedVideosList = getAllByTestId(container, (id) =>
-      id.includes('small-caption-')
-    );
+  //   const container = getByTestId(wrapper.container, 'video-player-container');
+  //   const realatedVideosList = getAllByTestId(container, (id) =>
+  //     id.includes('small-caption-')
+  //   );
 
-    fireEvent.click(realatedVideosList[0].firstChild);
-    // CHECK VIDEO CHANGE
-  });
+  //   fireEvent.click(realatedVideosList[0].firstChild);
+  //   console.log(realatedVideosList[0])
+  // });
 });

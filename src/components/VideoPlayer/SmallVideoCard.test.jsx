@@ -23,7 +23,7 @@ describe('SmallVideoCard', () => {
     expect(firstChild).toHaveStyle('padding: 4px');
     expect(firstChild).toHaveStyle('margin: 4px');
     expect(firstChild).toHaveStyle('cursor: pointer');
-    expect(firstChild).toHaveStyle('border-bottom: 1px solid #EAEAEA');
+    expect(firstChild).toHaveStyle('border-bottom: 1px solid #eaeaea');
   });
 
   it('shows video info', () => {

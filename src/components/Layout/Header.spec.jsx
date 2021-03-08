@@ -4,11 +4,13 @@ import { fireEvent, getByRole } from '@testing-library/dom';
 import { contextWrapper, renderWithTheme } from '../../utils';
 import Header from './Header';
 import SearchContext from '../../providers/SearchContext';
+import AppContext from '../../providers/AppContext';
 
 const build = (Component = <Header />) => {
   const contextValue = { search: jest.fn() };
-  const Wrap = contextWrapper(SearchContext, contextValue, Component);
-  const { container } = renderWithTheme(Wrap);
+  const WrapInSearchContext = contextWrapper(SearchContext, contextValue, Component);
+  const WrapInAppContext = contextWrapper(AppContext, {setHomeVideosView:jest.fn()}, WrapInSearchContext);
+  const { container } = renderWithTheme(WrapInAppContext);
   return {
     container,
     searchInput: () => getByRole(container, 'search'),

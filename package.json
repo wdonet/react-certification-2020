@@ -67,7 +67,9 @@
   },
   "jest": {
     "coveragePathIgnorePatterns": [
-      "src/utils/testing/helpers"
+      "src/utils/testing/helpers",
+      "src/utils/index.js",
+      "src/index.js"
     ]
   }
 }
