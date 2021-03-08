@@ -1,77 +1,238 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`App layout renders 1`] = `
-<div>
-  <div
-    class="sc-VigVT hxPfJy"
-    data-testid="layout-wrapper"
-    role="application"
-  >
+Object {
+  "LayoutWrapper": [Function],
+  "ThemeSwitch": [Function],
+  "container": <div>
     <div
-      class="sc-iwsKbI fwoerb"
-      data-testid="header"
-      role="toolbar"
+      class="sc-VigVT hxPfJy"
+      data-testid="layout-wrapper"
+      role="application"
     >
       <div
-        class="sc-gZMcBi hhbgDr"
+        class="sc-iwsKbI fwoerb"
+        data-testid="header"
+        role="toolbar"
       >
-        <div>
-          <img
-            alt="hamburguer"
-            class="sc-gzVnrw iCjpdg"
-            role="button"
-            src="hamburguer.png"
-          />
+        <div
+          class="sc-gZMcBi hhbgDr"
+        >
+          <div>
+            <img
+              alt="hamburguer"
+              class="sc-gzVnrw iCjpdg"
+              role="button"
+              src="hamburguer.png"
+            />
+          </div>
+          <div
+            data-testid="search-input"
+          >
+            <input
+              class="sc-dnqmqq eJdbOI"
+              role="search"
+            />
+          </div>
         </div>
         <div
-          data-testid="search-input"
+          class="sc-gZMcBi hhbgDr"
         >
-          <input
-            class="sc-dnqmqq eJdbOI"
-            role="search"
-          />
+          <div
+            data-testid="theme-mode-switch"
+          >
+            <input
+              class="sc-htoDjs bZzhDu"
+              role="switch"
+              type="checkbox"
+            />
+          </div>
+          <div
+            data-testid="user-avatar"
+          >
+            <img
+              alt="profile"
+              class="sc-bdVaJa ieaWl"
+              role="button"
+              src="default_user.jpg"
+            />
+          </div>
         </div>
       </div>
       <div
-        class="sc-gZMcBi hhbgDr"
+        class="sc-gqjmRU bMokHB"
+        data-testid="main-content"
+        role="main"
       >
         <div
-          data-testid="theme-mode-switch"
+          class="sc-fjdhpX fJdZy"
         >
-          <input
-            class="sc-htoDjs bZzhDu"
-            role="switch"
-            type="checkbox"
-          />
+          <h1>
+            Welcome to the challenge!
+          </h1>
         </div>
         <div
-          data-testid="user-avatar"
+          class="sc-jTzLTM dnPpCj"
         >
-          <img
-            alt="profile"
-            class="sc-bdVaJa ieaWl"
-            role="button"
-            src="default_user.jpg"
-          />
+          <div
+            data-testid="video-card-{\\"kind\\":\\"youtube#channel\\",\\"channelId\\":\\"UCPGzT4wecuWM0BH9mPiulXg\\"}"
+          >
+            <div
+              class="sc-bwzfXH fFIYHG"
+              role=""
+            >
+              <figure
+                class="sc-ifAKCX kHuOca"
+              >
+                <img
+                  alt="Wizeline"
+                  class="sc-EHOje hZoKKp"
+                  src="https://yt3.ggpht.com/ytc/AAUvwnighSReQlmHl_S_vSfvnWBAG5Cw4A0YxtE0tm5OpQ=s800-c-k-c0xffffffff-no-rj-mo"
+                />
+                <figcaption
+                  hidden=""
+                >
+                  Wizeline transforms how teams build technology. Its customers accelerate the delivery of innovative products with proven solutions, which combine Wizeline's ...
+                </figcaption>
+              </figure>
+              <div
+                class="sc-htpNat jRJAUB"
+              >
+                <h2
+                  class="sc-bZQynM iihQAR"
+                  title="video-title"
+                >
+                  Wizeline
+                </h2>
+                <p
+                  class="sc-bxivhb iKRSeQ"
+                  role=""
+                >
+                  Wizeline transforms how teams build technology. Its customers accelerate the delivery of innovative products with proven solutions, which combine Wizeline's ...
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"nmXMgqjQzls\\"}"
+          >
+            <div
+              class="sc-bwzfXH fFIYHG"
+              role=""
+            >
+              <figure
+                class="sc-ifAKCX kHuOca"
+              >
+                <img
+                  alt="Video Tour | Welcome to Wizeline Guadalajara"
+                  class="sc-EHOje hZoKKp"
+                  src="https://i.ytimg.com/vi/nmXMgqjQzls/hqdefault.jpg"
+                />
+                <figcaption
+                  hidden=""
+                >
+                  Follow Hector Padilla, Wizeline Director of Engineering, for a lively tour of our office. In 2018, Wizeline opened its stunning new office in Guadalajara, Jalisco, ...
+                </figcaption>
+              </figure>
+              <div
+                class="sc-htpNat jRJAUB"
+              >
+                <h2
+                  class="sc-bZQynM iihQAR"
+                  title="video-title"
+                >
+                  Video Tour | Welcome to Wizeline Guadalajara
+                </h2>
+                <p
+                  class="sc-bxivhb iKRSeQ"
+                  role=""
+                >
+                  Follow Hector Padilla, Wizeline Director of Engineering, for a lively tour of our office. In 2018, Wizeline opened its stunning new office in Guadalajara, Jalisco, ...
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"HYyRZiwBWc8\\"}"
+          >
+            <div
+              class="sc-bwzfXH fFIYHG"
+              role=""
+            >
+              <figure
+                class="sc-ifAKCX kHuOca"
+              >
+                <img
+                  alt="Wizeline Guadalajara | Bringing Silicon Valley to Mexico"
+                  class="sc-EHOje hZoKKp"
+                  src="https://i.ytimg.com/vi/HYyRZiwBWc8/hqdefault.jpg"
+                />
+                <figcaption
+                  hidden=""
+                >
+                  Wizeline continues to offer a Silicon Valley culture in burgeoning innovation hubs like Mexico and Vietnam. In 2018, our Guadalajara team moved into a ...
+                </figcaption>
+              </figure>
+              <div
+                class="sc-htpNat jRJAUB"
+              >
+                <h2
+                  class="sc-bZQynM iihQAR"
+                  title="video-title"
+                >
+                  Wizeline Guadalajara | Bringing Silicon Valley to Mexico
+                </h2>
+                <p
+                  class="sc-bxivhb iKRSeQ"
+                  role=""
+                >
+                  Wizeline continues to offer a Silicon Valley culture in burgeoning innovation hubs like Mexico and Vietnam. In 2018, our Guadalajara team moved into a ...
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"Po3VwR_NNGk\\"}"
+          >
+            <div
+              class="sc-bwzfXH fFIYHG"
+              role=""
+            >
+              <figure
+                class="sc-ifAKCX kHuOca"
+              >
+                <img
+                  alt="Wizeline hace sentir a empleados como en casa"
+                  class="sc-EHOje hZoKKp"
+                  src="https://i.ytimg.com/vi/Po3VwR_NNGk/hqdefault.jpg"
+                />
+                <figcaption
+                  hidden=""
+                >
+                  En el 2014, Bismarck fundó Wizeline, compañía tecnológica que trabaja con los corporativos ofreciendo una plataforma para que desarrollen software de forma ...
+                </figcaption>
+              </figure>
+              <div
+                class="sc-htpNat jRJAUB"
+              >
+                <h2
+                  class="sc-bZQynM iihQAR"
+                  title="video-title"
+                >
+                  Wizeline hace sentir a empleados como en casa
+                </h2>
+                <p
+                  class="sc-bxivhb iKRSeQ"
+                  role=""
+                >
+                  En el 2014, Bismarck fundó Wizeline, compañía tecnológica que trabaja con los corporativos ofreciendo una plataforma para que desarrollen software de forma ...
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div
-      class="sc-gqjmRU bMokHB"
-      data-testid="main-content"
-      role="main"
-    >
-      <div
-        class="sc-fjdhpX fJdZy"
-      >
-        <h1>
-          Welcome to the challenge!
-        </h1>
-      </div>
-      <div
-        class="sc-jTzLTM dnPpCj"
-      />
-    </div>
-  </div>
-</div>
+  </div>,
+}
 `;

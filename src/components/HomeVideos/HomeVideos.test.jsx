@@ -1,7 +1,7 @@
 import React from 'react';
 import 'jest-styled-components';
 import { lightTheme } from '../../providers/themes';
-import { renderWithTheme } from '../../utils/testing';
+import { renderWithTheme } from '../../utils';
 import HomeVideos from './HomeVideos';
 
 const build = (Component = <HomeVideos />, theme = lightTheme) => {

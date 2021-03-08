@@ -1,66 +1,70 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`LayoutWrapper renders 1`] = `
-<div>
-  <div
-    class="sc-VigVT hxPfJy"
-    data-testid="layout-wrapper"
-    role="application"
-  >
+Object {
+  "Header": [Function],
+  "HomeView": [Function],
+  "container": <div>
     <div
-      class="sc-iwsKbI fwoerb"
-      data-testid="header"
-      role="toolbar"
+      class="sc-VigVT hxPfJy"
+      data-testid="layout-wrapper"
+      role="application"
     >
       <div
-        class="sc-gZMcBi hhbgDr"
+        class="sc-iwsKbI fwoerb"
+        data-testid="header"
+        role="toolbar"
       >
-        <div>
-          <img
-            alt="hamburguer"
-            class="sc-gzVnrw iCjpdg"
-            role="button"
-            src="hamburguer.png"
-          />
+        <div
+          class="sc-gZMcBi hhbgDr"
+        >
+          <div>
+            <img
+              alt="hamburguer"
+              class="sc-gzVnrw iCjpdg"
+              role="button"
+              src="hamburguer.png"
+            />
+          </div>
+          <div
+            data-testid="search-input"
+          >
+            <input
+              class="sc-dnqmqq eJdbOI"
+              role="search"
+            />
+          </div>
         </div>
         <div
-          data-testid="search-input"
+          class="sc-gZMcBi hhbgDr"
         >
-          <input
-            class="sc-dnqmqq eJdbOI"
-            role="search"
-          />
+          <div
+            data-testid="theme-mode-switch"
+          >
+            <input
+              class="sc-htoDjs bZzhDu"
+              role="switch"
+              type="checkbox"
+            />
+          </div>
+          <div
+            data-testid="user-avatar"
+          >
+            <img
+              alt="profile"
+              class="sc-bdVaJa ieaWl"
+              role="button"
+              src="default_user.jpg"
+            />
+          </div>
         </div>
       </div>
       <div
-        class="sc-gZMcBi hhbgDr"
-      >
-        <div
-          data-testid="theme-mode-switch"
-        >
-          <input
-            class="sc-htoDjs bZzhDu"
-            role="switch"
-            type="checkbox"
-          />
-        </div>
-        <div
-          data-testid="user-avatar"
-        >
-          <img
-            alt="profile"
-            class="sc-bdVaJa ieaWl"
-            role="button"
-            src="default_user.jpg"
-          />
-        </div>
-      </div>
+        class="sc-gqjmRU bMokHB"
+        data-testid="main-content"
+        role="main"
+      />
     </div>
-    <div
-      class="sc-gqjmRU bMokHB"
-      data-testid="main-content"
-      role="main"
-    />
-  </div>
-</div>
+  </div>,
+}
 `;

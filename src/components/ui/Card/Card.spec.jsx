@@ -1,6 +1,6 @@
 import React from 'react';
 import 'jest-styled-components';
-import { renderWithTheme } from '../../../utils/testing';
+import { renderWithTheme } from '../../../utils';
 import { lightTheme } from '../../../providers/themes';
 import Card from './Card';
 

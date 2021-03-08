@@ -1,14 +1,20 @@
 import React from 'react';
 import 'jest-styled-components';
-import { getByRole, render } from '@testing-library/react';
+import { getByRole, render, act } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
-import LayoutWrapper from './LayoutWrapper';
+import { googleMockedAPIObject } from '../../utils';
 import { lightTheme } from '../../providers/themes';
+import LayoutWrapper from './LayoutWrapper';
 
-const build = (Component = <LayoutWrapper />) => {
-  const { container } = render(
-    <ThemeProvider theme={{ theme: lightTheme }}>{Component}</ThemeProvider>
-  );
+global.gapi = googleMockedAPIObject();
+
+const build = async (Component = <LayoutWrapper />) => {
+  let container;
+  await act(async () => {
+    container = render(
+      <ThemeProvider theme={{ theme: lightTheme }}>{Component}</ThemeProvider>
+    ).container;
+  });
   return {
     container,
     Header: () => getByRole(container, 'toolbar'),
@@ -17,13 +23,13 @@ const build = (Component = <LayoutWrapper />) => {
 };
 
 describe('LayoutWrapper', () => {
-  it('renders', () => {
-    const { container } = build(<LayoutWrapper />);
-    expect(container).toMatchSnapshot();
+  it('renders', async () => {
+    const wrapper = await build();
+    expect(wrapper).toMatchSnapshot();
   });
 
-  it('displays Header and HomeView', () => {
-    const { Header, HomeView } = build();
+  it('displays Header and HomeView', async () => {
+    const { Header, HomeView } = await build();
 
     expect(Header()).toBeInTheDocument();
     expect(HomeView()).toBeInTheDocument();
@@ -31,8 +37,8 @@ describe('LayoutWrapper', () => {
 });
 
 describe('LayoutWrapper styles', () => {
-  it('applies default styling', () => {
-    const { firstChild } = build(<LayoutWrapper />).container;
+  it('applies default styling', async () => {
+    const { firstChild } = (await build()).container;
     expect(firstChild).toHaveStyle('width: 100%');
     expect(firstChild).toHaveStyle('height: 100%');
   });

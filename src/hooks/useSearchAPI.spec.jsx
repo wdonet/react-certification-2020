@@ -1,23 +1,29 @@
-// import { act, renderHook } from "@testing-library/react-hooks";
-// import useSearchAPI from "./useSearchAPI";
-// import { data } from "../utils/testing"
+import { renderHook, act } from '@testing-library/react-hooks';
+import useSearchAPI from './useSearchAPI';
+import { googleMockedAPIObject, youtubeMockedData } from '../utils';
 
-describe('TT', () => {
-  it('', () => {
-    expect(true).toBe(true);
+describe('useSearchAPI', () => {
+  it("fetches videos list when calling 'search'", async () => {
+    global.gapi = googleMockedAPIObject();
+    const hook = renderHook(() => useSearchAPI());
+    expect(hook.result.current.videos).toHaveLength(0);
+
+    await act(async () => {
+      hook.result.current.search('');
+    });
+
+    expect(hook.result.current.videos).toHaveLength(youtubeMockedData.items.length);
+  });
+
+  it('returns empty array when call fails', async () => {
+    global.gapi = googleMockedAPIObject(false);
+    const hook = renderHook(() => useSearchAPI());
+    expect(hook.result.current.videos).toHaveLength(0);
+
+    await act(async () => {
+      hook.result.current.search('');
+    });
+
+    expect(hook.result.current.videos).toHaveLength(0);
   });
 });
-
-// global.gapi = {
-//     load: jest.fn(),
-//     client: { request: jest.fn().mockReturnValue( new Promise((res)=>res(data)) ) }
-// }
-
-// describe("useSearchAPI", () => {
-//     // it("fetches videos list when calling 'search'", async () => {
-//     //     await act(async () => {
-//     //         const { search, videos } = renderHook(useSearchAPI());
-//     //         console.log(search, videos);
-//     //     });
-//     // });
-// });

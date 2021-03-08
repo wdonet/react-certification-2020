@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 import Header from './Header';
 import HomeView from './HomeView';
+import { SearchWrapper } from '../../wrappers/SearchWrapper';
 
 const StyledLayoutWrapper = styled.div`
   background: ${({ theme }) => theme.color.background};
@@ -14,8 +15,10 @@ const LayoutWrapper = ({ children }) => {
 
   return (
     <StyledLayoutWrapper data-testid="layout-wrapper" theme={theme} role="application">
-      <Header />
-      <HomeView>{children}</HomeView>
+      <SearchWrapper>
+        <Header />
+        <HomeView>{children}</HomeView>
+      </SearchWrapper>
     </StyledLayoutWrapper>
   );
 };

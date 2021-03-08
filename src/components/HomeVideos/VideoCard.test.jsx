@@ -1,7 +1,7 @@
 import React from 'react';
 import 'jest-styled-components';
 import { getByRole, getByTitle } from '@testing-library/react';
-import { data, renderWithTheme } from '../../utils/testing';
+import { youtubeMockedData, renderWithTheme } from '../../utils';
 
 import VideoCard from './VideoCard';
 
@@ -12,7 +12,7 @@ const build = (Component = <VideoCard />) => {
 
 describe('VideoCard', () => {
   it('shows content complying with ARIA attributes', () => {
-    const video = data.items[0];
+    const video = youtubeMockedData.items[0];
     const { container } = build(<VideoCard video={video} />);
 
     const img = getByRole(container, 'img');

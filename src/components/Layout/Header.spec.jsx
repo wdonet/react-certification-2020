@@ -1,7 +1,7 @@
 import React from 'react';
 import 'jest-styled-components';
 import { fireEvent, getByRole } from '@testing-library/dom';
-import { contextWrapper, renderWithTheme } from '../../utils/testing';
+import { contextWrapper, renderWithTheme } from '../../utils';
 import Header from './Header';
 import SearchContext from '../../providers/SearchContext';
 

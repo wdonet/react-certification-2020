@@ -1,14 +1,15 @@
 import React from 'react';
-import { getByRole, render } from '@testing-library/react';
+import { act, getByRole, render } from '@testing-library/react';
+import { googleMockedAPIObject } from '../../utils';
 import App from './index';
 
-global.gapi = {
-  load: jest.fn(),
-  client: { request: jest.fn() },
-};
+global.gapi = googleMockedAPIObject();
 
-const build = () => {
-  const { container } = render(<App />);
+const build = async (Component = <App />) => {
+  let container;
+  await act(async () => {
+    container = render(Component).container;
+  });
   return {
     container,
     LayoutWrapper: () => getByRole(container, 'application'),
@@ -17,13 +18,13 @@ const build = () => {
 };
 
 describe('App layout', () => {
-  it('renders', () => {
-    const { container } = build();
-    expect(container).toMatchSnapshot();
+  it('renders', async () => {
+    const wrapper = await build();
+    expect(wrapper).toMatchSnapshot();
   });
 
-  it('displays layout wrapper', () => {
-    const { LayoutWrapper } = build();
-    expect(LayoutWrapper()).toBeInTheDocument();
+  it('displays layout wrapper', async () => {
+    const wrapper = await build();
+    expect(wrapper.LayoutWrapper()).toBeInTheDocument();
   });
 });

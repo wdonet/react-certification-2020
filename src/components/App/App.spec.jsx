@@ -1,16 +1,16 @@
 import React from 'react';
-import { fireEvent, getByRole } from '@testing-library/react';
+import { fireEvent, getByRole, act } from '@testing-library/react';
 import { darkTheme, lightTheme } from '../../providers/themes';
+import { renderWithTheme, googleMockedAPIObject } from '../../utils';
 import App from './index';
-import { renderWithTheme } from '../../utils/testing';
 
-global.gapi = {
-  load: jest.fn(),
-  client: { request: jest.fn() },
-};
+global.gapi = googleMockedAPIObject();
 
-const build = (Component = <App />, theme = lightTheme) => {
-  const { container } = renderWithTheme(Component, theme);
+const build = async (Component = <App />, theme = lightTheme) => {
+  let container;
+  await act(async () => {
+    container = renderWithTheme(Component, theme).container;
+  });
   return {
     container,
     LayoutWrapper: () => getByRole(container, 'application'),
@@ -19,18 +19,22 @@ const build = (Component = <App />, theme = lightTheme) => {
 };
 
 describe('App theme', () => {
-  it('applies "light" theme if none selected', () => {
-    const { LayoutWrapper } = build();
-    expect(LayoutWrapper()).toHaveStyle(`background: ${lightTheme.color.background}`);
+  it('applies "light" theme if none selected', async () => {
+    const wrapper = await build();
+    expect(wrapper.LayoutWrapper()).toHaveStyle(
+      `background: ${lightTheme.color.background}`
+    );
   });
 
-  it('changes "light" theme to "dark" theme', () => {
-    const { LayoutWrapper, ThemeSwitch } = build();
+  it('changes "light" theme to "dark" theme', async () => {
+    const wrapper = await build();
 
-    expect(LayoutWrapper()).toHaveStyle(`background: ${lightTheme.color.background}`);
-
-    fireEvent.click(ThemeSwitch());
-
-    expect(LayoutWrapper()).toHaveStyle(`background: ${darkTheme.color.background}`);
+    expect(wrapper.LayoutWrapper()).toHaveStyle(
+      `background: ${lightTheme.color.background}`
+    );
+    fireEvent.click(wrapper.ThemeSwitch());
+    expect(wrapper.LayoutWrapper()).toHaveStyle(
+      `background: ${darkTheme.color.background}`
+    );
   });
 });
