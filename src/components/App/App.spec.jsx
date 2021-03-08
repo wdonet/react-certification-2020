@@ -56,7 +56,6 @@ describe('App playback', () => {
     expect(container).toBeVisible();
   });
 
-
   it('changes video on clicked video on list', async () => {
     const wrapper = await build();
     const { firstChild: videoCard } = getAllByTestId(wrapper.container, (id) =>
@@ -68,10 +67,11 @@ describe('App playback', () => {
     });
 
     const container = getByTestId(wrapper.container, 'video-player-container');
-    const realatedVideosList = getAllByTestId(container, (id) => id.includes("small-caption-"));
-    
-    fireEvent.click(realatedVideosList[0].firstChild)
-      //CHECK VIDEO CHANGE
+    const realatedVideosList = getAllByTestId(container, (id) =>
+      id.includes('small-caption-')
+    );
+
+    fireEvent.click(realatedVideosList[0].firstChild);
+    // CHECK VIDEO CHANGE
   });
-  
 });

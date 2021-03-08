@@ -27,7 +27,7 @@ function App() {
       <LayoutWrapper>
         {videoID ? (
           <div data-testid="video-player-container">
-            <VideoPlayerContainer videoId={videoID}/>
+            <VideoPlayerContainer videoId={videoID} />
           </div>
         ) : (
           <div>
