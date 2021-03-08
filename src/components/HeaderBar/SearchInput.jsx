@@ -60,26 +60,34 @@ const StyledInput = styled.div`
   }
 `;
 
-function SearchInput({ placeholder }) {
+function SearchInput({ placeholder, updateQuery }) {
   const [text, setText] = useState('');
-  const handleChange = (event: any) => {
+
+  const handleChange = (event) => {
     setText(event.target.value);
+
   };
+
+  const handleSubmit = (event) => {
+    updateQuery(text);
+    event.preventDefault();
+  }
   const clearInput = () => {
     setText('');
+    if (text != '') {
+      updateQuery('');
+    }
   };
 
   return (
-    <form>
+    <form  onSubmit={handleSubmit}>
       <StyledInput className="inputWithIcon">
         <Input
           type="text"
           value={text}
           onChange={handleChange}
+         
           placeholder={placeholder}
-          onSubmit={(e) => {
-            e.preventDefault();
-          }}
         />
         <div className="left-icon">
           <svg
