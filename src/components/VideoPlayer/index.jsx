@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useYoutubeData } from '../../providers/YoutubeData';
 
 const VideoPlayer = ({ videoId }) => {
-  const { iframeApiReady, selectedVideo } = useYoutubeData();
-  console.log({ selectedVideo });
+  const { iframeAPIReady } = useYoutubeData();
+  const player = useRef(null);
 
   useEffect(() => {
     let done = false;
-    if (iframeApiReady) {
-      const player = new window.YT.Player('player', {
+    if (iframeAPIReady) {
+      player.current = new window.YT.Player('player', {
         height: '390',
         width: '640',
         videoId,
@@ -23,7 +23,12 @@ const VideoPlayer = ({ videoId }) => {
         },
       });
     }
-  }, [iframeApiReady]);
+  }, [iframeAPIReady]);
+
+  useEffect(() => {
+    if (player.current && player.current.loadVideoById)
+      player.current.loadVideoById(videoId);
+  }, [videoId]);
 
   return <div id="player" />;
 };

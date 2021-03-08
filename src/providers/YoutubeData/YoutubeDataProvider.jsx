@@ -3,13 +3,11 @@ import { getVideosByQuery, getRelatedToVideo } from './api';
 
 const YoutubeDataContext = React.createContext(null);
 
-const YoutubeDataProvider = ({ children }) => {
+const YoutubeDataProvider = ({ iframeAPIReady, children }) => {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState({});
-  const [iframeApiReady, setIframeApiReady] = useState(false);
 
   const fetchVideos = async (query) => {
-    console.log('FETCHING VIDEOS');
     try {
       const newVideos = await getVideosByQuery(query);
       setVideos(newVideos);
@@ -19,7 +17,6 @@ const YoutubeDataProvider = ({ children }) => {
   };
 
   const fetchRelatedTo = async (videoId) => {
-    console.log('FETCHING RELATED TO');
     try {
       const relatedVideos = await getRelatedToVideo(videoId);
       return relatedVideos;
@@ -30,7 +27,6 @@ const YoutubeDataProvider = ({ children }) => {
 
   useEffect(() => {
     fetchVideos();
-    window.onYouTubeIframeAPIReady = () => setIframeApiReady(true);
   }, []);
 
   return (
@@ -40,7 +36,7 @@ const YoutubeDataProvider = ({ children }) => {
         fetchVideos,
         selectedVideo,
         setSelectedVideo,
-        iframeApiReady,
+        iframeAPIReady,
         fetchRelatedTo,
       }}
     >

@@ -5,8 +5,20 @@ const StyledSection = styled.section`
 `;
 
 const RelatedVideosContainer = styled.div`
-  width: 420px;
-  /* max-height: 100vw; */
+  padding: 0 15px 0 15px;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  @media (max-width: 900px) {
+    width: 350px;
+  }
+  @media (max-width: 700px) {
+    width: 300px;
+  }
 `;
 
-export { StyledSection, RelatedVideosContainer };
+const VideoPlaterContainer = styled.div`
+  float: left;
+`;
+
+export { StyledSection, RelatedVideosContainer, VideoPlaterContainer };

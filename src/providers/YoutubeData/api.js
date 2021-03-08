@@ -32,7 +32,7 @@ const getRelatedToVideo = async (videoId) => {
     `${params.baseUrl}search?part=snippet&relatedToVideoId=${videoId}&type=video&key=${params.apiKey}`
   );
 
-  const items = await response.json();
+  const { items } = await response.json();
   return items;
 };
 
