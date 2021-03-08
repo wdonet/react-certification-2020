@@ -3,9 +3,11 @@
 exports[`HomeVideos renders 1`] = `
 <div>
   <div
-    class="sc-iwsKbI zcGec"
+    class="sc-gZMcBi epBfsu"
   >
-    <div>
+    <div
+      class="sc-iwsKbI Amydw"
+    >
       No hay videos :/
     </div>
   </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import 'jest-styled-components';
+import { fireEvent } from '@testing-library/dom';
 import { renderWithTheme } from '../../../utils';
 import { lightTheme } from '../../../providers/themes';
 import Card from './Card';
@@ -22,5 +23,14 @@ describe('Card theme', () => {
     expect(firstChild).toHaveStyle(`background: ${lightTheme.color.surface}`);
   });
 
-  it('changes "light" theme to "dark" theme', () => {});
+  it('triggers "onClick"', () => {
+    const mockedFunction = jest.fn();
+    const { firstChild } = build(<Card onClick={mockedFunction} />).container;
+
+    fireEvent.click(firstChild);
+
+    expect(mockedFunction).toBeCalledTimes(1);
+  });
+
+  it.todo('changes "light" theme to "dark" theme');
 });

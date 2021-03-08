@@ -12,13 +12,15 @@ const StyledDiv = styled.div`
 
   &:hover {
     background: lightgray;
+    cursor: pointer;
   }
 `;
 
 const Card = (props) => {
+  const { onClick } = props;
   const { theme } = useContext(ThemeContext);
   return (
-    <StyledDiv role={props.role || ''} theme={theme}>
+    <StyledDiv onClick={onClick} role={props.role || ''} theme={theme}>
       {props.children}
     </StyledDiv>
   );

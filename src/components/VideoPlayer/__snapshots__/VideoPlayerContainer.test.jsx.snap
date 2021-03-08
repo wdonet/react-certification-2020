@@ -1,0 +1,417 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VideoPlayerContainer shows div for iframe load 1`] = `
+<div
+  class="sc-bxivhb cDFCAd"
+  id="video-player-container"
+>
+  <div
+    id="player"
+  />
+  <div
+    class="sc-htpNat elGBdt"
+    id="related-videos-list"
+  >
+    <div
+      data-testid="small-caption-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"nmXMgqjQzls\\"}"
+    >
+      <div
+        class="sc-bdVaJa bVDlPw"
+      >
+        <img
+          alt="Video Tour | Welcome to Wizeline Guadalajara"
+          src="https://i.ytimg.com/vi/nmXMgqjQzls/default.jpg"
+        />
+        <div
+          class="sc-bwzfXH iHfSnL"
+        >
+          Follow Hector Padilla, Wizeline Director of Engineering, for a lively tour of our office. In 2018, Wizeline opened its stunning new office in Guadalajara, Jalisco, ...
+        </div>
+      </div>
+    </div>
+    <div
+      data-testid="small-caption-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"HYyRZiwBWc8\\"}"
+    >
+      <div
+        class="sc-bdVaJa bVDlPw"
+      >
+        <img
+          alt="Wizeline Guadalajara | Bringing Silicon Valley to Mexico"
+          src="https://i.ytimg.com/vi/HYyRZiwBWc8/default.jpg"
+        />
+        <div
+          class="sc-bwzfXH iHfSnL"
+        >
+          Wizeline continues to offer a Silicon Valley culture in burgeoning innovation hubs like Mexico and Vietnam. In 2018, our Guadalajara team moved into a ...
+        </div>
+      </div>
+    </div>
+    <div
+      data-testid="small-caption-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"Po3VwR_NNGk\\"}"
+    >
+      <div
+        class="sc-bdVaJa bVDlPw"
+      >
+        <img
+          alt="Wizeline hace sentir a empleados como en casa"
+          src="https://i.ytimg.com/vi/Po3VwR_NNGk/default.jpg"
+        />
+        <div
+          class="sc-bwzfXH iHfSnL"
+        >
+          En el 2014, Bismarck fundó Wizeline, compañía tecnológica que trabaja con los corporativos ofreciendo una plataforma para que desarrollen software de forma ...
+        </div>
+      </div>
+    </div>
+    <div
+      data-testid="small-caption-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"7PtYNO6g7eI\\"}"
+    >
+      <div
+        class="sc-bdVaJa bVDlPw"
+      >
+        <img
+          alt="We Are Wizeline"
+          src="https://i.ytimg.com/vi/7PtYNO6g7eI/default.jpg"
+        />
+        <div
+          class="sc-bwzfXH iHfSnL"
+        >
+          Engineering a better tomorrow. Wizeline is a global software development company that helps its clients solve their biggest challenges with design and ...
+        </div>
+      </div>
+    </div>
+    <div
+      data-testid="small-caption-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"YuW0CE_8i1I\\"}"
+    >
+      <div
+        class="sc-bdVaJa bVDlPw"
+      >
+        <img
+          alt="Wizeline Thrives in Mexico City"
+          src="https://i.ytimg.com/vi/YuW0CE_8i1I/default.jpg"
+        />
+        <div
+          class="sc-bwzfXH iHfSnL"
+        >
+          Our vibrant Mexico City office is home to agile software engineers, talented UX designers, and brilliant data scientists. Learn about the rich history of Mexico City.
+        </div>
+      </div>
+    </div>
+    <div
+      data-testid="small-caption-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"CHzlSGRvWPs\\"}"
+    >
+      <div
+        class="sc-bdVaJa bVDlPw"
+      >
+        <img
+          alt="Wizeline"
+          src="https://i.ytimg.com/vi/CHzlSGRvWPs/default.jpg"
+        />
+        <div
+          class="sc-bwzfXH iHfSnL"
+        >
+          El plan de Wizeline, una empresa de inteligencia artificial, para ayudar a crecer la comunidad de ciencia de datos en CDMX y todo el país, a través de cursos ...
+        </div>
+      </div>
+    </div>
+    <div
+      data-testid="small-caption-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"cjO2fJy8asM\\"}"
+    >
+      <div
+        class="sc-bdVaJa bVDlPw"
+      >
+        <img
+          alt="A Day in the Life of an Engineering Manager at Wizeline"
+          src="https://i.ytimg.com/vi/cjO2fJy8asM/default.jpg"
+        />
+        <div
+          class="sc-bwzfXH iHfSnL"
+        >
+          Fernando Espinoza shares his experience working as an engineering manager at Wizeline and mentoring other engineers. Learn about Fernando's passions ...
+        </div>
+      </div>
+    </div>
+    <div
+      data-testid="small-caption-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"zClI9OjgKXM\\"}"
+    >
+      <div
+        class="sc-bdVaJa bVDlPw"
+      >
+        <img
+          alt="Wizeline Technical Writing Academy | Featuring Eduardo Ocejo"
+          src="https://i.ytimg.com/vi/zClI9OjgKXM/default.jpg"
+        />
+        <div
+          class="sc-bwzfXH iHfSnL"
+        />
+      </div>
+    </div>
+    <div
+      data-testid="small-caption-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"8bz9R61oY5o\\"}"
+    >
+      <div
+        class="sc-bdVaJa bVDlPw"
+      >
+        <img
+          alt="Silicon Valley en México"
+          src="https://i.ytimg.com/vi/8bz9R61oY5o/default.jpg"
+        />
+        <div
+          class="sc-bwzfXH iHfSnL"
+        >
+          Empresas de Silicon Valley buscan establecerse en México por el gran talento que hay en nuestro país. Es una investigación de Roberto Domínguez.
+        </div>
+      </div>
+    </div>
+    <div
+      data-testid="small-caption-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"7dJFraOqcoQ\\"}"
+    >
+      <div
+        class="sc-bdVaJa bVDlPw"
+      >
+        <img
+          alt="Why Wizeline? featuring Juan Pablo Villa in Mexico City"
+          src="https://i.ytimg.com/vi/7dJFraOqcoQ/default.jpg"
+        />
+        <div
+          class="sc-bwzfXH iHfSnL"
+        >
+          Juan Pablo, known as Gianpa at Wizeline, is a software engineer in our Mexico City office. Gianpa focuses on Android apps, is an integral part of our culture, ...
+        </div>
+      </div>
+    </div>
+    <div
+      data-testid="small-caption-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"w-Qwc_XJrWc\\"}"
+    >
+      <div
+        class="sc-bdVaJa bVDlPw"
+      >
+        <img
+          alt="Wizeline&#39;s 2020 Year in Review"
+          src="https://i.ytimg.com/vi/w-Qwc_XJrWc/default.jpg"
+        />
+        <div
+          class="sc-bwzfXH iHfSnL"
+        >
+          There's no doubt that 2020 has been an unprecedented year. However, amidst all the chaos, we achieved remarkable growth in various areas of our business.
+        </div>
+      </div>
+    </div>
+    <div
+      data-testid="small-caption-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"rjir_cHTl5w\\"}"
+    >
+      <div
+        class="sc-bdVaJa bVDlPw"
+      >
+        <img
+          alt="Why Wizeline? featuring Hugo Lopez in Mexico City"
+          src="https://i.ytimg.com/vi/rjir_cHTl5w/default.jpg"
+        />
+        <div
+          class="sc-bwzfXH iHfSnL"
+        />
+      </div>
+    </div>
+    <div
+      data-testid="small-caption-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"DcFK1x3NHGY\\"}"
+    >
+      <div
+        class="sc-bdVaJa bVDlPw"
+      >
+        <img
+          alt="Why Wizeline? (We&#39;re Hiring in Mexico!)"
+          src="https://i.ytimg.com/vi/DcFK1x3NHGY/default.jpg"
+        />
+        <div
+          class="sc-bwzfXH iHfSnL"
+        >
+          A quick look at why people join Wizeline, what motivates us as a team and what it's like to work in our Guadalajara office. Learn more and apply here: ...
+        </div>
+      </div>
+    </div>
+    <div
+      data-testid="small-caption-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"3BzYWAqZgFw\\"}"
+    >
+      <div
+        class="sc-bdVaJa bVDlPw"
+      >
+        <img
+          alt="Why Wizeline? featuring Oswaldo Herrera in Mexico City"
+          src="https://i.ytimg.com/vi/3BzYWAqZgFw/default.jpg"
+        />
+        <div
+          class="sc-bwzfXH iHfSnL"
+        >
+          Oswaldo is a software engineering in Wizeline's Mexico City office. He joined Wizeline because of the camaraderie and deep sense of commitment of our teams.
+        </div>
+      </div>
+    </div>
+    <div
+      data-testid="small-caption-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"3KVFmT-Tp2w\\"}"
+    >
+      <div
+        class="sc-bdVaJa bVDlPw"
+      >
+        <img
+          alt="Caso de Éxito AWS: Wizeline [Spanish]"
+          src="https://i.ytimg.com/vi/3KVFmT-Tp2w/default.jpg"
+        />
+        <div
+          class="sc-bwzfXH iHfSnL"
+        >
+          Central de socios de APN - https://amzn.to/2S7tIXM Fundada en 2014, Wizeline es una compañía joven e innovadora que nació en la nube para ofrecer soporte ...
+        </div>
+      </div>
+    </div>
+    <div
+      data-testid="small-caption-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"aKuPmY2m1Ro\\"}"
+    >
+      <div
+        class="sc-bdVaJa bVDlPw"
+      >
+        <img
+          alt="Wizeline&#39;s 2019 Year in Review"
+          src="https://i.ytimg.com/vi/aKuPmY2m1Ro/default.jpg"
+        />
+        <div
+          class="sc-bwzfXH iHfSnL"
+        />
+      </div>
+    </div>
+    <div
+      data-testid="small-caption-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"24sTHUyWhRM\\"}"
+    >
+      <div
+        class="sc-bdVaJa bVDlPw"
+      >
+        <img
+          alt="[1 of 2] Wizeline CEO shares career lessons from Google"
+          src="https://i.ytimg.com/vi/24sTHUyWhRM/default.jpg"
+        />
+        <div
+          class="sc-bwzfXH iHfSnL"
+        >
+          Founder & CEO Bismarck Lepe on growth opportunities at Wizeline and his career-path experience as an early Google employee. Join our team!
+        </div>
+      </div>
+    </div>
+    <div
+      data-testid="small-caption-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"IxGc1gSqB3A\\"}"
+    >
+      <div
+        class="sc-bdVaJa bVDlPw"
+      >
+        <img
+          alt="Wizeline Data Engineering featuring Tania Reyes"
+          src="https://i.ytimg.com/vi/IxGc1gSqB3A/default.jpg"
+        />
+        <div
+          class="sc-bwzfXH iHfSnL"
+        >
+          Tania discovered her interest in Big Data while working at Wizeline and took Wizeline Academy courses to skill up and join the data team. Now, she works on ...
+        </div>
+      </div>
+    </div>
+    <div
+      data-testid="small-caption-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"NP1gAnbeNno\\"}"
+    >
+      <div
+        class="sc-bdVaJa bVDlPw"
+      >
+        <img
+          alt="Wizeline Querétaro | Mexico&#39;s New Knowledge Economy (We&#39;re hiring!)"
+          src="https://i.ytimg.com/vi/NP1gAnbeNno/default.jpg"
+        />
+        <div
+          class="sc-bwzfXH iHfSnL"
+        >
+          A small but mighty (and growing) team, the Queretaro crew has taken ownership of growing the office and brand, speaking at university events, hosting tech ...
+        </div>
+      </div>
+    </div>
+    <div
+      data-testid="small-caption-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"F6Krwu6lUc8\\"}"
+    >
+      <div
+        class="sc-bdVaJa bVDlPw"
+      >
+        <img
+          alt="Miriam Godinez | Women in Leadership at Wizeline"
+          src="https://i.ytimg.com/vi/F6Krwu6lUc8/default.jpg"
+        />
+        <div
+          class="sc-bwzfXH iHfSnL"
+        >
+          Science and technology always caught Miriam's attention. One of her ultimate goals as a Senior Engineer Manager and Lead from the Mobile Team at Wizeline ...
+        </div>
+      </div>
+    </div>
+    <div
+      data-testid="small-caption-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"RFq7gfvhtCk\\"}"
+    >
+      <div
+        class="sc-bdVaJa bVDlPw"
+      >
+        <img
+          alt="Welcome Back to Wizeline Vietnam | Extended Version"
+          src="https://i.ytimg.com/vi/RFq7gfvhtCk/default.jpg"
+        />
+        <div
+          class="sc-bwzfXH iHfSnL"
+        >
+          Thanks to swift government action, the COVID-19 situation in Vietnam has reached a point where businesses are able to return to work and reopen offices.
+        </div>
+      </div>
+    </div>
+    <div
+      data-testid="small-caption-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"E1Vq_A3WKK8\\"}"
+    >
+      <div
+        class="sc-bdVaJa bVDlPw"
+      >
+        <img
+          alt="How does Wizeline work?"
+          src="https://i.ytimg.com/vi/E1Vq_A3WKK8/default.jpg"
+        />
+        <div
+          class="sc-bwzfXH iHfSnL"
+        >
+          Wizeline builds teams with a mix of technical and non-technical talent to deliver better products, faster. Learn more about our consulting services: ...
+        </div>
+      </div>
+    </div>
+    <div
+      data-testid="small-caption-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"ZmkslANDz0Q\\"}"
+    >
+      <div
+        class="sc-bdVaJa bVDlPw"
+      >
+        <img
+          alt="12 Wishes from Wizeline | Happy Holidays 2019"
+          src="https://i.ytimg.com/vi/ZmkslANDz0Q/default.jpg"
+        />
+        <div
+          class="sc-bwzfXH iHfSnL"
+        />
+      </div>
+    </div>
+    <div
+      data-testid="small-caption-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"Nss3EmTDD3s\\"}"
+    >
+      <div
+        class="sc-bdVaJa bVDlPw"
+      >
+        <img
+          alt="Why Wizeline?"
+          src="https://i.ytimg.com/vi/Nss3EmTDD3s/default.jpg"
+        />
+        <div
+          class="sc-bwzfXH iHfSnL"
+        >
+          Hear from our employees directly about what excites them about their roles here at Wizeline. Wizeline wants to hire the best and the brightest to accelerate their ...
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

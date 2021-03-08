@@ -1,9 +1,10 @@
 import { useState } from 'react';
+// import { youtubeMockedData } from '../utils';
 
 const useSearchAPI = () => {
   const [videos, setVideos] = useState([]);
 
-  const search = async (query) => {
+  const search = async (query = '') => {
     try {
       /* global gapi */
       /* eslint no-undef: "error" */
@@ -11,6 +12,7 @@ const useSearchAPI = () => {
         path: `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${query}&maxResults=12&regionCode=MX&key=${process.env.REACT_APP_YOUTUBE_KEY}`,
       });
       setVideos(result.items);
+      // setVideos(youtubeMockedData.items);
     } catch (reason) {
       setVideos([]);
     }
