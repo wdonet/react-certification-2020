@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const VideoCardContainer = styled.div`
-  width: 20em;
-  height: 20em;
+  width: ${({ noDescription }) => (noDescription ? '14em' : '20em')};
+  height: ${({ noDescription }) => (noDescription ? '10em' : '20em')};
   margin: 0.5em;
   overflow: hidden;
   background-color: ${({ theme }) => theme.videoCardBackground};
@@ -13,7 +13,7 @@ export const VideoCardContainer = styled.div`
 
 export const ImageContainer = styled.div`
   width: 100%;
-  height: 40%;
+  height: ${({ noDescription }) => (noDescription ? '60%' : '40%')};
   background-image: url(${({ img }) => img});
   background-size: cover;
   background-repeat: no-repeat;
@@ -24,7 +24,8 @@ export const Details = styled.div`
   padding: 1em;
 
   & h2 {
-    font-size: 1rem;
+    font-size: ${({ noDescription }) => (noDescription ? '0.6rem' : '1rem')};
+    text-align: ${({ noDescription }) => (noDescription ? 'center' : 'left')};
     font-weight: 800;
     margin: 0 0 0.35em 0;
   }

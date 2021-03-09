@@ -1,11 +1,28 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { HeaderContainer } from '../Header/Header.styled';
+import { render, waitForElementToBeRemoved } from '@testing-library/react';
+import { MemoryRouter } from 'react-router';
+import YouTubeProvider from '../../providers/YouTubeAPI';
 import App from '.';
 
-test('Header renders on all screens', () => {
-  const container = document.createElement('div');
-  ReactDOM.render(<App />, container);
-  const header = container.getElementsByClassName(HeaderContainer.styledComponentId)[0];
-  expect(container.children).toContain(header);
+function renderApp() {
+  return render(
+    <YouTubeProvider isMock>
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    </YouTubeProvider>
+  );
+}
+
+test('Loding on start', () => {
+  const { getByText } = renderApp();
+
+  expect(getByText('Loading!')).toBeInTheDocument();
+});
+
+test('Header renders on all screens', async () => {
+  const { getByText, getByRole } = renderApp();
+  await waitForElementToBeRemoved(() => getByText('Loading!')).then();
+
+  expect(getByRole('banner')).toBeInTheDocument();
 });

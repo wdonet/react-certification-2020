@@ -1,34 +1,38 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { MemoryRouter, Route, Switch } from 'react-router';
 import VideoCard from '.';
-import { Details, ImageContainer, VideoCardContainer } from './VideoCard.styled';
 
-const container = document.createElement('div');
 const image = 'http://placecorgi.com/250';
 const title = 'Corgies';
 const description = 'I Love Corgies!';
-ReactDOM.render(
-  <VideoCard image={image} title={title} description={description} />,
-  container
-);
-const videoCardContainer = container.getElementsByClassName(
-  VideoCardContainer.styledComponentId
-)[0];
-const details = videoCardContainer.getElementsByClassName(Details.styledComponentId)[0];
-const thumbnail = videoCardContainer.getElementsByClassName(
-  ImageContainer.styledComponentId
-)[0];
+const VideoText = 'Video Was Loaded!';
 
 test("VideoCard contains all of it's parts", () => {
-  expect(container.children).toContain(videoCardContainer);
-  expect(videoCardContainer.children).toContain(details);
-  expect(videoCardContainer.children).toContain(thumbnail);
+  const { getByRole, getByText } = render(
+    <MemoryRouter>
+      <VideoCard image={image} title={title} description={description} />,
+    </MemoryRouter>
+  );
+
+  expect(getByRole('img', { name: 'thumbnail' })).toBeInTheDocument();
+  expect(getByText(title)).toBeInTheDocument();
+  expect(getByText(description)).toBeInTheDocument();
 });
 
-test('VideoCard renders title', () => {
-  expect(videoCardContainer).toHaveTextContent(title);
-});
+test('VideoCard links to video', () => {
+  const { getByRole, getByText } = render(
+    <MemoryRouter>
+      <Switch>
+        <Route path="/video/:videoId">{VideoText}</Route>
+        <Route path="*">
+          <VideoCard image={image} title={title} description={description} />
+        </Route>
+      </Switch>
+    </MemoryRouter>
+  );
 
-test('VideoCard renders description', () => {
-  expect(videoCardContainer).toHaveTextContent(description);
+  userEvent.click(getByRole('link'));
+  expect(getByText(VideoText)).toBeInTheDocument();
 });

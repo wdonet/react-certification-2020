@@ -4,11 +4,10 @@ import ImageButton from '../ImageButton';
 export const HeaderContainer = styled.header`
   background-color: ${({ theme }) => theme.headerBackground};
   height: 52px;
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 2.5%;
   margin: auto;
   font-size: 0.9rem;
 `;
@@ -19,6 +18,11 @@ export const Menu = styled(ImageButton)`
   width: 18px;
   flex-grow: 0;
   flex-shrink: 0;
+  outline: none;
+`;
+
+export const SearchLabel = styled.label`
+  display: none;
 `;
 
 export const SearchInput = styled.input`
@@ -39,4 +43,5 @@ export const Loggin = styled(ImageButton)`
   width: 30px;
   flex-grow: 0;
   flex-shrink: 0;
+  outline: none;
 `;

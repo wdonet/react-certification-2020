@@ -1,20 +1,20 @@
 import React from 'react';
-import { render, waitFor } from '@testing-library/react';
+import { render, waitForElementToBeRemoved } from '@testing-library/react';
+import { MemoryRouter } from 'react-router';
+import YouTubeProvider from '../../providers/YouTubeAPI';
 import HomePage from '.';
-import { VideoGridContainer } from '../../components/VideoGrid/VideoGrid.styled';
 
 test('Video grid on initial render', async () => {
-  const { container } = render(<HomePage />);
-  await waitFor(() => {
-    const videoGrid = document.getElementsByClassName(
-      VideoGridContainer.styledComponentId
-    )[0];
-    if (!videoGrid) {
-      throw new Error();
-    }
+  const { getByText, getAllByRole } = render(
+    <YouTubeProvider isMock>
+      <MemoryRouter>
+        <HomePage />
+      </MemoryRouter>
+    </YouTubeProvider>
+  );
+  await waitForElementToBeRemoved(() => getByText('Loading!')).then();
+
+  getAllByRole('link').forEach((value) => {
+    expect(value).toBeInTheDocument();
   });
-  const videoGrid = document.getElementsByClassName(
-    VideoGridContainer.styledComponentId
-  )[0];
-  expect(container.children).toContain(videoGrid);
 });

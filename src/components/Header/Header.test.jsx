@@ -1,26 +1,75 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
+import { MemoryRouter, Route, Switch } from 'react-router';
 import Header from '.';
-import { SwitchContainer } from '../Switch/Switch.styled';
-import { HeaderContainer, Loggin, Menu, SearchInput } from './Header.styled';
 
-test("Header renders all of it's parts", () => {
-  const { container } = render(<Header />);
+const DefaultText = 'Default Route';
+const SearchText = 'Search Route';
+const BadText = 'Bad Route';
 
-  const header = document.getElementsByClassName(HeaderContainer.styledComponentId)[0];
-  expect(container.children).toContain(header);
+function renderWithNavigation() {
+  return render(
+    <MemoryRouter>
+      <Header />
+      <Switch>
+        <Route exact path={['/', '/search']}>
+          <div>{DefaultText}</div>
+        </Route>
+        <Route path="/search/:searchQuery">
+          <div>{SearchText}</div>
+        </Route>
+        <Route path="*">
+          <div>{BadText}</div>
+        </Route>
+      </Switch>
+    </MemoryRouter>
+  );
+}
 
-  const menu = document.getElementsByClassName(Menu.styledComponentId)[0];
-  expect(header.children).toContain(menu);
+describe("Header renders all of it's parts", () => {
+  test('Renders menu button', () => {
+    const { getByRole } = render(<Header />);
+    expect(getByRole('button', { name: 'Menu' })).toBeInTheDocument();
+  });
 
-  const searchInput = document.getElementsByClassName(SearchInput.styledComponentId)[0];
-  expect(header.children).toContain(searchInput);
+  test('Renders search bar', () => {
+    const { getByLabelText } = render(<Header />);
+    expect(getByLabelText('search')).toBeInTheDocument();
+  });
 
-  const themeToggle = document.getElementsByClassName(
-    SwitchContainer.styledComponentId
-  )[0];
-  expect(header.children).toContain(themeToggle);
+  test('Renders menu button', () => {
+    const { getByAltText } = render(<Header />);
+    expect(getByAltText('Theme')).toBeInTheDocument();
+  });
 
-  const loggin = document.getElementsByClassName(Loggin.styledComponentId)[0];
-  expect(header.children).toContain(loggin);
+  test('Renders loggin button', () => {
+    const { getByRole } = render(<Header />);
+    expect(getByRole('button', { name: 'Loggin' })).toBeInTheDocument();
+  });
+});
+
+test('Search for new videos', () => {
+  const { getByText, getByLabelText } = renderWithNavigation();
+  const input = getByLabelText('search');
+  const searchQuery = 'Wizeline';
+
+  expect(getByText(DefaultText)).toBeInTheDocument();
+
+  fireEvent.change(input, { target: { value: searchQuery } });
+  expect(input.value).toBe(searchQuery);
+
+  input.focus();
+  fireEvent.keyDown(document.activeElement, {
+    key: 'Enter',
+    code: 'Enter',
+  });
+  expect(getByText(SearchText)).toBeInTheDocument();
+
+  fireEvent.change(input, { target: { value: '' } });
+  input.focus();
+  fireEvent.keyDown(document.activeElement, {
+    key: 'Enter',
+    code: 'Enter',
+  });
+  expect(getByText(DefaultText)).toBeInTheDocument();
 });

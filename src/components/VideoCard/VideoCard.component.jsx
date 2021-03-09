@@ -1,14 +1,23 @@
 import React from 'react';
+import { decode } from 'html-entities';
+import { Link } from 'react-router-dom';
 import { VideoCardContainer, Details, ImageContainer } from './VideoCard.styled';
 
-function VideoCard({ image, title, description }) {
+function VideoCard({ image, title, description, videoId, noDescription = false }) {
   return (
-    <VideoCardContainer>
-      <ImageContainer img={image} />
-      <Details>
-        <h2>{title}</h2>
-        <p>{description}</p>
-      </Details>
+    <VideoCardContainer noDescription={noDescription}>
+      <Link to={`/video/${videoId}`}>
+        <ImageContainer
+          role="img"
+          aria-label="thumbnail"
+          img={image}
+          noDescription={noDescription}
+        />
+        <Details noDescription={noDescription}>
+          <h2>{decode(title)}</h2>
+          {noDescription || <p>{decode(description)}</p>}
+        </Details>
+      </Link>
     </VideoCardContainer>
   );
 }
