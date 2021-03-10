@@ -45,9 +45,14 @@ const Description = styled.p`
   margin-top: 4px;
 `;
 
-const VideoCard = ({ image, title, description }) => {
+const VideoCard = ({ videoId, image, title, description, gotodetail }) => {
+  const clickDetail = (videoId, title, description) => {
+    console.log(`Clicked detail: ${videoId}`);
+    gotodetail(true, videoId, title,  description);
+  }
+
   return (
-    <Container>
+    <Container onClick={() => { clickDetail(videoId, title, description)} }>
       <Cover img={image} />
       <Content>
         <Title>{decode(title)}</Title>
