@@ -7,7 +7,6 @@ import filterByYear from '../../utils/filter';
 
 function App() {
   const [recent, setRecent] = useState([]);
-  const [searchString, setSearchString] = useState("wizeline");
   const [inDetail, setInDetail] = useState(false);
   const [detailVideoId, setDetailVideoId] = useState("");
   const [detailTitle, setDetailTitle] = useState("");

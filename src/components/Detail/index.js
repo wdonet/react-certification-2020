@@ -22,7 +22,7 @@ const Detail = ({ gotodetail, detailVideoId, detailTitle, detailDescription }) =
     useEffect(() => {
         console.log("detail loaded")
         var relatedUrl = `https://www.googleapis.com/youtube/v3/search?key=${process.env.REACT_APP_YOUTUBE_API_KEY2}&part=snippet&maxResults=10&order=date&type=video&relatedToVideoId=${detailVideoId}`;
-        console.log(`relatedUrl: ${relatedUrl}`);
+        // console.log(`relatedUrl: ${relatedUrl}`);
         fetch(relatedUrl).then((res) => res.json())
             .then((res) => {
                 if (res.items) {
@@ -32,11 +32,11 @@ const Detail = ({ gotodetail, detailVideoId, detailTitle, detailDescription }) =
                 }
             })
         
-    }, []);
+    }, [detailVideoId]);
 
     const recommendedVideoList = related.map((rV) => {
         return (
-            <RecommendedVideoCard videoId={rV.id.videoId} title={rV.snippet.title} image={rV.snippet.thumbnails.high.url} gotodetail={ gotodetail }/>
+            <RecommendedVideoCard key={ rV.id.videoId } videoId={rV.id.videoId} title={rV.snippet.title} image={rV.snippet.thumbnails.high.url} gotodetail={ gotodetail }/>
         )
     })
 

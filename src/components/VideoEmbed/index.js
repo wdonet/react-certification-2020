@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const StyledVideoContainer = styled.div`
@@ -32,7 +32,7 @@ const VideoEmbed = ({detailVideoId, detailTitle, detailDescription}) => {
             <h1>{detailTitle}</h1>
             <h4>{  detailDescription }</h4><br/>
             <StyledVideoContainer>
-                <iframe src={`https://www.youtube.com/embed/${detailVideoId}?autoplay=0`}></iframe>
+                <iframe title="video" src={`https://www.youtube.com/embed/${detailVideoId}?autoplay=0`}></iframe>
             </StyledVideoContainer>   
         </StyledVideo>
     )

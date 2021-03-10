@@ -74,7 +74,7 @@ function SearchInput({ placeholder, updateQuery }) {
   }
   const clearInput = () => {
     setText('');
-    if (text != '') {
+    if (text !== '') {
       updateQuery('');
     }
   };
