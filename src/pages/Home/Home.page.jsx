@@ -1,38 +1,47 @@
-import React, { useRef } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React from 'react';
+import styled from 'styled-components';
 
-import { useAuth } from '../../providers/Auth';
 import './Home.styles.css';
 
-function HomePage() {
-  const history = useHistory();
-  const sectionRef = useRef(null);
-  const { authenticated, logout } = useAuth();
+import YouTubeCard from '../../components/YouTubeCard/YouTubeCard.component';
 
-  function deAuthenticate(event) {
-    event.preventDefault();
-    logout();
-    history.push('/');
+import apidata from '../../ApiData/youtube-api.json';
+
+const CardContainer = styled.div`
+    margin: 20px;
+    position: absolute;
+    top: 100px;
+    :after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+`;
+
+function HomePage() {
+
+  function getVideos(theapidata){
+    return theapidata.items.map(item => {
+      if(item.id.kind === 'youtube#video'){
+      return(
+        <YouTubeCard 
+          key={item.id.videoId}
+          title={item.snippet.title}
+          description={item.snippet.description}
+          image={item.snippet.thumbnails.medium.url} 
+        />
+      )}
+      return null;
+    })
   }
 
   return (
-    <section className="homepage" ref={sectionRef}>
-      <h1>Wizeline YouTube Videos</h1>
-      {authenticated ? (
-        <>
-          <h2>Good to have you back</h2>
-          <span>
-            <Link to="/" onClick={deAuthenticate}>
-              ← logout
-            </Link>
-            <span className="separator" />
-            <Link to="/secret">show me something cool →</Link>
-          </span>
-        </>
-      ) : (
-        <Link to="/login">let me in →</Link>
-      )}
-    </section>
+    <>
+    <CardContainer>
+      {getVideos(apidata)}
+    </CardContainer>
+    </>
+
   );
 }
 

@@ -5,24 +5,31 @@ import styled from 'styled-components';
 const MyLi = styled.li`
     list-style-type: none;
     margin: 0 2vw;
-    font-size: 3vh;
+    font-size: 2vh;
     color: white;
     padding: 1vw;
+    float: right;
 `;
 
-const MyA = styled.a`
-    text-decoration: none;
+const MyLiLogo = styled.li`
+    list-style-type: none;
+    margin: 0 2vw;
+    font-size: 2vh;
+    font-weight: bold;
+    color: white;
+    padding: 1vw;
+    float: left;
 `;
 
 const MyNav = styled.nav`
     width: 100vw;
-    background-color: #8E44AD;
+    background-color: #c0392b;
 `;
 
 const MyUl = styled.ul`
     margin: 0;
     padding: 0;
-    display: flex;
+    overflow: auto;
 `;
 
 const MyInput = styled.input`
@@ -37,8 +44,9 @@ function NavBar(){
     return(
         <MyNav>
             <MyUl>
+                <MyLiLogo>WIZELINE</MyLiLogo>
                 <MyLi><a href="http://">Login</a></MyLi>
-                <MyLi>Theme</MyLi>
+                <MyLi><input type="checkbox"/>Theme</MyLi>
                 <MyLi>
                     <form action="" method="post">
                         <MyInput type="text" placeholder="Search..."></MyInput>
@@ -49,4 +57,4 @@ function NavBar(){
     )
 }
 
-export default NavBar
+export default NavBar;
