@@ -6,6 +6,7 @@ import { DEFAULT_SEARCH } from '../utils/constants';
 const useAPI = (search = DEFAULT_SEARCH) => {
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const onSearch = async (searchedText) => {
@@ -17,15 +18,16 @@ const useAPI = (search = DEFAULT_SEARCH) => {
           },
         });
         setVideos(response.data.items);
-        setLoading(false);
       } catch (e) {
+        setError(e);
+      } finally {
         setLoading(false);
       }
     };
     onSearch(search);
   }, [search]);
 
-  return [videos, loading];
+  return [videos, loading, error];
 };
 
 export default useAPI;

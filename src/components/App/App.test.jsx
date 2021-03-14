@@ -5,11 +5,9 @@ import App from './App.component';
 
 describe('App', () => {
   it('renders App component', () => {
-    const { container } = render(<App />);
+    render(<App />);
 
     expect(screen.getByTestId('layout-sidebar')).toBeTruthy();
     expect(screen.getByTestId('header-menu')).toBeTruthy();
-
-    expect(container).toMatchSnapshot();
   });
 });

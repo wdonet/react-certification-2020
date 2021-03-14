@@ -5,23 +5,25 @@ import { Card, Content, Image, GridItem, Title, Description } from './VideoItem.
 
 const VideoItem = ({ video, videos }) => {
   const history = useHistory();
-  const { snippet } = video;
+  const {
+    snippet: { title, description, thumbnails },
+  } = video;
 
   const onClickHandler = () => {
     history.push({
       pathname: 'watch',
       search: `?id=${video.id.videoId}`,
-      state: { title: snippet.title, description: snippet.description, videos },
+      state: { title, description, videos },
     });
   };
 
   return (
     <GridItem data-testid="video-item" onClick={onClickHandler}>
       <Card>
-        <Image src={snippet.thumbnails.medium.url} alt={snippet.title} />
+        <Image src={thumbnails.medium.url} alt={title} />
         <Content>
-          <Title>{snippet.title}</Title>
-          <Description>{snippet.description}</Description>
+          <Title>{title}</Title>
+          <Description>{description}</Description>
         </Content>
       </Card>
     </GridItem>

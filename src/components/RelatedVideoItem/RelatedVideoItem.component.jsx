@@ -5,20 +5,22 @@ import { Image, GridItem, Title } from './RelatedVideoItem.styles';
 
 const RelatedVideoItem = ({ video, videos }) => {
   const history = useHistory();
-  const { snippet } = video;
+  const {
+    snippet: { title, description, thumbnails },
+  } = video;
 
   const onClickHandler = () => {
     history.push({
       pathname: 'watch',
       search: `?id=${video.id.videoId}`,
-      state: { title: snippet.title, description: snippet.description, videos },
+      state: { title, description, videos },
     });
   };
 
   return (
     <GridItem data-testid="related-video-item" onClick={onClickHandler}>
-      <Image src={snippet.thumbnails.default.url} alt={snippet.title} />
-      <Title>{snippet.title}</Title>
+      <Image src={thumbnails.default.url} alt={title} />
+      <Title>{title}</Title>
     </GridItem>
   );
 };
