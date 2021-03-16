@@ -1,11 +1,10 @@
 import React from 'react';
 import 'jest-styled-components';
-import { lightTheme } from '../../providers/themes';
-import { renderWithTheme } from '../../utils';
+import { render } from '@testing-library/react';
 import HomeVideos from './HomeVideos';
 
-const build = (Component = <HomeVideos />, theme = lightTheme) => {
-  const { container } = renderWithTheme(Component, theme);
+const build = (Component = <HomeVideos />) => {
+  const { container } = render(Component);
   return { container };
 };
 

@@ -1,12 +1,14 @@
 import React from 'react';
 import 'jest-styled-components';
-import { getByRole } from '@testing-library/react';
-import { renderWithTheme } from '../../../utils';
+import { getByRole, render } from '@testing-library/react';
+import { contextWrapper } from '../../../utils';
 import { lightTheme } from '../../../providers/themes';
 import Card from './Card';
+import AppContext from '../../../providers/AppContext';
 
 const build = (Component = <Card />, theme = lightTheme) => {
-  const { container } = renderWithTheme(Component, theme);
+  const wrapped = contextWrapper(AppContext, { theme }, Component);
+  const { container } = render(wrapped);
   return { container };
 };
 

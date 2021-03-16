@@ -1,17 +1,17 @@
 import React from 'react';
-import { fireEvent, getByRole, act } from '@testing-library/react';
+import { fireEvent, getByRole, act, render } from '@testing-library/react';
 import { getAllByTestId, getByTestId } from '@testing-library/dom';
 import { darkTheme, lightTheme } from '../../providers/themes';
-import { renderWithTheme, googleMockedAPIObject, YTMockedObject } from '../../utils';
+import { googleMockedAPIObject, YTMockedObject } from '../../utils';
 import App from './index';
 
 global.gapi = googleMockedAPIObject();
 global.YT = YTMockedObject;
 
-const build = async (Component = <App />, theme = lightTheme) => {
+const build = async (Component = <App />) => {
   let container;
   await act(async () => {
-    container = renderWithTheme(Component, theme).container;
+    container = render(Component).container;
   });
   return {
     container,

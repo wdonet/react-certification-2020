@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import styled, { ThemeContext } from 'styled-components';
+import styled from 'styled-components';
+import AppContext from '../../../providers/AppContext';
 
 const StyledDiv = styled.div`
   overflow: hidden;
@@ -18,7 +19,7 @@ const StyledDiv = styled.div`
 
 const Card = (props) => {
   const { onClick } = props;
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useContext(AppContext);
   return (
     <StyledDiv onClick={onClick} role={props.role || ''} theme={theme}>
       {props.children}

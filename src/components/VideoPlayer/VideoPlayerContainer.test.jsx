@@ -1,11 +1,7 @@
 import React from 'react';
 import 'jest-styled-components';
-import {
-  contextWrapper,
-  renderWithTheme,
-  youtubeMockedData,
-  YTMockedObject,
-} from '../../utils';
+import { render } from '@testing-library/react';
+import { contextWrapper, youtubeMockedData, YTMockedObject } from '../../utils';
 import SearchContext from '../../providers/SearchContext';
 import VideoPlayerContainer from './VideoPlayerContainer';
 
@@ -17,7 +13,7 @@ const build = (Component = <VideoPlayerContainer />) => {
     { search: jest.fn, videos: youtubeMockedData.items },
     Component
   );
-  const { container } = renderWithTheme(Wrap);
+  const { container } = render(Wrap);
   return { container };
 };
 

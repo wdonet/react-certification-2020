@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled, { ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
 import { LayoutWrapper } from '../Layout';
 import { lightTheme, darkTheme } from '../../providers/themes';
 import VideoPlayerContainer from '../VideoPlayer/VideoPlayerContainer';
@@ -28,24 +28,22 @@ function App() {
   };
 
   return (
-    <ThemeProvider theme={getThemeConfig()}>
-      <AppContext.Provider value={{ setHomeVideosView }}>
-        <LayoutWrapper>
-          {videoID ? (
-            <div data-testid="video-player-container">
-              <VideoPlayerContainer videoId={videoID} />
-            </div>
-          ) : (
-            <div>
-              <StyledWelcome>
-                <h1>Welcome to the challenge!</h1>
-              </StyledWelcome>
-              <HomeVideos playVideoNow={setVideoID} />
-            </div>
-          )}
-        </LayoutWrapper>
-      </AppContext.Provider>
-    </ThemeProvider>
+    <AppContext.Provider value={{ setHomeVideosView, ...getThemeConfig() }}>
+      <LayoutWrapper>
+        {videoID ? (
+          <div data-testid="video-player-container">
+            <VideoPlayerContainer videoId={videoID} />
+          </div>
+        ) : (
+          <div>
+            <StyledWelcome>
+              <h1>Welcome to the challenge!</h1>
+            </StyledWelcome>
+            <HomeVideos playVideoNow={setVideoID} />
+          </div>
+        )}
+      </LayoutWrapper>
+    </AppContext.Provider>
   );
 }
 

@@ -1,11 +1,12 @@
 import React from 'react';
 import 'jest-styled-components';
 import { getByRole } from '@testing-library/dom';
-import { renderWithTheme, youtubeMockedData } from '../../utils';
+import { render } from '@testing-library/react';
+import { youtubeMockedData } from '../../utils';
 import SmallVideoCard from './SmallVideoCard';
 
 const build = (Component = <SmallVideoCard />) => {
-  const { container } = renderWithTheme(Component);
+  const { container } = render(Component);
   return { container };
 };
 

@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
-import styled, { ThemeContext } from 'styled-components';
+import styled from 'styled-components';
 import Header from './Header';
 import HomeView from './HomeView';
 import { SearchWrapper } from '../../wrappers/SearchWrapper';
+import AppContext from '../../providers/AppContext';
 
 const StyledLayoutWrapper = styled.div`
   background: ${({ theme }) => theme.color.background};
@@ -11,7 +12,7 @@ const StyledLayoutWrapper = styled.div`
 `;
 
 const LayoutWrapper = ({ children }) => {
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useContext(AppContext);
 
   return (
     <StyledLayoutWrapper data-testid="layout-wrapper" theme={theme} role="application">

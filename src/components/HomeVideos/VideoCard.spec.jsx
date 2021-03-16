@@ -1,11 +1,15 @@
 import React from 'react';
 import 'jest-styled-components';
 import { fireEvent } from '@testing-library/dom';
-import { renderWithTheme, youtubeMockedData } from '../../utils';
+import { render } from '@testing-library/react';
+import { contextWrapper, youtubeMockedData } from '../../utils';
+import { lightTheme } from '../../providers/themes';
+import AppContext from '../../providers/AppContext';
 import VideoCard from './VideoCard';
 
 const build = (Component = <VideoCard />) => {
-  const { container } = renderWithTheme(Component);
+  const wrapped = contextWrapper(AppContext, { theme: lightTheme }, Component);
+  const { container } = render(wrapped);
   return { container };
 };
 

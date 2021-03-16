@@ -1,5 +1,5 @@
 import React, { useContext, useRef } from 'react';
-import styled, { ThemeContext } from 'styled-components';
+import styled from 'styled-components';
 import { TextField, IconWrapper, Avatar, Switch } from '../ui/index';
 import hamburger from '../../assets/icons/hamburguer.png';
 import defaultUser from '../../assets/icons/default_user.jpg';
@@ -24,8 +24,7 @@ const StyledSection = styled.div`
 `;
 
 const Header = () => {
-  const { setHomeVideosView } = useContext(AppContext);
-  const { switchTheme } = useContext(ThemeContext);
+  const { setHomeVideosView, switchTheme } = useContext(AppContext);
   const { search } = useContext(SearchContext);
   const ref = useRef(null);
 

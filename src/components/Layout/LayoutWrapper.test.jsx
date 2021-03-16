@@ -1,7 +1,6 @@
 import React from 'react';
 import 'jest-styled-components';
 import { getByRole, render, act } from '@testing-library/react';
-import { ThemeProvider } from 'styled-components';
 import { contextWrapper, googleMockedAPIObject } from '../../utils';
 import { lightTheme } from '../../providers/themes';
 import LayoutWrapper from './LayoutWrapper';
@@ -11,11 +10,9 @@ global.gapi = googleMockedAPIObject();
 
 const build = async (Component = <LayoutWrapper />) => {
   let container;
-  const WrapInAppContext = contextWrapper(AppContext, {setHomeVideosView:jest.fn()}, Component);
+  const WrapInAppContext = contextWrapper(AppContext, { theme: lightTheme }, Component);
   await act(async () => {
-    container = render(
-      <ThemeProvider theme={{ theme: lightTheme }}>{WrapInAppContext}</ThemeProvider>
-    ).container;
+    container = render(WrapInAppContext).container;
   });
   return {
     container,

@@ -13,11 +13,11 @@ const VideoPlayerContainer = ({ videoId }) => {
   useEffect(() => {
     /* global YT */
     /* eslint no-undef: "error" */
-      window.player = new YT.Player('player', {
-        height: '50%', 
-        width: '60%',
-        videoId,
-      });
+    window.player = new YT.Player('player', {
+      height: '50%',
+      width: '60%',
+      videoId,
+    });
   });
 
   return (

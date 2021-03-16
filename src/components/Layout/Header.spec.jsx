@@ -1,7 +1,8 @@
 import React from 'react';
 import 'jest-styled-components';
 import { fireEvent, getByRole } from '@testing-library/dom';
-import { contextWrapper, renderWithTheme } from '../../utils';
+import { render } from '@testing-library/react';
+import { contextWrapper } from '../../utils';
 import Header from './Header';
 import SearchContext from '../../providers/SearchContext';
 import AppContext from '../../providers/AppContext';
@@ -9,8 +10,12 @@ import AppContext from '../../providers/AppContext';
 const build = (Component = <Header />) => {
   const contextValue = { search: jest.fn() };
   const WrapInSearchContext = contextWrapper(SearchContext, contextValue, Component);
-  const WrapInAppContext = contextWrapper(AppContext, {setHomeVideosView:jest.fn()}, WrapInSearchContext);
-  const { container } = renderWithTheme(WrapInAppContext);
+  const WrapInAppContext = contextWrapper(
+    AppContext,
+    { setHomeVideosView: jest.fn() },
+    WrapInSearchContext
+  );
+  const { container } = render(WrapInAppContext);
   return {
     container,
     searchInput: () => getByRole(container, 'search'),

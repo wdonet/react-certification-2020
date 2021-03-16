@@ -7,7 +7,11 @@ import AppContext from '../../providers/AppContext';
 import { contextWrapper } from '../../utils';
 
 const build = (Component = <Header />) => {
-  const WrapInAppContext = contextWrapper(AppContext, {setHomeVideosView:jest.fn()}, Component);
+  const WrapInAppContext = contextWrapper(
+    AppContext,
+    { setHomeVideosView: jest.fn() },
+    Component
+  );
   const { container } = render(
     <ThemeProvider theme={{ switchTheme: jest.fn() }}>{WrapInAppContext}</ThemeProvider>
   );
