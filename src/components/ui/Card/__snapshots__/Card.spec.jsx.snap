@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card renders 1`] = `
+Object {
+  "container": <div>
+    <div
+      class="sc-bdVaJa ikyuFl"
+      role=""
+    />
+  </div>,
+}
+`;

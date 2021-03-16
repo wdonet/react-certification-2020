@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomeVideos renders 1`] = `
+<div>
+  <div
+    class="sc-gZMcBi epBfsu"
+  >
+    <div
+      class="sc-iwsKbI Amydw"
+    >
+      No hay videos :/
+    </div>
+  </div>
+</div>
+`;
