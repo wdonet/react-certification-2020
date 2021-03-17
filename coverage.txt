@@ -1,7 +1,5 @@
-
-> react-certification-2020@0.1.0 test:coverage /Users/andres.chavez/Documents/Wizeline/react-certification-2021
-> npm run test -- --coverage --watchAll
-
+yarn run v1.22.10
+$ npm run test -- --coverage --watchAll
 
 > react-certification-2020@0.1.0 test /Users/andres.chavez/Documents/Wizeline/react-certification-2021
 > react-scripts test "--coverage" "--watchAll"
@@ -9,17 +7,17 @@
 ---------------------------------|---------|----------|---------|---------|-------------------
 File                             | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ---------------------------------|---------|----------|---------|---------|-------------------
-All files                        |   95.88 |    97.44 |      94 |   95.88 |                   
+All files                        |   94.76 |    73.91 |   93.65 |   94.76 |                   
  src                             |     100 |      100 |     100 |     100 |                   
   global.style.js                |     100 |      100 |     100 |     100 |                   
- src/apis                        |     100 |      100 |     100 |     100 |                   
-  youtube.js                     |     100 |      100 |     100 |     100 |                   
+ src/apis                        |       0 |        0 |       0 |       0 |                   
+  youtube.js                     |       0 |        0 |       0 |       0 |                   
  src/components/App              |     100 |      100 |     100 |     100 |                   
   App.component.jsx              |     100 |      100 |     100 |     100 |                   
  src/components/Header           |     100 |      100 |     100 |     100 |                   
   Header.component.jsx           |     100 |      100 |     100 |     100 |                   
- src/components/Layout           |     100 |      100 |     100 |     100 |                   
-  Layout.component.jsx           |     100 |      100 |     100 |     100 |                   
+ src/components/Layout           |     100 |       75 |     100 |     100 |                   
+  Layout.component.jsx           |     100 |       75 |     100 |     100 | 55,70,112         
   Layout.styles.js               |     100 |      100 |     100 |     100 |                   
  src/components/Login            |     100 |      100 |     100 |     100 |                   
   Login.component.jsx            |     100 |      100 |     100 |     100 |                   
@@ -29,12 +27,12 @@ All files                        |   95.88 |    97.44 |      94 |   95.88 |
  src/components/RelatedVideoItem |     100 |      100 |     100 |     100 |                   
   RelatedVideoItem.component.jsx |     100 |      100 |     100 |     100 |                   
   RelatedVideoItem.styles.js     |     100 |      100 |     100 |     100 |                   
- src/components/VideoDetails     |     100 |      100 |     100 |     100 |                   
+ src/components/VideoDetails     |     100 |    57.14 |     100 |     100 |                   
   VideoDetails.component.jsx     |     100 |      100 |     100 |     100 |                   
-  VideoDetails.styles.js         |     100 |      100 |     100 |     100 |                   
- src/components/VideoItem        |     100 |      100 |     100 |     100 |                   
+  VideoDetails.styles.js         |     100 |       50 |     100 |     100 | 70-92             
+ src/components/VideoItem        |     100 |       50 |     100 |     100 |                   
   VideoItem.component.jsx        |     100 |      100 |     100 |     100 |                   
-  VideoItem.styles.js            |     100 |      100 |     100 |     100 |                   
+  VideoItem.styles.js            |     100 |       50 |     100 |     100 | 18-48             
  src/components/VideoList        |     100 |      100 |     100 |     100 |                   
   VideoList.component.jsx        |     100 |      100 |     100 |     100 |                   
   VideoList.styles.js            |     100 |      100 |     100 |     100 |                   
@@ -44,23 +42,64 @@ All files                        |   95.88 |    97.44 |      94 |   95.88 |
  src/pages/Favorites             |     100 |      100 |     100 |     100 |                   
   Favorites.page.jsx             |     100 |      100 |     100 |     100 |                   
   Favorites.styles.js            |     100 |      100 |     100 |     100 |                   
- src/pages/Home                  |     100 |      100 |     100 |     100 |                   
+ src/pages/Home                  |     100 |       75 |     100 |     100 |                   
   Home.page.jsx                  |     100 |      100 |     100 |     100 |                   
-  Home.styles.js                 |     100 |      100 |     100 |     100 |                   
+  Home.styles.js                 |     100 |       50 |     100 |     100 | 19                
  src/pages/NotFound              |     100 |      100 |     100 |     100 |                   
   NotFound.page.jsx              |     100 |      100 |     100 |     100 |                   
   NotFound.styles.js             |     100 |      100 |     100 |     100 |                   
- src/pages/Results               |     100 |      100 |     100 |     100 |                   
-  Results.page.jsx               |     100 |      100 |     100 |     100 |                   
-  Results.styles.js              |     100 |      100 |     100 |     100 |                   
+ src/pages/Results               |     100 |       50 |     100 |     100 |                   
+  Results.page.jsx               |     100 |       50 |     100 |     100 | 15                
+  Results.styles.js              |     100 |       50 |     100 |     100 | 19                
  src/pages/Watch                 |     100 |      100 |     100 |     100 |                   
   Watch.page.jsx                 |     100 |      100 |     100 |     100 |                   
   Watch.styles.js                |     100 |      100 |     100 |     100 |                   
  src/providers/Auth              |   73.68 |       50 |      60 |   73.68 |                   
   Auth.provider.jsx              |   73.68 |       50 |      60 |   73.68 | 11,27-28,32-33    
+ src/providers/GlobalState       |   63.64 |       25 |   66.67 |   63.64 |                   
+  Provider.jsx                   |    87.5 |       50 |     100 |    87.5 | 16                
+  Reducer.jsx                    |       0 |        0 |       0 |       0 | 2-10              
  src/utils                       |      75 |      100 |      50 |      75 |                   
   constants.js                   |     100 |      100 |     100 |     100 |                   
   storage.js                     |   57.14 |      100 |      50 |   57.14 | 7-13              
 ---------------------------------|---------|----------|---------|---------|-------------------
 
+[?25l[2J[3J[H
+Pattern Mode Usage
+ › Press Esc to exit pattern mode.
+ › Press Enter to filter by a tests regex pattern.
 
+[?25h[2K[G[J pattern › [s[G
+
+ Start typing to filter by a test name regex pattern.[6;12H[u[2K[G[J pattern ›  [s[G
+
+ Pattern matches 43 tests from cached test suites
+ › ...Login should renders when modal is opened
+ › ...Login should not renders when modal is closed
+ › ...Login should allows user to login
+ › ...Watch should renders
+ › ...Watch should renders without state
+ › ...VideoDetails should renders
+ › ...VideoDetails should not render the detailed video as a related video item
+ › ...Header should renders
+ › ...Header should opens sidebar
+ › ...Header should changes the theme mode
+   ...and 33 more tests[6;13H[u[2K[G[J pattern ›  a[s[G
+
+ Pattern matches 8 tests from cached test suites
+ › ...Login should allows user to login
+ › ...VideoDetails should not render the detailed video as a related video item
+ › ...Header should allows user to logout
+ › ...Header should not redirect when user press any other key on input search
+ › ...App renders App component
+ › ...useAPI should returns an empty array if API fails
+ › ...Private should renders with an active sesion
+ › ...Private should not renders witout an active sesion[6;14H[u[2K[G[J pattern ›  ad[s[G
+
+ Pattern matches no tests from cached test suites[6;15H[u[2K[G[J pattern ›  add[s[G
+
+ Pattern matches no tests from cached test suites[6;16H[u[2K[G[J pattern ›  add [s[G
+
+ Pattern matches no tests from cached test suites[6;17H[u[2K[G[J pattern ›  add .[s[G
+
+ Pattern matches no tests from cached test suites[6;18H[u
