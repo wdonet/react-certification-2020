@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Toolbar, IconButton, FormControlLabel, MenuItem } from '@material-ui/core';
 import {
   Menu as MenuIcon,
@@ -24,24 +24,25 @@ import { useCustom } from '../../providers/Custom';
 import { useYoutubeSearch } from '../../utils/hooks';
 
 const Header = () => {
-  const [searchTerm, setSearchTerm] = useState('wizeline');
   const [anchorEl, setAnchorEl] = useState(null);
-  const { darkMode, switchDarkMode, updateSearchResult } = useCustom();
+  const {
+    darkMode,
+    searchTerm,
+    switchDarkMode,
+    updateSearchTerm,
+    updateSearchResult,
+  } = useCustom();
   const yt = useYoutubeSearch({ type: 'video' });
 
   const isMenuOpen = Boolean(anchorEl);
   const handleMenuOpen = (e) => setAnchorEl(e.currentTarget);
   const handleMenuClose = () => setAnchorEl(null);
-  const handleSearchOnChange = ({ target: { value } }) => setSearchTerm(value);
+  const handleSearchOnChange = ({ target: { value } }) => updateSearchTerm(value);
   const handleSearchOnSubmit = (e) => {
     e.preventDefault();
 
-    yt.search(searchTerm);
+    yt.search(searchTerm).then(updateSearchResult);
   };
-
-  useEffect(() => {
-    updateSearchResult(yt.result);
-  }, [yt.result, updateSearchResult]);
 
   return (
     <StyledAppBar position="static">
