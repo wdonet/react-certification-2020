@@ -7,7 +7,7 @@ $ npm test -- --coverage --watchAll --coverageThreshold='{"global":{"statements"
 -------------------------------|----------|----------|----------|----------|-------------------|
 File                           |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
 -------------------------------|----------|----------|----------|----------|-------------------|
-All files                      |    78.39 |    55.17 |    76.12 |    80.56 |                   |
+All files                      |    85.64 |    58.82 |    84.13 |    87.15 |                   |
  src                           |    91.67 |      100 |      100 |    91.67 |                   |
   globalStyles.js              |      100 |      100 |      100 |      100 |                   |
   index.jsx                    |        0 |      100 |      100 |        0 |                 6 |
@@ -26,8 +26,8 @@ All files                      |    78.39 |    55.17 |    76.12 |    80.56 |    
   ContentDetails.component.jsx |      100 |      100 |      100 |      100 |                   |
   ContentDetails.styles.jsx    |      100 |      100 |      100 |      100 |                   |
   index.jsx                    |        0 |        0 |        0 |        0 |                   |
- src/components/Header         |    96.67 |      100 |    85.71 |      100 |                   |
-  Header.component.jsx         |    94.44 |      100 |    83.33 |      100 |                   |
+ src/components/Header         |     96.3 |      100 |    83.33 |      100 |                   |
+  Header.component.jsx         |    93.33 |      100 |       80 |      100 |                   |
   Header.styles.jsx            |      100 |      100 |      100 |      100 |                   |
   index.jsx                    |        0 |        0 |        0 |        0 |                   |
  src/components/Layout         |      100 |       50 |      100 |      100 |                   |
@@ -52,24 +52,23 @@ All files                      |    78.39 |    55.17 |    76.12 |    80.56 |    
  src/pages/Secret              |        0 |      100 |        0 |        0 |                   |
   Secret.page.jsx              |        0 |      100 |        0 |        0 |                 5 |
   index.js                     |        0 |        0 |        0 |        0 |                   |
- src/pages/Video               |        0 |        0 |        0 |        0 |                   |
-  Video.page.jsx               |        0 |        0 |        0 |        0 |... 17,18,21,24,32 |
+ src/pages/Video               |      100 |      100 |      100 |      100 |                   |
+  Video.page.jsx               |      100 |      100 |      100 |      100 |                   |
   index.js                     |        0 |        0 |        0 |        0 |                   |
  src/providers/Auth            |    70.59 |       50 |       60 |    70.59 |                   |
   Auth.provider.jsx            |    70.59 |       50 |       60 |    70.59 |    11,27,28,32,33 |
   index.jsx                    |        0 |        0 |        0 |        0 |                   |
- src/providers/Custom          |    76.47 |       50 |       60 |    92.86 |                   |
-  Custom.provider.jsx          |    76.47 |       50 |       60 |    92.86 |                11 |
+ src/providers/Custom          |    69.57 |    22.22 |    66.67 |    72.73 |                   |
+  Custom.provider.jsx          |    69.57 |    22.22 |    66.67 |    72.73 | 15,23,27,38,53,54 |
   index.jsx                    |        0 |        0 |        0 |        0 |                   |
- src/utils                     |    45.83 |      100 |       25 |    45.45 |                   |
+ src/utils                     |    76.47 |      100 |       50 |       75 |                   |
   axiosConfig.js               |      100 |      100 |      100 |      100 |                   |
   constants.js                 |      100 |      100 |      100 |      100 |                   |
-  fns.js                       |    23.08 |      100 |    16.67 |    18.18 |... 10,12,15,17,19 |
+  fns.js                       |    66.67 |      100 |       50 |       50 |                 2 |
   storage.js                   |    57.14 |      100 |       50 |    57.14 |            7,8,13 |
- src/utils/hooks               |    71.43 |    44.44 |      100 |       75 |                   |
+ src/utils/hooks               |    68.18 |    44.44 |      100 |    71.43 |                   |
   index.jsx                    |        0 |        0 |        0 |        0 |                   |
-  useYoutubeSearch.jsx         |    71.43 |    44.44 |      100 |       75 |    15,19,44,46,49 |
+  useYoutubeSearch.jsx         |    68.18 |    44.44 |      100 |    71.43 | 15,19,44,46,49,50 |
 -------------------------------|----------|----------|----------|----------|-------------------|
 
 
-[1B[JDone in 17.92s.
