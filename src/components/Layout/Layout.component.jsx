@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { Menu, Sidebar } from 'semantic-ui-react';
 
 import { useAuth } from '../../providers/Auth';
+import { useGlobalState } from '../../providers/GlobalState/Provider';
 import { HOME_ROUTE, FAVORITES_ROUTE } from '../../utils/constants';
 import Header from '../Header';
 import Login from '../Login';
@@ -12,8 +13,9 @@ const Layout = ({ children }) => {
   const history = useHistory();
   const [visible, setVisible] = useState(false);
   const [open, setOpen] = useState(false);
-  const [dark, setDark] = useState(false);
   const { authenticated, logout } = useAuth();
+  const { state, dispatch } = useGlobalState();
+  const { isThemeLight } = state;
 
   const deAuthenticate = () => {
     logout();
@@ -27,7 +29,10 @@ const Layout = ({ children }) => {
   };
 
   const onChangeThemeHandler = () => {
-    setDark(!dark);
+    dispatch({
+      type: 'CHANGE_THEME',
+      payload: !isThemeLight,
+    });
     setVisible(false);
   };
 
@@ -47,6 +52,7 @@ const Layout = ({ children }) => {
           vertical
           visible={visible}
           width="thin"
+          style={{ backgroundColor: isThemeLight ? 'white' : 'lightgray' }}
         >
           {!authenticated ? (
             <SessionContainer>
@@ -61,7 +67,7 @@ const Layout = ({ children }) => {
               </Menu.Item>
             </SessionContainer>
           )}
-          {!dark ? (
+          {isThemeLight ? (
             <ThemeModeContainer>
               <Menu.Item
                 data-testid="layout-dark-mode"
@@ -99,15 +105,16 @@ const Layout = ({ children }) => {
             </Menu.Item>
           )}
         </Sidebar>
-        <Sidebar.Pusher dimmed={visible} style={{ height: visible ? '100vh' : '100%' }}>
-          <Header
-            onOpenSidebar={setVisible}
-            onOpenModal={setOpen}
-            onDarkMode={setDark}
-            isDarkMode={dark}
-          />
+        <Sidebar.Pusher
+          dimmed={visible}
+          style={{
+            height: visible ? '100vh' : '100%',
+            backgroundColor: isThemeLight ? 'snow' : 'darkgray',
+          }}
+        >
+          <Header onOpenSidebar={setVisible} onOpenModal={setOpen} />
           <Login open={open} setOpen={setOpen} />
-          <MainContainer>{children}</MainContainer>
+          <MainContainer isThemeLight>{children}</MainContainer>
         </Sidebar.Pusher>
       </Sidebar.Pushable>
     </>

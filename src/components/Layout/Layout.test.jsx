@@ -2,6 +2,7 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 
 import { useAuth } from '../../providers/Auth';
+import { useGlobalState } from '../../providers/GlobalState/Provider';
 import useQueryParams from '../../hooks/useQueryParams';
 import Layout from './Layout.component';
 
@@ -16,11 +17,19 @@ jest.mock('react-router-dom', () => ({
 
 jest.mock('../../providers/Auth');
 
+jest.mock('../../providers/GlobalState/Provider');
+
 jest.mock('../../hooks/useQueryParams');
 
 describe('Layout', () => {
+  const dispatchMock = jest.fn();
+
   beforeEach(() => {
     useAuth.mockImplementation(() => ({ authenticated: false }));
+    useGlobalState.mockImplementation(() => ({
+      state: { isThemeLight: true },
+      dispatch: dispatchMock,
+    }));
     useQueryParams.mockImplementation(() => ({}));
   });
 
@@ -151,13 +160,12 @@ describe('Layout', () => {
       </Layout>
     );
 
-    let userIcon = document.body.getElementsByClassName('user circle outline');
+    const userIcon = document.body.getElementsByClassName('user circle outline');
     expect(userIcon[0]).toBeTruthy();
 
     fireEvent.click(screen.getByTestId('header-bars-icon'));
     fireEvent.click(screen.getByTestId('layout-dark-mode'));
 
-    userIcon = document.body.getElementsByClassName('user circle outline');
-    expect(userIcon[0]).toBeFalsy();
+    expect(dispatchMock).toHaveBeenCalledTimes(1);
   });
 });

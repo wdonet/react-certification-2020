@@ -6,12 +6,13 @@ exports[`Results should renders without videos 1`] = `
     class="sc-iBPRYJ htirTG"
   >
     <h1
-      class="sc-fubCfw jVkBcF"
+      class="sc-pFZIQ dEVQfo"
       data-testid="results-message"
     >
       Results for 
       "Happy dogs"
-      : 
+      :
+       
     </h1>
     <div
       class="sc-gKsewC ikKpsV"

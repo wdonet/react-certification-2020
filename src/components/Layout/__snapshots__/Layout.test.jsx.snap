@@ -8,6 +8,7 @@ exports[`Layout should renders 1`] = `
   >
     <div
       class="ui vertical labeled icon ui overlay left thin sidebar menu"
+      style="background-color: white;"
     >
       <div
         class="sc-iBPRYJ sc-fubCfw gUFlqQ czjUMv"
@@ -38,11 +39,12 @@ exports[`Layout should renders 1`] = `
     </div>
     <div
       class="pusher"
-      style="height: 100%;"
+      style="height: 100%; background-color: snow;"
     >
       <div
         class="ui menu"
         data-testid="header-menu"
+        style="background-color: skyblue;"
       >
         <div
           class="item"
@@ -119,7 +121,7 @@ exports[`Layout should renders 1`] = `
         </div>
       </div>
       <main
-        class="sc-gKsewC fvqFXg"
+        class="sc-gKsewC fatJrx"
       >
         <div>
           Content

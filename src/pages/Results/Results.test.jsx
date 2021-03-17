@@ -4,6 +4,7 @@ import { render, screen } from '@testing-library/react';
 import useAPI from '../../hooks/useAPI';
 import useQueryParams from '../../hooks/useQueryParams';
 import Results from './Results.page';
+import { useGlobalState } from '../../providers/GlobalState/Provider';
 
 jest.mock('../../hooks/useAPI');
 jest.mock('../../hooks/useQueryParams');
@@ -40,7 +41,15 @@ const mockedVideos = [
   },
 ];
 
+jest.mock('../../providers/GlobalState/Provider');
+
 describe('Results', () => {
+  beforeEach(() => {
+    useGlobalState.mockImplementation(() => ({
+      state: { isThemeLight: true },
+    }));
+  });
+
   it('should renders without videos', () => {
     useAPI.mockImplementation(() => [[], false]);
     useQueryParams.mockImplementation(() => ({ searchedText: 'Happy dogs' }));

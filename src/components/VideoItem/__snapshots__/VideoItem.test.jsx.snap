@@ -3,11 +3,11 @@
 exports[`VideoItem should renders 1`] = `
 <div>
   <div
-    class="sc-bdfBwQ ffJAfB"
+    class="sc-bdfBwQ jaBdCV"
     data-testid="video-item"
   >
     <div
-      class="sc-gsTCUz bvlZXQ"
+      class="sc-gsTCUz krmAWT"
     >
       <img
         alt="Video Tour | Welcome to Wizeline Guadalajara"
@@ -23,7 +23,7 @@ exports[`VideoItem should renders 1`] = `
           Video Tour | Welcome to Wizeline Guadalajara
         </h4>
         <p
-          class="sc-jSgupP cMjmoQ"
+          class="sc-jSgupP hWSoYQ"
         >
           Follow Hector Padilla, Wizeline Director of Engineering, for a lively tour of our office. In 2018, Wizeline opened its stunning new office in Guadalajara, Jalisco, ...
         </p>

@@ -2,6 +2,7 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 
 import { useAuth } from '../../providers/Auth';
+import { useGlobalState } from '../../providers/GlobalState/Provider';
 import useQueryParams from '../../hooks/useQueryParams';
 import Header from './Header.component';
 
@@ -16,11 +17,19 @@ jest.mock('react-router-dom', () => ({
 
 jest.mock('../../providers/Auth');
 
+jest.mock('../../providers/GlobalState/Provider');
+
 jest.mock('../../hooks/useQueryParams');
 
 describe('Header', () => {
+  const dispatchMock = jest.fn();
+
   beforeEach(() => {
     useAuth.mockImplementation(() => ({ authenticated: false }));
+    useGlobalState.mockImplementation(() => ({
+      state: { isThemeLight: true },
+      dispatch: dispatchMock,
+    }));
     useQueryParams.mockImplementation(() => ({}));
   });
 
@@ -43,17 +52,19 @@ describe('Header', () => {
   });
 
   it('should changes the theme mode', () => {
-    const onDarkMode = jest.fn();
-
-    render(<Header onDarkMode={onDarkMode} />);
+    render(<Header />);
 
     fireEvent.click(screen.getByTestId('header-dark-mode'));
 
-    expect(onDarkMode).toHaveBeenCalledTimes(1);
+    expect(dispatchMock).toHaveBeenCalledTimes(1);
   });
 
   it('should changes the icon with dark mode', () => {
-    render(<Header isDarkMode />);
+    useGlobalState.mockImplementation(() => ({
+      state: { isThemeLight: false },
+      dispatch: dispatchMock,
+    }));
+    render(<Header />);
 
     let userIcon = document.body.getElementsByClassName('user circle outline');
     expect(userIcon[0]).toBeFalsy();

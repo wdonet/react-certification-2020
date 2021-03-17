@@ -2,6 +2,7 @@ import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 
 import VideoItem from './VideoItem.component';
+import { useGlobalState } from '../../providers/GlobalState/Provider';
 
 const mockHistoryPush = jest.fn();
 
@@ -59,7 +60,15 @@ const mockedVideos = [
   },
 ];
 
+jest.mock('../../providers/GlobalState/Provider');
+
 describe('VideoItem', () => {
+  beforeEach(() => {
+    useGlobalState.mockImplementation(() => ({
+      state: { isThemeLight: true },
+    }));
+  });
+
   it('should renders', () => {
     const { container } = render(<VideoItem video={mockedVideo} videos={mockedVideos} />);
 

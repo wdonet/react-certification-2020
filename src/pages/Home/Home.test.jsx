@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react';
 
 import useAPI from '../../hooks/useAPI';
 import Home from './Home.page';
+import { useGlobalState } from '../../providers/GlobalState/Provider';
 
 jest.mock('../../hooks/useAPI');
 
@@ -38,7 +39,15 @@ const mockedVideos = [
   },
 ];
 
+jest.mock('../../providers/GlobalState/Provider');
+
 describe('Home', () => {
+  beforeEach(() => {
+    useGlobalState.mockImplementation(() => ({
+      state: { isThemeLight: true },
+    }));
+  });
+
   it('should renders without videos', () => {
     useAPI.mockImplementation(() => [[], false]);
     const { container } = render(<Home />);

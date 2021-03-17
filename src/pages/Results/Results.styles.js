@@ -7,11 +7,16 @@ export const Container = styled.section`
   margin-bottom: 5%;
 `;
 
+export const Loader = styled.section`
+  height: 100vh;
+`;
+
 export const Title = styled.h1`
   font-size: 3rem;
   letter-spacing: -6px;
   font-family: 'Lucida Console', 'Courier New', monospace;
   font-weight: normal;
+  color: ${({ isThemeLight }) => (isThemeLight ? 'black' : 'white')};
 
   @media screen and (max-width: 750px) {
     font-size: 2rem;

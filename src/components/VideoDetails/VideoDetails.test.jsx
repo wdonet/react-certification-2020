@@ -2,6 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 
 import VideoDetails from './VideoDetails.component';
+import { useGlobalState } from '../../providers/GlobalState/Provider';
 
 const mockedVideo = {
   id: { kind: 'youtube#video', videoId: 'nmXMgqjQzls' },
@@ -37,7 +38,15 @@ const mockedVideos = [
   },
 ];
 
+jest.mock('../../providers/GlobalState/Provider');
+
 describe('VideoDetails', () => {
+  beforeEach(() => {
+    useGlobalState.mockImplementation(() => ({
+      state: { isThemeLight: true },
+    }));
+  });
+
   it('should renders', () => {
     const { container } = render(
       <VideoDetails

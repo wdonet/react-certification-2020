@@ -1,5 +1,6 @@
 import React from 'react';
 import { Icon } from 'semantic-ui-react';
+import { useGlobalState } from '../../providers/GlobalState/Provider';
 
 import { YOUTUBE_BASE_URL } from '../../utils/constants';
 import RelatedVideoItem from '../RelatedVideoItem';
@@ -15,6 +16,9 @@ import {
 } from './VideoDetails.styles';
 
 const VideoDetails = ({ videoId, description, title, videos }) => {
+  const { state } = useGlobalState();
+  const { isThemeLight } = state;
+
   const renderedVideos = videos
     .filter((video, index) => video.id.videoId !== videoId && index < 9)
     .map((video) => {
@@ -31,7 +35,7 @@ const VideoDetails = ({ videoId, description, title, videos }) => {
         />
         <TextVideoContainer>
           <Title>{title}</Title>
-          <FavoritesButton>
+          <FavoritesButton isThemeLight={isThemeLight}>
             Add To Favorites <Icon name="favorite" />
           </FavoritesButton>
         </TextVideoContainer>

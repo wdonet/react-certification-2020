@@ -4,12 +4,15 @@ import { useHistory } from 'react-router-dom';
 import { Checkbox, Icon, Input, Menu, Dropdown } from 'semantic-ui-react';
 
 import { useAuth } from '../../providers/Auth';
+import { useGlobalState } from '../../providers/GlobalState/Provider';
 import useQueryParams from '../../hooks/useQueryParams';
 
-const Header = ({ onOpenSidebar, onOpenModal, onDarkMode, isDarkMode }) => {
+const Header = ({ onOpenSidebar, onOpenModal }) => {
   const history = useHistory();
   const [searchedText, setSearchedText] = useState('');
   const { authenticated, logout } = useAuth();
+  const { state, dispatch } = useGlobalState();
+  const { isThemeLight } = state;
   const queryParam = useQueryParams().searchedText;
 
   useEffect(() => {
@@ -27,9 +30,19 @@ const Header = ({ onOpenSidebar, onOpenModal, onDarkMode, isDarkMode }) => {
     }
   };
 
+  const onChangeThemeHandler = () => {
+    dispatch({
+      type: 'CHANGE_THEME',
+      payload: !isThemeLight,
+    });
+  };
+
   return (
     <>
-      <Menu data-testid="header-menu">
+      <Menu
+        data-testid="header-menu"
+        style={{ backgroundColor: isThemeLight ? 'skyblue' : 'cadetblue' }}
+      >
         <Menu.Item>
           <Icon
             data-testid="header-bars-icon"
@@ -55,12 +68,12 @@ const Header = ({ onOpenSidebar, onOpenModal, onDarkMode, isDarkMode }) => {
               data-testid="header-dark-mode"
               label="Dark Mode"
               slider
-              onClick={() => onDarkMode(!isDarkMode)}
+              onClick={onChangeThemeHandler}
             />
           </Menu.Item>
           <Dropdown
             data-testid="header-dropdown"
-            icon={isDarkMode ? 'user circle' : 'user circle outline'}
+            icon={!isThemeLight ? 'user circle' : 'user circle outline'}
             className="link icon item userIcon"
           >
             <Dropdown.Menu>

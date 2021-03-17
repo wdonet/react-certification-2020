@@ -5,6 +5,7 @@ exports[`Header should renders 1`] = `
   <div
     class="ui menu"
     data-testid="header-menu"
+    style="background-color: skyblue;"
   >
     <div
       class="item"

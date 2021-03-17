@@ -4,6 +4,7 @@ import { render, screen } from '@testing-library/react';
 
 import useQueryParams from '../../hooks/useQueryParams';
 import Watch from './Watch.page';
+import { useGlobalState } from '../../providers/GlobalState/Provider';
 
 const mockedVideos = [
   {
@@ -40,7 +41,14 @@ const mockedVideos = [
 jest.mock('../../hooks/useQueryParams');
 jest.mock('react-router');
 
+jest.mock('../../providers/GlobalState/Provider');
+
 describe('Watch', () => {
+  beforeEach(() => {
+    useGlobalState.mockImplementation(() => ({
+      state: { isThemeLight: true },
+    }));
+  });
   it('should renders', () => {
     useQueryParams.mockImplementation(() => ({ videoId: 'VideoId' }));
     useLocation.mockImplementation(() => ({

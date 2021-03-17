@@ -67,9 +67,8 @@ export const Title = styled.div`
 `;
 
 export const FavoritesButton = styled.button`
-  border-color: #f44336;
-  color: red;
-  background: white;
+  color: ${({ isThemeLight }) => (isThemeLight ? 'red' : 'white')};
+  background-color: ${({ isThemeLight }) => (isThemeLight ? 'white' : 'red')};
   padding: 10px;
   font-size: 16px;
   float: left;
@@ -83,13 +82,14 @@ export const FavoritesButton = styled.button`
   }
 
   &:hover {
-    background: #f44336;
-    color: white;
+    border-color: ${({ isThemeLight }) => (isThemeLight ? 'red' : 'white')};
+    background-color: ${({ isThemeLight }) => (isThemeLight ? 'red' : 'white')};
+    color: ${({ isThemeLight }) => (isThemeLight ? 'white' : 'red')};
   }
 `;
 
 export const Description = styled.p`
-  color: gray;
+  color: ${({ isThemeLight }) => (isThemeLight ? 'gray' : 'darkred')};
   font-size: 18px;
   text-align: justify;
 `;

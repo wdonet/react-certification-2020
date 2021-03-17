@@ -2,16 +2,23 @@ import React from 'react';
 
 import useAPI from '../../hooks/useAPI';
 import VideoList from '../../components/VideoList';
-import { Container, Title } from './Home.styles';
+import { Container, Title, Loader } from './Home.styles';
+import { useGlobalState } from '../../providers/GlobalState/Provider';
 
 const HomePage = () => {
   const [videos, loading] = useAPI();
+  const { state } = useGlobalState();
+  const { isThemeLight } = state;
 
-  return (
+  return !loading ? (
     <Container>
-      <Title data-testid="home-message">Welcome to the Challenge!</Title>
-      {!loading && <VideoList videos={videos} />}
+      <Title isThemeLight={isThemeLight} data-testid="home-message">
+        Welcome to the Challenge!
+      </Title>
+      <VideoList videos={videos} />
     </Container>
+  ) : (
+    <Loader />
   );
 };
 

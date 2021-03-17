@@ -26,7 +26,7 @@ exports[`Watch should renders 1`] = `
             Title
           </div>
           <button
-            class="sc-jrAGrp koSfab"
+            class="sc-jrAGrp bPYLSb"
           >
             Add To Favorites 
             <i
@@ -37,7 +37,7 @@ exports[`Watch should renders 1`] = `
         </div>
         <hr />
         <p
-          class="sc-kEjbxe kySdlX"
+          class="sc-kEjbxe frTmbO"
         >
           Description
         </p>

@@ -6,7 +6,7 @@ export const GridItem = styled.div`
   cursor: pointer;
 
   &:hover {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.01);
   }
 
   @media screen and (max-width: 500px) {
@@ -15,7 +15,7 @@ export const GridItem = styled.div`
 `;
 
 export const Card = styled.div`
-  background-color: white;
+  background-color: ${({ isThemeLight }) => (isThemeLight ? 'white' : 'lightgray')};
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   height: 100%;
 
@@ -45,4 +45,5 @@ export const Description = styled.p`
   color: gray;
   font-size: 0.8em;
   text-align: justify;
+  color: ${({ isThemeLight }) => (isThemeLight ? 'inherit' : 'darkred')};
 `;
