@@ -7,7 +7,7 @@ import AppContext from '../../providers/AppContext';
 import HomeVideos from './HomeVideos';
 
 const build = (Component = <HomeVideos />) => {
-  const contextValue = { videos: youtubeMockedData.items.slice(2), theme: lightTheme };
+  const contextValue = { videosList: youtubeMockedData.items.slice(2), theme: lightTheme };
   const wrapped = contextWrapper(AppContext, contextValue, Component);
   const { container } = render(wrapped);
   return { container };

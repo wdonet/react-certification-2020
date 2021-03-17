@@ -38,10 +38,6 @@ function App() {
     switchTheme: () => dispatch({type: SWITCH_THEME}),
   });
 
-  const setHomeVideosView = () => {
-    dispatch({ type: SET_CURRENT_VIDEO_PLAYBACK, payload: null });
-  };
-
   const search = async (query = "paisajes") => {
     try {
       /* global gapi */
@@ -67,7 +63,14 @@ function App() {
   }
 
   return (
-    <AppContext.Provider value={{ setHomeVideosView, ...getThemeConfig(), search, videos: videosList, playVideo: (id) => dispatch({type: SET_CURRENT_VIDEO_PLAYBACK, payload: id}) }}>
+    <AppContext.Provider value={
+      { ...getThemeConfig(), 
+        search,  
+        videosList,
+        setHomeVideosView: () => dispatch({ type: SET_CURRENT_VIDEO_PLAYBACK, payload: null }), 
+        playVideoById: (id) => dispatch({type: SET_CURRENT_VIDEO_PLAYBACK, payload: id}) 
+      }
+    }>
       <LayoutWrapper>
         {currentVideoId ? (
           <div data-testid="video-player-container">

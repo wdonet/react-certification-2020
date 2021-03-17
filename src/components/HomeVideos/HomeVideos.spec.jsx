@@ -10,7 +10,7 @@ import { fireEvent } from '@testing-library/dom';
 const EXPECTED_LENGTH = 1;
 
 const build = (Component = <HomeVideos />) => {
-  const contextValue = { videos: youtubeMockedData.items.slice(0, EXPECTED_LENGTH), theme: lightTheme, playVideo: jest.fn() };
+  const contextValue = { videosList: youtubeMockedData.items.slice(0, EXPECTED_LENGTH), theme: lightTheme, playVideoById: jest.fn() };
   const wrapped = contextWrapper(AppContext, contextValue, Component);
   const { container } = render(wrapped);
   return { 
@@ -29,7 +29,7 @@ describe('shows home videos', () => {
     const { videoCards, contextValue } = build();
     const { videoId } = youtubeMockedData.items[0].id;
     fireEvent.click(videoCards()[0].firstChild);
-    expect(contextValue.playVideo).toHaveBeenCalledTimes(1);
-    expect(contextValue.playVideo).toHaveBeenCalledWith(videoId);
+    expect(contextValue.playVideoById).toHaveBeenCalledTimes(1);
+    expect(contextValue.playVideoById).toHaveBeenCalledWith(videoId);
   })
 });

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import AppContext from '../../providers/AppContext';
 import SmallVideoCard from './SmallVideoCard';
 
 const StyledVideoList = styled.div`
@@ -8,10 +9,11 @@ const StyledVideoList = styled.div`
   width: 40%;
 `;
 
-const RelatedVideoList = ({ videos, playVideoByID }) => {
+const RelatedVideoList = () => {
+  const { videosList, playVideoByID } = useContext(AppContext);
   return (
     <StyledVideoList id="related-videos-list">
-      {videos.map((video) => {
+      {videosList.map((video) => {
         const key = JSON.stringify(video.id);
         return (
           <div data-testid={`small-caption-${key}`} key={key}>

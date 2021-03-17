@@ -10,7 +10,7 @@ global.YT = YTMockedObject;
 const build = (Component = <VideoPlayerContainer />) => {
   const Wrap = contextWrapper(
     AppContext,
-    { search: jest.fn, videos: youtubeMockedData.items.slice(0, 1) },
+    { search: jest.fn, videosList: youtubeMockedData.items.slice(0, 1) },
     Component
   );
   const { container } = render(Wrap);

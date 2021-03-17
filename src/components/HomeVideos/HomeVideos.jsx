@@ -22,16 +22,16 @@ const StyledDiv = styled.div`
 `;
 
 const HomeVideos = () => {
-  const { videos, playVideo } = useContext(AppContext);
+  const { videosList, playVideoById } = useContext(AppContext);
 
   return (
     <StyledDiv>
-      {videos && videos.length > 0 ? (
-        videos.map((video) => {
+      {videosList && videosList.length > 0 ? (
+        videosList.map((video) => {
           const key = JSON.stringify(video.id);
           return (
             <div key={key} data-testid={`video-card-${key}`}>
-              <VideoCard video={video} onClick={() => playVideo(video.id.videoId)} />
+              <VideoCard video={video} onClick={() => playVideoById(video.id.videoId)} />
             </div>
           );
         })

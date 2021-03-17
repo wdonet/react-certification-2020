@@ -42,4 +42,5 @@ describe('App theme', () => {
       `background: ${darkTheme.color.background}`
     );
   });
+
 });
