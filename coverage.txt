@@ -64,42 +64,5 @@ All files                        |   94.76 |    73.91 |   93.65 |   94.76 |
   storage.js                     |   57.14 |      100 |      50 |   57.14 | 7-13              
 ---------------------------------|---------|----------|---------|---------|-------------------
 
-[?25l[2J[3J[H
-Pattern Mode Usage
- › Press Esc to exit pattern mode.
- › Press Enter to filter by a tests regex pattern.
 
-[?25h[2K[G[J pattern › [s[G
-
- Start typing to filter by a test name regex pattern.[6;12H[u[2K[G[J pattern ›  [s[G
-
- Pattern matches 43 tests from cached test suites
- › ...Login should renders when modal is opened
- › ...Login should not renders when modal is closed
- › ...Login should allows user to login
- › ...Watch should renders
- › ...Watch should renders without state
- › ...VideoDetails should renders
- › ...VideoDetails should not render the detailed video as a related video item
- › ...Header should renders
- › ...Header should opens sidebar
- › ...Header should changes the theme mode
-   ...and 33 more tests[6;13H[u[2K[G[J pattern ›  a[s[G
-
- Pattern matches 8 tests from cached test suites
- › ...Login should allows user to login
- › ...VideoDetails should not render the detailed video as a related video item
- › ...Header should allows user to logout
- › ...Header should not redirect when user press any other key on input search
- › ...App renders App component
- › ...useAPI should returns an empty array if API fails
- › ...Private should renders with an active sesion
- › ...Private should not renders witout an active sesion[6;14H[u[2K[G[J pattern ›  ad[s[G
-
- Pattern matches no tests from cached test suites[6;15H[u[2K[G[J pattern ›  add[s[G
-
- Pattern matches no tests from cached test suites[6;16H[u[2K[G[J pattern ›  add [s[G
-
- Pattern matches no tests from cached test suites[6;17H[u[2K[G[J pattern ›  add .[s[G
-
- Pattern matches no tests from cached test suites[6;18H[u
+Done in 35.32s.
