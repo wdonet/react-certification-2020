@@ -22,7 +22,7 @@ const VideoPlayerContainer = ({ videoId }) => {
   return (
     <StyledVideoPlayerContainer id="video-player-container">
       <div id="player" />
-      <RelatedVideoList/>
+      <RelatedVideoList playVideoById={(id) => window.YTPlayer.loadVideoById(id, 0)}/>
     </StyledVideoPlayerContainer>
   );
 };

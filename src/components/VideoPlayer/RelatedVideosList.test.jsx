@@ -1,12 +1,14 @@
 import React from 'react';
 import 'jest-styled-components';
 import { render } from '@testing-library/react';
-import { contextWrapper, youtubeMockedData } from '../../utils/'
+import { contextWrapper, youtubeMockedData, YTMockedObject } from '../../utils/'
 import AppContext from '../../providers/AppContext';
 import RelatedVideosList from './RelatedVideoList';
 
+global.YT = YTMockedObject;
+
 const build = (Component = <RelatedVideosList />) => {
-  const contextValue = { videosList: youtubeMockedData.items.slice(0, 1), playVideoByID: jest.fn() };
+  const contextValue = { videosList: youtubeMockedData.items.slice(0, 1) };
   const wrapped = contextWrapper(AppContext, contextValue, Component);
   const { container } = render(wrapped);
   return { container };

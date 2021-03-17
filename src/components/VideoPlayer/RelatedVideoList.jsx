@@ -9,8 +9,8 @@ const StyledVideoList = styled.div`
   width: 40%;
 `;
 
-const RelatedVideoList = () => {
-  const { videosList, playVideoByID } = useContext(AppContext);
+const RelatedVideoList = ({ playVideoById }) => {
+  const { videosList } = useContext(AppContext);
   return (
     <StyledVideoList id="related-videos-list">
       {videosList.map((video) => {
@@ -19,7 +19,7 @@ const RelatedVideoList = () => {
           <div data-testid={`small-caption-${key}`} key={key}>
             <SmallVideoCard
               video={video}
-              onClick={() => playVideoByID(video.id.videoId)}
+              onClick={() => playVideoById(video.id.videoId)}
             />
           </div>
         );

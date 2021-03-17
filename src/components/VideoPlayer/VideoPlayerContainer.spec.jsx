@@ -10,16 +10,14 @@ global.YT = YTMockedObject;
 const EXPECTED_LENGHT = 3
 
 const build = (Component = <VideoPlayerContainer />) => {
-  const mockedPlayVideoById = jest.fn();
   const Wrap = contextWrapper(
     AppContext,
-    { search: jest.fn, videosList: youtubeMockedData.items.slice(0, EXPECTED_LENGHT), playVideoByID: mockedPlayVideoById },
+    { search: jest.fn, videosList: youtubeMockedData.items.slice(0, EXPECTED_LENGHT) },
     Component
   );
   const { container } = render(Wrap);
   return { 
     container,
-    mockedPlayVideoById, 
     videoCaptionsList: () => getAllByTestId(container, (id) => id.includes('small-caption-')) 
   };
 };
@@ -37,11 +35,11 @@ describe('VideoPlayerContainer', () => {
   })
 
   it('plays video from the begining calling player instance', () => {
-    const { videoCaptionsList, mockedPlayVideoById } = build();
+    const { videoCaptionsList } = build();
     const videoId = youtubeMockedData.items[0].id.videoId;
     fireEvent.click(videoCaptionsList()[0].firstChild);
-    expect(mockedPlayVideoById).toHaveBeenCalledTimes(1);
-    expect(mockedPlayVideoById).toHaveBeenCalledWith(videoId);
+    expect(window.YTPlayer.loadVideoById).toHaveBeenCalledTimes(1);
+    expect(window.YTPlayer.loadVideoById).toHaveBeenCalledWith(videoId, 0);
   })
   
 });
