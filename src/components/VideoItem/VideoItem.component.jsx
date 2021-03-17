@@ -1,19 +1,33 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { Card, Content, Image, GridItem, Title, Description } from './VideoItem.styles';
 
-const VideoList = ({ video }) => {
+const VideoItem = ({ video, videos }) => {
+  const history = useHistory();
+  const {
+    snippet: { title, description, thumbnails },
+  } = video;
+
+  const onClickHandler = () => {
+    history.push({
+      pathname: 'watch',
+      search: `?id=${video.id.videoId}`,
+      state: { title, description, videos },
+    });
+  };
+
   return (
-    <GridItem>
+    <GridItem data-testid="video-item" onClick={onClickHandler}>
       <Card>
-        <Image src={video.thumbnails.medium.url} alt={video.title} />
+        <Image src={thumbnails.medium.url} alt={title} />
         <Content>
-          <Title>{video.title}</Title>
-          <Description>{video.description}</Description>
+          <Title>{title}</Title>
+          <Description>{description}</Description>
         </Content>
       </Card>
     </GridItem>
   );
 };
 
-export default VideoList;
+export default VideoItem;

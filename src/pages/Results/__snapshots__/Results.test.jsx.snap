@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Results should renders without videos 1`] = `
+<div>
+  <section
+    class="sc-iBPRYJ htirTG"
+  >
+    <h1
+      class="sc-fubCfw jVkBcF"
+      data-testid="results-message"
+    >
+      Results for 
+      "Happy dogs"
+      : 
+    </h1>
+    <div
+      class="sc-gKsewC ikKpsV"
+      data-testid="video-list"
+    />
+  </section>
+</div>
+`;

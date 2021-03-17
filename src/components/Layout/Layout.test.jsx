@@ -2,43 +2,46 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 
 import { useAuth } from '../../providers/Auth';
+import useQueryParams from '../../hooks/useQueryParams';
 import Layout from './Layout.component';
 
 const mockHistoryPush = jest.fn();
 const mockLogout = jest.fn();
 
 jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
   useHistory: () => ({
     push: mockHistoryPush,
   }),
 }));
 
-jest.mock('../../providers/Auth', () => ({
-  useAuth: jest.fn(() => ({ authenticated: false })),
-}));
+jest.mock('../../providers/Auth');
+
+jest.mock('../../hooks/useQueryParams');
 
 describe('Layout', () => {
   beforeEach(() => {
-    jest.clearAllMocks();
+    useAuth.mockImplementation(() => ({ authenticated: false }));
+    useQueryParams.mockImplementation(() => ({}));
   });
+
   it('should renders', () => {
-    render(
+    const { container } = render(
       <Layout>
-        <div id="content">Content</div>
+        <div>Content</div>
       </Layout>
     );
 
-    const container = document.querySelector('#content');
-    expect(container).toBeTruthy();
+    expect(screen.getByText('Content')).toBeTruthy();
     expect(screen.getByTestId('layout-sidebar')).toBeTruthy();
     expect(screen.getByTestId('header-menu')).toBeTruthy();
+
+    expect(container).toMatchSnapshot();
   });
 
   it('should renders with the sidebar closed', () => {
     render(
       <Layout>
-        <div id="content">Content</div>
+        <div>Content</div>
       </Layout>
     );
 
@@ -51,7 +54,7 @@ describe('Layout', () => {
   it('should opens the sidebar when clicking bar icon', () => {
     render(
       <Layout>
-        <div id="content">Content</div>
+        <div>Content</div>
       </Layout>
     );
 
@@ -65,7 +68,7 @@ describe('Layout', () => {
   it('should closes the sidebar when clicking outside', () => {
     render(
       <Layout>
-        <div id="content">Content</div>
+        <div>Content</div>
       </Layout>
     );
 
@@ -86,7 +89,7 @@ describe('Layout', () => {
   it('should naviagte to the home page when user click on home link', () => {
     render(
       <Layout>
-        <div id="content">Content</div>
+        <div>Content</div>
       </Layout>
     );
 
@@ -100,7 +103,7 @@ describe('Layout', () => {
     useAuth.mockImplementation(() => ({ authenticated: true }));
     render(
       <Layout>
-        <div id="content">Content</div>
+        <div>Content</div>
       </Layout>
     );
 
@@ -114,7 +117,7 @@ describe('Layout', () => {
     useAuth.mockImplementation(() => ({ authenticated: false }));
     render(
       <Layout>
-        <div id="content">Content</div>
+        <div>Content</div>
       </Layout>
     );
 
@@ -130,7 +133,7 @@ describe('Layout', () => {
     useAuth.mockImplementation(() => ({ authenticated: true, logout: mockLogout }));
     render(
       <Layout>
-        <div id="content">Content</div>
+        <div>Content</div>
       </Layout>
     );
 
@@ -144,7 +147,7 @@ describe('Layout', () => {
   it('should changes the icon with dark mode', () => {
     render(
       <Layout>
-        <div id="content">Content</div>
+        <div>Content</div>
       </Layout>
     );
 

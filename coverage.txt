@@ -6,41 +6,61 @@
 > react-certification-2020@0.1.0 test /Users/andres.chavez/Documents/Wizeline/react-certification-2021
 > react-scripts test "--coverage" "--watchAll"
 
---------------------------|----------|----------|----------|----------|-------------------|
-File                      |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
---------------------------|----------|----------|----------|----------|-------------------|
-All files                 |    93.16 |    93.75 |    90.91 |    93.16 |                   |
- src                      |      100 |      100 |      100 |      100 |                   |
-  global.style.js         |      100 |      100 |      100 |      100 |                   |
- src/components/App       |      100 |      100 |      100 |      100 |                   |
-  App.component.jsx       |      100 |      100 |      100 |      100 |                   |
- src/components/Header    |      100 |      100 |      100 |      100 |                   |
-  Header.component.jsx    |      100 |      100 |      100 |      100 |                   |
- src/components/Layout    |      100 |      100 |      100 |      100 |                   |
-  Layout.component.jsx    |      100 |      100 |      100 |      100 |                   |
-  Layout.styles.js        |      100 |      100 |      100 |      100 |                   |
- src/components/Login     |      100 |      100 |      100 |      100 |                   |
-  Login.component.jsx     |      100 |      100 |      100 |      100 |                   |
-  Login.styles.js         |      100 |      100 |      100 |      100 |                   |
- src/components/Private   |      100 |      100 |      100 |      100 |                   |
-  Private.component.jsx   |      100 |      100 |      100 |      100 |                   |
- src/components/VideoItem |      100 |      100 |      100 |      100 |                   |
-  VideoItem.component.jsx |      100 |      100 |      100 |      100 |                   |
-  VideoItem.styles.js     |      100 |      100 |      100 |      100 |                   |
- src/components/VideoList |      100 |      100 |      100 |      100 |                   |
-  VideoList.component.jsx |      100 |      100 |      100 |      100 |                   |
-  VideoList.styles.js     |      100 |      100 |      100 |      100 |                   |
- src/pages/Home           |      100 |      100 |      100 |      100 |                   |
-  Home.page.jsx           |      100 |      100 |      100 |      100 |                   |
-  Home.styles.js          |      100 |      100 |      100 |      100 |                   |
- src/pages/NotFound       |      100 |      100 |      100 |      100 |                   |
-  NotFound.page.jsx       |      100 |      100 |      100 |      100 |                   |
-  NotFound.styles.js      |      100 |      100 |      100 |      100 |                   |
- src/providers/Auth       |    73.68 |       50 |       60 |    73.68 |                   |
-  Auth.provider.jsx       |    73.68 |       50 |       60 |    73.68 |    11,27,28,32,33 |
- src/utils                |       70 |      100 |       50 |       70 |                   |
-  constants.js            |      100 |      100 |      100 |      100 |                   |
-  storage.js              |    57.14 |      100 |       50 |    57.14 |            7,8,13 |
---------------------------|----------|----------|----------|----------|-------------------|
+---------------------------------|---------|----------|---------|---------|-------------------
+File                             | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+---------------------------------|---------|----------|---------|---------|-------------------
+All files                        |   95.88 |    97.44 |      94 |   95.88 |                   
+ src                             |     100 |      100 |     100 |     100 |                   
+  global.style.js                |     100 |      100 |     100 |     100 |                   
+ src/apis                        |     100 |      100 |     100 |     100 |                   
+  youtube.js                     |     100 |      100 |     100 |     100 |                   
+ src/components/App              |     100 |      100 |     100 |     100 |                   
+  App.component.jsx              |     100 |      100 |     100 |     100 |                   
+ src/components/Header           |     100 |      100 |     100 |     100 |                   
+  Header.component.jsx           |     100 |      100 |     100 |     100 |                   
+ src/components/Layout           |     100 |      100 |     100 |     100 |                   
+  Layout.component.jsx           |     100 |      100 |     100 |     100 |                   
+  Layout.styles.js               |     100 |      100 |     100 |     100 |                   
+ src/components/Login            |     100 |      100 |     100 |     100 |                   
+  Login.component.jsx            |     100 |      100 |     100 |     100 |                   
+  Login.styles.js                |     100 |      100 |     100 |     100 |                   
+ src/components/Private          |     100 |      100 |     100 |     100 |                   
+  Private.component.jsx          |     100 |      100 |     100 |     100 |                   
+ src/components/RelatedVideoItem |     100 |      100 |     100 |     100 |                   
+  RelatedVideoItem.component.jsx |     100 |      100 |     100 |     100 |                   
+  RelatedVideoItem.styles.js     |     100 |      100 |     100 |     100 |                   
+ src/components/VideoDetails     |     100 |      100 |     100 |     100 |                   
+  VideoDetails.component.jsx     |     100 |      100 |     100 |     100 |                   
+  VideoDetails.styles.js         |     100 |      100 |     100 |     100 |                   
+ src/components/VideoItem        |     100 |      100 |     100 |     100 |                   
+  VideoItem.component.jsx        |     100 |      100 |     100 |     100 |                   
+  VideoItem.styles.js            |     100 |      100 |     100 |     100 |                   
+ src/components/VideoList        |     100 |      100 |     100 |     100 |                   
+  VideoList.component.jsx        |     100 |      100 |     100 |     100 |                   
+  VideoList.styles.js            |     100 |      100 |     100 |     100 |                   
+ src/hooks                       |     100 |      100 |     100 |     100 |                   
+  useAPI.js                      |     100 |      100 |     100 |     100 |                   
+  useQueryParams.js              |     100 |      100 |     100 |     100 |                   
+ src/pages/Favorites             |     100 |      100 |     100 |     100 |                   
+  Favorites.page.jsx             |     100 |      100 |     100 |     100 |                   
+  Favorites.styles.js            |     100 |      100 |     100 |     100 |                   
+ src/pages/Home                  |     100 |      100 |     100 |     100 |                   
+  Home.page.jsx                  |     100 |      100 |     100 |     100 |                   
+  Home.styles.js                 |     100 |      100 |     100 |     100 |                   
+ src/pages/NotFound              |     100 |      100 |     100 |     100 |                   
+  NotFound.page.jsx              |     100 |      100 |     100 |     100 |                   
+  NotFound.styles.js             |     100 |      100 |     100 |     100 |                   
+ src/pages/Results               |     100 |      100 |     100 |     100 |                   
+  Results.page.jsx               |     100 |      100 |     100 |     100 |                   
+  Results.styles.js              |     100 |      100 |     100 |     100 |                   
+ src/pages/Watch                 |     100 |      100 |     100 |     100 |                   
+  Watch.page.jsx                 |     100 |      100 |     100 |     100 |                   
+  Watch.styles.js                |     100 |      100 |     100 |     100 |                   
+ src/providers/Auth              |   73.68 |       50 |      60 |   73.68 |                   
+  Auth.provider.jsx              |   73.68 |       50 |      60 |   73.68 | 11,27-28,32-33    
+ src/utils                       |      75 |      100 |      50 |      75 |                   
+  constants.js                   |     100 |      100 |     100 |     100 |                   
+  storage.js                     |   57.14 |      100 |      50 |   57.14 | 7-13              
+---------------------------------|---------|----------|---------|---------|-------------------
 
 

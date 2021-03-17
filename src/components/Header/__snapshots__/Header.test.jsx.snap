@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should renders 1`] = `
+<div>
+  <div
+    class="ui menu"
+    data-testid="header-menu"
+  >
+    <div
+      class="item"
+    >
+      <i
+        aria-hidden="true"
+        class="bars icon clickable"
+        data-testid="header-bars-icon"
+      />
+    </div>
+    <div
+      class="item searchInput"
+    >
+      <div
+        class="ui icon input"
+        data-testid="header-search"
+      >
+        <input
+          placeholder="Search..."
+          type="text"
+          value=""
+        />
+        <i
+          aria-hidden="true"
+          class="search icon"
+        />
+      </div>
+    </div>
+    <div
+      class="right menu"
+    >
+      <div
+        class="item darkMode"
+      >
+        <div
+          class="ui slider checkbox"
+          data-testid="header-dark-mode"
+        >
+          <input
+            class="hidden"
+            readonly=""
+            tabindex="0"
+            type="checkbox"
+            value=""
+          />
+          <label>
+            Dark Mode
+          </label>
+        </div>
+      </div>
+      <div
+        aria-expanded="false"
+        class="ui dropdown link icon item userIcon"
+        data-testid="header-dropdown"
+        role="listbox"
+        tabindex="0"
+      >
+        <i
+          aria-hidden="true"
+          class="user circle outline icon"
+        />
+        <div
+          class="menu transition"
+        >
+          <div
+            class="item"
+            data-testid="header-dropdown-login"
+            role="option"
+          >
+            Login
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

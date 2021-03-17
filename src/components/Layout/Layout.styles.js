@@ -7,6 +7,7 @@ export const MainContainer = styled.main`
   flex-direction: column;
   align-items: center;
   margin-top: 10px;
+  background-color: space;
 `;
 
 const MenuContainer = styled.div`

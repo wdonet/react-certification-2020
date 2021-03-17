@@ -1,16 +1,16 @@
 import React from 'react';
 
-import mockedData from './videos-mock.json';
+import useAPI from '../../hooks/useAPI';
 import VideoList from '../../components/VideoList';
 import { Container, Title } from './Home.styles';
 
-const { items } = mockedData;
-
 const HomePage = () => {
+  const [videos, loading] = useAPI();
+
   return (
     <Container>
       <Title data-testid="home-message">Welcome to the Challenge!</Title>
-      <VideoList videos={items} />
+      {!loading && <VideoList videos={videos} />}
     </Container>
   );
 };

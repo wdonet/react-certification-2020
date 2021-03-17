@@ -1,27 +1,25 @@
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import Private from './Private.component';
 import { useAuth } from '../../providers/Auth';
 
-jest.mock('../../providers/Auth', () => ({
-  useAuth: jest.fn(),
-}));
+jest.mock('../../providers/Auth');
 
 describe('Private', () => {
   it('should renders with an active sesion', () => {
     useAuth.mockImplementation(() => ({ authenticated: true }));
-    render(
+    const { container } = render(
       <MemoryRouter initialEntries={['/Private']}>
         <Private>
-          <div id="private">Private</div>
+          <div>Private</div>
         </Private>
       </MemoryRouter>
     );
 
-    const container = document.querySelector('#private');
-    expect(container).toBeTruthy();
+    expect(screen.getByText('Private')).toBeTruthy();
+    expect(container).toMatchSnapshot();
   });
 
   it('should not renders witout an active sesion', () => {
@@ -29,12 +27,11 @@ describe('Private', () => {
     render(
       <MemoryRouter initialEntries={['/Private']}>
         <Private>
-          <div id="private">Private</div>
+          <div>Private</div>
         </Private>
       </MemoryRouter>
     );
 
-    const container = document.querySelector('#private');
-    expect(container).toBeFalsy();
+    expect(screen.queryByText('Private')).toBeFalsy();
   });
 });

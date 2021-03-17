@@ -2,20 +2,26 @@ import styled from 'styled-components';
 
 export const GridItem = styled.div`
   padding: 10px;
+  transition: 0.4s;
   cursor: pointer;
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.1);
   }
+
+  @media screen and (max-width: 500px) {
+    padding: 0;
+  }
 `;
 
 export const Card = styled.div`
+  background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.4s;
   height: 100%;
 
   &:hover {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.01);
   }
 `;
 

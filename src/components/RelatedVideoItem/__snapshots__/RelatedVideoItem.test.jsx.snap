@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RelatedVideoItem should renders 1`] = `
+<div>
+  <div
+    class="sc-bdfBwQ bMICcr"
+    data-testid="related-video-item"
+  >
+    <img
+      alt="Video Tour | Welcome to Wizeline Guadalajara"
+      class="sc-gsTCUz dNFAFU"
+      src="https://i.ytimg.com/vi/nmXMgqjQzls/default.jpg"
+    />
+    <p
+      class="sc-dlfnbm ePZiwQ"
+    >
+      Video Tour | Welcome to Wizeline Guadalajara
+    </p>
+  </div>
+</div>
+`;
