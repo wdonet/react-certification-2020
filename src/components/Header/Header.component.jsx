@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { searchVideos } from 'utils/api';
 import { Layout, Row, Col, Input } from 'antd';
 import { MenuOutlined, LoginOutlined } from '@ant-design/icons';
 import styled from 'styled-components';
+
+import { Context } from '../../context/AppContext';
 
 const { Header: AntHeader } = Layout;
 const { Search: AntSearch } = Input;
@@ -27,9 +30,16 @@ const Center = styled(Col)`
   align-items: center;
 `;
 
-const Header = ({ onSearch, onToggle }) => {
+const Header = ({ onToggle }) => {
+  const { dispatch } = useContext(Context);
+
+  const searchVideosAction = async (searchTerm) => {
+    const res = await searchVideos(searchTerm);
+    dispatch({ type: 'SEARCH_VIDEOS', payload: res.result.items });
+  };
+
   const handleSearch = (event) => {
-    onSearch(event.target.value);
+    searchVideosAction(event.target.value);
   };
 
   return (

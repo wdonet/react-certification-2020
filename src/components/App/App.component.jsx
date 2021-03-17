@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Layout } from 'antd';
 import 'antd/dist/antd.css';
 import styled from 'styled-components';
-import { useVideos } from 'utils/hooks/useVideos';
-import { getVideos, searchVideos } from 'utils/api';
 import { toggle } from 'utils/fns';
 
 import Sider from 'components/Sider';
@@ -14,6 +12,7 @@ import HomePage from '../../pages/Home';
 import LoginPage from '../../pages/Login';
 import NotFound from '../../pages/NotFound';
 import VideoDetail from '../../pages/VideoDetail';
+import { Context } from '../../context/AppContext';
 
 const { Content: AntContent } = Layout;
 
@@ -27,16 +26,11 @@ const StyledContent = styled(AntContent)`
 `;
 
 function App() {
-  const [videos, setVideos] = useVideos(getVideos);
+  const { state } = useContext(Context);
   const [isSiderHidden, setIsSiderHidden] = useState(true);
 
   const toggleSider = () => {
     setIsSiderHidden(toggle(isSiderHidden));
-  };
-
-  const handleSearch = async (text) => {
-    const res = await searchVideos(text);
-    setVideos(res.result.items);
   };
 
   return (
@@ -45,11 +39,11 @@ function App() {
         <FullHeightLayout>
           <Sider isHidden={isSiderHidden} onToggle={toggleSider} />
           <Layout>
-            <Header onSearch={handleSearch} onToggle={toggleSider} />
+            <Header onToggle={toggleSider} />
             <StyledContent aria-label="content">
               <Switch>
                 <Route exact path="/">
-                  <HomePage videos={videos} />
+                  <HomePage videos={state.videos} />
                 </Route>
                 <Route exact path="/login">
                   <LoginPage />

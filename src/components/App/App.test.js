@@ -1,53 +1,61 @@
 import 'mockData/matchMedia.mock';
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, waitFor } from '@testing-library/react';
 import App from 'components/App';
+import AppContext from 'context/AppContext';
+import { getVideos } from 'utils/api';
+import { VIDEOS } from 'mockData/youtube-videos-mock';
+
+const MOCK_RESPONSE = { result: VIDEOS };
 
 jest.mock('utils/hooks/useVideos');
+jest.mock('utils/api');
 
 describe('App', () => {
-  it('renders the header', () => {
-    const { getByRole } = render(<App />);
-    expect(getByRole('banner')).not.toBeUndefined();
-  });
-  it('renders the side menu', () => {
-    const { getByRole } = render(<App />);
-    expect(getByRole('menuitem').textContent).toBe('Home');
-  });
-  it('renders the content section', () => {
-    const { getByRole } = render(<App />);
-    expect(getByRole('main')).not.toBeUndefined();
+  it('renders the header', async () => {
+    getVideos.mockResolvedValue(MOCK_RESPONSE);
+
+    const { getByRole } = render(
+      <AppContext>
+        <App />
+      </AppContext>
+    );
+    await waitFor(() => expect(getByRole('banner')).not.toBeUndefined());
   });
 
-  // it('render new videos after entering text in the search bar', async () => {
-  //   const useVideos = jest.fn(() => [VIDEOS.items, undefined]);
-  //   const searchVideos = jest.fn((text) => VIDEOS.items.reverse());
+  it('renders the side menu', async () => {
+    getVideos.mockResolvedValue(MOCK_RESPONSE);
+    const { getByRole } = render(
+      <AppContext>
+        <App />
+      </AppContext>
+    );
+    await waitFor(() => expect(getByRole('menuitem').textContent).toBe('Home'));
+  });
 
-  //   const { getAllByRole, getByLabelText } = render(<App />);
-  //   const searchBar = getByLabelText('search-bar');
-
-  //   const originalVideos = getAllByRole('listitem');
-  //   const expectedVideos = originalVideos.reverse();
-
-  //   fireEvent.focus(searchBar);
-  //   fireEvent.change(searchBar, { target: { value: 'SEARCH' } });
-  //   fireEvent.keyDown(searchBar, { key: 'Enter', keyCode: 13, charCode: 13 });
-
-  //   const searchedVideos = getAllByRole('listitem');
-
-  //   expect(searchVideos).toBeCalledTimes(1);
-  //   expect(searchedVideos).toBe(expectedVideos);
-  // });
-
-  it('triggers the Sider collapse when clicking on the Header menu icon', () => {
-    const { getByLabelText } = render(<App />);
+  it('renders the content section', async () => {
+    getVideos.mockResolvedValue(MOCK_RESPONSE);
+    const { getByRole } = render(
+      <AppContext>
+        <App />
+      </AppContext>
+    );
+    await waitFor(() => expect(getByRole('main')).not.toBeUndefined());
+  });
+  it('triggers the Sider collapse when clicking on the Header menu icon', async () => {
+    getVideos.mockResolvedValue(MOCK_RESPONSE);
+    const { getByLabelText } = render(
+      <AppContext>
+        <App />
+      </AppContext>
+    );
     const siderMenuIcon = getByLabelText('sider-menu-icon');
     const sider = getByLabelText('sider');
 
-    expect(sider.classList.toString()).toMatch('collapsed');
+    await waitFor(() => expect(sider.classList.toString()).toMatch('collapsed'));
 
     fireEvent.click(siderMenuIcon);
 
-    expect(sider.classList.toString()).not.toMatch('collapsed');
+    await waitFor(() => expect(sider.classList.toString()).not.toMatch('collapsed'));
   });
 });
