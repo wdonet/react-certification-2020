@@ -2,15 +2,15 @@ import React from 'react';
 import 'jest-styled-components';
 import { render } from '@testing-library/react';
 import { contextWrapper, youtubeMockedData, YTMockedObject } from '../../utils';
-import SearchContext from '../../providers/SearchContext';
 import VideoPlayerContainer from './VideoPlayerContainer';
+import AppContext from '../../providers/AppContext';
 
 global.YT = YTMockedObject;
 
 const build = (Component = <VideoPlayerContainer />) => {
   const Wrap = contextWrapper(
-    SearchContext,
-    { search: jest.fn, videos: youtubeMockedData.items },
+    AppContext,
+    { search: jest.fn, videos: youtubeMockedData.items.slice(0, 1) },
     Component
   );
   const { container } = render(Wrap);

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { TextField, IconWrapper, Avatar, Switch } from '../ui/index';
 import hamburger from '../../assets/icons/hamburguer.png';
 import defaultUser from '../../assets/icons/default_user.jpg';
-import SearchContext from '../../providers/SearchContext';
 import AppContext from '../../providers/AppContext';
 
 const StyledHeader = styled.div`
@@ -24,8 +23,7 @@ const StyledSection = styled.div`
 `;
 
 const Header = () => {
-  const { setHomeVideosView, switchTheme } = useContext(AppContext);
-  const { search } = useContext(SearchContext);
+  const { search, setHomeVideosView, switchTheme } = useContext(AppContext);
   const ref = useRef(null);
 
   const setHomeVideosViewAndSearch = (query) => {

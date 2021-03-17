@@ -3,23 +3,33 @@ import 'jest-styled-components';
 import { getAllByTestId, render } from '@testing-library/react';
 import { youtubeMockedData, contextWrapper } from '../../utils';
 import { lightTheme } from '../../providers/themes';
-
-import SearchContext from '../../providers/SearchContext';
 import HomeVideos from './HomeVideos';
 import AppContext from '../../providers/AppContext';
+import { fireEvent } from '@testing-library/dom';
+
+const EXPECTED_LENGTH = 1;
 
 const build = (Component = <HomeVideos />) => {
-  const contextValue = { search: jest.fn(), videos: youtubeMockedData.items };
-  let Wrap = contextWrapper(SearchContext, contextValue, Component);
-  Wrap = contextWrapper(AppContext, { theme: lightTheme }, Wrap);
-  const { container } = render(Wrap);
-  return { container };
+  const contextValue = { videos: youtubeMockedData.items.slice(0, EXPECTED_LENGTH), theme: lightTheme, playVideo: jest.fn() };
+  const wrapped = contextWrapper(AppContext, contextValue, Component);
+  const { container } = render(wrapped);
+  return { 
+    videoCards: () => getAllByTestId(container, (testID) => testID.includes('video-card-') ),
+    contextValue 
+  };
 };
 
 describe('shows home videos', () => {
   it('displays card videos', () => {
-    const { container } = build();
-    const videos = getAllByTestId(container, (id) => id.includes('video-card-'));
-    expect(videos).toHaveLength(youtubeMockedData.items.length);
+    const { videoCards } = build();
+    expect(videoCards()).toHaveLength(EXPECTED_LENGTH);
   });
+
+  it('triggers video playback by videoId', () => {
+    const { videoCards, contextValue } = build();
+    const { videoId } = youtubeMockedData.items[0].id;
+    fireEvent.click(videoCards()[0].firstChild);
+    expect(contextValue.playVideo).toHaveBeenCalledTimes(1);
+    expect(contextValue.playVideo).toHaveBeenCalledWith(videoId);
+  })
 });

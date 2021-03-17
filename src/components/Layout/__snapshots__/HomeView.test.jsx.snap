@@ -3,7 +3,7 @@
 exports[`HomeView renders 1`] = `
 <div>
   <div
-    class="sc-bdVaJa fLGNui"
+    class="sc-bdVaJa cwEWqD"
     data-testid="main-content"
     role="main"
   />

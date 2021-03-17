@@ -1,6 +1,6 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import SearchContext from '../../providers/SearchContext';
+import AppContext from '../../providers/AppContext';
 import RelatedVideoList from './RelatedVideoList';
 
 const StyledVideoPlayerContainer = styled.div`
@@ -8,16 +8,18 @@ const StyledVideoPlayerContainer = styled.div`
 `;
 
 const VideoPlayerContainer = ({ videoId }) => {
-  const { videos } = useContext(SearchContext);
+  const { videos } = useContext(AppContext);
+  const playerRef = useRef();
 
   useEffect(() => {
     /* global YT */
     /* eslint no-undef: "error" */
-    window.player = new YT.Player('player', {
-      height: '50%',
+    playerRef.current = new YT.Player('player', {
+      height: '460',
       width: '60%',
       videoId,
     });
+    return () => { playerRef.current = undefined; }
   });
 
   return (
@@ -25,7 +27,7 @@ const VideoPlayerContainer = ({ videoId }) => {
       <div id="player" />
       <RelatedVideoList
         videos={videos}
-        playVideoByID={(videoID) => window.player.loadVideoById(videoID, 0)}
+        playVideoByID={(videoID) => playerRef.current.loadVideoById(videoID, 0)}
       />
     </StyledVideoPlayerContainer>
   );

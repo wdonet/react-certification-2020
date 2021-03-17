@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import VideoCard from './VideoCard';
-import SearchContext from '../../providers/SearchContext';
+import AppContext from '../../providers/AppContext';
 
 const StyledWarn = styled.div`
   padding: 4px;
@@ -21,8 +21,8 @@ const StyledDiv = styled.div`
   justify-content: center;
 `;
 
-const HomeVideos = ({ playVideoNow }) => {
-  const { videos } = useContext(SearchContext);
+const HomeVideos = () => {
+  const { videos, playVideo } = useContext(AppContext);
 
   return (
     <StyledDiv>
@@ -31,7 +31,7 @@ const HomeVideos = ({ playVideoNow }) => {
           const key = JSON.stringify(video.id);
           return (
             <div key={key} data-testid={`video-card-${key}`}>
-              <VideoCard video={video} onClick={() => playVideoNow(video.id.videoId)} />
+              <VideoCard video={video} onClick={() => playVideo(video.id.videoId)} />
             </div>
           );
         })

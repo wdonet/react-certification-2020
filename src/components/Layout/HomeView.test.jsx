@@ -20,6 +20,7 @@ describe('HomeView styles', () => {
     const { firstChild } = build().container;
     expect(firstChild).toHaveStyle('padding-top: 64px');
     expect(firstChild).toHaveStyle('height: calc(100% - 64px)');
+    expect(firstChild).toHaveStyle('overflow-y: scroll;');
   });
 
   it('renders children content', () => {

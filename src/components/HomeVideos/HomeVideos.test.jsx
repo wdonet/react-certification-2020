@@ -1,10 +1,15 @@
 import React from 'react';
 import 'jest-styled-components';
 import { render } from '@testing-library/react';
+import { contextWrapper, youtubeMockedData } from '../../utils/index';
+import { lightTheme } from '../../providers/themes';
+import AppContext from '../../providers/AppContext';
 import HomeVideos from './HomeVideos';
 
 const build = (Component = <HomeVideos />) => {
-  const { container } = render(Component);
+  const contextValue = { videos: youtubeMockedData.items.slice(2), theme: lightTheme };
+  const wrapped = contextWrapper(AppContext, contextValue, Component);
+  const { container } = render(wrapped);
   return { container };
 };
 

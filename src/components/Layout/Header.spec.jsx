@@ -3,17 +3,15 @@ import 'jest-styled-components';
 import { fireEvent, getByRole } from '@testing-library/dom';
 import { render } from '@testing-library/react';
 import { contextWrapper } from '../../utils';
-import Header from './Header';
-import SearchContext from '../../providers/SearchContext';
 import AppContext from '../../providers/AppContext';
+import Header from './Header';
 
 const build = (Component = <Header />) => {
-  const contextValue = { search: jest.fn() };
-  const WrapInSearchContext = contextWrapper(SearchContext, contextValue, Component);
+  const contextValue = { setHomeVideosView: jest.fn(), search: jest.fn() };
   const WrapInAppContext = contextWrapper(
     AppContext,
-    { setHomeVideosView: jest.fn() },
-    WrapInSearchContext
+    contextValue,
+    Component
   );
   const { container } = render(WrapInAppContext);
   return {
