@@ -1,56 +1,45 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import AuthProvider from '../providers/Auth/Auth.provider';
 import Header from '../components/Header';
+import { AppContext } from '../components/App/App.component';
 
 describe('Header Components', () => {
   it('should take a snapshot', () => {
     const { asFragment } = render(
-      <AuthProvider>
+      <AppContext.Provider value={false}>
         <Header />
-      </AuthProvider>
+      </AppContext.Provider>
     );
-    expect(
-      asFragment(
-        <AuthProvider>
-          <Header />
-        </AuthProvider>
-      )
-    ).toMatchSnapshot();
+    expect(asFragment(<Header />)).toMatchSnapshot();
+  });
+
+  it('Renders a textbox', () => {
+    // const { debug, getByRole } = render(
+    const { getByRole } = render(
+      <AppContext.Provider value={false}>
+        <Header />
+      </AppContext.Provider>
+    );
+
+    const searchTextBox = getByRole('textbox');
+    expect(searchTextBox).toBeInTheDocument();
+    // debug();
   });
 
   it('Expect the string Dark Mode', () => {
     render(
-      <AuthProvider>
+      <AppContext.Provider value={false}>
         <Header />
-      </AuthProvider>
+      </AppContext.Provider>
     );
     expect(screen.getByText('Dark Mode')).toBeTruthy();
   });
 
-  it('Menu and logo are present', () => {
-    render(
-      <AuthProvider>
-        <Header />
-      </AuthProvider>
-    );
-    expect(screen.getAllByRole('img').length).toBe(2);
-  });
-
-  it('Input in header is present', () => {
-    render(
-      <AuthProvider>
-        <Header />
-      </AuthProvider>
-    );
-    expect(screen.getByRole('textbox')).toBeTruthy();
-  });
-
   it('Toggle element is present in Header', () => {
     render(
-      <AuthProvider>
+      <AppContext.Provider value={false}>
         <Header />
-      </AuthProvider>
+      </AppContext.Provider>
     );
     expect(screen.getByRole('checkbox')).toBeTruthy();
   });

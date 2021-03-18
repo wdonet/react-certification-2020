@@ -5,10 +5,7 @@ import './Home.styles.css';
 import Styled from './styledHome';
 import VideoContainer from './videoContainer.js';
 
-
-
 function HomePage({ homeVideos }) {
-  
   const history = useHistory();
   const sectionRef = useRef(null);
   const { authenticated, logout } = useAuth();
@@ -30,20 +27,24 @@ function HomePage({ homeVideos }) {
               ← logout
             </Link>
             <span className="separator" />
-            <Link to="/secret">show me something cool →         
-          </Link>
+            <Link to="/secret">show me something cool →</Link>
           </span>
-              <Styled.WrapperVideo>
-                {homeVideos.map((video) => (
-                  <Link key={video.id.videoId}to={`/video/${video.id.videoId}/${video.snippet.title}`}>
-                  <VideoContainer
-                    title={video.snippet.title}
-                    description={video.snippet.description}
-                    url={video.snippet.thumbnails.medium.url}
-                  />
-                  </Link>
-                ))}
-              </Styled.WrapperVideo>
+          <Styled.WrapperVideo>
+            {homeVideos.map((video) => (
+             video.id.videoId ?
+              <Link
+                key={video.id.videoId} 
+                to={`/video/${video.id.videoId}/${video.snippet.title}`}
+              >
+                <VideoContainer
+                  title={video.snippet.title}
+                  description={video.snippet.description}
+                  url={video.snippet.thumbnails.medium.url}
+                />
+              </Link>
+              :null
+            ))}
+          </Styled.WrapperVideo>
         </>
       ) : (
         <Link to="/login">let me in →</Link>

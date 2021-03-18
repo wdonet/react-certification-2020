@@ -21,4 +21,14 @@ describe('App Components', () => {
     );
     expect(screen.getAllByRole('link')).toBeTruthy();
   });
+
+  // it("dataRequested", () => {
+
+  //   const action = {
+  //     type: "TOGGLE_THEME",
+  //     payload: {
+  //      state: { currentTheme: "#9999" }
+  //     }
+  //   }
+  // });
 });

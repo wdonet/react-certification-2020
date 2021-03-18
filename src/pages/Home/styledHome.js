@@ -7,7 +7,7 @@ const WrapperVideo = styled.div`
   flex: 1 1 0%;
   display: flex;
   flex-flow: row wrap;
-
+  padding: 17px;
   &:not(:last-child) {
     margin-bottom: 35px;
   }
@@ -19,6 +19,7 @@ const VideoDisplay = styled.div`
   width: auto;
   padding-left: 35px;
   padding-right: 35px;
+  height: 320px;
 `;
 
 const Title = styled.div`
