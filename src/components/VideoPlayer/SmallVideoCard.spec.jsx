@@ -3,10 +3,15 @@ import 'jest-styled-components';
 import { fireEvent } from '@testing-library/dom';
 import { render } from '@testing-library/react';
 import { youtubeMockedData } from '../../utils';
+import { lightTheme } from '../../providers/themes'
+import { contextWrapper } from '../../utils' 
+import AppContext from '../../providers/AppContext'
 import SmallVideoCard from './SmallVideoCard';
 
-const build = (Component = <SmallVideoCard />) => {
-  const { container } = render(Component);
+const build = (Component = <SmallVideoCard />, theme = lightTheme) => {
+  const contextValue = { theme };
+  const wrapped = contextWrapper(AppContext, contextValue, Component);
+  const { container } = render(wrapped);
   return { container };
 };
 

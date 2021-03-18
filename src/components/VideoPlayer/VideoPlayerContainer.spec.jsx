@@ -1,10 +1,11 @@
 import React from 'react';
 import 'jest-styled-components';
+import { lightTheme } from '../../providers/themes';
 import { getAllByTestId, render } from '@testing-library/react';
 import { YTMockedObject, contextWrapper, youtubeMockedData } from '../../utils';
 import VideoPlayerContainer from './VideoPlayerContainer';
-import AppContext from '../../providers/AppContext';
 import { fireEvent } from '@testing-library/dom';
+import AppContext from '../../providers/AppContext';
 
 global.YT = YTMockedObject;
 const EXPECTED_LENGHT = 3
@@ -12,7 +13,7 @@ const EXPECTED_LENGHT = 3
 const build = (Component = <VideoPlayerContainer />) => {
   const Wrap = contextWrapper(
     AppContext,
-    { search: jest.fn, videosList: youtubeMockedData.items.slice(0, EXPECTED_LENGHT) },
+    { search: jest.fn, videosList: youtubeMockedData.items.slice(0, EXPECTED_LENGHT), theme: lightTheme },
     Component
   );
   const { container } = render(Wrap);

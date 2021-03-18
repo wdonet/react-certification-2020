@@ -5,11 +5,12 @@ import { render } from '@testing-library/react';
 import { contextWrapper, youtubeMockedData, YTMockedObject } from '../../utils';
 import RelatedVideosList from './RelatedVideoList';
 import AppContext from '../../providers/AppContext';
+import { lightTheme } from '../../providers/themes';
 
 global.YT = YTMockedObject;
 
 const build = (Component = <RelatedVideosList />) => {
-  const contextValue = { videosList: youtubeMockedData.items.slice(0, 1) };
+  const contextValue = { videosList: youtubeMockedData.items.slice(0, 1), theme: lightTheme };
   const wrapped = contextWrapper(AppContext, contextValue, Component);
   const { container } = render(wrapped);
   return { 

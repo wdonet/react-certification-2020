@@ -16,7 +16,7 @@ exports[`VideoPlayerContainer shows div for iframe load 1`] = `
       data-testid="small-caption-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"nmXMgqjQzls\\"}"
     >
       <div
-        class="sc-bdVaJa emnpMO"
+        class="sc-bdVaJa kYayQX"
       >
         <img
           alt="Video Tour | Welcome to Wizeline Guadalajara"
