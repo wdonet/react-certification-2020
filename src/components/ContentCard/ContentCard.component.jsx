@@ -1,6 +1,7 @@
 import React from 'react';
 import { CardContent, CardActionArea } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
+import htmlParser from 'html-react-parser';
 
 import { StyledCard, StyledCardMedia, Title, Description } from './ContentCard.styles';
 
@@ -17,7 +18,7 @@ const ContentCard = ({ item }) => {
           title={item.snippet.title}
         />
         <CardContent>
-          <Title dangerouslySetInnerHTML={{ __html: item.snippet.title }} />
+          <Title>{htmlParser(item.snippet.title)}</Title>
           <Description>{item.snippet.description}</Description>
         </CardContent>
       </CardActionArea>
