@@ -1,1 +1,1 @@
-export {default} from './VideoCard.component';
+export { default } from './VideoCard.component';

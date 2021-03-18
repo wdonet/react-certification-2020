@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import ToggleButton from '../ToggleButton';
 
 const Header = styled.header`
   color: #fff;
@@ -9,11 +10,10 @@ const Header = styled.header`
   display: flex;
   z-index: 1100;
   box-sizing: border-box;
-  flex-shrink: 0;
-  flex-direction: column;
+  flex-direction: row;
 
-  pointer-events: none;
-  opacity: 0.5;
+  //pointer-events: none;
+  //opacity: 0.5;
 `;
 
 const NavBar = styled.div`
@@ -24,6 +24,7 @@ const NavBar = styled.div`
   display: flex;
   align-items: center;
   position: relative;
+  width: 100%;
 `;
 
 const SvgIcon = styled.svg`
@@ -52,10 +53,11 @@ const SearchBox = styled.div`
   margin-right: 16px;
   border-radius: 4px;
   background-color: rgba(255, 255, 255, 0.15);
+  border: 10;
 `;
 
 const SearchIconDiv = styled.div`
-  padding: 0px 16px;
+  padding: 10px 16px;
   position: absolute;
   align-items: center;
   pointer-events: none;
@@ -91,29 +93,16 @@ const SearchInput = styled.input`
   letter-spacing: inherit;
   animation-duration: 10ms;
   -webkit-tap-highlight-color: transparent;
+  border: 0;
 
   &:focus {
     outline: 0;
   }
-`;
 
-const ToggleDiv = styled.div`
-  display: flex;
-`;
-
-const ToggleLabel = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: center;
-`;
-
-const ToggleButton = styled.span`
-  width: 20px;
-  height: 20px;
-  box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%),
-    0px 1px 3px 0px rgb(0 0 0 / 12%);
-  border-radius: 50%;
-  background-color: currentColor;
+  &::placeholder {
+    color: currentColor;
+    opacity: 0.5;
+  }
 `;
 
 function HeaderComponent() {
@@ -123,28 +112,22 @@ function HeaderComponent() {
         <Button>
           <span>
             <SvgIcon viewBox="0 0 24 24">
-              <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+              <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
             </SvgIcon>
           </span>
         </Button>
         <SearchBox>
           <SearchIconDiv>
             <SvgIcon>
-              <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+              <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
             </SvgIcon>
           </SearchIconDiv>
           <SearchInputDiv>
-            <SearchInput type="text" placeholder="Search..."></SearchInput>
+            <SearchInput type="text" placeholder="Search..." />
           </SearchInputDiv>
         </SearchBox>
-        <ToggleDiv>
-          <ToggleLabel>
-            <ToggleButton></ToggleButton>
-          </ToggleLabel>
-        </ToggleDiv>
-        <label>
-          <span>Dark mode</span>
-        </label>
+        <div style={{ flexGrow: 1 }} />
+        <ToggleButton text="Dark mode" />
       </NavBar>
     </Header>
   );
