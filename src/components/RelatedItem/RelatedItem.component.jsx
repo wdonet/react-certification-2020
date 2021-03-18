@@ -1,6 +1,7 @@
 import React from 'react';
 import { Divider } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
+import htmlParser from 'html-react-parser';
 
 import {
   StyledRelatedItemDiv,
@@ -29,7 +30,7 @@ const RelatedItem = ({ item, hideDivider }) => {
       <StyledRelatedItemDiv onClick={handleClick}>
         <StyledImg src={url} width={width} height={height} />
         <StyledDescriptionDiv>
-          <SnippetTitle dangerouslySetInnerHTML={{ __html: title }} />
+          <SnippetTitle>{htmlParser(title)}</SnippetTitle>
         </StyledDescriptionDiv>
       </StyledRelatedItemDiv>
       {!hideDivider && <Divider />}

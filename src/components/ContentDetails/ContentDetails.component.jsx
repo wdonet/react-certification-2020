@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import htmlParser from 'html-react-parser';
 
 import {
   StyledFlexDiv,
@@ -28,7 +29,7 @@ const ContentDetails = ({ item, relatedItems }) => {
           src={getYoutubeEmbedLink(item.id.videoId)}
         />
         <StyledSnippetDiv>
-          <SnippetTitle dangerouslySetInnerHTML={{ __html: item.snippet.title }} />
+          <SnippetTitle>{htmlParser(item.snippet.title)}</SnippetTitle>
           <SnippetDescription>{item.snippet.description}</SnippetDescription>
           <StyledBackButton aria-label="back button" onClick={handleGoBack}>
             Go back
