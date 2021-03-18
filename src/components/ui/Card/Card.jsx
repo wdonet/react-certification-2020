@@ -7,7 +7,7 @@ const StyledDiv = styled.div`
   height: 345px;
   width: 345px;
   margin: 8px;
-  box-shadow: 2px 2px 2px 2px #ccc;
+  box-shadow: 2px 2px 2px 2px ${({ theme }) => theme.color.surfaceShadow};
   border-radius: 5px;
   background: ${({ theme }) => theme.color.surface};
 

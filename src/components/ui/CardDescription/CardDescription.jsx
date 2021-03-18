@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import AppContext from '../../../providers/AppContext';
 
 const StyledCardDescription = styled.p`
   font-weight: lighter;
-  color: gray;
+  color: ${ ({theme}) => theme.color.fontSecondary };
 `;
 
 const CardDescription = (props) => {
+  const { theme } = useContext(AppContext);
   return (
-    <StyledCardDescription role={props.role || ''}>
+    <StyledCardDescription theme={theme} role={props.role || ''}>
       {props.children}
     </StyledCardDescription>
   );

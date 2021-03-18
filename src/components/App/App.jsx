@@ -12,6 +12,7 @@ import {
   SET_VIDEOS_LIST, 
   SWITCH_THEME 
 } from '../../reducers/actionTypes'
+import { youtubeMockedData } from '../../utils';
 
 const StyledWelcome = styled.div`
   text-align: center;
@@ -47,7 +48,7 @@ function App() {
       });
       dispatch({ type: SET_VIDEOS_LIST, payload: result.items });
     } catch (reason) {
-      dispatch({ type: SET_VIDEOS_LIST, payload: [] });
+      dispatch({ type: SET_VIDEOS_LIST, payload: youtubeMockedData.items });
     }
   }
 

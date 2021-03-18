@@ -9,7 +9,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"Po3VwR_NNGk\\"}"
     >
       <div
-        class="sc-bwzfXH jxHiTG"
+        class="sc-bwzfXH HJqxq"
         role=""
       >
         <figure
@@ -48,7 +48,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"7PtYNO6g7eI\\"}"
     >
       <div
-        class="sc-bwzfXH jxHiTG"
+        class="sc-bwzfXH HJqxq"
         role=""
       >
         <figure
@@ -87,7 +87,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"YuW0CE_8i1I\\"}"
     >
       <div
-        class="sc-bwzfXH jxHiTG"
+        class="sc-bwzfXH HJqxq"
         role=""
       >
         <figure
@@ -126,7 +126,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"CHzlSGRvWPs\\"}"
     >
       <div
-        class="sc-bwzfXH jxHiTG"
+        class="sc-bwzfXH HJqxq"
         role=""
       >
         <figure
@@ -165,7 +165,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"cjO2fJy8asM\\"}"
     >
       <div
-        class="sc-bwzfXH jxHiTG"
+        class="sc-bwzfXH HJqxq"
         role=""
       >
         <figure
@@ -204,7 +204,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"zClI9OjgKXM\\"}"
     >
       <div
-        class="sc-bwzfXH jxHiTG"
+        class="sc-bwzfXH HJqxq"
         role=""
       >
         <figure
@@ -239,7 +239,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"8bz9R61oY5o\\"}"
     >
       <div
-        class="sc-bwzfXH jxHiTG"
+        class="sc-bwzfXH HJqxq"
         role=""
       >
         <figure
@@ -278,7 +278,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"7dJFraOqcoQ\\"}"
     >
       <div
-        class="sc-bwzfXH jxHiTG"
+        class="sc-bwzfXH HJqxq"
         role=""
       >
         <figure
@@ -317,7 +317,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"w-Qwc_XJrWc\\"}"
     >
       <div
-        class="sc-bwzfXH jxHiTG"
+        class="sc-bwzfXH HJqxq"
         role=""
       >
         <figure
@@ -356,7 +356,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"rjir_cHTl5w\\"}"
     >
       <div
-        class="sc-bwzfXH jxHiTG"
+        class="sc-bwzfXH HJqxq"
         role=""
       >
         <figure
@@ -391,7 +391,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"DcFK1x3NHGY\\"}"
     >
       <div
-        class="sc-bwzfXH jxHiTG"
+        class="sc-bwzfXH HJqxq"
         role=""
       >
         <figure
@@ -430,7 +430,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"3BzYWAqZgFw\\"}"
     >
       <div
-        class="sc-bwzfXH jxHiTG"
+        class="sc-bwzfXH HJqxq"
         role=""
       >
         <figure
@@ -469,7 +469,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"3KVFmT-Tp2w\\"}"
     >
       <div
-        class="sc-bwzfXH jxHiTG"
+        class="sc-bwzfXH HJqxq"
         role=""
       >
         <figure
@@ -508,7 +508,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"aKuPmY2m1Ro\\"}"
     >
       <div
-        class="sc-bwzfXH jxHiTG"
+        class="sc-bwzfXH HJqxq"
         role=""
       >
         <figure
@@ -543,7 +543,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"24sTHUyWhRM\\"}"
     >
       <div
-        class="sc-bwzfXH jxHiTG"
+        class="sc-bwzfXH HJqxq"
         role=""
       >
         <figure
@@ -582,7 +582,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"IxGc1gSqB3A\\"}"
     >
       <div
-        class="sc-bwzfXH jxHiTG"
+        class="sc-bwzfXH HJqxq"
         role=""
       >
         <figure
@@ -621,7 +621,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"NP1gAnbeNno\\"}"
     >
       <div
-        class="sc-bwzfXH jxHiTG"
+        class="sc-bwzfXH HJqxq"
         role=""
       >
         <figure
@@ -660,7 +660,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"F6Krwu6lUc8\\"}"
     >
       <div
-        class="sc-bwzfXH jxHiTG"
+        class="sc-bwzfXH HJqxq"
         role=""
       >
         <figure
@@ -699,7 +699,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"RFq7gfvhtCk\\"}"
     >
       <div
-        class="sc-bwzfXH jxHiTG"
+        class="sc-bwzfXH HJqxq"
         role=""
       >
         <figure
@@ -738,7 +738,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"E1Vq_A3WKK8\\"}"
     >
       <div
-        class="sc-bwzfXH jxHiTG"
+        class="sc-bwzfXH HJqxq"
         role=""
       >
         <figure
@@ -777,7 +777,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"ZmkslANDz0Q\\"}"
     >
       <div
-        class="sc-bwzfXH jxHiTG"
+        class="sc-bwzfXH HJqxq"
         role=""
       >
         <figure
@@ -812,7 +812,7 @@ exports[`HomeVideos renders 1`] = `
       data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"Nss3EmTDD3s\\"}"
     >
       <div
-        class="sc-bwzfXH jxHiTG"
+        class="sc-bwzfXH HJqxq"
         role=""
       >
         <figure

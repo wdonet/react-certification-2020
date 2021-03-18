@@ -26,8 +26,19 @@ describe('Card styles and props', () => {
     expect(firstChild).toHaveStyle('height: 345px');
     expect(firstChild).toHaveStyle('width: 345px');
     expect(firstChild).toHaveStyle('margin: 8px');
-    expect(firstChild).toHaveStyle('box-shadow: 2px 2px 2px 2px #ccc');
     expect(firstChild).toHaveStyle('border-radius: 5px');
+  });
+
+  it('applies colors for light theme', () => {
+    const { firstChild } = build().container;
+    expect(firstChild).toHaveStyle(`box-shadow: 2px 2px 2px 2px ${lightTheme.color.surfaceShadow}`);
+    expect(firstChild).toHaveStyle(`background: ${lightTheme.color.surface}`);
+  });
+
+  it('applies colors for light theme', () => {
+    const { firstChild } = build().container;
+    expect(firstChild).toHaveStyle(`box-shadow: 2px 2px 2px 2px ${lightTheme.color.surfaceShadow}`);
+    expect(firstChild).toHaveStyle(`background: ${lightTheme.color.surface}`);
   });
 
   it('has role and all passed props', () => {

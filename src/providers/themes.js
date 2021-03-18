@@ -21,9 +21,11 @@ export const lightTheme = {
     secondary: '#a2cf00',
 
     fontPrimary: '#fafafa',
-    fontSecondary: '#bdbdbd',
+    fontSecondary: '#eeeeee',
     
-    background: '#ffffff',
+    background: '#f9ffc2',
+    surface: '#a2ab55',
+    surfaceShadow: '#c5d15c',
   },
 };
 
@@ -34,11 +36,13 @@ export const darkTheme = {
 
     primary: '#00695c',
     primaryVariant: '#004d40',
-    secondary: '#1de9b6',
+    secondary: '#119171',
 
-    fontPrimary: '#757575',
+    fontPrimary: '#00e5ff',
     fontSecondary: '#bdbdbd',
     
-    background: '#616161',
+    background: '#004a41',
+    surface: '#006e63',
+    surfaceShadow: '#18877c',
   },
 };

@@ -1,9 +1,14 @@
 import React from 'react';
 import { getByTitle, render } from '@testing-library/react';
+import { lightTheme, darkTheme } from '../../../providers/themes'
+import { contextWrapper } from '../../../utils' 
+import AppContext from '../../../providers/AppContext'
 import CardTitle from './CardTitle';
 
-const build = (Component = <CardTitle />) => {
-  const { container } = render(Component);
+const build = (Component = <CardTitle />, theme = lightTheme) => {
+  const contextValue = { theme };
+  const wrapped = contextWrapper(AppContext, contextValue, Component);
+  const { container } = render(wrapped);
   return { container };
 };
 
@@ -12,6 +17,16 @@ describe('CardTitle', () => {
     const { firstChild } = build().container;
     expect(firstChild).toHaveStyle('font-weight: normal');
     expect(firstChild).toHaveStyle('font-size: 1.25rem');
+  });
+
+  it('applies colors for light theme', () => {
+    const { firstChild } = build().container;
+    expect(firstChild).toHaveStyle(`color: ${ lightTheme.color.fontPrimary }`);
+  });
+
+  it('applies colors for dark theme', () => {
+    const { firstChild } = build(<CardTitle/>, darkTheme).container;
+    expect(firstChild).toHaveStyle(`color: ${ darkTheme.color.fontPrimary }`);
   });
 
   it('displays title and contains "title" attribute', () => {
