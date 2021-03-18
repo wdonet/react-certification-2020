@@ -1,39 +1,29 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef } from 'react';
+import {useVideoSearch} from '../../providers/VideoSearch';
 import Card from '../../components/Card';
 import VideoDetailsView from '../../components/VideoDetailsView';
 import Styled from "./styled";
+import {API_KEY} from '../../utils/constants';
 import YTSerach from 'youtube-api-search';
-//import mockedData from "../../youtube-videos-mock.json";
 
-const API_KEY="AIzaSyDWAKbVGVJgvjZXbzZbrfFHNSrp4JElfzE";
+const HomePage = () => {
 
-const HomePage = ({ search }) => {
-  const [items, setItems] = useState([]);
-  const [selectedVideo, setSelectedVideo] = useState({
-    id : { 
-      videoId : "" 
-    },
-    snippet : { 
-      title : "",
-      description : "",
-    }
-  });
-  
-  useEffect(() => {
-    if(search!=''){
-      YTSerach({key: API_KEY, term: search, maxResults: 5 },function(videos){
-        setItems(videos);
-        setSelectedVideo(videos[0]);
-      } );
-    }
-  }, [search]);
+  const {
+    search,
+    items,
+    selectedVideo,
+    setSelectedVideo,
+    setRelatedVideos
+  } = useVideoSearch();
   
   const handleVideoSelected = (video) => {
-    console.log(video);
     setSelectedVideo(video);
+    YTSerach({key: API_KEY, relatedToVideoId: selectedVideo.id.videoId, maxResults: 4 },function(rVideos){
+        setRelatedVideos(rVideos);
+    } );
+    
   };
   
-  //const { items } = mockedData;
   const sectionRef = useRef(null);
 
   return (
@@ -41,10 +31,7 @@ const HomePage = ({ search }) => {
       <Styled.Title >Welcome to the Challenge!</Styled.Title>
           <Styled.HomeGrid> 
           {  search!="" &&
-            <VideoDetailsView 
-              selectedVideo={selectedVideo}
-              handleVideoSelected={handleVideoSelected}
-            />
+            <VideoDetailsView />
           }
           {items.map((item) => {
             return (

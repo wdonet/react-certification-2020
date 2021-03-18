@@ -1,20 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import {useVideoSearch} from '../../providers/VideoSearch';
+
 import Grid from '@material-ui/core/Grid';
 import ReactPlayer from 'react-player'
-import YTSerach from 'youtube-api-search';
 import RelatedVideos from '../RelatedVideos';
 
-const API_KEY="AIzaSyDWAKbVGVJgvjZXbzZbrfFHNSrp4JElfzE";
+const VideoDetailsView = () => {
 
-const VideoDetailsView = ({ selectedVideo, handleVideoSelected }) => {
-    const [relatedVideos, setRelatedVideos] = useState([]);
-
-    useEffect(() => {
-        YTSerach({key: API_KEY, relatedToVideoId: selectedVideo.id.videoId, maxResults: 3 },function(rVideos){
-            setRelatedVideos(rVideos);
-            console.log(rVideos);
-        } );
-      }, [selectedVideo]);
+    const {
+        selectedVideo,
+      } = useVideoSearch();
 
     return (
         <Grid container>
@@ -26,10 +21,7 @@ const VideoDetailsView = ({ selectedVideo, handleVideoSelected }) => {
                 </div>
             </Grid>
             <Grid item md={4}>
-            <RelatedVideos 
-                handleVideoSelected={handleVideoSelected}
-                relatedVideos={relatedVideos}
-              />
+            <RelatedVideos  />
             </Grid>
         </Grid>
     );
