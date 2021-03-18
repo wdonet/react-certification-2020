@@ -1,0 +1,28 @@
+ PASS  src/components/Navigation/Navigation.test.js
+ PASS  src/pages/Home/Home.test.js
+ PASS  src/components/App/App.test.js
+ PASS  src/components/Card/Card.test.js
+-----------------------|----------|----------|----------|----------|-------------------|
+File                   |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
+-----------------------|----------|----------|----------|----------|-------------------|
+All files              |    91.89 |      100 |    88.89 |    91.89 |                   |
+ components/App        |    72.73 |      100 |       75 |    72.73 |                   |
+  App.component.jsx    |    72.73 |      100 |       75 |    72.73 |          20,21,22 |
+ components/Card       |      100 |      100 |      100 |      100 |                   |
+  index.jsx            |      100 |      100 |      100 |      100 |                   |
+  styled.js            |      100 |      100 |      100 |      100 |                   |
+ components/Navigation |      100 |      100 |      100 |      100 |                   |
+  index.jsx            |      100 |      100 |      100 |      100 |                   |
+  styled.js            |      100 |      100 |      100 |      100 |                   |
+ pages/Home            |      100 |      100 |      100 |      100 |                   |
+  Home.page.jsx        |      100 |      100 |      100 |      100 |                   |
+  styled.js            |      100 |      100 |      100 |      100 |                   |
+-----------------------|----------|----------|----------|----------|-------------------|
+
+Test Suites: 4 passed, 4 total
+Tests:       5 passed, 5 total
+Snapshots:   0 total
+Time:        2.632s
+Ran all test suites related to changed files.
+
+Watch Usage: Press w to show more.

@@ -1,37 +1,50 @@
 import React, { useRef } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import {useVideoSearch} from '../../providers/VideoSearch';
+import Card from '../../components/Card';
+import VideoDetailsView from '../../components/VideoDetailsView';
+import Styled from "./styled";
+import {API_KEY} from '../../utils/constants';
+import YTSerach from 'youtube-api-search';
 
-import { useAuth } from '../../providers/Auth';
-import './Home.styles.css';
+const HomePage = () => {
 
-function HomePage() {
-  const history = useHistory();
+  const {
+    search,
+    items,
+    selectedVideo,
+    setSelectedVideo,
+    setRelatedVideos
+  } = useVideoSearch();
+  
+  const handleVideoSelected = (video) => {
+    setSelectedVideo(video);
+    YTSerach({key: API_KEY, relatedToVideoId: selectedVideo.id.videoId, maxResults: 4 },function(rVideos){
+        setRelatedVideos(rVideos);
+    } );
+    
+  };
+  
   const sectionRef = useRef(null);
-  const { authenticated, logout } = useAuth();
-
-  function deAuthenticate(event) {
-    event.preventDefault();
-    logout();
-    history.push('/');
-  }
 
   return (
     <section className="homepage" ref={sectionRef}>
-      <h1>Hello stranger!</h1>
-      {authenticated ? (
-        <>
-          <h2>Good to have you back</h2>
-          <span>
-            <Link to="/" onClick={deAuthenticate}>
-              ← logout
-            </Link>
-            <span className="separator" />
-            <Link to="/secret">show me something cool →</Link>
-          </span>
-        </>
-      ) : (
-        <Link to="/login">let me in →</Link>
-      )}
+      <Styled.Title >Welcome to the Challenge!</Styled.Title>
+          <Styled.HomeGrid> 
+          {  search!="" &&
+            <VideoDetailsView />
+          }
+          {items.map((item) => {
+            return (
+              <Card 
+                key={item.etag}
+                handleVideoSelected={handleVideoSelected}
+                video={item}
+              />
+              );
+          })}
+
+          </Styled.HomeGrid>
+
     </section>
   );
 }
