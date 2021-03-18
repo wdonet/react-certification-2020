@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login Components should take a snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="login"
+  >
+    <h1>
+      Welcome back!
+    </h1>
+    <form
+      class="login-form"
+    >
+      <div
+        class="form-group"
+      >
+        <label
+          for="username"
+        >
+          <strong>
+            username 
+          </strong>
+          <input
+            id="username"
+            required=""
+            type="text"
+          />
+        </label>
+      </div>
+      <div
+        class="form-group"
+      >
+        <label
+          for="password"
+        >
+          <strong>
+            password 
+          </strong>
+          <input
+            id="password"
+            required=""
+            type="password"
+          />
+        </label>
+      </div>
+      <button
+        type="submit"
+      >
+        login
+      </button>
+    </form>
+  </section>
+</DocumentFragment>
+`;
