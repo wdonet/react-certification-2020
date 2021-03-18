@@ -36,7 +36,7 @@ const HomeVideos = () => {
           );
         })
       ) : (
-        <StyledWarn>No hay videos :/</StyledWarn>
+        <StyledWarn data-testid="no-videos-available">No hay videos :/</StyledWarn>
       )}
     </StyledDiv>
   );

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { LayoutWrapper } from '../Layout';
 import { appReducer } from '../../reducers/appReducer';
 import { lightTheme, darkTheme } from '../../providers/themes';
+import youtubeSearchService from '../../services/youtubeSearchService';
 import VideoPlayerContainer from '../VideoPlayer/VideoPlayerContainer';
 import AppContext from '../../providers/AppContext';
 import HomeVideos from '../HomeVideos/HomeVideos';
@@ -38,23 +39,22 @@ function App() {
     switchTheme: () => dispatch({type: SWITCH_THEME}),
   });
 
-  const search = async (query = "paisajes") => {
-    try {
-      /* global gapi */
-      /* eslint no-undef: "error" */
-      const { result } = await gapi.client.request({
-        path: `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${query}&maxResults=12&regionCode=MX&key=${process.env.REACT_APP_YOUTUBE_KEY}`,
-      });
-      dispatch({ type: SET_VIDEOS_LIST, payload: result.items });
-    } catch (reason) {
-      dispatch({ type: SET_VIDEOS_LIST, payload: [] });
-    }
+  const search = async (query) => {
+    const serviceResponse = await youtubeSearchService.search(query);
+    serviceResponse.error 
+    ? dispatch({ type: SET_VIDEOS_LIST, payload: [] })
+    : dispatch({ type: SET_VIDEOS_LIST, payload: serviceResponse });
   }
 
   const firstSearch = async () => {
-    while(!gapi.client)
-      await new Promise(resolve => setTimeout(resolve, 500));
-    if(gapi.client && isFirstLoad){ search() }
+    let counter = 0;
+    while(!gapi || !gapi.client && counter < 10){
+      counter++;
+      await new Promise(resolve => setTimeout(resolve, 100));
+    }
+    (!gapi || !gapi.client || counter >= 10) 
+    ? dispatch({ type: SET_VIDEOS_LIST, payload: [] })
+    : search()
   }
 
   if(isFirstLoad){
@@ -65,14 +65,14 @@ function App() {
   return (
     <AppContext.Provider value={
       { ...getThemeConfig(), 
-        search,  
+        search,
         videosList,
         setHomeVideosView: () => dispatch({ type: SET_CURRENT_VIDEO_PLAYBACK, payload: null }), 
         playVideoById: (id) => dispatch({type: SET_CURRENT_VIDEO_PLAYBACK, payload: id}) 
       }
     }>
       <LayoutWrapper>
-        {currentVideoId ? (
+        { currentVideoId ? (
           <div data-testid="video-player-container">
             <VideoPlayerContainer videoId={currentVideoId} />
           </div>
