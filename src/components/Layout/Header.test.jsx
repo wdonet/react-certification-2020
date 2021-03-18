@@ -1,20 +1,19 @@
 import React from 'react';
 import 'jest-styled-components';
 import { getByRole, render } from '@testing-library/react';
-import { ThemeProvider } from 'styled-components';
-import Header from './Header';
 import AppContext from '../../providers/AppContext';
 import { contextWrapper } from '../../utils';
+import { darkTheme, lightTheme } from '../../providers/themes';
+import Header from './Header';
 
-const build = (Component = <Header />) => {
-  const WrapInAppContext = contextWrapper(
+const build = (Component = <Header />, theme = lightTheme) => {
+  const contextValue = { setHomeVideosView: jest.fn(), theme };
+  const wrapped = contextWrapper(
     AppContext,
-    { setHomeVideosView: jest.fn() },
-    Component
+    contextValue,
+    Component,
   );
-  const { container } = render(
-    <ThemeProvider theme={{ switchTheme: jest.fn() }}>{WrapInAppContext}</ThemeProvider>
-  );
+  const { container } = render(wrapped);
   return {
     container,
     HamburguerIcon: () => getByRole(container, 'button', { name: 'hamburguer' }),
@@ -47,9 +46,19 @@ describe('Header styles', () => {
     expect(firstChild).toHaveStyle('justify-content: space-between');
     expect(firstChild).toHaveStyle('width: 100%');
     expect(firstChild).toHaveStyle('height: 64px');
-    expect(firstChild).toHaveStyle('background-color: #00695c');
     expect(firstChild).toHaveStyle('overflow: hidden');
     expect(firstChild).toHaveStyle('position: fixed');
     expect(firstChild).toHaveStyle('top: 0');
   });
+
+  it('applies background color for light theme', () => {
+    const { firstChild } = build().container;
+    expect(firstChild).toHaveStyle(`background-color: ${lightTheme.color.primary}`);
+  })
+
+  it('applies background color for dark theme', () => {
+    const { firstChild } = build(<Header />, darkTheme).container;
+    expect(firstChild).toHaveStyle(`background-color: ${darkTheme.color.primary}`);
+  })
+
 });

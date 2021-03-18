@@ -8,10 +8,10 @@ import AppContext from '../../providers/AppContext';
 const StyledHeader = styled.div`
   display: flex;
   align-items: center;
+  background-color: ${({theme}) => theme.color.primary};
   justify-content: space-between;
   width: 100%;
   height: 64px;
-  background-color: #00695c;
   overflow: hidden;
   position: fixed;
   top: 0;
@@ -23,7 +23,7 @@ const StyledSection = styled.div`
 `;
 
 const Header = () => {
-  const { search, setHomeVideosView, switchTheme } = useContext(AppContext);
+  const { search, setHomeVideosView, switchTheme, theme } = useContext(AppContext);
   const ref = useRef(null);
 
   const setHomeVideosViewAndSearch = (query) => {
@@ -32,7 +32,7 @@ const Header = () => {
   };
 
   return (
-    <StyledHeader role="toolbar" data-testid="header">
+    <StyledHeader role="toolbar" data-testid="header" theme={theme}>
       <StyledSection>
         <div>
           <IconWrapper role="button" src={hamburger} alt="hamburguer" />

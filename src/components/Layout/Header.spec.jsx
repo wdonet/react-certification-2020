@@ -4,16 +4,17 @@ import { fireEvent, getByRole } from '@testing-library/dom';
 import { render } from '@testing-library/react';
 import { contextWrapper } from '../../utils';
 import AppContext from '../../providers/AppContext';
-import Header from './Header';
+import { lightTheme } from '../../providers/themes'
+import Header from './Header';;
 
-const build = (Component = <Header />) => {
-  const contextValue = { setHomeVideosView: jest.fn(), search: jest.fn() };
-  const WrapInAppContext = contextWrapper(
+const build = (Component = <Header />, theme = lightTheme) => {
+  const contextValue = { setHomeVideosView: jest.fn(), search: jest.fn(), theme };
+  const wrapped = contextWrapper(
     AppContext,
     contextValue,
-    Component
+    Component,
   );
-  const { container } = render(WrapInAppContext);
+  const { container } = render(wrapped);
   return {
     container,
     searchInput: () => getByRole(container, 'search'),

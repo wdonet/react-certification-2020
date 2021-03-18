@@ -2,15 +2,16 @@ import React from 'react';
 import 'jest-styled-components';
 import { getByRole, render, act } from '@testing-library/react';
 import { contextWrapper, googleMockedAPIObject } from '../../utils';
-import { lightTheme } from '../../providers/themes';
+import { darkTheme, lightTheme } from '../../providers/themes';
 import LayoutWrapper from './LayoutWrapper';
 import AppContext from '../../providers/AppContext';
 
 global.gapi = googleMockedAPIObject();
 
-const build = async (Component = <LayoutWrapper />) => {
+const build = async (Component = <LayoutWrapper />, theme = lightTheme) => {
   let container;
-  const WrapInAppContext = contextWrapper(AppContext, { theme: lightTheme }, Component);
+  const contextValue = { theme };
+  const WrapInAppContext = contextWrapper(AppContext, contextValue, Component);
   await act(async () => {
     container = render(WrapInAppContext).container;
   });
@@ -40,5 +41,15 @@ describe('LayoutWrapper styles', () => {
     const { firstChild } = (await build()).container;
     expect(firstChild).toHaveStyle('width: 100%');
     expect(firstChild).toHaveStyle('height: 100%');
+  });
+
+  it('applies background for light theme', async () => {
+    const { firstChild } = (await build()).container;
+    expect(firstChild).toHaveStyle(`background: ${lightTheme.color.background}`);
+  });
+
+  it('applies background for dark theme', async () => {
+    const { firstChild } = (await build(<LayoutWrapper/>, darkTheme)).container;
+    expect(firstChild).toHaveStyle(`background: ${darkTheme.color.background}`);
   });
 });

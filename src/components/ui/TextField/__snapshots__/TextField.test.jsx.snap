@@ -3,7 +3,7 @@
 exports[`TextField renders 1`] = `
 <div>
   <input
-    class="sc-bdVaJa kHpFHH"
+    class="sc-bdVaJa fkGYjX"
   />
 </div>
 `;

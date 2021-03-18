@@ -1,10 +1,15 @@
 import React from 'react';
 import 'jest-styled-components';
 import { render } from '@testing-library/react';
+import { contextWrapper } from '../../../utils/';
+import { lightTheme, darkTheme } from '../../../providers/themes';
 import TextField from './TextField';
+import AppContext from '../../../providers/AppContext';
 
-const build = (Component = <TextField />) => {
-  const { container } = render(Component);
+const build = (Component = <TextField />, theme = lightTheme) => {
+  const contextValue = { theme };
+  const wrapped = contextWrapper(AppContext, contextValue, Component);
+  const { container } = render(wrapped);
   return { container };
 };
 
@@ -18,10 +23,21 @@ describe('TextField', () => {
 describe('TextField styles', () => {
   it('applies default styling', () => {
     const { firstChild } = build().container;
-    expect(firstChild).toHaveStyle('background: #26a69a');
-    expect(firstChild).toHaveStyle('color: white');
     expect(firstChild).toHaveStyle('border-radius: 4px');
     expect(firstChild).toHaveStyle('padding: 8px');
     expect(firstChild).toHaveStyle('border: 0');
   });
+
+  it('applies theme colors for light theme', () => {
+    const { firstChild } = build().container;
+    expect(firstChild).toHaveStyle(`background: ${lightTheme.color.secondary}`);
+    expect(firstChild).toHaveStyle(`color:${lightTheme.color.fontPrimary}`);
+  })
+
+  it('applies theme colors for light theme', () => {
+    const { firstChild } = build(<TextField />, darkTheme).container;
+    expect(firstChild).toHaveStyle(`background: ${darkTheme.color.secondary}`);
+    expect(firstChild).toHaveStyle(`color:${darkTheme.color.fontPrimary}`);
+  })
+
 });

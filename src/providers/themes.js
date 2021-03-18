@@ -18,11 +18,12 @@ export const lightTheme = {
 
     primary: '#dce775',
     primaryVariant: '#c0ca33',
-    secondary: '#c8ff00',
+    secondary: '#a2cf00',
 
+    fontPrimary: '#fafafa',
+    fontSecondary: '#bdbdbd',
+    
     background: '#ffffff',
-    surface: '#f5f5f5',
-    error: '#e64a19',
   },
 };
 
@@ -35,8 +36,9 @@ export const darkTheme = {
     primaryVariant: '#004d40',
     secondary: '#1de9b6',
 
+    fontPrimary: '#757575',
+    fontSecondary: '#bdbdbd',
+    
     background: '#616161',
-    surface: '#757575',
-    error: '#e65100',
   },
 };

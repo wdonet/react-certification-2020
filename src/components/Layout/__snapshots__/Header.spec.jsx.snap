@@ -3,7 +3,7 @@
 exports[`Header renders 1`] = `
 <div>
   <div
-    class="sc-iwsKbI fwoerb"
+    class="sc-iwsKbI jDUsQk"
     data-testid="header"
     role="toolbar"
   >
@@ -22,7 +22,7 @@ exports[`Header renders 1`] = `
         data-testid="search-input"
       >
         <input
-          class="sc-dnqmqq eJdbOI"
+          class="sc-dnqmqq eMiNCI"
           role="search"
         />
       </div>
