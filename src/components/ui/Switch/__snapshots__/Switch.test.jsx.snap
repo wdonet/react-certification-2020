@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Switch renders 1`] = `
+<div>
+  <input
+    class="sc-bdVaJa bDWFJH"
+    role="switch"
+    type="checkbox"
+  />
+</div>
+`;
