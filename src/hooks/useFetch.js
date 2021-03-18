@@ -10,7 +10,10 @@ const Fetch = async (search) => {
       `https://www.googleapis.com/youtube/v3/search?part=id&part=snippet&maxResults=5&key=${REACT_APP_API_YOUTUBE_KEY}`,
       { ...search }
     )
-    .then((response) => response.data);
+    .then((response) => response.data)
+    .catch((error) => {
+      console.log(error);
+    });
 
   return rep;
 };
