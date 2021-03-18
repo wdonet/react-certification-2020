@@ -46,8 +46,8 @@ function HomePage() {
         },
       };
       const fetchedVideos = await Fetch(params);
-      console.log(fetchedVideos.data.items);
-      setVideos(fetchedVideos.data.items);
+      console.log(fetchedVideos.items);
+      setVideos(fetchedVideos.items);
     }
     fetchData();
   }, [state.search]);
@@ -61,8 +61,8 @@ function HomePage() {
         },
       };
       const fetchedVideos = await Fetch(params);
-      console.log(fetchedVideos.data.items);
-      setVideosRelated(fetchedVideos.data.items);
+      console.log(fetchedVideos.items);
+      setVideosRelated(fetchedVideos.items);
     }
     if (video) {
       fetchData(video.id.videoId);

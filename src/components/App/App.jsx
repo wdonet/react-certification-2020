@@ -24,10 +24,10 @@ function App() {
   return (
     <div>
       <LocalThemeProvider>
-      <SearchContext.Provider value={{ state, dispatch }}>
-        <NavBar search={handleSearch} />
-        <HomePage />
-      </SearchContext.Provider>
+        <SearchContext.Provider value={{ state, dispatch }}>
+          <NavBar search={handleSearch} />
+          <HomePage />
+        </SearchContext.Provider>
       </LocalThemeProvider>
     </div>
   );
