@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Title } from './VideoCard.styles';
 
 const VideoCard = ({ video, handleVideoSelected }) => {
+  console.log(`Hello;${video}`);
   return (
     <Container>
       <div role="button">

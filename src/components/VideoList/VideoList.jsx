@@ -10,6 +10,7 @@ export default function VideoList({ videos, handleVideoSelected }) {
   if (!videos) {
     return <div />;
   }
+
   const renderedVideos = videos.map((video) => {
     return (
       <VideoCard

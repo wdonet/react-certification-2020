@@ -9,7 +9,7 @@ const VideoStyled = styled.div`
   }
 `;
 const Title = styled.h4`
-  color: #b9b1b1;
+  color: ${(props) => props.theme.textcolor};
 `;
 
 const VideoDetail = ({ video }) => {

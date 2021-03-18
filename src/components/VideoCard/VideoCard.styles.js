@@ -6,10 +6,11 @@ export const Container = styled.div`
   padding: 20px;
   text-align: left;
   :hover {
-    background-color: #374b7a;
+    background-color: ${(props) => props.theme.primary};
+    color: ${(props) => props.theme.text};
   }
 `;
 
 export const Title = styled.div`
-  color: white;
+  color: ${(props) => props.theme.textcolor};
 `;

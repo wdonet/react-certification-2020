@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import VideoList from '../../components/VideoList';
+import Fetch from '../../hooks/useFetch';
 import VideoDetail from '../../components/VideoDetail';
-import youtube from '../../apis/youtube';
+import SearchContext from '../../state/SearchContext';
 
 const HomeBody = styled.div`
   background-color: #1a243b;
@@ -25,9 +26,12 @@ const VideoDetailWrap = styled.div`
   text-align: center;
   flex: 5;
 `;
-function HomePage({ videos }) {
+function HomePage() {
+  const { state } = useContext(SearchContext);
+  console.log(state.search);
+  const [videos, setVideos] = useState([]);
   const [video, setVideo] = useState(null);
-  const [videoRelated, setVideoRelated] = useState(null);
+  const [videosRelated, setVideosRelated] = useState(null);
 
   const handleVideoSelected = (videoSelected) => {
     console.log(videoSelected);
@@ -35,25 +39,41 @@ function HomePage({ videos }) {
   };
 
   useEffect(() => {
+    async function fetchData() {
+      const params = {
+        params: {
+          q: state.search,
+        },
+      };
+      const fetchedVideos = await Fetch(params);
+      console.log(fetchedVideos.data.items);
+      setVideos(fetchedVideos.data.items);
+    }
+    fetchData();
+  }, [state.search]);
+
+  useEffect(() => {
     async function fetchData(videoId) {
-      const response = await youtube.get('/search', {
+      const params = {
         params: {
           relatedToVideoId: videoId,
           type: 'video',
         },
-      });
-      console.log(response.data.items);
-      setVideoRelated(response.data.items);
+      };
+      const fetchedVideos = await Fetch(params);
+      console.log(fetchedVideos.data.items);
+      setVideosRelated(fetchedVideos.data.items);
     }
     if (video) {
       fetchData(video.id.videoId);
     }
   }, [video]);
+
   return (
     <HomeBody>
       <VideoRelatedWrap>
         <H4>Related Videos</H4>
-        <VideoList videos={videoRelated} handleVideoSelected={handleVideoSelected} />
+        <VideoList videos={videosRelated} handleVideoSelected={handleVideoSelected} />
       </VideoRelatedWrap>
       <VideoDetailWrap>
         <VideoDetail video={video} />
