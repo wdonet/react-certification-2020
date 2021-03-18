@@ -26,7 +26,7 @@ function VideoPage() {
       <ContentDetails item={itemFound} relatedItems={relatedItems} />
     </section>
   ) : (
-    <Redirect to="/not-found" />
+    <Redirect to="/" />
   );
 
   return componentToRender;
