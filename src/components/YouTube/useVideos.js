@@ -9,11 +9,12 @@ function useVideos({ search }) {
     async function fetchVideos() {
       try {
         setLoading(true);
-        let searchQueryParam = '';
-        if (search) searchQueryParam = `&q=${search}`;
-        const response = await fetch(
-          `https://www.googleapis.com/youtube/v3/search?key=${process.env.REACT_APP_YOUTUBE_API_KEY}&part=snippet&maxResults=10${searchQueryParam}`
-        );
+        const url = ['https://www.googleapis.com/youtube/v3/search?'];
+        url.push(`key=${process.env.REACT_APP_YOUTUBE_API_KEY}`);
+        url.push(`&part=snippet&maxResults=10&type=video`);
+        if (search) url.push(`&q=${search}`);
+
+        const response = await fetch(url.join(''));
         const json = await response.json();
         setVideos(json.items);
       } catch (err) {

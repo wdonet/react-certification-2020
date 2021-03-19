@@ -22,17 +22,15 @@ const VideoList = () => {
 
   return (
     <VideosContainer>
-      {videos
-        .filter((item) => item.id.kind === 'youtube#video')
-        .map((item) => (
-          <VideoCard key={item.id.videoId}>
-            <VideoPreview src={item.snippet.thumbnails.medium.url} />
-            <VideoContent>
-              <VideoTitle>{item.snippet.title}</VideoTitle>
-              <VideoDescription>{item.snippet.description}</VideoDescription>
-            </VideoContent>
-          </VideoCard>
-        ))}
+      {videos.map((item) => (
+        <VideoCard key={item.id.videoId}>
+          <VideoPreview src={item.snippet.thumbnails.medium.url} />
+          <VideoContent>
+            <VideoTitle>{item.snippet.title}</VideoTitle>
+            <VideoDescription>{item.snippet.description}</VideoDescription>
+          </VideoContent>
+        </VideoCard>
+      ))}
     </VideosContainer>
   );
 };
