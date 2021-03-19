@@ -1,5 +1,5 @@
 import React from 'react';
-import VideoList from '../../components/YouTube/VideoList';
+import VideoList from '../../components/YouTube/List/VideoList';
 
 import { Title } from './Home.styled';
 

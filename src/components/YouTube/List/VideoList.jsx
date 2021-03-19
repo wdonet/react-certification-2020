@@ -1,5 +1,5 @@
 import React from 'react';
-import useVideos from './useVideos';
+import useVideos from '../useVideos';
 
 import {
   VideosContainer,
@@ -9,7 +9,7 @@ import {
   VideoTitle,
   VideoContent,
 } from './VideoList.styled';
-import { useYouTube } from './YouTubeProvider';
+import { useYouTube } from '../YouTubeProvider';
 
 const VideoList = () => {
   const { state } = useYouTube();
