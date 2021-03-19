@@ -9,11 +9,13 @@ import {
   VideoTitle,
   VideoContent,
 } from './VideoList.styled';
+import { useYouTube } from './YouTubeProvider';
 
 const VideoList = () => {
-  const { videos, isLoading, error } = useVideos();
+  const { state } = useYouTube();
+  const { search } = state;
 
-  console.log(videos);
+  const { videos, isLoading, error } = useVideos({ search });
 
   if (error) return <p>{error}</p>;
   if (isLoading) return <p>Loading...</p>;

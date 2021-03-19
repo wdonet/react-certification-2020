@@ -1,19 +1,20 @@
 import { useEffect, useState } from 'react';
 
-function useVideos() {
+function useVideos({ search }) {
   const [videos, setVideos] = useState([]);
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+
   useEffect(() => {
     async function fetchVideos() {
       try {
         setLoading(true);
-        console.log('env', process.env);
+        let searchQueryParam = '';
+        if (search) searchQueryParam = `&q=${search}`;
         const response = await fetch(
-          `https://www.googleapis.com/youtube/v3/search?key=${process.env.REACT_APP_YOUTUBE_API_KEY}&part=snippet&maxResults=10`
+          `https://www.googleapis.com/youtube/v3/search?key=${process.env.REACT_APP_YOUTUBE_API_KEY}&part=snippet&maxResults=10${searchQueryParam}`
         );
         const json = await response.json();
-        console.log('json', json);
         setVideos(json.items);
       } catch (err) {
         setError(err);
@@ -22,7 +23,7 @@ function useVideos() {
       }
     }
     fetchVideos();
-  }, []);
+  }, [search]);
 
   return { videos, isLoading, error };
 }

@@ -7,6 +7,7 @@ import LoginPage from '../../pages/Login';
 import NotFound from '../../pages/NotFound';
 import Layout from '../Layout';
 import { random } from '../../utils/fns';
+import { YouTubeProvider } from '../YouTube/YouTubeProvider';
 
 function App() {
   useLayoutEffect(() => {
@@ -29,21 +30,23 @@ function App() {
 
   return (
     <BrowserRouter>
-      <AuthProvider>
-        <Layout>
-          <Switch>
-            <Route exact path="/">
-              <HomePage />
-            </Route>
-            <Route exact path="/login">
-              <LoginPage />
-            </Route>
-            <Route path="*">
-              <NotFound />
-            </Route>
-          </Switch>
-        </Layout>
-      </AuthProvider>
+      <YouTubeProvider>
+        <AuthProvider>
+          <Layout>
+            <Switch>
+              <Route exact path="/">
+                <HomePage />
+              </Route>
+              <Route exact path="/login">
+                <LoginPage />
+              </Route>
+              <Route path="*">
+                <NotFound />
+              </Route>
+            </Switch>
+          </Layout>
+        </AuthProvider>
+      </YouTubeProvider>
     </BrowserRouter>
   );
 }
