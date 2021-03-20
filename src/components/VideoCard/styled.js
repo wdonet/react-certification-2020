@@ -20,13 +20,13 @@ const CardContent = styled.div`
 `;
 
 const CardTitle = styled.div`
-  color: black;
+  color: ${({ theme }) => theme.text};
   margin: 0px;
   font-size: 22px;
 `;
 
 const CardDescription = styled.div`
-  color: black;
+  color: ${({ theme }) => theme.text};
   margin: 0px;
   height: 100px;
   word-wrap: break-word;

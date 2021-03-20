@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const VideoDetail = styled.div`
   width: 100%;
+  background-color: ${({ theme }) => theme.content};
 `;
 
 const Player = styled.div`
@@ -33,6 +34,7 @@ const VideoDescription = styled.div`
   height: 700px;
   float: left;
   position: relative;
+  color: ${({ theme }) => theme.text};
 `;
 
 const AddFavorites = styled.div`
@@ -41,6 +43,7 @@ const AddFavorites = styled.div`
   position: relative;
   text-align: right;
   padding-top: 20px;
+  color: ${({ theme }) => theme.text};
 `;
 
 export { Player, VideoDetail, List, VideoInfo, VideoDescription, AddFavorites };

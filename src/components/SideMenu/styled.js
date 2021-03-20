@@ -22,7 +22,7 @@ const ContainerMenu = styled.div`
 const SideMen = styled.div`
   flex-direction: column;
   justify-content: center;
-  background: #d1f4f5;
+  background-color: ${({ theme }) => theme.navBar};
   transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(-100%)')};
   height: 100%;
   text-align: left;
@@ -38,13 +38,13 @@ const SideMen = styled.div`
   }
 `;
 
-const LinkText = styled.a`
+const LinkText = styled.p`
   font-size: 1.2rem;
   text-transform: uppercase;
   padding: 1rem 0;
   font-weight: bold;
   letter-spacing: 0rem;
-  color: #0d0c1d;
+  color: ${({ theme }) => theme.text};
   text-decoration: none;
   transition: color 0.3s linear;
   @media (max-width: 576px) {

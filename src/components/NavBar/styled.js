@@ -15,7 +15,7 @@ const Nav = styled.div`
 const NavContent = styled.div`
   display: flex;
   align-items: center;
-  background-color: #3fc7cb;
+  background-color: ${({ theme }) => theme.navBar};
   top: 0;
   left: 0;
   width: 100%;

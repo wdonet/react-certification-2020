@@ -1,4 +1,4 @@
-const key = 'AIzaSyCbnwRIBvWCoQGaLIOFUx4rhLHg-Sb1a8s';
+const key = process.env.REACT_APP_API_KEY;
 
 export async function fetchVideos(keyWord) {
   const apiBaseUrl = `https://content-youtube.googleapis.com/youtube/v3/search?part=id&part=snippet&maxResults=25&q=${keyWord}&key=${key}`;

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const Grid = styled.div`
   width: 100%;
   height: 100%;
-  background-color: white;
+  background-color: ${({ theme }) => theme.content};
   display: inline-block;
   padding: 30px 60px;
 `;

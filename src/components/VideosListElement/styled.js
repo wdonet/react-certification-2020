@@ -33,7 +33,7 @@ const Description = styled.p`
   font-weight: 400;
   line-height: 1.5;
   letter-spacing: 0.00938em;
-  color: black;
+  color: ${({ theme }) => theme.text};
 `;
 
 export { ListElement, Image, Detail, Description };

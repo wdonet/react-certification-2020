@@ -2,7 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import VideosListElement from '../VideosListElement';
 
-const VideosList = ({ videos, setVideo }) => {
+const VideosList = ({ videos, setVideo, setVideos }) => {
+  const updateView = (video) => {
+    setVideo(video);
+    setVideos(videos);
+  };
+
   return (
     <div>
       {videos.map((video) =>
@@ -10,7 +15,7 @@ const VideosList = ({ videos, setVideo }) => {
           <Link
             key={video.id.videoId}
             to={{ pathname: `/${video.id.videoId}`, state: { video } }}
-            onClick={() => setVideo(video)}
+            onClick={() => updateView(video)}
           >
             <VideosListElement key={video.id.videoId} snippet={video.snippet} />
           </Link>
