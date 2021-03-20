@@ -18,8 +18,13 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   height: ${videoDetailHeight};
-  max-width: 90%;
+  width: 90%;
+  max-width: 1200px;
   background-color: white;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 10px solid lightgray;
+  ${({ theme }) => (theme.primary ? `border-color: ${theme.primary}` : '')};
 `;
 
 const Row = styled.div`
@@ -65,6 +70,8 @@ const VideoItem = styled(Row)`
   padding: 5px;
   &:hover {
     background: lightgray;
+    ${({ theme }) => (theme.secondary ? `background-color: ${theme.secondary}` : '')};
+    ${({ theme }) => (theme.color ? `color: ${theme.color}` : '')};
   }
 `;
 

@@ -19,6 +19,11 @@ function youtubeReducer(state, action) {
         ...state,
         currentVideo: null,
       };
+    case 'switchTheme':
+      return {
+        ...state,
+        theme: state.theme === 'dark' ? 'default' : 'dark',
+      };
     default: {
       return state;
     }

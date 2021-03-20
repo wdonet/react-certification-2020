@@ -25,7 +25,11 @@ const VideoList = () => {
 
   return (
     <>
-      {error && <p>Error from YouTube API, displaying mock data...</p>}
+      {error && (
+        <p style={{ textAlign: 'center' }}>
+          Error from YouTube API, displaying mock data...
+        </p>
+      )}
       <VideosContainer>
         {videos.map((item) => (
           <VideoCard key={item.id.videoId} onClick={() => onVideoCardClick(item)}>

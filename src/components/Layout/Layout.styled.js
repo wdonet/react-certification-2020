@@ -4,6 +4,8 @@ const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
+  ${({ theme }) => (theme.secondary ? `background-color: ${theme.secondary}` : '')};
+  ${({ theme }) => (theme.color ? `color: ${theme.color}` : '')};
 `;
 
 const Content = styled.div`

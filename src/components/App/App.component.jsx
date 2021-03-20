@@ -8,6 +8,7 @@ import NotFound from '../../pages/NotFound';
 import Layout from '../Layout';
 import { random } from '../../utils/fns';
 import { YouTubeProvider } from '../YouTube/YouTubeProvider';
+import MyThemeProvider from './MyThemeProvider';
 
 function App() {
   useLayoutEffect(() => {
@@ -32,19 +33,21 @@ function App() {
     <BrowserRouter>
       <YouTubeProvider>
         <AuthProvider>
-          <Layout>
-            <Switch>
-              <Route exact path="/">
-                <HomePage />
-              </Route>
-              <Route exact path="/login">
-                <LoginPage />
-              </Route>
-              <Route path="*">
-                <NotFound />
-              </Route>
-            </Switch>
-          </Layout>
+          <MyThemeProvider>
+            <Layout>
+              <Switch>
+                <Route exact path="/">
+                  <HomePage />
+                </Route>
+                <Route exact path="/login">
+                  <LoginPage />
+                </Route>
+                <Route path="*">
+                  <NotFound />
+                </Route>
+              </Switch>
+            </Layout>
+          </MyThemeProvider>
         </AuthProvider>
       </YouTubeProvider>
     </BrowserRouter>

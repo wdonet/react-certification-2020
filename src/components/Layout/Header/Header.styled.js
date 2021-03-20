@@ -14,6 +14,8 @@ const HeaderContainer = styled.div`
   padding: 5px;
   border-bottom: 3px solid darkgray;
   background-color: lightgray;
+  ${({ theme }) => (theme.primary ? `background-color: ${theme.primary}` : '')};
+  ${({ theme }) => (theme.color ? `color: ${theme.color}` : '')};
 `;
 
 const Search = styled.input`
@@ -31,7 +33,6 @@ const Space = styled.div`
 
 const Switch = styled.span`
   height: 40px;
-  background-color: springgreen;
   display: flex;
   justify-content: center;
   align-items: center;

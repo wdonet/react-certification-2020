@@ -16,6 +16,7 @@ const VideoCard = styled.div`
   border: 1px solid lightgray;
   &:hover {
     background: lightgray;
+    ${({ theme }) => (theme.primary ? `background-color: ${theme.primary}` : '')};
   }
 `;
 
