@@ -4,6 +4,7 @@ import { shallow } from 'enzyme';
 
 import VideoList from './VideoList';
 import mockData from './youtube-videos-mock.json';
+import { YouTubeProvider } from '../YouTubeProvider';
 
 describe('VideoList', () => {
   let props;
@@ -13,7 +14,11 @@ describe('VideoList', () => {
     };
   });
   it('should render VideoList component correctly', () => {
-    const wrapper = shallow(<VideoList {...props} />);
+    const wrapper = shallow(
+      <YouTubeProvider>
+        <VideoList {...props} />
+      </YouTubeProvider>
+    );
 
     expect(wrapper).toMatchSnapshot();
   });

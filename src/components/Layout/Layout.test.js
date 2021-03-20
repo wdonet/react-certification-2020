@@ -2,10 +2,15 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Layout from './Layout.component';
+import { YouTubeProvider } from '../YouTube/YouTubeProvider';
 
 describe('Layout', () => {
   it('should render Layout component correctly', () => {
-    const wrapper = shallow(<Layout />);
+    const wrapper = shallow(
+      <YouTubeProvider>
+        <Layout />
+      </YouTubeProvider>
+    );
 
     expect(wrapper).toMatchSnapshot();
   });

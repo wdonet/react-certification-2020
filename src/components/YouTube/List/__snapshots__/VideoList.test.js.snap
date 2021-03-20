@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VideoList should render VideoList component correctly 1`] = `ShallowWrapper {}`;
