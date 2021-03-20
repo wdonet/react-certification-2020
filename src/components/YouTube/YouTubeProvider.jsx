@@ -9,6 +9,11 @@ function youtubeReducer(state, action) {
         ...state,
         search: action.payload,
       };
+    case 'currentVideo':
+      return {
+        ...state,
+        currentVideo: action.payload,
+      };
     default: {
       return state;
     }

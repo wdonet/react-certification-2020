@@ -5,4 +5,5 @@ html {
   font-family: sans-serif;
   scroll-behavior: smooth;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  overflow: hidden;
 }
