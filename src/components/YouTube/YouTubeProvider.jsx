@@ -14,6 +14,11 @@ function youtubeReducer(state, action) {
         ...state,
         currentVideo: action.payload,
       };
+    case 'closeCurrentVideo':
+      return {
+        ...state,
+        currentVideo: null,
+      };
     default: {
       return state;
     }

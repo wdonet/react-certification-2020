@@ -12,8 +12,8 @@ function Layout({ children }) {
       <MainContainer>
         <Header>This is the header</Header>
         <Content>{children}</Content>
-        {currentVideo && <VideoDetail />}
       </MainContainer>
+      {currentVideo && <VideoDetail />}
     </>
   );
 }
