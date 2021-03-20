@@ -20,16 +20,22 @@ import { useYouTube } from '../YouTubeProvider';
 import useRelatedVideos from '../useRelatedVideos';
 
 const RelatedVideos = ({ relatedTo }) => {
+  const { dispatch } = useYouTube();
   const { isLoading, error, videos } = useRelatedVideos({
     relatedToVideoId: relatedTo.id.videoId,
   });
   if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error...</div>;
 
   return (
     <RelatedVideosContainer>
+      {error && <div>Error. Displaying mock data...</div>}
       {videos.map((video) => (
-        <VideoItem key={video.id.videoId}>
+        <VideoItem
+          key={video.id.videoId}
+          onClick={() => {
+            dispatch({ type: 'currentVideo', payload: video });
+          }}
+        >
           <VideoPreview src={video.snippet.thumbnails.default.url} />
           <VideoTitleDescWrap>
             <VideoTitle>{video.snippet.title}</VideoTitle>
@@ -44,7 +50,6 @@ const RelatedVideos = ({ relatedTo }) => {
 const VideoDetail = () => {
   const { state, dispatch } = useYouTube();
   const { currentVideo } = state;
-  console.log('currentVideo', currentVideo);
   return (
     <Overlay
       onClick={() => {

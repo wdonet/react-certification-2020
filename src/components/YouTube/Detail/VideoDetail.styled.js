@@ -63,6 +63,9 @@ const VideoItem = styled(Row)`
   border-top: 1px solid lightgray;
   height: 75px;
   padding: 5px;
+  &:hover {
+    background: lightgray;
+  }
 `;
 
 const VideoPreview = styled.img``;

@@ -6,7 +6,7 @@ import { Title } from './Home.styled';
 function HomePage() {
   return (
     <>
-      <Title>Mini-Challenge 1</Title>
+      <Title>Mini-Challenges 3 and 4</Title>
       <VideoList />
     </>
   );

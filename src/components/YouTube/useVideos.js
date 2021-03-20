@@ -16,10 +16,15 @@ function useVideos({ search }) {
         url.push(`&part=snippet&maxResults=10&type=video`);
         if (search) url.push(`&q=${search}`);
 
-        // const response = await fetch(url.join(''));
-        // const json = await response.json();
-        // setVideos(json.items);
-        setVideos(mockData.items);
+        const response = await fetch(url.join(''));
+        const json = await response.json();
+        if (json.error && json.error.code === 403) {
+          setVideos(mockData.items);
+          setError('Error from YouTube API, displaying mock data..');
+          console.error(json);
+        } else {
+          setVideos(json.items);
+        }
       } catch (err) {
         setError(err);
       } finally {

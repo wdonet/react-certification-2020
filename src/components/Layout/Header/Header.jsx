@@ -12,7 +12,7 @@ const Header = () => {
 
   return (
     <HeaderContainer>
-      <Col>Header</Col>
+      <Col>React Bootcamp</Col>
       <Col>
         <Search placeholder="Search" value={search} onChange={setSearch} />
       </Col>
