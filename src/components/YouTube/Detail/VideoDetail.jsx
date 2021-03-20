@@ -11,6 +11,10 @@ import {
   RelatedVideosContainer,
   VideoItem,
   Overlay,
+  VideoPreview,
+  VideoTitle,
+  VideoDescription,
+  VideoTitleDescWrap,
 } from './VideoDetail.styled';
 import { useYouTube } from '../YouTubeProvider';
 import useRelatedVideos from '../useRelatedVideos';
@@ -24,11 +28,13 @@ const RelatedVideos = ({ relatedTo }) => {
 
   return (
     <RelatedVideosContainer>
-      here
       {videos.map((video) => (
         <VideoItem key={video.id.videoId}>
-          <Col>Foto</Col>
-          <ColGrow>Descripcion alksdjfalksjdfh</ColGrow>
+          <VideoPreview src={video.snippet.thumbnails.default.url} />
+          <VideoTitleDescWrap>
+            <VideoTitle>{video.snippet.title}</VideoTitle>
+            <VideoDescription>{video.snippet.description}</VideoDescription>
+          </VideoTitleDescWrap>
         </VideoItem>
       ))}
     </RelatedVideosContainer>
