@@ -1,8 +1,8 @@
 import React from 'react';
 import { getByTitle, render } from '@testing-library/react';
-import { lightTheme, darkTheme } from '../../../providers/themes'
-import { contextWrapper } from '../../../utils' 
-import AppContext from '../../../providers/AppContext'
+import { lightTheme, darkTheme } from '../../providers/themes'
+import { contextWrapper } from '../../utils' 
+import AppContext from '../../providers/AppContext'
 import CardTitle from './CardTitle';
 
 const build = (Component = <CardTitle />, theme = lightTheme) => {

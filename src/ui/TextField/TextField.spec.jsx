@@ -1,9 +1,9 @@
 import React from 'react';
 import 'jest-styled-components';
 import { fireEvent, render } from '@testing-library/react';
-import { lightTheme } from '../../../providers/themes';
-import { contextWrapper } from '../../../utils';
-import AppContext from '../../../providers/AppContext';
+import { lightTheme } from '../../providers/themes';
+import { contextWrapper } from '../../utils';
+import AppContext from '../../providers/AppContext';
 import TextField from './TextField';
 
 const build = (Component = <TextField />, theme = lightTheme) => {

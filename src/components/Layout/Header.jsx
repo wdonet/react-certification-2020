@@ -1,6 +1,6 @@
 import React, { useContext, useRef } from 'react';
 import styled from 'styled-components';
-import { TextField, IconWrapper, Avatar, Switch } from '../ui/index';
+import { TextField, IconWrapper, Avatar, Switch } from '../../ui';
 import hamburger from '../../assets/icons/hamburguer.png';
 import defaultUser from '../../assets/icons/default_user.jpg';
 import AppContext from '../../providers/AppContext';

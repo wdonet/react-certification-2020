@@ -1,10 +1,10 @@
 import React from 'react';
 import 'jest-styled-components';
 import { render } from '@testing-library/react';
-import { contextWrapper } from '../../../utils/';
-import { lightTheme, darkTheme } from '../../../providers/themes';
+import { contextWrapper } from '../../utils/';
+import { lightTheme, darkTheme } from '../../providers/themes';
+import AppContext from '../../providers/AppContext';
 import TextField from './TextField';
-import AppContext from '../../../providers/AppContext';
 
 const build = (Component = <TextField />, theme = lightTheme) => {
   const contextValue = { theme };

@@ -2,7 +2,7 @@ import React from 'react';
 import 'jest-styled-components';
 import { render } from '@testing-library/react';
 import IconWrapper from './IconWrapper';
-import hamburger from '../../../assets/icons/hamburguer.png';
+import hamburger from '../../assets/icons/hamburguer.png';
 
 const build = (Component = <IconWrapper />) => {
   const { container } = render(Component);

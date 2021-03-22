@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import AppContext from '../../../providers/AppContext';
+import AppContext from '../../providers/AppContext';
 
 const StyledTextField = styled.input`
   background: ${({theme}) => theme.color.secondary };

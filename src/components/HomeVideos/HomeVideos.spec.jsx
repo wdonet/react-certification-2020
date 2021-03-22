@@ -3,9 +3,9 @@ import 'jest-styled-components';
 import { getAllByTestId, render } from '@testing-library/react';
 import { youtubeMockedData, contextWrapper } from '../../utils';
 import { lightTheme } from '../../providers/themes';
-import HomeVideos from './HomeVideos';
-import AppContext from '../../providers/AppContext';
 import { fireEvent } from '@testing-library/dom';
+import AppContext from '../../providers/AppContext';
+import HomeVideos from './HomeVideos';
 
 const EXPECTED_LENGTH = 1;
 

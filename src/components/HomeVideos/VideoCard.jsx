@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardImage, CardTitle, CardContent, CardDescription } from '../ui/index';
+import { Card, CardImage, CardTitle, CardContent, CardDescription } from '../../ui';
 
 const VideoCard = ({ video, onClick = null }) => {
   const image = video.snippet.thumbnails.high.url;

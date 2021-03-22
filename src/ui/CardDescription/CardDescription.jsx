@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import AppContext from '../../../providers/AppContext';
+import AppContext from '../../providers/AppContext';
 
 const StyledCardDescription = styled.p`
   font-weight: lighter;
