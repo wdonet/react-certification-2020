@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, HashRouter } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import AuthProvider from '../../providers/Auth';
 import HomePage from '../../pages/Home';
@@ -13,7 +13,7 @@ import VideoDetails from '../../pages/VideoDetails/VideoDetails';
 
 function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <AuthProvider>
         <ThemeBaseProvider>
           <Layout>
@@ -37,7 +37,7 @@ function App() {
           </Layout>
         </ThemeBaseProvider>
       </AuthProvider>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 

@@ -1,5 +1,6 @@
 // React
-import React, { useCallback } from 'react';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 // PropTypes
 import PropTypes from 'prop-types';
 // Styles
@@ -15,20 +16,19 @@ const Card = ({ image, title, description, url, vertical }) => {
   const ellipsis = (text, end) => {
     return text && text.length > end ? `${text.slice(0, end)}...` : text;
   };
-  const handleClick = useCallback(() => {
-    window.open(url, '_self');
-  }, [url]);
 
   return (
-    <CardContainer data-testid="card-test" onClick={handleClick} vertical={vertical}>
-      <CardImage image={image} vertical={vertical} />
-      <CardInnerContainer vertical={vertical}>
-        <CardTitle vertical={vertical}>{ellipsis(title, 50)}</CardTitle>
-        <CardDescription vertical={vertical}>
-          {ellipsis(description, 140)}
-        </CardDescription>
-      </CardInnerContainer>
-    </CardContainer>
+    <NavLink to={url}>
+      <CardContainer data-testid="card-test" vertical={vertical}>
+        <CardImage image={image} vertical={vertical} />
+        <CardInnerContainer vertical={vertical}>
+          <CardTitle vertical={vertical}>{ellipsis(title, 50)}</CardTitle>
+          <CardDescription vertical={vertical}>
+            {ellipsis(description, 140)}
+          </CardDescription>
+        </CardInnerContainer>
+      </CardContainer>
+    </NavLink>
   );
 };
 
