@@ -1,5 +1,7 @@
 // React
 import React, { useCallback } from 'react';
+// Router
+import { useHistory } from 'react-router';
 // PropTypes
 import PropTypes from 'prop-types';
 // Styles
@@ -12,12 +14,14 @@ import {
 } from './styles';
 
 const Card = ({ image, title, description, url, vertical }) => {
+  const history = useHistory();
   const ellipsis = (text, end) => {
     return text && text.length > end ? `${text.slice(0, end)}...` : text;
   };
   const handleClick = useCallback(() => {
-    window.open(url, '_self');
-  }, [url]);
+    history.push(url);
+    // window.open(url, '_self');
+  }, [url, history]);
 
   return (
     <CardContainer data-testid="card-test" onClick={handleClick} vertical={vertical}>
