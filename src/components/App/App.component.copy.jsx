@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import AuthProvider from '../../providers/Auth';
 import HomePage from '../../pages/Home';
+import VideoDetails from '../../pages/VideoDetails';
 import LoginPage from '../../pages/Login';
 import NotFound from '../../pages/NotFound';
 import SecretPage from '../../pages/Secret';
@@ -15,11 +16,11 @@ function AppCopy() {
   useLayoutEffect(() => {
     const { body } = document;
 
-    function rotateBackground() {
+    const rotateBackground = () => {
       const xPercent = random(100);
       const yPercent = random(100);
       body.style.setProperty('--bg-position', `${xPercent}% ${yPercent}%`);
-    }
+    };
 
     const intervalId = setInterval(rotateBackground, 3000);
     body.addEventListener('click', rotateBackground);
@@ -37,6 +38,9 @@ function AppCopy() {
           <Switch>
             <Route exact path="/">
               <HomePage />
+            </Route>
+            <Route exact path="/video/:id">
+              <VideoDetails />
             </Route>
             <Route exact path="/login">
               <LoginPage />
