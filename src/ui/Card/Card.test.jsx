@@ -29,18 +29,6 @@ describe('Card styles and props', () => {
     expect(firstChild).toHaveStyle('border-radius: 5px');
   });
 
-  it('applies colors for light theme', () => {
-    const { firstChild } = build().container;
-    expect(firstChild).toHaveStyle(`box-shadow: 2px 2px 2px 2px ${lightTheme.color.surfaceShadow}`);
-    expect(firstChild).toHaveStyle(`background: ${lightTheme.color.surface}`);
-  });
-
-  it('applies colors for light theme', () => {
-    const { firstChild } = build().container;
-    expect(firstChild).toHaveStyle(`box-shadow: 2px 2px 2px 2px ${lightTheme.color.surfaceShadow}`);
-    expect(firstChild).toHaveStyle(`background: ${lightTheme.color.surface}`);
-  });
-
   it('has role and all passed props', () => {
     const EXPECTED_ROLE = 'figure';
     const EXPECTED_CONTENT = "Hi, I'm your card content";

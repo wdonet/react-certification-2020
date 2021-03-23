@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import VideoCard from './VideoCard';
+import { useHistory } from "react-router"
 import AppContext from '../../providers/AppContext';
 
 const StyledWarn = styled.div`
@@ -22,7 +23,8 @@ const StyledDiv = styled.div`
 `;
 
 const HomeVideos = () => {
-  const { videosList, playVideoById } = useContext(AppContext);
+  const { videosList } = useContext(AppContext);
+  const { push } = useHistory();
 
   return (
     <StyledDiv>
@@ -31,7 +33,10 @@ const HomeVideos = () => {
           const key = JSON.stringify(video.id);
           return (
             <div key={key} data-testid={`video-card-${key}`}>
-              <VideoCard video={video} onClick={() => playVideoById(video.id.videoId)} />
+              <VideoCard video={video} onClick={() => push({
+                pathname: `/player`,
+                search: `?id=${video.id.videoId}`
+              }) } />
             </div>
           );
         })

@@ -45,6 +45,7 @@ describe('SmallVideoCard', () => {
     expect(firstChild).toHaveStyle(`border-bottom: 1px solid ${darkTheme.color.secondary}`);
     expect(firstChild).toHaveStyle(`background: ${darkTheme.color.surface}`);
     expect(firstChild).toHaveStyle(`color: ${darkTheme.color.fontSecondary}`);
+    expect(firstChild).toHaveStyle(`border-radius: 4px`);
   });
 
   it('shows video info', () => {

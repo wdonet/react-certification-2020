@@ -16,7 +16,7 @@ exports[`VideoPlayerContainer shows div for iframe load 1`] = `
       data-testid="small-caption-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"nmXMgqjQzls\\"}"
     >
       <div
-        class="sc-bdVaJa kYayQX"
+        class="sc-bdVaJa jtJdRr"
       >
         <img
           alt="Video Tour | Welcome to Wizeline Guadalajara"
@@ -26,6 +26,40 @@ exports[`VideoPlayerContainer shows div for iframe load 1`] = `
           class="sc-bwzfXH kuXOth"
         >
           Follow Hector Padilla, Wizeline Director of Engineering, for a lively tour of our office. In 2018, Wizeline opened its stunning new office in Guadalajara, Jalisco, ...
+        </div>
+      </div>
+    </div>
+    <div
+      data-testid="small-caption-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"HYyRZiwBWc8\\"}"
+    >
+      <div
+        class="sc-bdVaJa jtJdRr"
+      >
+        <img
+          alt="Wizeline Guadalajara | Bringing Silicon Valley to Mexico"
+          src="https://i.ytimg.com/vi/HYyRZiwBWc8/default.jpg"
+        />
+        <div
+          class="sc-bwzfXH kuXOth"
+        >
+          Wizeline continues to offer a Silicon Valley culture in burgeoning innovation hubs like Mexico and Vietnam. In 2018, our Guadalajara team moved into a ...
+        </div>
+      </div>
+    </div>
+    <div
+      data-testid="small-caption-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"Po3VwR_NNGk\\"}"
+    >
+      <div
+        class="sc-bdVaJa jtJdRr"
+      >
+        <img
+          alt="Wizeline hace sentir a empleados como en casa"
+          src="https://i.ytimg.com/vi/Po3VwR_NNGk/default.jpg"
+        />
+        <div
+          class="sc-bwzfXH kuXOth"
+        >
+          En el 2014, Bismarck fundó Wizeline, compañía tecnológica que trabaja con los corporativos ofreciendo una plataforma para que desarrollen software de forma ...
         </div>
       </div>
     </div>

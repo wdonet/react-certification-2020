@@ -1,22 +1,18 @@
 import React, { useReducer } from 'react';
-import styled from 'styled-components';
 import { LayoutWrapper } from '../Layout';
 import { appReducer } from '../../reducers/appReducer';
 import { lightTheme, darkTheme } from '../../providers/themes';
 import youtubeSearchService from '../../services/youtubeSearchService';
-import VideoPlayerContainer from '../VideoPlayer/VideoPlayerContainer';
 import AppContext from '../../providers/AppContext';
-import HomeVideos from '../HomeVideos/HomeVideos';
+import { createBrowserHistory } from "history";
+import { Router } from 'react-router-dom';
 import { 
   SET_CURRENT_VIDEO_PLAYBACK, 
   SET_IS_FIRST_LOAD, 
   SET_VIDEOS_LIST, 
   SWITCH_THEME 
-} from '../../reducers/actionTypes'
-
-const StyledWelcome = styled.div`
-  text-align: center;
-`;
+} from '../../reducers/actionTypes';
+import Content from './Content';
 
 const initialState = {
   videosList: [],
@@ -25,11 +21,11 @@ const initialState = {
   isFirstLoad: true,
 };
 
-function App() {
+const history = createBrowserHistory();
 
+function App() {
   const [{ 
     videosList, 
-    currentVideoId, 
     isLightTheme, 
     isFirstLoad }, 
     dispatch] = useReducer(appReducer, initialState);
@@ -48,11 +44,13 @@ function App() {
 
   const firstSearch = async () => {
     let counter = 0;
-    while(!gapi || !gapi.client && counter < 10){
-      counter++;
+    /* global gapi */
+    /* eslint no-undef: "error" */
+    while((!gapi || !gapi.client) && counter < 10){
+      counter+=1;
       await new Promise(resolve => setTimeout(resolve, 100));
     }
-    (!gapi || !gapi.client || counter >= 10) 
+    ((!gapi || !gapi.client) || counter >= 10) 
     ? dispatch({ type: SET_VIDEOS_LIST, payload: [] })
     : search()
   }
@@ -67,24 +65,14 @@ function App() {
       { ...getThemeConfig(), 
         search,
         videosList,
-        setHomeVideosView: () => dispatch({ type: SET_CURRENT_VIDEO_PLAYBACK, payload: null }), 
         playVideoById: (id) => dispatch({type: SET_CURRENT_VIDEO_PLAYBACK, payload: id}) 
       }
     }>
-      <LayoutWrapper>
-        { currentVideoId ? (
-          <div data-testid="video-player-container">
-            <VideoPlayerContainer videoId={currentVideoId} />
-          </div>
-        ) : (
-          <div>
-            <StyledWelcome>
-              <h1>Welcome to the challenge!</h1>
-            </StyledWelcome>
-            <HomeVideos />
-          </div>
-        )}
-      </LayoutWrapper>
+      <Router history={history}>
+        <LayoutWrapper>
+          <Content />
+        </LayoutWrapper>
+      </Router>
     </AppContext.Provider>
   );
 }

@@ -6,6 +6,7 @@ const StyledSmallVideoCard = styled.div`
   display: flex;
   padding: 4px;
   margin: 4px;
+  border-radius: 4px;
   border-bottom: 1px solid ${({theme}) => theme.color.secondary };
   color: ${({theme}) => theme.color.fontSecondary };
   background: ${({theme}) => theme.color.surface };

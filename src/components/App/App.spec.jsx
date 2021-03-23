@@ -1,10 +1,10 @@
 import React from 'react';
 import { fireEvent, getByRole, act, render } from '@testing-library/react';
-import { darkTheme, lightTheme } from '../../providers/themes';
 import { contextWrapper, googleMockedAPIObject, youtubeMockedData, YTMockedObject } from '../../utils';
+import { getAllByTestId, getByTestId } from '@testing-library/dom';
+import { darkTheme, lightTheme } from '../../providers/themes';
 import AppContext from '../../providers/AppContext';
 import App from './index';
-import { getAllByTestId, getByTestId } from '@testing-library/dom';
 
 global.gapi = googleMockedAPIObject();
 global.YT = YTMockedObject;
@@ -15,8 +15,9 @@ const for400Miliseconds = () => new Promise((resolve) => {
 
 const build = async (Component = <App />) => {
   let container;
+  const contextValue = { videos: youtubeMockedData.items, theme: lightTheme };
   await act(async () => {
-    const wrapped = contextWrapper(AppContext, { videos: youtubeMockedData.items, theme: lightTheme }, Component);
+    const wrapped = contextWrapper(AppContext, contextValue, Component);
     container = render(wrapped).container;
   });
   return {
@@ -57,7 +58,7 @@ describe('App theme', () => {
     expect(videosList()).toHaveLength(youtubeMockedData.items.length);
   });
 
-  it('shows  "No hay videos :/" legeng after failed fetch', async () => {
+  it('shows  "No hay videos :/" legend after failed fetch', async () => {
     global.gapi = googleMockedAPIObject(false);
     const built = (await build());
     const { noVideosAvailableCaption } = built;

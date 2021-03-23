@@ -4,6 +4,7 @@ import { TextField, IconWrapper, Avatar, Switch } from '../../ui';
 import hamburger from '../../assets/icons/hamburguer.png';
 import defaultUser from '../../assets/icons/default_user.jpg';
 import AppContext from '../../providers/AppContext';
+import { useHistory } from 'react-router';
 
 const StyledHeader = styled.div`
   display: flex;
@@ -23,12 +24,13 @@ const StyledSection = styled.div`
 `;
 
 const Header = () => {
-  const { search, setHomeVideosView, switchTheme, theme } = useContext(AppContext);
+  const { search, switchTheme, theme } = useContext(AppContext);
   const ref = useRef(null);
+  const { push } = useHistory();
 
   const setHomeVideosViewAndSearch = (query) => {
-    setHomeVideosView();
     search(query);
+    push({pathname: "/home"});
   };
 
   return (

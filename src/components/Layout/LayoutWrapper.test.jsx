@@ -1,7 +1,7 @@
 import React from 'react';
 import 'jest-styled-components';
 import { getByRole, render, act } from '@testing-library/react';
-import { contextWrapper, googleMockedAPIObject } from '../../utils';
+import { contextWrapper, googleMockedAPIObject, routerWrapper } from '../../utils';
 import { darkTheme, lightTheme } from '../../providers/themes';
 import LayoutWrapper from './LayoutWrapper';
 import AppContext from '../../providers/AppContext';
@@ -10,10 +10,12 @@ global.gapi = googleMockedAPIObject();
 
 const build = async (Component = <LayoutWrapper />, theme = lightTheme) => {
   let container;
-  const contextValue = { theme };
-  const WrapInAppContext = contextWrapper(AppContext, contextValue, Component);
+  let routeWrap;
+  const contextValue = { theme, playVideoById: jest.fn() };
   await act(async () => {
-    container = render(WrapInAppContext).container;
+    let contextWrap = contextWrapper(AppContext, contextValue, Component);
+    routeWrap = await routerWrapper(contextWrap);
+    container = render(routeWrap.wrap).container;
   });
   return {
     container,
@@ -29,7 +31,8 @@ describe('LayoutWrapper', () => {
   });
 
   it('displays Header and HomeView', async () => {
-    const { Header, HomeView } = await build();
+    const built = await build();
+    const { Header, HomeView } = built;
 
     expect(Header()).toBeInTheDocument();
     expect(HomeView()).toBeInTheDocument();

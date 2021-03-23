@@ -1,12 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
+import AppContext from '../../providers/AppContext';
 import RelatedVideoList from './RelatedVideoList';
 
 const StyledVideoPlayerContainer = styled.div`
   display: flex;
 `;
 
-const VideoPlayerContainer = ({ videoId }) => {
+const VideoPlayerContainer = () => {
+  const { currentVideoId } =  useContext(AppContext);
 
   useEffect(() => {
     /* global YT */
@@ -14,7 +16,7 @@ const VideoPlayerContainer = ({ videoId }) => {
     window.YTPlayer = new YT.Player('player', {
       height: '460',
       width: '60%',
-      videoId,
+      videoId: currentVideoId,
     });
     return () => { window.YTPlayer = undefined; }
   });

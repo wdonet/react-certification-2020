@@ -23,7 +23,7 @@ const build = (Component = <RelatedVideosList />) => {
 describe('RelatedVideosList', () => {
   it('triggers video playback by ID', () => {
     const mockedPlayVideoById = jest.fn();
-    const { videoCaptionsList } = build(<RelatedVideosList  playVideoById={mockedPlayVideoById}/>);
+    const { videoCaptionsList } = build(<RelatedVideosList playVideoById={mockedPlayVideoById}/>);
     fireEvent.click(videoCaptionsList()[0].firstChild);
     expect(mockedPlayVideoById).toHaveBeenCalledTimes(1);
   });
