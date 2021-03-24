@@ -31,13 +31,15 @@ import {
   StyledSwitch,
   StyledMenu,
 } from './Header.styles';
+import LoginDialog from '../LoginDialog';
 
 import { useCustom } from '../../providers/Custom';
 import { useYoutubeSearch } from '../../utils/hooks';
 
 const Header = () => {
   const history = useHistory();
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [openLoginDialog, setOpenLoginDialog] = useState(false);
+  const [openDrawer, setOpenDrawer] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const {
     darkMode,
@@ -57,7 +59,7 @@ const Header = () => {
       return;
     }
 
-    setIsDrawerOpen(open);
+    setOpenDrawer(open);
   };
   const handleSearchOnChange = ({ target: { value } }) => updateSearchTerm(value);
   const handleSearchOnSubmit = (e) => {
@@ -65,94 +67,105 @@ const Header = () => {
 
     yt.search(searchTerm).then(updateSearchResult);
   };
+  const handleDialogOpen = () => {
+    handleMenuClose();
+    setOpenLoginDialog(true);
+  };
+  const handleDialogClose = () => setOpenLoginDialog(false);
 
   return (
-    <StyledAppBar position="static">
-      <Toolbar>
-        <StyledIconButton
-          edge="start"
-          color="inherit"
-          aria-label="open drawer"
-          onClick={toggleDrawer(true)}
-        >
-          <MenuIcon />
-        </StyledIconButton>
-        <Drawer
-          anchor="left"
-          className="headerDrawer"
-          open={isDrawerOpen}
-          onClose={toggleDrawer(false)}
-        >
-          <StyledList
-            role="presentation"
-            onClick={toggleDrawer(false)}
-            onKeyDown={toggleDrawer(false)}
-          >
-            <ListItem button onClick={handleGoBack}>
-              <ListItemIcon>
-                <HomeIcon />
-              </ListItemIcon>
-              <ListItemText primary="Home" />
-            </ListItem>
-          </StyledList>
-        </Drawer>
-
-        <StyledSearchDiv>
-          <SearchIconDiv>
-            <SearchIcon />
-          </SearchIconDiv>
-
-          <StyledForm aria-label="search form" onSubmit={handleSearchOnSubmit}>
-            <StyledInputBase
-              placeholder="Search…"
-              inputComponent={StyledInput}
-              inputProps={{ 'aria-label': 'search' }}
-              value={searchTerm}
-              onChange={handleSearchOnChange}
-            />
-          </StyledForm>
-        </StyledSearchDiv>
-
-        <StyledGrowDiv />
-
-        <StyledDarkModeDiv>
-          <FormControlLabel
-            label="Dark mode"
-            control={
-              <StyledSwitch
-                checked={darkMode}
-                onChange={switchDarkMode}
-                aria-label="dark mode switch"
-              />
-            }
-          />
-          <IconButton
-            edge="end"
-            data-testid="iconbutton-testid"
-            aria-label="account of current user"
-            aria-controls="menuId"
-            aria-haspopup="true"
-            onClick={handleMenuOpen}
+    <>
+      <LoginDialog open={openLoginDialog} onClose={handleDialogClose} />
+      <StyledAppBar position="static">
+        <Toolbar>
+          <StyledIconButton
+            edge="start"
             color="inherit"
+            aria-label="open drawer"
+            onClick={toggleDrawer(true)}
           >
-            <AccountCircleIcon />
-          </IconButton>
-          <StyledMenu
-            id="menuId"
-            data-testid="menu-testid"
-            anchorEl={anchorEl}
-            open={isMenuOpen}
-            onClose={handleMenuClose}
-            anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-            transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-            keepMounted
+            <MenuIcon />
+          </StyledIconButton>
+          <Drawer
+            anchor="left"
+            className="headerDrawer"
+            open={openDrawer}
+            onClose={toggleDrawer(false)}
           >
-            <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-            <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-          </StyledMenu>
-        </StyledDarkModeDiv>
-      </Toolbar>
-    </StyledAppBar>
+            <StyledList
+              role="presentation"
+              onClick={toggleDrawer(false)}
+              onKeyDown={toggleDrawer(false)}
+            >
+              <ListItem button onClick={handleGoBack}>
+                <ListItemIcon>
+                  <HomeIcon />
+                </ListItemIcon>
+                <ListItemText primary="Home" />
+              </ListItem>
+            </StyledList>
+          </Drawer>
+
+          <StyledSearchDiv>
+            <SearchIconDiv>
+              <SearchIcon />
+            </SearchIconDiv>
+
+            <StyledForm aria-label="search form" onSubmit={handleSearchOnSubmit}>
+              <StyledInputBase
+                placeholder="Search…"
+                inputComponent={StyledInput}
+                inputProps={{ 'aria-label': 'search' }}
+                value={searchTerm}
+                onChange={handleSearchOnChange}
+              />
+            </StyledForm>
+          </StyledSearchDiv>
+
+          <StyledGrowDiv />
+
+          <StyledDarkModeDiv>
+            <FormControlLabel
+              label="Dark mode"
+              control={
+                <StyledSwitch
+                  checked={darkMode}
+                  onChange={switchDarkMode}
+                  aria-label="dark mode switch"
+                />
+              }
+            />
+            <IconButton
+              edge="end"
+              data-testid="iconbutton-testid"
+              aria-label="account of current user"
+              aria-controls="menuId"
+              aria-haspopup="true"
+              onClick={handleMenuOpen}
+              color="inherit"
+            >
+              <AccountCircleIcon />
+            </IconButton>
+            <StyledMenu
+              id="menuId"
+              data-testid="menu-testid"
+              anchorEl={anchorEl}
+              open={isMenuOpen}
+              onClose={handleMenuClose}
+              anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+              transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+              keepMounted
+            >
+              {false ? (
+                <MenuItem onClick={handleMenuClose}>Log Out</MenuItem>
+              ) : (
+                <MenuItem onClick={handleDialogOpen}>Log In</MenuItem>
+              )}
+            </StyledMenu>
+          </StyledDarkModeDiv>
+        </Toolbar>
+      </StyledAppBar>
+    </>
   );
 };
 

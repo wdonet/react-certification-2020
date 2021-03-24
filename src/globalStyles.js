@@ -7,6 +7,7 @@ import {
   Description,
 } from './components/ContentCard/ContentCard.styles';
 import { SnippetDescription } from './components/ContentDetails/ContentDetails.styles';
+import { StyledDialog } from './components/LoginDialog/LoginDialog.styles';
 
 export const lightTheme = {
   body: {
@@ -86,6 +87,17 @@ const GlobalStyles = createGlobalStyle`
   ${StyledAppBar} {
     && {
       background-color: ${({ theme }) => theme.appBar.backgroundColor};
+    }
+  }
+  ${StyledDialog} {
+    && {
+      .MuiPaper-root {
+        color: ${({ theme }) => theme.body.color};
+        background-color: ${({ theme }) => theme.body.backgroundColor};
+      }
+      .MuiDialogContentText-root, .MuiTextField-root > * {
+        color: inherit;
+      }
     }
   }
   ${StyledMenu}, .headerDrawer {
