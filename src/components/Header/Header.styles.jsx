@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { AppBar, IconButton, InputBase, Switch, Menu } from '@material-ui/core';
+import { AppBar, IconButton, InputBase, Switch, Menu, List } from '@material-ui/core';
 
 export const StyledGrowDiv = styled.div`
   flex-grow: 1;
@@ -9,6 +9,10 @@ export const StyledAppBar = styled(AppBar)``;
 
 export const StyledIconButton = styled(IconButton)`
   margin-right: 16px;
+`;
+
+export const StyledList = styled(List)`
+  width: 250px;
 `;
 
 export const StyledSearchDiv = styled.div`

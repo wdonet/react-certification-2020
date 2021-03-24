@@ -88,8 +88,7 @@ const GlobalStyles = createGlobalStyle`
       background-color: ${({ theme }) => theme.appBar.backgroundColor};
     }
   }
-
-  ${StyledMenu} {
+  ${StyledMenu}, .headerDrawer {
     && {
       .MuiPaper-root {
         color: ${({ theme }) => theme.body.color};

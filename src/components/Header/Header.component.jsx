@@ -1,15 +1,27 @@
 import React, { useState } from 'react';
-import { Toolbar, IconButton, FormControlLabel, MenuItem } from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
+import {
+  Toolbar,
+  IconButton,
+  FormControlLabel,
+  MenuItem,
+  Drawer,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+} from '@material-ui/core';
 import {
   Menu as MenuIcon,
   Search as SearchIcon,
   AccountCircle as AccountCircleIcon,
+  Home as HomeIcon,
 } from '@material-ui/icons';
 
 import {
   StyledGrowDiv,
   StyledAppBar,
   StyledIconButton,
+  StyledList,
   StyledSearchDiv,
   SearchIconDiv,
   StyledForm,
@@ -24,6 +36,8 @@ import { useCustom } from '../../providers/Custom';
 import { useYoutubeSearch } from '../../utils/hooks';
 
 const Header = () => {
+  const history = useHistory();
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const {
     darkMode,
@@ -35,8 +49,16 @@ const Header = () => {
   const yt = useYoutubeSearch({ type: 'video' });
 
   const isMenuOpen = Boolean(anchorEl);
+  const handleGoBack = () => history.push('/');
   const handleMenuOpen = (e) => setAnchorEl(e.currentTarget);
   const handleMenuClose = () => setAnchorEl(null);
+  const toggleDrawer = (open) => (e) => {
+    if (e.type === 'keydown' && (e.key === 'Tab' || e.key === 'Shift')) {
+      return;
+    }
+
+    setIsDrawerOpen(open);
+  };
   const handleSearchOnChange = ({ target: { value } }) => updateSearchTerm(value);
   const handleSearchOnSubmit = (e) => {
     e.preventDefault();
@@ -47,9 +69,33 @@ const Header = () => {
   return (
     <StyledAppBar position="static">
       <Toolbar>
-        <StyledIconButton edge="start" color="inherit" aria-label="open drawer">
+        <StyledIconButton
+          edge="start"
+          color="inherit"
+          aria-label="open drawer"
+          onClick={toggleDrawer(true)}
+        >
           <MenuIcon />
         </StyledIconButton>
+        <Drawer
+          anchor="left"
+          className="headerDrawer"
+          open={isDrawerOpen}
+          onClose={toggleDrawer(false)}
+        >
+          <StyledList
+            role="presentation"
+            onClick={toggleDrawer(false)}
+            onKeyDown={toggleDrawer(false)}
+          >
+            <ListItem button onClick={handleGoBack}>
+              <ListItemIcon>
+                <HomeIcon />
+              </ListItemIcon>
+              <ListItemText primary="Home" />
+            </ListItem>
+          </StyledList>
+        </Drawer>
 
         <StyledSearchDiv>
           <SearchIconDiv>
