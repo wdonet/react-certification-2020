@@ -9,6 +9,7 @@ import { Router } from 'react-router-dom';
 import { 
   SET_CURRENT_VIDEO_PLAYBACK, 
   SET_IS_FIRST_LOAD, 
+  SET_SESSION, 
   SET_VIDEOS_LIST, 
   SWITCH_THEME 
 } from '../../reducers/actionTypes';
@@ -65,7 +66,8 @@ function App() {
       { ...getThemeConfig(), 
         search,
         videosList,
-        playVideoById: (id) => dispatch({type: SET_CURRENT_VIDEO_PLAYBACK, payload: id}) 
+        playVideoById: (id) => dispatch({type: SET_CURRENT_VIDEO_PLAYBACK, payload: id}),
+        setUserSession: (data) => dispatch({type: SET_SESSION, payload: data}),
       }
     }>
       <Router history={history}>

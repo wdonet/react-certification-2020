@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login screen renders with default properties 1`] = `
+<div
+  class="sc-htpNat TqAvr"
+  role="form"
+>
+  <div
+    class="sc-bxivhb YvQhC"
+  >
+    <label
+      for="username"
+    >
+      Usuario
+    </label>
+    <input
+      class="sc-bdVaJa fkGYjX"
+      data-testid="username-input"
+      id="username"
+      name="username"
+    />
+  </div>
+  <div
+    class="sc-bxivhb YvQhC"
+  >
+    <label
+      for="password"
+    >
+      Usuario
+    </label>
+    <input
+      class="sc-bdVaJa fkGYjX"
+      data-testid="password-input"
+      id="password"
+      name="password"
+      type="password"
+    />
+  </div>
+  <div
+    class="sc-bxivhb YvQhC"
+  >
+    <button
+      class="sc-bwzfXH mRSDS"
+      data-testid="login-button"
+    >
+      Ingresar
+    </button>
+  </div>
+</div>
+`;

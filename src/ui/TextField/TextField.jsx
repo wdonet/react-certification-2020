@@ -10,13 +10,13 @@ const StyledTextField = styled.input`
   border: 0;
 `;
 
-const TextField = ({ role, onChange, onKeyPress }, ref) => {
+const TextField = (props, ref) => {
   const { theme } = useContext(AppContext);
+  const { onChange, onKeyPress } = props;
+  const condensedProps = {...props, ref, theme}
   return (
     <StyledTextField
-      theme={theme}
-      ref={ref}
-      role={role}
+      {...condensedProps}
       onChange={(event) => onChange && onChange(event.target.value)}
       onKeyPress={(event) => onKeyPress && onKeyPress(event)}
     />
