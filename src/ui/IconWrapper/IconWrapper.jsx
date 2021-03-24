@@ -9,8 +9,8 @@ const StyledIconWrapper = styled.img`
   padding: 8px;
 `;
 
-const IconWrapper = ({ src, alt, role }) => {
-  return <StyledIconWrapper role={role} src={src} alt={alt} />;
+const IconWrapper = (props) => {
+  return (<StyledIconWrapper {...props} />);
 };
 
 export default IconWrapper;

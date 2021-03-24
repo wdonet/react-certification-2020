@@ -6,17 +6,17 @@ Object {
   "ThemeSwitch": [Function],
   "container": <div>
     <div
-      class="sc-VigVT hrHzIi"
+      class="sc-jTzLTM dwpPCB"
       data-testid="layout-wrapper"
       role="application"
     >
       <div
-        class="sc-iwsKbI jDUsQk"
+        class="sc-gZMcBi hfUUxk"
         data-testid="header"
         role="toolbar"
       >
         <div
-          class="sc-gZMcBi hhbgDr"
+          class="sc-gqjmRU bmRGVH"
         >
           <div>
             <img
@@ -36,7 +36,7 @@ Object {
           </div>
         </div>
         <div
-          class="sc-gZMcBi hhbgDr"
+          class="sc-gqjmRU bmRGVH"
         >
           <div
             data-testid="theme-mode-switch"
@@ -60,13 +60,13 @@ Object {
         </div>
       </div>
       <div
-        class="sc-gqjmRU gbahki"
+        class="sc-VigVT kXuhvO"
         data-testid="main-content"
         role="main"
       >
         <div>
           <div
-            class="sc-fjdhpX jQmTQL"
+            class="sc-jzJRlG gfqodH"
           >
             <div
               data-testid="video-card-{\\"kind\\":\\"youtube#video\\",\\"videoId\\":\\"nmXMgqjQzls\\"}"

@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { useHistory } from 'react-router';
 import styled from 'styled-components';
 import AppContext from '../../providers/AppContext';
 import SmallVideoCard from './SmallVideoCard';
@@ -9,7 +10,8 @@ const StyledVideoList = styled.div`
   width: 40%;
 `;
 
-const RelatedVideoList = ({ playVideoById }) => {
+const RelatedVideosList = () => {
+  const { push } = useHistory();
   const { videosList } = useContext(AppContext);
   return (
     <StyledVideoList id="related-videos-list">
@@ -19,7 +21,10 @@ const RelatedVideoList = ({ playVideoById }) => {
           <div data-testid={`small-caption-${key}`} key={key}>
             <SmallVideoCard
               video={video}
-              onClick={() => playVideoById(video.id.videoId)}
+              onClick={() => push({
+                pathname: `/player`,
+                search: `?id=${video.id.videoId}`
+              }) }
             />
           </div>
         );
@@ -28,4 +33,4 @@ const RelatedVideoList = ({ playVideoById }) => {
   );
 };
 
-export default RelatedVideoList;
+export default RelatedVideosList;

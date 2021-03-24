@@ -32,7 +32,8 @@ const Login = () => {
         push({ pathname: "/home" });
     }
 
-    return (<StyledLogin role="form" theme={theme}>
+    return (<StyledLogin role="form" theme={theme} data-testid="login-form">
+                <StyledSection>Inicia sesión!</StyledSection>
                 <StyledSection>
                     <label htmlFor="username">Usuario</label>
                     <TextField 

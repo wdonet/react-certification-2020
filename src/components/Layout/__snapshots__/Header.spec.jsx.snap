@@ -3,12 +3,12 @@
 exports[`Header renders 1`] = `
 <div>
   <div
-    class="sc-iwsKbI jDUsQk"
+    class="sc-gZMcBi hfUUxk"
     data-testid="header"
     role="toolbar"
   >
     <div
-      class="sc-gZMcBi hhbgDr"
+      class="sc-gqjmRU bmRGVH"
     >
       <div>
         <img
@@ -28,7 +28,7 @@ exports[`Header renders 1`] = `
       </div>
     </div>
     <div
-      class="sc-gZMcBi hhbgDr"
+      class="sc-gqjmRU bmRGVH"
     >
       <div
         data-testid="theme-mode-switch"

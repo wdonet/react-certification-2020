@@ -9,6 +9,8 @@ import App from './index';
 global.gapi = googleMockedAPIObject();
 global.YT = YTMockedObject;
 
+const USER_SESSION_KEY = "user_session";
+
 const for400Miliseconds = () => new Promise((resolve) => {
   setTimeout(() => resolve(), 400)
 })
@@ -27,6 +29,7 @@ const build = async (Component = <App />) => {
     videosList: () => getAllByTestId(container, (testID) => testID.includes('video-card-') ),
     noVideosAvailableCaption: () => getByTestId(container, 'no-videos-available' ),
     unableToLoadVideos: () => getByTestId(container, 'unable-to-load-videos' ),
+    loginForm: () => getByTestId(container, 'login-form' ),
   };
 };
 
@@ -94,3 +97,12 @@ describe('App theme', () => {
   });
 
 });
+
+// describe("user login and session", () => {
+//   it("shows nothing but login when no session is loaded", async () => {
+//     window.sessionStorage.removeItem(USER_SESSION_KEY);
+//     const built = await build();
+//     const { loginForm } = built;
+//     expect(loginForm()).toBeDefined();
+//   });
+// })

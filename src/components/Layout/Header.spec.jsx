@@ -44,4 +44,5 @@ describe('Header', () => {
     expect(history().location.pathname).toBe("/home");
     expect(contextValue.search).toHaveBeenCalled();
   });
+  
 });

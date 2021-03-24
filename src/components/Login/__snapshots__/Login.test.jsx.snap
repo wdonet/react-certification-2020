@@ -3,8 +3,14 @@
 exports[`Login screen renders with default properties 1`] = `
 <div
   class="sc-htpNat TqAvr"
+  data-testid="login-form"
   role="form"
 >
+  <div
+    class="sc-bxivhb YvQhC"
+  >
+    Inicia sesión!
+  </div>
   <div
     class="sc-bxivhb YvQhC"
   >

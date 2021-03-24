@@ -1,30 +1,40 @@
 import React from 'react';
 import 'jest-styled-components';
 import { fireEvent, getAllByTestId } from '@testing-library/dom';
-import { render } from '@testing-library/react';
-import { contextWrapper, youtubeMockedData, YTMockedObject } from '../../utils';
-import RelatedVideosList from './RelatedVideoList';
-import AppContext from '../../providers/AppContext';
+import { act, render } from '@testing-library/react';
 import { lightTheme } from '../../providers/themes';
+import { contextWrapper, routerWrapper, youtubeMockedData, YTMockedObject } from '../../utils';
+import RelatedVideosList from './RelatedVideosList';
+import AppContext from '../../providers/AppContext';
 
 global.YT = YTMockedObject;
 
-const build = (Component = <RelatedVideosList />) => {
+const build = async (Component = <RelatedVideosList />) => {
   const contextValue = { videosList: youtubeMockedData.items.slice(0, 1), theme: lightTheme };
-  const wrapped = contextWrapper(AppContext, contextValue, Component);
-  const { container } = render(wrapped);
+  let routeWrap;
+  let container;
+  await act(async () => {
+    const wrappedContext = contextWrapper(AppContext, contextValue, Component);
+    routeWrap = await routerWrapper(wrappedContext);
+    container = render(routeWrap.wrap).container;
+  });
   return { 
-    container, 
-    contextValue,
+    container,
+    history: () => routeWrap.history,
+    searchParams: () => new URLSearchParams(routeWrap.history.location.search),
     videoCaptionsList: () => getAllByTestId(container, (testID) => testID.includes('small-caption-')) 
   };
 };
 
 describe('RelatedVideosList', () => {
-  it('triggers video playback by ID', () => {
-    const mockedPlayVideoById = jest.fn();
-    const { videoCaptionsList } = build(<RelatedVideosList playVideoById={mockedPlayVideoById}/>);
+  it('triggers video playback by ID', async () => {
+    const built = await build(<RelatedVideosList />);
+    const { videoCaptionsList, searchParams, history } = built;
     fireEvent.click(videoCaptionsList()[0].firstChild);
-    expect(mockedPlayVideoById).toHaveBeenCalledTimes(1);
+
+    const { videoId } = youtubeMockedData.items[0].id;
+    expect(history().location.pathname).toBe("/player");
+    expect(searchParams().has("id")).toBe(true);
+    expect(searchParams().get("id")).toBe(videoId);
   });
 });

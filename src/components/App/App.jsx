@@ -1,11 +1,11 @@
 import React, { useReducer } from 'react';
-import { LayoutWrapper } from '../Layout';
 import { appReducer } from '../../reducers/appReducer';
 import { lightTheme, darkTheme } from '../../providers/themes';
 import youtubeSearchService from '../../services/youtubeSearchService';
 import AppContext from '../../providers/AppContext';
-import { createBrowserHistory } from "history";
+import { createBrowserHistory } from 'history';
 import { Router } from 'react-router-dom';
+import { LayoutWrapper } from '../Layout';
 import { 
   SET_CURRENT_VIDEO_PLAYBACK, 
   SET_IS_FIRST_LOAD, 
@@ -71,9 +71,11 @@ function App() {
       }
     }>
       <Router history={history}>
-        <LayoutWrapper>
-          <Content />
-        </LayoutWrapper>
+        {
+          <LayoutWrapper>
+            <Content />
+          </LayoutWrapper>
+        }
       </Router>
     </AppContext.Provider>
   );

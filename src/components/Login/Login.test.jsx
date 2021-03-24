@@ -1,20 +1,27 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { act, render } from '@testing-library/react';
 import Login from './Login'
+import { contextWrapper, routerWrapper } from '../../utils';
 import { lightTheme } from '../../providers/themes';
-import { contextWrapper } from '../../utils';
 import AppContext from '../../providers/AppContext';
 
-const build = (Component = <Login/>, theme = lightTheme) => {
-    const contextValue = { theme };
-    const wrappedContext = contextWrapper(AppContext, contextValue, Component);
-    const { container } = render(wrappedContext);
-    return { container };
+const build = async (Component = <Login/>) => {
+    const contextValue = { theme: lightTheme, setUserSession: jest.fn() };
+    let container;
+    await act(async () => {
+        const wrappedContext = contextWrapper(AppContext, contextValue, Component);
+        const routeWrap = await routerWrapper(wrappedContext);
+        container = render(routeWrap.wrap).container;
+    });
+    return { 
+        container,
+    };
 };
 
 describe('Login screen', () => {
-    it('renders with default properties', () => {
-        const { firstChild } = build().container;
+    it('renders with default properties', async () => {
+        const built = await build();
+        const { firstChild } = built.container;
         expect(firstChild).toMatchSnapshot();
         expect(firstChild).toHaveStyle('width: 400px');
         expect(firstChild).toHaveStyle('height: 400px');

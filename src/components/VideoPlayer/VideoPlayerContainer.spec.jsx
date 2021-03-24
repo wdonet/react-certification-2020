@@ -4,7 +4,7 @@ import { lightTheme } from '../../providers/themes';
 import { act, getAllByTestId, render } from '@testing-library/react';
 import { YTMockedObject, contextWrapper, youtubeMockedData, routerWrapper } from '../../utils';
 import VideoPlayerContainer from './VideoPlayerContainer';
-import { fireEvent } from '@testing-library/dom';
+import { fireEvent, getByTestId } from '@testing-library/dom';
 import AppContext from '../../providers/AppContext';
 
 global.YT = YTMockedObject;
@@ -28,7 +28,8 @@ const build = async (
   return { 
     container,
     history: () => routeWrap.history,
-    videoCaptionsList: () => getAllByTestId(container, (id) => id.includes('small-caption-')) 
+    searchParams: () => new URLSearchParams(routeWrap.history.location.search),
+    videoCaptionsList: () => getAllByTestId(container, (id) => id.includes('small-caption-')),
   };
 };
 
@@ -45,13 +46,17 @@ describe('VideoPlayerContainer', () => {
     expect(window.YTPlayer).toBeTruthy();
   });
 
-  it('plays video from the begining calling player instance', async () => {
+  it('plays video from the begining redirecting to /player passing videoId', async () => {
+    window.YTPlayer = {
+      loadVideoById: jest.fn()
+    };
     const built = (await build());
-    const { videoCaptionsList } = built;
+    const { videoCaptionsList, searchParams, history } = built;
     const videoId = youtubeMockedData.items[0].id.videoId;
     fireEvent.click(videoCaptionsList()[0].firstChild);
+    expect(history().location.pathname).toBe("/player");
+    expect(searchParams().has("id")).toBe(true);
+    expect(searchParams().get("id")).toBe(videoId);
     expect(window.YTPlayer.loadVideoById).toHaveBeenCalledTimes(1);
-    expect(window.YTPlayer.loadVideoById).toHaveBeenCalledWith(videoId, 0);
   });
-  
 });
