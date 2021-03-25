@@ -1,6 +1,10 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import htmlParser from 'html-react-parser';
+import {
+  Favorite as FavoriteIcon,
+  FavoriteBorder as FavoriteBorderIcon,
+} from '@material-ui/icons';
 
 import {
   StyledFlexDiv,
@@ -8,18 +12,33 @@ import {
   StyledRelatedDiv,
   StyledIFrame,
   StyledSnippetDiv,
+  StyledSnippetTitleDiv,
   SnippetTitle,
   SnippetDescription,
   StyledBackButton,
+  StyledButton,
 } from './ContentDetails.styles';
 import RelatedItem from '../RelatedItem';
+
+import { useAuth } from '../../providers/Auth';
+import { useCustom } from '../../providers/Custom';
 
 import { getYoutubeEmbedLink } from '../../utils/fns';
 
 const ContentDetails = ({ item, relatedItems }) => {
   const history = useHistory();
+  const location = useLocation();
+  const { authenticated } = useAuth();
+  const { findFavoriteVideo, addFavoriteVideo, removeFavoriteVideo } = useCustom();
 
-  const handleGoBack = () => history.push('/');
+  const isVideoInList = Boolean(findFavoriteVideo(item));
+  const isFavoritePage = location.pathname.includes('favorites');
+  const handleGoBack = isFavoritePage
+    ? () => history.push('/favorites')
+    : () => history.push('/');
+  const handleFavButton = isVideoInList
+    ? () => removeFavoriteVideo(item)
+    : () => addFavoriteVideo(item);
 
   return (
     <StyledFlexDiv>
@@ -29,7 +48,18 @@ const ContentDetails = ({ item, relatedItems }) => {
           src={getYoutubeEmbedLink(item.id.videoId)}
         />
         <StyledSnippetDiv>
-          <SnippetTitle>{htmlParser(item.snippet.title)}</SnippetTitle>
+          <StyledSnippetTitleDiv>
+            <SnippetTitle>{htmlParser(item.snippet.title)}</SnippetTitle>
+            {authenticated && !isFavoritePage && (
+              <StyledButton
+                aria-label="fav button"
+                onClick={handleFavButton}
+                startIcon={isVideoInList ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+              >
+                {isVideoInList ? 'Remove from favorites' : 'Add to favorites'}
+              </StyledButton>
+            )}
+          </StyledSnippetTitleDiv>
           <SnippetDescription>{item.snippet.description}</SnippetDescription>
           <StyledBackButton aria-label="back button" onClick={handleGoBack}>
             Go back

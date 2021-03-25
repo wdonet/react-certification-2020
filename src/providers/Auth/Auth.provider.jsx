@@ -16,12 +16,15 @@ function useAuth() {
 
 function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState();
+  const [authenticated, setAuthenticated] = useState(false);
 
   useEffect(() => {
-    const lastAuthState = storage.get(types.AUTH_USER);
+    const lastState = storage.get(types.AUTH_USER);
+    const userFound = Boolean(lastState);
 
-    if (lastAuthState) {
-      setCurrentUser(lastAuthState);
+    if (userFound) {
+      setCurrentUser(lastState);
+      setAuthenticated(userFound);
     }
   }, []);
 
@@ -30,6 +33,7 @@ function AuthProvider({ children }) {
       loginApi(username, password).then((user) => {
         storage.set(types.AUTH_USER, user);
         setCurrentUser(user);
+        setAuthenticated(true);
 
         return user;
       }),
@@ -39,10 +43,11 @@ function AuthProvider({ children }) {
   const logout = useCallback(() => {
     storage.set(types.AUTH_USER, undefined);
     setCurrentUser(undefined);
+    setAuthenticated(false);
   }, []);
 
   return (
-    <AuthContext.Provider value={{ currentUser, login, logout }}>
+    <AuthContext.Provider value={{ currentUser, authenticated, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

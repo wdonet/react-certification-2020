@@ -44,6 +44,11 @@ export const StyledSnippetDiv = styled.div`
   justify-content: space-between;
 `;
 
+export const StyledSnippetTitleDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 export const SnippetTitle = styled(Typography).attrs(() => ({
   component: 'h2',
   variant: 'h5',
@@ -62,13 +67,18 @@ export const SnippetDescription = styled(Typography).attrs(() => ({
 `;
 
 export const StyledBackButton = styled(Button).attrs(() => ({
-  variant: 'outlined',
   startIcon: <ArrowBackIcon />,
 }))`
   && {
     width: 150px;
     height: 40px;
     margin-top: 30px;
+    cursor: pointer;
+  }
+`;
+
+export const StyledButton = styled(Button)`
+  && {
     cursor: pointer;
   }
 `;

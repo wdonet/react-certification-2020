@@ -44,7 +44,7 @@ const Header = () => {
   const [openLoginDialog, setOpenLoginDialog] = useState(false);
   const [openDrawer, setOpenDrawer] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
-  const { currentUser, logout } = useAuth();
+  const { authenticated, currentUser, logout } = useAuth();
   const {
     darkMode,
     searchTerm,
@@ -54,10 +54,10 @@ const Header = () => {
   } = useCustom();
   const yt = useYoutubeSearch({ type: 'video' });
 
-  const isUserLoggedIn = Boolean(currentUser);
   const isMenuOpen = Boolean(anchorEl);
 
   const handleGoBack = () => history.push('/');
+  const handleGoToFavorites = () => history.push('/favorites');
   const handleMenuOpen = (e) => setAnchorEl(e.currentTarget);
   const handleMenuClose = () => setAnchorEl(null);
   const toggleDrawer = (open) => (e) => {
@@ -113,8 +113,8 @@ const Header = () => {
                 </ListItemIcon>
                 <ListItemText primary="Home" />
               </ListItem>
-              {isUserLoggedIn && (
-                <ListItem button onClick={(f) => f}>
+              {authenticated && (
+                <ListItem button onClick={handleGoToFavorites}>
                   <ListItemIcon>
                     <FavoriteIcon />
                   </ListItemIcon>
@@ -162,7 +162,7 @@ const Header = () => {
               onClick={handleMenuOpen}
               color="inherit"
             >
-              {isUserLoggedIn ? (
+              {authenticated ? (
                 <Avatar alt={currentUser.name} src={currentUser.avatarUrl} />
               ) : (
                 <AccountCircleIcon />
@@ -178,7 +178,7 @@ const Header = () => {
               transformOrigin={{ vertical: 'top', horizontal: 'right' }}
               keepMounted
             >
-              {isUserLoggedIn ? (
+              {authenticated ? (
                 <MenuItem onClick={handleLogout}>Log Out</MenuItem>
               ) : (
                 <MenuItem onClick={handleDialogOpen}>Log In</MenuItem>

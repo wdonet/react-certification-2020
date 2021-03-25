@@ -1,12 +1,14 @@
-import React, { useContext, createContext, useReducer } from 'react';
+import React, { useContext, createContext, useReducer, useEffect } from 'react';
 
 import * as types from '../../utils/constants';
+import { storage } from '../../utils/storage';
 import videosMock from '../../youtube-videos-mock.json';
 
 const initialState = {
   darkMode: false,
   searchTerm: 'wizeline',
   searchResult: { ...videosMock, items: videosMock.items.slice(1) },
+  favoriteVideos: [],
 };
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -21,6 +23,10 @@ const reducer = (state = initialState, { type, payload }) => {
 
     case types.SET_SEARCH_RESULT: {
       return { ...state, searchResult: payload };
+    }
+
+    case types.SET_FAVORITE_VIDEOS: {
+      return { ...state, favoriteVideos: payload };
     }
 
     default: {
@@ -44,6 +50,14 @@ export const useCustom = () => {
 const CustomProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  useEffect(() => {
+    const lastState = storage.get(types.USER_FAVORITE_VIDEOS);
+
+    if (lastState) {
+      dispatch({ type: types.SET_FAVORITE_VIDEOS, payload: lastState });
+    }
+  }, []);
+
   const switchDarkMode = () => dispatch({ type: types.SET_DARK_MODE });
 
   const updateSearchTerm = (payload) =>
@@ -55,9 +69,36 @@ const CustomProvider = ({ children }) => {
     }
   };
 
+  const findFavoriteVideo = (video) =>
+    state.favoriteVideos.find(({ id: { videoId } }) => videoId === video.id.videoId);
+
+  const addFavoriteVideo = (video) => {
+    const payload = [...state.favoriteVideos, video];
+
+    dispatch({ type: types.SET_FAVORITE_VIDEOS, payload });
+    storage.set(types.USER_FAVORITE_VIDEOS, payload);
+  };
+
+  const removeFavoriteVideo = (video) => {
+    const payload = state.favoriteVideos.filter(
+      ({ id: { videoId } }) => videoId !== video.id.videoId
+    );
+
+    dispatch({ type: types.SET_FAVORITE_VIDEOS, payload });
+    storage.set(types.USER_FAVORITE_VIDEOS, payload);
+  };
+
   return (
     <CustomContext.Provider
-      value={{ ...state, switchDarkMode, updateSearchTerm, updateSearchResult }}
+      value={{
+        ...state,
+        switchDarkMode,
+        updateSearchTerm,
+        updateSearchResult,
+        findFavoriteVideo,
+        addFavoriteVideo,
+        removeFavoriteVideo,
+      }}
     >
       {children}
     </CustomContext.Provider>
