@@ -3,6 +3,11 @@ import { render } from '@testing-library/react';
 
 import Content from '..';
 
+jest.mock('react-router-dom', () => ({
+  useLocation: jest.fn().mockReturnValue({ pathname: '/' }),
+  useHistory: jest.fn().mockReturnValue({ push: (f) => f }),
+}));
+
 const mockItems = [
   {
     kind: 'youtube#searchResult',

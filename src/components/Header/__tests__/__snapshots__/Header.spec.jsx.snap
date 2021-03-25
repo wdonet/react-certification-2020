@@ -2,7 +2,7 @@
 
 exports[`<Header /> renders and match checked switch 1`] = `
 <span
-  className="MuiSwitch-root sc-pFZIQ FFIYX"
+  className="MuiSwitch-root sc-jrAGrp hdWcCH"
 >
   <span
     aria-disabled={false}

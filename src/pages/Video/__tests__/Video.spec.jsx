@@ -4,6 +4,7 @@ import { Switch, Route, MemoryRouter } from 'react-router-dom';
 
 import Video from '..';
 import { CustomContext } from '../../../providers/Custom';
+import AuthProvider from '../../../providers/Auth';
 
 const mockItems = [
   {
@@ -121,14 +122,16 @@ describe('<Video />', () => {
     const NotFoundPage = () => <div>Not found</div>;
 
     return (
-      <MemoryRouter initialEntries={[path]}>
-        <Switch>
-          <Route exact path="/v/:videoId">
-            <Video />
-          </Route>
-          <Route component={NotFoundPage} />
-        </Switch>
-      </MemoryRouter>
+      <AuthProvider>
+        <MemoryRouter initialEntries={[path]}>
+          <Switch>
+            <Route exact path="/v/:videoId">
+              <Video />
+            </Route>
+            <Route component={NotFoundPage} />
+          </Switch>
+        </MemoryRouter>
+      </AuthProvider>
     );
   };
 
@@ -143,8 +146,12 @@ describe('<Video />', () => {
   });
 
   it('renders expected video page', () => {
+    const findFavoriteVideo = () => false;
+
     render(
-      <CustomContext.Provider value={{ searchResult: { items: mockItems } }}>
+      <CustomContext.Provider
+        value={{ searchResult: { items: mockItems }, findFavoriteVideo }}
+      >
         <Routes />
       </CustomContext.Provider>
     );

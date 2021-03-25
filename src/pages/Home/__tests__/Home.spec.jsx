@@ -4,6 +4,11 @@ import { render, screen } from '@testing-library/react';
 import Home from '..';
 import CustomProvider from '../../../providers/Custom';
 
+jest.mock('react-router-dom', () => ({
+  useLocation: jest.fn().mockReturnValue({ pathname: '/' }),
+  useHistory: jest.fn().mockReturnValue({ push: (f) => f }),
+}));
+
 const WrappedHome = () => (
   <CustomProvider>
     <Home />

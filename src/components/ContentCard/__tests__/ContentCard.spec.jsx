@@ -3,6 +3,11 @@ import { render, screen } from '@testing-library/react';
 
 import ContentCard from '..';
 
+jest.mock('react-router-dom', () => ({
+  useLocation: jest.fn().mockReturnValue({ pathname: '/' }),
+  useHistory: jest.fn().mockReturnValue({ push: (f) => f }),
+}));
+
 const mockItem = {
   kind: 'youtube#searchResult',
   etag: '_PVKwNJf_qw9nukFeRFOtQ837o0',

@@ -3,6 +3,8 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { Router } from 'react-router-dom';
 
 import ContentDetails from '..';
+import AuthProvider from '../../../providers/Auth';
+import CustomProvider from '../../../providers/Custom';
 
 const mockItems = [
   {
@@ -79,12 +81,20 @@ const mockItems = [
 
 describe('<ContentDetails />', () => {
   it('executes back button', () => {
-    const historyMock = { push: jest.fn(), listen: jest.fn(), location: {} };
+    const historyMock = {
+      push: jest.fn(),
+      listen: jest.fn(),
+      location: { pathname: '/' },
+    };
 
     render(
-      <Router history={historyMock}>
-        <ContentDetails item={mockItems[0]} relatedItems={mockItems} />
-      </Router>
+      <AuthProvider>
+        <CustomProvider>
+          <Router history={historyMock}>
+            <ContentDetails item={mockItems[0]} relatedItems={mockItems} />
+          </Router>
+        </CustomProvider>
+      </AuthProvider>
     );
 
     const element = screen.getByLabelText('back button');

@@ -2,12 +2,15 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 
 import Layout from '..';
+import AuthProvider from '../../../providers/Auth';
 import CustomProvider from '../../../providers/Custom';
 
 const WrappedLayout = ({ children }) => (
-  <CustomProvider>
-    <Layout>{children}</Layout>
-  </CustomProvider>
+  <AuthProvider>
+    <CustomProvider>
+      <Layout>{children}</Layout>
+    </CustomProvider>
+  </AuthProvider>
 );
 
 describe('<Layout />', () => {

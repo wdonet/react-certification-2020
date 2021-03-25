@@ -4,12 +4,15 @@ import renderer from 'react-test-renderer';
 
 import Header from '..';
 import CustomProvider from '../../../providers/Custom';
+import AuthProvider from '../../../providers/Auth';
 import { StyledSwitch } from '../Header.styles';
 
 const WrappedHeader = () => (
-  <CustomProvider>
-    <Header />
-  </CustomProvider>
+  <AuthProvider>
+    <CustomProvider>
+      <Header />
+    </CustomProvider>
+  </AuthProvider>
 );
 
 describe('<Header />', () => {
