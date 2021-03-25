@@ -12,6 +12,7 @@ const Ul = styled.ul`
   width: 300px;
   padding-top: 3.5rem;
   transition: transform 0.3s ease-in-out;
+  z-index: 1;
   li {
     color: #fff;
     padding: 18px 10px;

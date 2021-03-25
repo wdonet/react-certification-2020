@@ -18,7 +18,7 @@ function App() {
     ["squery"]: [squery, setSquery],
   } = React.useContext(StoreContext)
 
-  const url = squery && `https://www.googleapis.com/youtube/v3/search?key=${process.env.REACT_APP_YOUTUBE_API_KEY}&q=${squery}&part=snippet&maxResults=50&order=date&type=video`;
+  const url = squery && `https://www.googleapis.com/youtube/v3/search?key=${process.env.REACT_APP_YOUTUBE_API_KEY2}&q=${squery}&part=snippet&maxResults=50&order=date&type=video`;
 	const { status, data, error } = useFetch(url);
   const theme = "light";
   

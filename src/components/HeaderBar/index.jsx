@@ -15,6 +15,7 @@ const Nav = styled.nav`
   flex-direction: row;
   background-color: ${(props) => props.theme.background};
   color: white;
+  z-index: 1;
 `;
 const index = ({ updateQuery , gotodetail }) => {
   return (
