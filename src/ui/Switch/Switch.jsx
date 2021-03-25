@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 const StyledInput = styled.input``;
 
-const Switch = ({ onClick }) => {
-  return <StyledInput onClick={onClick} role="switch" type="checkbox" />;
+const Switch = (props) => {
+  return <StyledInput {...props} role="switch" type="checkbox" />;
 };
 
 export default Switch;

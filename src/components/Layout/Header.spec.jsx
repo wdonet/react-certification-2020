@@ -1,6 +1,6 @@
 import React from 'react';
 import 'jest-styled-components';
-import { fireEvent, getByRole } from '@testing-library/dom';
+import { fireEvent, getByRole, getByTestId } from '@testing-library/dom';
 import { act, render } from '@testing-library/react';
 import { contextWrapper, routerWrapper } from '../../utils';
 import AppContext from '../../providers/AppContext';
@@ -20,6 +20,9 @@ const build = async (Component = <Header />, theme = lightTheme) => {
     container,
     history: () => routeWrap.history,
     searchInput: () => getByRole(container, 'search'),
+    userAvatar: () => getByTestId(container, 'user-avatar'),
+    loginButton: () => getByTestId(container, 'menu-login-button'),
+    loginForm: () => getByTestId(container, 'login-form'),
     contextValue,
   };
 };
@@ -43,6 +46,33 @@ describe('Header', () => {
     fireEvent.keyPress(searchInput(), { key: 'Enter', code: 13, charCode: 13 });
     expect(history().location.pathname).toBe("/home");
     expect(contextValue.search).toHaveBeenCalled();
+  });
+
+  it('opens up Login form when "Iniciar sesión" button is clicked', async () => {
+    const built = await build();
+    const { loginButton, loginForm, userAvatar } = built;
+    fireEvent.click(userAvatar());
+    act(() => {
+      fireEvent.click(loginButton());
+    });
+    expect(loginForm()).toBeVisible();
+  });
+
+  it('closes Login form when "Cancelar" button in form is clicked', async () => {
+    const built = await build();
+    const { loginButton, loginForm, userAvatar } = built;
+    
+    fireEvent.click(userAvatar());
+    
+    act(() => { fireEvent.click(loginButton()) } );
+
+    expect(loginForm()).toBeVisible();
+    
+    const cancelButton = getByTestId(loginForm(), 'cancel-button');
+    
+    act(() => { fireEvent.click(cancelButton) } );
+
+    expect(loginForm()).not.toBeVisible();
   });
   
 });

@@ -9,22 +9,24 @@ import { useHistory } from "react-router";
 const StyledLogin = styled.div`
     padding: 4px;
     margin: 4px;
-    height: 400px;
+    height: min-content;
     width: 400px;
     background: ${ ({theme}) => theme.color.surface };
     color: ${ ({theme}) => theme.color.fontPrimary };
 `
 
 const StyledSection = styled.div`
-    display: grid;
+    display: ${({display}) => display ? display : 'grid'};
     height: min-content;
+    margin: 8px;
 `;
 
-const Login = () => {
+const Login = (props) => {
     const { push } = useHistory();
     const { theme, setUserSession } = useContext(AppContext);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const { onCancel } = props;
 
     const loginAttempt = async () => {
         const response = await loginService(username, password);
@@ -44,7 +46,7 @@ const Login = () => {
                     />
                 </StyledSection>
                 <StyledSection>
-                    <label htmlFor="password">Usuario</label>
+                    <label htmlFor="password">Contraseña</label>
                     <TextField 
                         id="password" 
                         name="password"
@@ -53,12 +55,18 @@ const Login = () => {
                         onChange={(pword) => setPassword(pword)}
                     />
                 </StyledSection>
-                <StyledSection>
+                <StyledSection display="flex">
                     <Button 
                         data-testid="login-button"
                         onClick={loginAttempt}
                     >
                         Ingresar
+                    </Button>
+                    <Button 
+                        data-testid="cancel-button"
+                        onClick={() => onCancel && onCancel()}
+                    >
+                        Cancelar
                     </Button>
                 </StyledSection>
             </StyledLogin>);

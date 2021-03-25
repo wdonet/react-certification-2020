@@ -24,7 +24,7 @@ describe('Login screen', () => {
         const { firstChild } = built.container;
         expect(firstChild).toMatchSnapshot();
         expect(firstChild).toHaveStyle('width: 400px');
-        expect(firstChild).toHaveStyle('height: 400px');
+        expect(firstChild).toHaveStyle('height: min-content');
         expect(firstChild).toHaveStyle('margin: 4px');
         expect(firstChild).toHaveStyle('padding: 4px');
     })

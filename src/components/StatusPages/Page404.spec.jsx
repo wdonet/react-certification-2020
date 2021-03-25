@@ -28,7 +28,7 @@ describe('Page404', () => {
     it('contains defualt styles and text', async () => {
         const built = await build();
         const { firstChild } = built.container;
-        expect(firstChild).toHaveTextContent("Can't find the page you're looking for");
+        expect(firstChild.textContent.includes("Can‘t find the page you‘re looking for")).toBe(true);
         expect(firstChild).toHaveStyle('width: 100%');
         expect(firstChild).toHaveStyle('height: 100%');
     })

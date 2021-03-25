@@ -4,7 +4,7 @@ import { lightTheme } from '../../providers/themes';
 import { act, getAllByTestId, render } from '@testing-library/react';
 import { YTMockedObject, contextWrapper, youtubeMockedData, routerWrapper } from '../../utils';
 import VideoPlayerContainer from './VideoPlayerContainer';
-import { fireEvent, getByTestId } from '@testing-library/dom';
+import { fireEvent } from '@testing-library/dom';
 import AppContext from '../../providers/AppContext';
 
 global.YT = YTMockedObject;
@@ -42,9 +42,6 @@ describe('VideoPlayerContainer', () => {
   });
 
   it('plays video from the begining redirecting to /player passing videoId', async () => {
-    window.YTPlayer = {
-      loadVideoById: jest.fn()
-    };
     const built = (await build());
     const { videoCaptionsList, searchParams, history } = built;
     const videoId = youtubeMockedData.items[0].id.videoId;

@@ -13,7 +13,6 @@ import {
   SWITCH_THEME 
 } from '../../reducers/actionTypes';
 import Content from './Content';
-
 const initialState = {
   videosList: [],
   currentVideoId: undefined,

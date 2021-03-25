@@ -21,6 +21,7 @@ const build = async (Component = <Login/>, theme = lightTheme) => {
         usernameInput: () => getByTestId(container, 'username-input'),
         passwordInput: () => getByTestId(container, 'password-input'),
         loginButton: () => getByTestId(container, 'login-button'),
+        cancelButton: () => getByTestId(container, 'cancel-button'),
     };
 };
 
@@ -65,5 +66,13 @@ describe('Login screen', () => {
         })
         expect(history().location.pathname).toBe("/home");
 
+    });
+
+    it('executes "onCancel" function passed as argument', async () => {
+        const mockedCancelFunction = jest.fn();
+        const built = await build(<Login onCancel={mockedCancelFunction}/>);
+        const { cancelButton }  = built;
+        fireEvent.click(cancelButton());
+        expect(mockedCancelFunction).toHaveBeenCalledTimes(1);
     });
 })

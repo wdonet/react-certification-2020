@@ -6,61 +6,132 @@ Object {
   "HomeView": [Function],
   "container": <div>
     <div
-      class="sc-jTzLTM dwpPCB"
+      class="sc-chPdSV hXYMvp"
       data-testid="layout-wrapper"
       role="application"
     >
       <div
-        class="sc-gZMcBi hfUUxk"
+        class="sc-jzJRlG dcdMOk"
         data-testid="header"
         role="toolbar"
       >
         <div
-          class="sc-gqjmRU bmRGVH"
+          class="sc-gZMcBi dqmLfP"
         >
-          <div>
-            <img
-              alt="hamburguer"
-              class="sc-gzVnrw iCjpdg"
-              role="button"
-              src="hamburguer.png"
-            />
-          </div>
           <div
-            data-testid="search-input"
+            class="sc-gqjmRU iBEVdZ"
+            data-testid="login-form"
+            role="form"
           >
-            <input
-              class="sc-dnqmqq eMiNCI"
-              role="search"
-            />
+            <div
+              class="sc-VigVT lsdIp"
+            >
+              Inicia sesión!
+            </div>
+            <div
+              class="sc-VigVT lsdIp"
+            >
+              <label
+                for="username"
+              >
+                Usuario
+              </label>
+              <input
+                class="sc-dnqmqq eMiNCI"
+                data-testid="username-input"
+                id="username"
+                name="username"
+              />
+            </div>
+            <div
+              class="sc-VigVT lsdIp"
+            >
+              <label
+                for="password"
+              >
+                Contraseña
+              </label>
+              <input
+                class="sc-dnqmqq eMiNCI"
+                data-testid="password-input"
+                id="password"
+                name="password"
+                type="password"
+              />
+            </div>
+            <div
+              class="sc-VigVT gRVnnS"
+              display="flex"
+            >
+              <button
+                class="sc-iwsKbI hbArTD"
+                data-testid="login-button"
+              >
+                Ingresar
+              </button>
+              <button
+                class="sc-iwsKbI hbArTD"
+                data-testid="cancel-button"
+              >
+                Cancelar
+              </button>
+            </div>
           </div>
         </div>
         <div
-          class="sc-gqjmRU bmRGVH"
+          class="sc-cSHVUG hDNPdi"
         >
-          <div
+          <img
+            alt="hamburguer"
+            class="sc-gzVnrw iCjpdg"
+            role="button"
+            src="hamburguer.png"
+          />
+          <input
+            class="sc-dnqmqq eMiNCI"
+            data-testid="search-input"
+            role="search"
+          />
+        </div>
+        <div
+          class="sc-cSHVUG hDNPdi"
+        >
+          <input
+            class="sc-htoDjs bZzhDu"
             data-testid="theme-mode-switch"
-          >
-            <input
-              class="sc-htoDjs bZzhDu"
-              role="switch"
-              type="checkbox"
-            />
-          </div>
+            role="switch"
+            type="checkbox"
+          />
           <div
-            data-testid="user-avatar"
+            class="sc-jTzLTM cqwcFw"
           >
-            <img
-              alt="profile"
-              class="sc-bdVaJa ieaWl"
-              role="button"
-              src="default_user.jpg"
-            />
+            <div
+              class="menu-button"
+            >
+              <img
+                alt="profile"
+                class="sc-bdVaJa ieaWl"
+                data-testid="user-avatar"
+                role="button"
+                src="default_user.jpg"
+              />
+            </div>
+            <div
+              class="sc-fjdhpX fkpVGG"
+              data-testid="dropdown-content"
+            >
+              <button
+                class="sc-iwsKbI hbArTD"
+                data-testid="menu-login-button"
+              >
+                Iniciar sesion
+              </button>
+            </div>
           </div>
         </div>
       </div>
       <div
-        class="sc-VigVT kXuhvO"
+        class="sc-kAzzGY fHojKL"
         data-testid="main-content"
         role="main"
       />

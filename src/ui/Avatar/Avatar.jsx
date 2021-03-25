@@ -8,8 +8,8 @@ const StyledAvatar = styled.img`
   border-radius: 50%;
 `;
 
-const Avatar = ({ src, role, alt }) => {
-  return <StyledAvatar role={role} src={src} alt={alt} />;
+const Avatar = (props) => {
+  return <StyledAvatar {...props}/>;
 };
 
 export default Avatar;

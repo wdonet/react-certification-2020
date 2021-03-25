@@ -49,7 +49,7 @@ describe('Header styles', () => {
     expect(firstChild).toHaveStyle('justify-content: space-between');
     expect(firstChild).toHaveStyle('width: 100%');
     expect(firstChild).toHaveStyle('height: 64px');
-    expect(firstChild).toHaveStyle('overflow: hidden');
+    expect(firstChild).toHaveStyle('overflow: inherit');
     expect(firstChild).toHaveStyle('position: fixed');
     expect(firstChild).toHaveStyle('top: 0');
   });

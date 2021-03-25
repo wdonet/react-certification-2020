@@ -1,6 +1,6 @@
 const YTMockedObject = {
-  ready: jest.fn(),
-  Player: jest.fn(),
+  ready: () => {},
+  Player: function constructor () {},
 };
 
 export default YTMockedObject;
