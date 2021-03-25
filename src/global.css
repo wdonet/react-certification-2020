@@ -14,7 +14,7 @@ html {
   box-sizing: inherit;
 }
 
-body {
+/* body {
   margin: 0;
   padding: 0;
   text-rendering: optimizeLegibility;
@@ -31,7 +31,7 @@ body {
   transition: background-position 2s ease;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
+} */
 
 .separator::before {
   content: '•';

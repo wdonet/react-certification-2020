@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModalLogin Components should take a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bdfBwQ cuzDpn"
+  >
+    <div
+      class="sc-gsTCUz fmRJbX"
+    >
+      <div
+        class="sc-hKgILt jsOJFj"
+      >
+        <span
+          class="sc-dlfnbm bBQYVI"
+        >
+          ×
+        </span>
+        <label
+          class="sc-eCssSg fbIeGk"
+          for="uname"
+        >
+          <b>
+            Username
+          </b>
+        </label>
+        <input
+          class="sc-gKsewC iqUoZt"
+          name="uname"
+          placeholder="Enter Username"
+          required=""
+          type="text"
+        />
+        <label
+          class="sc-eCssSg fbIeGk"
+          for="psw"
+        >
+          <b>
+            Password
+          </b>
+        </label>
+        <input
+          class="sc-gKsewC iqUoZt"
+          name="psw"
+          placeholder="Enter Password"
+          required=""
+          type="password"
+        />
+        <button
+          class="sc-iBPRYJ ffOtvm"
+          type="button"
+        >
+          Login
+        </button>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

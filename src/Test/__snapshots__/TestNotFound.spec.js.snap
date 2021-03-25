@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFound Components should take a snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="not-found"
+  >
+    <a
+      class="home-link"
+      href="/"
+    >
+      home
+    </a>
+    <img
+      alt="page not found"
+      src="404.gif"
+    />
+  </section>
+</DocumentFragment>
+`;

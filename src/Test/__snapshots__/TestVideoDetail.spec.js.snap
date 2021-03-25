@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VideoDetailViewPage Components Take VideoDetailViewPage Snapshot  1`] = `
+<div>
+  <section
+    style="position: absolute; top: 80px; width: 100%;"
+  >
+    <div
+      class="sc-gKsewC iJqbzq"
+    >
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-text"
+        tabindex="0"
+        type="button"
+      >
+        <span
+          class="MuiButton-label"
+        >
+          <div
+            class="sc-iBPRYJ kIKhxh"
+          >
+            <img
+              alt=""
+              class="sc-fubCfw FECHG"
+              src="https://i.ytimg.com/vi/Po3VwR_NNGk/mqdefault.jpg"
+            />
+            <div
+              class="sc-pFZIQ eDzivD"
+            >
+              rick roll
+            </div>
+          </div>
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+    <div
+      class="sc-jrAGrp hKptuB"
+    >
+      <div
+        class="sc-jrAGrp hKptuB"
+      >
+        <iframe
+          allow="accelerometer; autoplay;"
+          src="https://www.youtube.com/embed/undefined?controls=1&autoplay=1"
+          style="width: 70%; display: flex; height: 450px; margin-top: 10px;"
+          title="YouTubeAPI"
+        />
+      </div>
+      <h3
+        class="sc-kEjbxe cfhUBp"
+      />
+    </div>
+  </section>
+</div>
+`;
