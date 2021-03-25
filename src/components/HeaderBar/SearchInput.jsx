@@ -61,7 +61,9 @@ const StyledInput = styled.div`
   }
 `;
 
+
 function SearchInput({ placeholder, updateQuery , gotodetail }) {
+
   const [text, setText] = useState('');
   const {
     ["squery"]: [query, setQuery]
