@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Detail from '../Detail';
 
 const StyledContent = styled.div`
   display: flex;
@@ -15,11 +16,19 @@ const TopTitle = styled.h1`
   font-size: 4em;
   margin: 10px;
 `;
-const Content = ({ children }) => {
+
+const Content = ({ children , inDetail, gotodetail, detailVideoId ,detailTitle , detailDescription}) => {
+
+  let content = inDetail ? (
+    <Detail gotodetail={gotodetail} detailVideoId={detailVideoId} detailTitle={detailTitle} detailDescription={ detailDescription}/>
+  ) : <StyledContent >
+      <TopTitle>Welcome to the Challenge!</TopTitle>
+        {children}
+      </StyledContent>;
+  
   return (
     <>
-      <TopTitle>Welcome to the Challenge!</TopTitle>
-      <StyledContent>{children}</StyledContent>
+      { content }
     </>
   );
 };

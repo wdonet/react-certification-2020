@@ -61,7 +61,7 @@ const StyledInput = styled.div`
   }
 `;
 
-function SearchInput({ placeholder }) {
+function SearchInput({ placeholder, updateQuery }) {
   const [text, setText] = useState('');
   const {
     ["squery"]: [query, setQuery]
@@ -70,6 +70,7 @@ function SearchInput({ placeholder }) {
   console.log(query);
   const handleChange = (event) => {
     setText(event.target.value);
+
   };
 
   const handleSubmit = (event) => {
@@ -84,16 +85,14 @@ function SearchInput({ placeholder }) {
   };
 
   return (
-    <form>
+    <form  onSubmit={handleSubmit}>
       <StyledInput className="inputWithIcon">
         <Input
           type="text"
           value={text}
           onChange={handleChange}
+         
           placeholder={placeholder}
-          onSubmit={(e) => {
-            e.preventDefault();
-          }}
         />
         <div className="left-icon">
           <svg
