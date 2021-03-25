@@ -9,7 +9,6 @@ import { ThemeStore } from "../../contexts/ThemeStore";
 import { useFetch } from '../../hooks/useFetch';
 import { StoreContext } from '../../contexts/Store'
 function App() {
-  // const { setSearchQuery } = useContext(SearchProvider);
   const [recent, setRecent] = useState([]);
   const [inDetail, setInDetail] = useState(false);
   const [detailVideoId, setDetailVideoId] = useState("");

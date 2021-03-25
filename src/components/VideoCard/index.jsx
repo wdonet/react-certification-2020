@@ -59,7 +59,7 @@ const VideoCard = ({ videoId, image, title, description, gotodetail }) => {
   }
 
   return (
-    <Container>
+    <Container onClick={() => { clickDetail(videoId, title, description)} }>
       <Cover img={image} />
       <Content>
         <Title>{decode(title)}</Title>
