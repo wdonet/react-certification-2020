@@ -1,27 +1,23 @@
 import React, { useState } from 'react';
-import {
-  DialogTitle,
-  DialogContent,
-  DialogContentText,
-  DialogActions,
-  Button,
-} from '@material-ui/core';
+import { DialogTitle, DialogContent, DialogActions, Button } from '@material-ui/core';
 
 import { StyledDialog, StyledTextField } from './LoginDialog.styles';
 
-const LoginDialog = ({ open, onClose }) => {
-  const [data, setData] = useState({
-    username: '',
-    password: '',
-  });
+import { useAuth } from '../../providers/Auth';
 
-  const handleOnChange = (key) => ({ target: { value } }) => setData({ [key]: value });
+const LoginDialog = ({ open, onClose }) => {
+  const { login } = useAuth();
+  const [username, setUsername] = useState('wizeline');
+  const [password, setPassword] = useState('Rocks!');
+
+  const handleOnChange = (hook) => ({ target: { value } }) => hook(value);
 
   const handleLogin = (e) => {
     e.preventDefault();
 
-    console.log({ e, data });
-    onClose();
+    login(username, password)
+      .then(() => onClose())
+      .catch(console.error);
   };
 
   return (
@@ -33,23 +29,22 @@ const LoginDialog = ({ open, onClose }) => {
     >
       <DialogTitle id="simple-dialog-title">Login dialog</DialogTitle>
       <DialogContent>
-        <DialogContentText>
-          wizeline <br /> Rocks!
-        </DialogContentText>
         <StyledTextField
           autoFocus
           id="username"
           label="Username"
           type="text"
           fullWidth
-          onChange={handleOnChange('username')}
+          value={username}
+          onChange={handleOnChange(setUsername)}
         />
         <StyledTextField
           id="password"
           label="Password"
           type="password"
           fullWidth
-          onChange={handleOnChange('password')}
+          value={password}
+          onChange={handleOnChange(setPassword)}
         />
       </DialogContent>
       <DialogActions>

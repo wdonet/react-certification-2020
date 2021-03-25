@@ -9,12 +9,14 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
+  Avatar,
 } from '@material-ui/core';
 import {
   Menu as MenuIcon,
   Search as SearchIcon,
   AccountCircle as AccountCircleIcon,
   Home as HomeIcon,
+  Favorite as FavoriteIcon,
 } from '@material-ui/icons';
 
 import {
@@ -33,6 +35,7 @@ import {
 } from './Header.styles';
 import LoginDialog from '../LoginDialog';
 
+import { useAuth } from '../../providers/Auth';
 import { useCustom } from '../../providers/Custom';
 import { useYoutubeSearch } from '../../utils/hooks';
 
@@ -41,6 +44,7 @@ const Header = () => {
   const [openLoginDialog, setOpenLoginDialog] = useState(false);
   const [openDrawer, setOpenDrawer] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
+  const { currentUser, logout } = useAuth();
   const {
     darkMode,
     searchTerm,
@@ -50,7 +54,9 @@ const Header = () => {
   } = useCustom();
   const yt = useYoutubeSearch({ type: 'video' });
 
+  const isUserLoggedIn = Boolean(currentUser);
   const isMenuOpen = Boolean(anchorEl);
+
   const handleGoBack = () => history.push('/');
   const handleMenuOpen = (e) => setAnchorEl(e.currentTarget);
   const handleMenuClose = () => setAnchorEl(null);
@@ -72,6 +78,10 @@ const Header = () => {
     setOpenLoginDialog(true);
   };
   const handleDialogClose = () => setOpenLoginDialog(false);
+  const handleLogout = () => {
+    handleMenuClose();
+    logout();
+  };
 
   return (
     <>
@@ -103,6 +113,14 @@ const Header = () => {
                 </ListItemIcon>
                 <ListItemText primary="Home" />
               </ListItem>
+              {isUserLoggedIn && (
+                <ListItem button onClick={(f) => f}>
+                  <ListItemIcon>
+                    <FavoriteIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Favorites" />
+                </ListItem>
+              )}
             </StyledList>
           </Drawer>
 
@@ -144,7 +162,11 @@ const Header = () => {
               onClick={handleMenuOpen}
               color="inherit"
             >
-              <AccountCircleIcon />
+              {isUserLoggedIn ? (
+                <Avatar alt={currentUser.name} src={currentUser.avatarUrl} />
+              ) : (
+                <AccountCircleIcon />
+              )}
             </IconButton>
             <StyledMenu
               id="menuId"
@@ -156,8 +178,8 @@ const Header = () => {
               transformOrigin={{ vertical: 'top', horizontal: 'right' }}
               keepMounted
             >
-              {false ? (
-                <MenuItem onClick={handleMenuClose}>Log Out</MenuItem>
+              {isUserLoggedIn ? (
+                <MenuItem onClick={handleLogout}>Log Out</MenuItem>
               ) : (
                 <MenuItem onClick={handleDialogOpen}>Log In</MenuItem>
               )}

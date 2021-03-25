@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useContext, useCallback } from 'react';
 
-import { AUTH_STORAGE_KEY } from '../../utils/constants';
+import * as types from '../../utils/constants';
 import { storage } from '../../utils/storage';
+import loginApi from '../../utils/login.api';
 
 const AuthContext = React.createContext(null);
 
@@ -14,27 +15,34 @@ function useAuth() {
 }
 
 function AuthProvider({ children }) {
-  const [authenticated, setAuthenticated] = useState(false);
+  const [currentUser, setCurrentUser] = useState();
 
   useEffect(() => {
-    const lastAuthState = storage.get(AUTH_STORAGE_KEY);
-    const isAuthenticated = Boolean(lastAuthState);
+    const lastAuthState = storage.get(types.AUTH_USER);
 
-    setAuthenticated(isAuthenticated);
+    if (lastAuthState) {
+      setCurrentUser(lastAuthState);
+    }
   }, []);
 
-  const login = useCallback(() => {
-    setAuthenticated(true);
-    storage.set(AUTH_STORAGE_KEY, true);
-  }, []);
+  const login = useCallback(
+    (username, password) =>
+      loginApi(username, password).then((user) => {
+        storage.set(types.AUTH_USER, user);
+        setCurrentUser(user);
+
+        return user;
+      }),
+    []
+  );
 
   const logout = useCallback(() => {
-    setAuthenticated(false);
-    storage.set(AUTH_STORAGE_KEY, false);
+    storage.set(types.AUTH_USER, undefined);
+    setCurrentUser(undefined);
   }, []);
 
   return (
-    <AuthContext.Provider value={{ login, logout, authenticated }}>
+    <AuthContext.Provider value={{ currentUser, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
