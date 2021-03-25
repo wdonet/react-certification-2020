@@ -7,8 +7,8 @@ $ npm test -- --coverage --watchAll --coverageThreshold='{"global":{"statements"
 -------------------------------|----------|----------|----------|----------|-------------------|
 File                           |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
 -------------------------------|----------|----------|----------|----------|-------------------|
-All files                      |    85.64 |    58.82 |    84.13 |    87.15 |                   |
- src                           |    91.67 |      100 |      100 |    91.67 |                   |
+All files                      |    76.74 |    45.83 |    70.65 |    77.74 |                   |
+ src                           |    92.86 |      100 |      100 |    92.86 |                   |
   globalStyles.js              |      100 |      100 |      100 |      100 |                   |
   index.jsx                    |        0 |      100 |      100 |        0 |                 6 |
  src/components/App            |      100 |      100 |      100 |      100 |                   |
@@ -18,27 +18,37 @@ All files                      |    85.64 |    58.82 |    84.13 |    87.15 |    
   Content.component.jsx        |      100 |      100 |      100 |      100 |                   |
   Content.styles.jsx           |      100 |      100 |      100 |      100 |                   |
   index.jsx                    |        0 |        0 |        0 |        0 |                   |
- src/components/ContentCard    |    91.67 |      100 |       80 |      100 |                   |
-  ContentCard.component.jsx    |       80 |      100 |       50 |      100 |                   |
+ src/components/ContentCard    |    93.33 |       75 |       80 |      100 |                   |
+  ContentCard.component.jsx    |     87.5 |       50 |       50 |      100 |                13 |
   ContentCard.styles.jsx       |      100 |      100 |      100 |      100 |                   |
   index.jsx                    |        0 |        0 |        0 |        0 |                   |
- src/components/ContentDetails |      100 |      100 |      100 |      100 |                   |
-  ContentDetails.component.jsx |      100 |      100 |      100 |      100 |                   |
+ src/components/ContentDetails |    92.86 |    27.27 |       75 |    91.67 |                   |
+  ContentDetails.component.jsx |    86.67 |    27.27 |       60 |    85.71 |             40,41 |
   ContentDetails.styles.jsx    |      100 |      100 |      100 |      100 |                   |
   index.jsx                    |        0 |        0 |        0 |        0 |                   |
- src/components/Header         |     96.3 |      100 |    83.33 |      100 |                   |
-  Header.component.jsx         |    93.33 |      100 |       80 |      100 |                   |
+ src/components/Header         |    85.42 |    57.14 |    69.23 |     87.8 |                   |
+  Header.component.jsx         |       80 |       50 |    66.67 |    82.14 |    63,64,67,76,77 |
   Header.styles.jsx            |      100 |      100 |      100 |      100 |                   |
   index.jsx                    |        0 |        0 |        0 |        0 |                   |
  src/components/Layout         |      100 |       50 |      100 |      100 |                   |
   Layout.component.jsx         |      100 |       50 |      100 |      100 |                18 |
   index.js                     |        0 |        0 |        0 |        0 |                   |
- src/components/Private        |      100 |      100 |      100 |      100 |                   |
-  Private.component.jsx        |      100 |      100 |      100 |      100 |                   |
+ src/components/LoginDialog    |    92.31 |      100 |       80 |      100 |                   |
+  LoginDialog.component.jsx    |    90.91 |      100 |       80 |      100 |                   |
+  LoginDialog.styles.jsx       |      100 |      100 |      100 |      100 |                   |
+  index.jsx                    |        0 |        0 |        0 |        0 |                   |
+ src/components/Private        |      100 |       75 |      100 |      100 |                   |
+  Private.component.jsx        |      100 |       75 |      100 |      100 |                14 |
   index.js                     |        0 |        0 |        0 |        0 |                   |
  src/components/RelatedItem    |    92.31 |      100 |       80 |      100 |                   |
   RelatedItem.component.jsx    |    83.33 |      100 |       50 |      100 |                   |
   RelatedItem.styles.jsx       |      100 |      100 |      100 |      100 |                   |
+  index.jsx                    |        0 |        0 |        0 |        0 |                   |
+ src/pages/Favorite            |    33.33 |      100 |        0 |    33.33 |                   |
+  Favorite.page.jsx            |    33.33 |      100 |        0 |    33.33 |              8,10 |
+  index.jsx                    |        0 |        0 |        0 |        0 |                   |
+ src/pages/FavoriteVideo       |        0 |        0 |        0 |        0 |                   |
+  FavoriteVideo.page.jsx       |        0 |        0 |        0 |        0 |... 12,13,14,17,25 |
   index.jsx                    |        0 |        0 |        0 |        0 |                   |
  src/pages/Home                |      100 |      100 |      100 |      100 |                   |
   Home.page.jsx                |      100 |      100 |      100 |      100 |                   |
@@ -55,16 +65,17 @@ All files                      |    85.64 |    58.82 |    84.13 |    87.15 |    
  src/pages/Video               |      100 |      100 |      100 |      100 |                   |
   Video.page.jsx               |      100 |      100 |      100 |      100 |                   |
   index.js                     |        0 |        0 |        0 |        0 |                   |
- src/providers/Auth            |    70.59 |       50 |       60 |    70.59 |                   |
-  Auth.provider.jsx            |    70.59 |       50 |       60 |    70.59 |    11,27,28,32,33 |
+ src/providers/Auth            |    54.17 |       50 |       50 |    54.17 |                   |
+  Auth.provider.jsx            |    54.17 |       50 |       50 |    54.17 |... 36,38,44,45,46 |
   index.jsx                    |        0 |        0 |        0 |        0 |                   |
- src/providers/Custom          |    69.57 |    22.22 |    66.67 |    72.73 |                   |
-  Custom.provider.jsx          |    69.57 |    22.22 |    66.67 |    72.73 | 15,23,27,38,53,54 |
+ src/providers/Custom          |     57.5 |       25 |       50 |    60.53 |                   |
+  Custom.provider.jsx          |     57.5 |       25 |       50 |    60.53 |... 79,83,84,87,88 |
   index.jsx                    |        0 |        0 |        0 |        0 |                   |
- src/utils                     |    76.47 |      100 |       50 |       75 |                   |
+ src/utils                     |    65.38 |        0 |    28.57 |       64 |                   |
   axiosConfig.js               |      100 |      100 |      100 |      100 |                   |
   constants.js                 |      100 |      100 |      100 |      100 |                   |
   fns.js                       |    66.67 |      100 |       50 |       50 |                 2 |
+  login.api.js                 |    16.67 |        0 |        0 |    16.67 |     9,10,11,12,14 |
   storage.js                   |    57.14 |      100 |       50 |    57.14 |            7,8,13 |
  src/utils/hooks               |    68.18 |    44.44 |      100 |    71.43 |                   |
   index.jsx                    |        0 |        0 |        0 |        0 |                   |
@@ -72,3 +83,4 @@ All files                      |    85.64 |    58.82 |    84.13 |    87.15 |    
 -------------------------------|----------|----------|----------|----------|-------------------|
 
 
+Done in 29.23s.

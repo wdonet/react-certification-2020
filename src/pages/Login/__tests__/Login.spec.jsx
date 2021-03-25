@@ -30,10 +30,9 @@ describe('<Login />', () => {
     );
 
     const element = screen.getByText('login');
-
     const clickEvent = createEvent.click(element);
-
     fireEvent.click(element, clickEvent);
+
     expect(loginMock).toHaveBeenCalled();
     expect(historyMock.push).toHaveBeenCalled();
   });

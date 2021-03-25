@@ -12,9 +12,7 @@ const LoginDialog = ({ open, onClose }) => {
 
   const handleOnChange = (hook) => ({ target: { value } }) => hook(value);
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-
+  const handleLogin = () => {
     login(username, password)
       .then(() => onClose())
       .catch(console.error);
@@ -24,10 +22,11 @@ const LoginDialog = ({ open, onClose }) => {
     <StyledDialog
       open={open}
       onClose={onClose}
-      aria-labelledby="simple-dialog-title"
+      data-testid="login-dialog-testid"
+      aria-labelledby="login-dialog"
       onSubmit={handleLogin}
     >
-      <DialogTitle id="simple-dialog-title">Login dialog</DialogTitle>
+      <DialogTitle id="login-dialog">Login dialog</DialogTitle>
       <DialogContent>
         <StyledTextField
           autoFocus
