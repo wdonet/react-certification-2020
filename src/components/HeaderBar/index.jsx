@@ -16,11 +16,11 @@ const Nav = styled.nav`
   background-color: ${(props) => props.theme.background};
   color: white;
 `;
-const index = ({ updateQuery }) => {
+const index = ({ updateQuery , gotodetail }) => {
   return (
     <Nav>
       <MenuButton />
-      <SearchInput placeholder="wizeline" updateQuery={ updateQuery }/>
+      <SearchInput placeholder="wizeline" updateQuery={updateQuery} gotodetail={ gotodetail }/>
       <SwitchButton label="Dark Mode" />
       <Avatar />
     </Nav>

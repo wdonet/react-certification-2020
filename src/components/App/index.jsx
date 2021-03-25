@@ -40,7 +40,7 @@ function App() {
     <React.StrictMode>
       <ThemeStore>
         <Theme>
-          <HeaderBar  />
+          <HeaderBar gotodetail={changeDetail} />
             <Content inDetail={inDetail} detailVideoId={detailVideoId} gotodetail={changeDetail} detailTitle={detailTitle} detailDescription={ detailDescription}>{data.items ?
               data.items.map((video) => {
                 return (

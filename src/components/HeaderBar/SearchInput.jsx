@@ -61,7 +61,7 @@ const StyledInput = styled.div`
   }
 `;
 
-function SearchInput({ placeholder, updateQuery }) {
+function SearchInput({ placeholder, updateQuery , gotodetail }) {
   const [text, setText] = useState('');
   const {
     ["squery"]: [query, setQuery]
@@ -75,6 +75,7 @@ function SearchInput({ placeholder, updateQuery }) {
 
   const handleSubmit = (event) => {
     setQuery(text);
+    gotodetail(false);
     event.preventDefault();
   }
   const clearInput = () => {
@@ -82,6 +83,7 @@ function SearchInput({ placeholder, updateQuery }) {
     if (text !== '') {
       setQuery('');
     }
+    gotodetail(false);
   };
 
   return (
