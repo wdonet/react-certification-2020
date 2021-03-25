@@ -33,6 +33,7 @@ const StyledInput = styled.input.attrs({ type: 'text', placeholder: 'Wizeline' }
   background-color: #eceef1;
   font-size: 20px;
   transition: 0.4s ease;
+  margin-top: 3px;
   @media screen and (max-width: 450px) {
     font-size: 14px;
     height: 35px;
@@ -141,10 +142,10 @@ const StyledMenu = styled.img.attrs({
   height: 40px;
   left: 0;
 
-  ${MenuContent}:hover & {
+  /* ${MenuContent}:hover & {
     display: inline;
     background-color: yellow;
-  }
+  } */
 `;
 
 const Styled = {

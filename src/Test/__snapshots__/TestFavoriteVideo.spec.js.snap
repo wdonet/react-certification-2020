@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FavoriteVideo Components Take FavoriteVideo Snapshot  1`] = `
+<FavoriteVideo
+  0={
+    Object {
+      "getVideoId": "cHm3wVzcHjnE",
+      "id": Object {
+        "videoId": "123",
+      },
+      "snippet": Object {
+        "thumbnails": Object {
+          "medium": Object {
+            "url": "https://i.ytimg.com/vi/Po3VwR_NNGk/mqdefault.jpg",
+          },
+        },
+        "title": "rick roll",
+      },
+    }
+  }
+/>
+`;

@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal Favorite Components should take a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bdfBwQ gTUOmw"
+  >
+    <a
+      href="/"
+    >
+      <div
+        class="sc-gsTCUz hlMnr"
+      >
+        <span
+          class="sc-dlfnbm bwuiqW"
+        >
+          Home
+        </span>
+      </div>
+    </a>
+  </div>
+</DocumentFragment>
+`;

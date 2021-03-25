@@ -40,6 +40,17 @@ const TitleVideoDetail = styled.h3`
   margin-left: 20px;
 `;
 
+const AddToFavorite = styled.button`
+  text-align: left;
+  margin-left: 20px;
+  text-decoration: underline;
+  outline: none;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  font-size: 16px;
+`;
+
 const Styled = {
   VideoRightList,
   ImgRightList,
@@ -47,5 +58,6 @@ const Styled = {
   VideoCardtList,
   DisplayVideoLeftFrame,
   TitleVideoDetail,
+  AddToFavorite,
 };
 export default Styled;

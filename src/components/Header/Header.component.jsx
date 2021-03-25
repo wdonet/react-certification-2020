@@ -1,14 +1,14 @@
 import React, { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import Styled from './HeaderStyle';
-import { AppContext } from "../App/App.component";
+import { AppContext } from '../App/App.component';
 
 function Header({ getVideoCallBack }) {
-  
   const [inputValue, setInputValue] = useState('');
   const { dispatch } = useContext(AppContext);
 
   const toggleTheme = () => {
-    dispatch({ type: "TOGGLE_THEME" });
+    dispatch({ type: 'TOGGLE_THEME' });
   };
 
   const searchVideosFormAPI = (evt) => {
@@ -22,7 +22,9 @@ function Header({ getVideoCallBack }) {
   return (
     <Styled.StyledHeader>
       <Styled.MenuContent />
-      <Styled.StyledMenu />
+      <Link to="/favoriteModal">
+        <Styled.StyledMenu />
+      </Link>
       <Styled.StyledDivInput>
         <Styled.StyledInput
           value={inputValue}
@@ -31,7 +33,9 @@ function Header({ getVideoCallBack }) {
         />
       </Styled.StyledDivInput>
       <Styled.StyledDivLogo>
-        <Styled.StyledLogo />
+        <Link to="/loginPage">
+          <Styled.StyledLogo />
+        </Link>
         <Styled.StyledDivToggle>
           <Styled.DarkModeStyle>Dark Mode</Styled.DarkModeStyle>
           <Styled.CheckBox onClick={toggleTheme} id="checkbox" type="checkbox" />
