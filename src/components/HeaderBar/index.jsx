@@ -15,12 +15,13 @@ const Nav = styled.nav`
   flex-direction: row;
   background-color: ${(props) => props.theme.background};
   color: white;
+  z-index: 1;
 `;
-const index = ({ updateQuery }) => {
+const index = ({ updateQuery , gotodetail }) => {
   return (
     <Nav>
       <MenuButton />
-      <SearchInput placeholder="wizeline" updateQuery={ updateQuery }/>
+      <SearchInput placeholder="wizeline" updateQuery={updateQuery} gotodetail={ gotodetail }/>
       <SwitchButton label="Dark Mode" />
       <Avatar />
     </Nav>

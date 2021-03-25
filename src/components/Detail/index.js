@@ -16,10 +16,17 @@ const BackButtonStyle = styled.button`
 const StyledVideoView = styled.div`
     display: flex;
     flex-direction:row;
+    justify-content: center;
+    margin: 10px;
 `
 const StyledContent = styled.div`
     background-color: ${(props) => props.theme.background};
 `
+const StyledRecommendedVideoContainer = styled.div`
+    /* overflow-y:scroll; */
+    background-color: ${(props) => props.theme.background};
+`
+
 
 const Detail = ({ gotodetail, detailVideoId, detailTitle, detailDescription }) => {
     const [related, setRelated] = useState([]);
@@ -29,7 +36,7 @@ const Detail = ({ gotodetail, detailVideoId, detailTitle, detailDescription }) =
     } = React.useContext(StoreContext)
     // console.log(`sdetailId: ${sdetailId}`);
 
-    const url = sdetailId && `https://www.googleapis.com/youtube/v3/search?key=${process.env.REACT_APP_YOUTUBE_API_KEY}&part=snippet&maxResults=10&order=date&type=video&relatedToVideoId=${sdetailId}`;
+    const url = sdetailId && `https://www.googleapis.com/youtube/v3/search?key=${process.env.REACT_APP_YOUTUBE_API_KEY2}&part=snippet&maxResults=10&order=date&type=video&relatedToVideoId=${sdetailId}`;
 
     const { status, data, error } = useFetch(url);
     const recommendedVideoList = data.items ? data.items.map((rV) => {
@@ -50,11 +57,11 @@ const Detail = ({ gotodetail, detailVideoId, detailTitle, detailDescription }) =
             </div>
             <StyledVideoView>
                 <VideoEmbed detailVideoId={detailVideoId} detailTitle={detailTitle} detailDescription={ detailDescription }/>
-                <div>
+                <StyledRecommendedVideoContainer>
                     <RecommendedVideos>
                         { recommendedVideoList }
                     </RecommendedVideos>
-                </div>
+                </StyledRecommendedVideoContainer>
             </StyledVideoView>
         </StyledContent>
     )

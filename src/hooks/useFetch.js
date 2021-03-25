@@ -1,5 +1,5 @@
 import { useEffect, useRef, useReducer } from 'react';
-
+import mockdata from '../assets/mockdata/mockdata.json';
 export const useFetch = (url) => {
 	const cache = useRef({});
 
@@ -16,7 +16,7 @@ export const useFetch = (url) => {
 			case 'FETCHED':
 				return { ...initialState, status: 'fetched', data: action.payload };
 			case 'FETCH_ERROR':
-				return { ...initialState, status: 'error', error: action.payload };
+				return { ...initialState, status: 'error', data: action.payload };
 			default:
 				return state;
 		}
@@ -32,15 +32,27 @@ export const useFetch = (url) => {
 				const data = cache.current[url];
 				dispatch({ type: 'FETCHED', payload: data });
 			} else {
+				const response = await fetch(url);
+				const data = await response.json();
+				console.log({ data });
+				if (data.error) {
+					console.log("lo que yo quiero");
+						dispatch({ type: 'FETCH_ERROR', payload: mockdata });
+					}
+				else {
+					console.log("lo que yo NO quiero");
+						cache.current[url] = data;
+						if (cancelRequest) return;
+							dispatch({ type: 'FETCHED', payload: data });
+						}
 				try {
-					const response = await fetch(url);
-					const data = await response.json();
-					cache.current[url] = data;
-					if (cancelRequest) return;
-					dispatch({ type: 'FETCHED', payload: data });
+					
+					
+
 				} catch (error) {
+					console.log("error");
 					if (cancelRequest) return;
-					dispatch({ type: 'FETCH_ERROR', payload: error.message });
+					dispatch({ type: 'FETCH_ERROR', payload: mockdata });
 				}
 			}
 		};

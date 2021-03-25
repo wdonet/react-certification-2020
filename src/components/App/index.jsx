@@ -9,7 +9,6 @@ import { ThemeStore } from "../../contexts/ThemeStore";
 import { useFetch } from '../../hooks/useFetch';
 import { StoreContext } from '../../contexts/Store'
 function App() {
-  // const { setSearchQuery } = useContext(SearchProvider);
   const [recent, setRecent] = useState([]);
   const [inDetail, setInDetail] = useState(false);
   const [detailVideoId, setDetailVideoId] = useState("");
@@ -19,7 +18,7 @@ function App() {
     ["squery"]: [squery, setSquery],
   } = React.useContext(StoreContext)
 
-  const url = squery && `https://www.googleapis.com/youtube/v3/search?key=${process.env.REACT_APP_YOUTUBE_API_KEY}&q=${squery}&part=snippet&maxResults=50&order=date&type=video`;
+  const url = squery && `https://www.googleapis.com/youtube/v3/search?key=${process.env.REACT_APP_YOUTUBE_API_KEY2}&q=${squery}&part=snippet&maxResults=50&order=date&type=video`;
 	const { status, data, error } = useFetch(url);
   const theme = "light";
   
@@ -41,7 +40,7 @@ function App() {
     <React.StrictMode>
       <ThemeStore>
         <Theme>
-          <HeaderBar  />
+          <HeaderBar gotodetail={changeDetail} />
             <Content inDetail={inDetail} detailVideoId={detailVideoId} gotodetail={changeDetail} detailTitle={detailTitle} detailDescription={ detailDescription}>{data.items ?
               data.items.map((video) => {
                 return (
