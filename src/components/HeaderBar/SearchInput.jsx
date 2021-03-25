@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { StoreContext } from '../../contexts/Store'
 
 const Input = styled.input`
   height: 40px;
@@ -62,11 +63,24 @@ const StyledInput = styled.div`
 
 function SearchInput({ placeholder }) {
   const [text, setText] = useState('');
-  const handleChange = (event: any) => {
+  const {
+    ["squery"]: [query, setQuery]
+  } = React.useContext(StoreContext);
+  
+  console.log(query);
+  const handleChange = (event) => {
     setText(event.target.value);
   };
+
+  const handleSubmit = (event) => {
+    setQuery(text);
+    event.preventDefault();
+  }
   const clearInput = () => {
     setText('');
+    if (text !== '') {
+      setQuery('');
+    }
   };
 
   return (

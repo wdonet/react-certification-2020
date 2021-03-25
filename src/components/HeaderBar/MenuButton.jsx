@@ -21,7 +21,6 @@ const StyledMenuButton = styled.nav`
     border-radius: 10px;
     transform-origin: 1px;
     transition: all 0.3s linear;
-
     &:nth-child(1) {
       transform: ${({ open }) => (open ? 'rotate(45deg)' : 'rotate(0)')};
     }

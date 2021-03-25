@@ -2,6 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import App from './components/App';
+import StoreProvider from './contexts/Store'
+// console.log(process.env.REACT_APP_YOUTUBE_API_KEY);
 
-const app = React.createElement(App);
-ReactDOM.render(app, document.getElementById('root'));
+ReactDOM.render(
+    <StoreProvider>
+        <App />
+    </StoreProvider>,
+     document.getElementById('root'));

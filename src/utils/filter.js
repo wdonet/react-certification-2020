@@ -1,4 +1,5 @@
 function filterByYear(videoList, year) {
+  // console.log(`videoList: ${videoList}`)
   if (year === '') {
     return videoList;
   }

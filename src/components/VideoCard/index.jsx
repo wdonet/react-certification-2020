@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { decode } from 'html-entities';
+import { StoreContext } from '../../contexts/Store';
 
 const Container = styled.div`
   background: #fff;
@@ -45,7 +46,18 @@ const Description = styled.p`
   margin-top: 4px;
 `;
 
-const VideoCard = ({ image, title, description }) => {
+const VideoCard = ({ videoId, image, title, description, gotodetail }) => {
+  const {
+        ["sdetailId"]: [sdetailId, setSdetailId],
+
+  } = React.useContext(StoreContext)
+  
+  const clickDetail = (videoId, title, description) => {
+    console.log(`Clicked detail: ${videoId}`);
+    gotodetail(true, videoId, title, description);
+    setSdetailId(videoId);
+  }
+
   return (
     <Container>
       <Cover img={image} />

@@ -6,6 +6,7 @@ const StyledContent = styled.div`
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
+  background-color: ${(props) => props.theme.background};
 `;
 
 const TopTitle = styled.h1`

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { ThemeContext } from "../../contexts/ThemeStore";
 
 const SwitchVerticalCentered = styled.div`
   display: flex;
@@ -56,10 +57,19 @@ const Switch = styled.input`
 `;
 
 function SwitchButton({ label }) {
+  const { theme, switchTheme } = useContext(ThemeContext);
+  const switchT = () => {
+    if (theme === "dark") {
+      switchTheme("light");
+    } else {
+      switchTheme("dark");
+    }
+    // console.log(`switch: ${theme}`);
+  }
   return (
     <SwitchVerticalCentered>
       <SwitchButtonWrapper>
-        <Switch id="checkbox" type="checkbox" />
+        <Switch id="checkbox" type="checkbox" onClick={()=>switchT() } />
         <SwitchButtonLabel htmlFor="checkbox" />
       </SwitchButtonWrapper>
       {label}

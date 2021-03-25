@@ -8,7 +8,7 @@ const StyledAvatar = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-
+  color: ${(props) => props.theme.text};
   @media (max-width: 40em) {
     display: none;
   }

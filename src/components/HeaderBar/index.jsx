@@ -13,7 +13,7 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  background-color: #8989c2;
+  background-color: ${(props) => props.theme.background};
   color: white;
 `;
 const index = () => {
