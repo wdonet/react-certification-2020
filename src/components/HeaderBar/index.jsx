@@ -16,11 +16,11 @@ const Nav = styled.nav`
   background-color: #8989c2;
   color: white;
 `;
-const index = () => {
+const index = ({ updateQuery }) => {
   return (
     <Nav>
       <MenuButton />
-      <SearchInput placeholder="wizeline" />
+      <SearchInput placeholder="wizeline" updateQuery={ updateQuery }/>
       <SwitchButton label="Dark Mode" />
       <Avatar />
     </Nav>
