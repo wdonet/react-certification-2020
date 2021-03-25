@@ -40,7 +40,7 @@ const Login = () => {
                         id="username" 
                         name="username"
                         data-testid="username-input"
-                        onChange={(username) => setUsername(username)}
+                        onChange={(uname) => setUsername(uname)}
                     />
                 </StyledSection>
                 <StyledSection>
@@ -50,7 +50,7 @@ const Login = () => {
                         name="password"
                         data-testid="password-input"
                         type="password"
-                        onChange={(password) => setPassword(password)}
+                        onChange={(pword) => setPassword(pword)}
                     />
                 </StyledSection>
                 <StyledSection>

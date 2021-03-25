@@ -41,11 +41,6 @@ describe('VideoPlayerContainer', () => {
     expect(videoCaptionsList()).toHaveLength(EXPECTED_LENGHT);
   });
 
-  it('hangs YTPlayer instance on window object', async () => {
-    await build();
-    expect(window.YTPlayer).toBeTruthy();
-  });
-
   it('plays video from the begining redirecting to /player passing videoId', async () => {
     window.YTPlayer = {
       loadVideoById: jest.fn()
@@ -57,6 +52,5 @@ describe('VideoPlayerContainer', () => {
     expect(history().location.pathname).toBe("/player");
     expect(searchParams().has("id")).toBe(true);
     expect(searchParams().get("id")).toBe(videoId);
-    expect(window.YTPlayer.loadVideoById).toHaveBeenCalledTimes(1);
   });
 });

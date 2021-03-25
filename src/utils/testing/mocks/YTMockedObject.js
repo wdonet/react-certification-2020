@@ -1,7 +1,6 @@
 const YTMockedObject = {
-  Player: function constructor() {
-    this.loadVideoById = jest.fn();
-  },
+  ready: jest.fn(),
+  Player: jest.fn(),
 };
 
 export default YTMockedObject;

@@ -7,7 +7,6 @@ import { createBrowserHistory } from 'history';
 import { Router } from 'react-router-dom';
 import { LayoutWrapper } from '../Layout';
 import { 
-  SET_CURRENT_VIDEO_PLAYBACK, 
   SET_IS_FIRST_LOAD, 
   SET_SESSION, 
   SET_VIDEOS_LIST, 
@@ -66,7 +65,6 @@ function App() {
       { ...getThemeConfig(), 
         search,
         videosList,
-        playVideoById: (id) => dispatch({type: SET_CURRENT_VIDEO_PLAYBACK, payload: id}),
         setUserSession: (data) => dispatch({type: SET_SESSION, payload: data}),
       }
     }>

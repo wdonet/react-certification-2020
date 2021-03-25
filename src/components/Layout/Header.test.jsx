@@ -2,7 +2,7 @@ import React from 'react';
 import 'jest-styled-components';
 import { getByRole, render, act } from '@testing-library/react';
 import AppContext from '../../providers/AppContext';
-import { contextWrapper, routerWrapper, youtubeMockedData } from '../../utils';
+import { contextWrapper, routerWrapper } from '../../utils';
 import { darkTheme, lightTheme } from '../../providers/themes';
 import Header from './Header';
 

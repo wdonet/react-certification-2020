@@ -11,7 +11,7 @@ const StyledPage404 = styled.div`
 const Page404 = () => {
     const { push } = useHistory();
     return (<StyledPage404>
-        Can't find the page you're looking for
+        Can&lsquo;t find the page you&lsquo;re looking for
         <Button onClick={ () => push({pathname:"/home"}) }>Regresar a home</Button>
     </StyledPage404>);
 }

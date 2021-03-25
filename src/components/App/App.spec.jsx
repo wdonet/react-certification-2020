@@ -9,8 +9,6 @@ import App from './index';
 global.gapi = googleMockedAPIObject();
 global.YT = YTMockedObject;
 
-const USER_SESSION_KEY = "user_session";
-
 const for400Miliseconds = () => new Promise((resolve) => {
   setTimeout(() => resolve(), 400)
 })

@@ -1,7 +1,6 @@
 import { appReducer } from './appReducer';
 import { userMockedData } from '../utils/';
 import {
-    SET_CURRENT_VIDEO_PLAYBACK,
     SET_IS_FIRST_LOAD,
     SET_VIDEOS_LIST,
     SWITCH_THEME,
@@ -18,17 +17,6 @@ const originalState = {
 };
 
 describe("app reducer", () => {
-    it('mutates `currentVideoId` only',() => {
-        const stateCopy = deepCopy(originalState);
-        const EXPECTED_ID = "nmXMgqjQzls";
-        const action = { type: SET_CURRENT_VIDEO_PLAYBACK, payload: EXPECTED_ID };
-        let objectResult = appReducer(stateCopy, action);
-
-        expect(objectResult.videosList).toEqual(originalState.videosList);
-        expect(objectResult.currentVideoId).toEqual(EXPECTED_ID);
-        expect(objectResult.isLightTheme).toEqual(originalState.isLightTheme);
-        expect(objectResult.isFirstLoad).toEqual(originalState.isFirstLoad);
-    });
 
     it('mutates `isFirstLoad` only',() => {
         const stateCopy = deepCopy(originalState);
