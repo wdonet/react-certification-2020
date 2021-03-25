@@ -31,11 +31,11 @@ const ContentDetails = ({ item, relatedItems }) => {
   const { authenticated } = useAuth();
   const { findFavoriteVideo, addFavoriteVideo, removeFavoriteVideo } = useCustom();
 
-  const isVideoInList = Boolean(findFavoriteVideo(item));
-  const isFavoritePage = location.pathname.includes('favorites');
-  const handleGoBack = isFavoritePage
-    ? () => history.push('/favorites')
-    : () => history.push('/');
+  const isVideoInList = Boolean(findFavoriteVideo(item.id.videoId));
+  const isFavoritePage = location.pathname.includes('favs');
+
+  const path = isFavoritePage ? 'favs' : '/';
+  const handleGoBack = () => history.push(path);
   const handleFavButton = isVideoInList
     ? () => removeFavoriteVideo(item)
     : () => addFavoriteVideo(item);

@@ -1,14 +1,18 @@
 import React from 'react';
 import { CardContent, CardActionArea } from '@material-ui/core';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import htmlParser from 'html-react-parser';
 
 import { StyledCard, StyledCardMedia, Title, Description } from './ContentCard.styles';
 
 const ContentCard = ({ item }) => {
   const history = useHistory();
+  const location = useLocation();
 
-  const handleOnClick = () => history.push(`/v/${item.id.videoId}`);
+  const isFavoritePage = location.pathname.includes('favs');
+  const path = isFavoritePage ? '/favs/' : '/v/';
+
+  const handleOnClick = () => history.push(`${path}${item.id.videoId}`);
 
   return (
     <StyledCard onClick={handleOnClick}>

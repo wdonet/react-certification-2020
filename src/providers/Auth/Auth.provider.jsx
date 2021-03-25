@@ -41,7 +41,7 @@ function AuthProvider({ children }) {
   );
 
   const logout = useCallback(() => {
-    storage.set(types.AUTH_USER, undefined);
+    window.localStorage.getItem(types.AUTH_USER);
     setCurrentUser(undefined);
     setAuthenticated(false);
   }, []);

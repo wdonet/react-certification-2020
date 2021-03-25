@@ -69,8 +69,8 @@ const CustomProvider = ({ children }) => {
     }
   };
 
-  const findFavoriteVideo = (video) =>
-    state.favoriteVideos.find(({ id: { videoId } }) => videoId === video.id.videoId);
+  const findFavoriteVideo = (videoId) =>
+    state.favoriteVideos.find((video) => videoId === video.id.videoId);
 
   const addFavoriteVideo = (video) => {
     const payload = [...state.favoriteVideos, video];

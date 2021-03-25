@@ -10,6 +10,7 @@ import HomePage from '../../pages/Home';
 import VideoPage from '../../pages/Video';
 import NotFound from '../../pages/NotFound';
 import FavoritePage from '../../pages/Favorite';
+import FavoriteVideoPage from '../../pages/FavoriteVideo';
 
 function App() {
   return (
@@ -25,9 +26,8 @@ function App() {
               <Route path="/v/:videoId">
                 <VideoPage />
               </Route>
-              <PrivateRoute exact path="/favorites">
-                <FavoritePage />
-              </PrivateRoute>
+              <PrivateRoute exact path="/favs" component={FavoritePage} />
+              <PrivateRoute path="/favs/:videoId" component={FavoriteVideoPage} />
               <Route component={NotFound} />
             </Switch>
           </Layout>

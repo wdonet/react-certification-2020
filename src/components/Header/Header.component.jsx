@@ -56,8 +56,7 @@ const Header = () => {
 
   const isMenuOpen = Boolean(anchorEl);
 
-  const handleGoBack = () => history.push('/');
-  const handleGoToFavorites = () => history.push('/favorites');
+  const handleGoTo = (path = '/') => () => history.push(path);
   const handleMenuOpen = (e) => setAnchorEl(e.currentTarget);
   const handleMenuClose = () => setAnchorEl(null);
   const toggleDrawer = (open) => (e) => {
@@ -107,14 +106,14 @@ const Header = () => {
               onClick={toggleDrawer(false)}
               onKeyDown={toggleDrawer(false)}
             >
-              <ListItem button onClick={handleGoBack}>
+              <ListItem button onClick={handleGoTo('/')}>
                 <ListItemIcon>
                   <HomeIcon />
                 </ListItemIcon>
                 <ListItemText primary="Home" />
               </ListItem>
               {authenticated && (
-                <ListItem button onClick={handleGoToFavorites}>
+                <ListItem button onClick={handleGoTo('/favs')}>
                   <ListItemIcon>
                     <FavoriteIcon />
                   </ListItemIcon>
