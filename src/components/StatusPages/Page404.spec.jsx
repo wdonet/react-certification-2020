@@ -29,8 +29,11 @@ describe('Page404', () => {
         const built = await build();
         const { firstChild } = built.container;
         expect(firstChild.textContent.includes("Can‘t find the page you‘re looking for")).toBe(true);
-        expect(firstChild).toHaveStyle('width: 100%');
-        expect(firstChild).toHaveStyle('height: 100%');
+        expect(firstChild).toHaveStyle('align-content: center');
+        expect(firstChild).toHaveStyle('justify-content: center');
+        expect(firstChild).toHaveStyle('display: grid');
+        expect(firstChild).toHaveStyle('width: 100vh');
+        expect(firstChild).toHaveStyle('height: 100vh');
     })
 
     it('redirects home', async () => {

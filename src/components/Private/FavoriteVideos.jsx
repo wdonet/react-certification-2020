@@ -1,8 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import VideoCardContainer from '../GenericComponents/VideoCardContainer';
 import styled from 'styled-components';
 import { useHistory } from 'react-router'
-import AppContext from '../../providers/AppContext';
 
 const StyledWarn = styled.div`
   padding: 4px;
@@ -14,22 +13,30 @@ const StyledWarn = styled.div`
   color: white;
 `;
 
-const HomeVideos = () => {
-  const { videosList } = useContext(AppContext);
-  const { push } = useHistory();
+const FAVORITES_KEY = "favorites";
+const getFavorites = () => {
+    const parsedFavorites = JSON.parse(window.localStorage.getItem(FAVORITES_KEY));
+    return parsedFavorites 
+        ? Object.keys(parsedFavorites).map( (key) => parsedFavorites[key] )
+        : [];
+};
 
-  const NoVideosNotice = <StyledWarn data-testid="no-videos-available">No hay videos :/</StyledWarn>; 
+const NoVideosNotice = <StyledWarn data-testid="no-favorites-available">You haven't any favorites :/</StyledWarn>; 
+
+const FavoriteVideos = () => {
+  const videosList = getFavorites();
+  const { push } = useHistory();
 
   return (<VideoCardContainer 
             videosList={videosList}
             noVideosNotice={NoVideosNotice} 
             onClick={
               (video) => push({
-                pathname: `/player`,
+                pathname: `/favoritesPlayer`,
                 search: `?id=${video.id.videoId}`,
                 state: video,
               })
             }/>);
 };
 
-export default HomeVideos;
+export default FavoriteVideos;

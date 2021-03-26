@@ -9,7 +9,6 @@ import AppContext from '../../providers/AppContext';
 global.YT = YTMockedObject;
 const EXPECTED_LENGHT = 3
 const contextValueVideosList = youtubeMockedData.items.slice(0, EXPECTED_LENGHT);
-
 const build = async (
   Component = <VideoPlayerContainer videosList={contextValueVideosList}/>, 
   currentVideoId = contextValueVideosList[0].id.videoId

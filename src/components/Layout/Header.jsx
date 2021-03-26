@@ -88,6 +88,10 @@ const Header = () => {
             border="0px"
             margin="4px"
             data-testid="sidebar-favorites"
+            onClick={() => {
+              push({pathname: "/favorites"});
+              dispatch({ type: SET_SIDEBAR_OPEN , payload: false });
+            }}
           >
             Favorites
           </Button>

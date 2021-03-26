@@ -164,6 +164,21 @@ describe('Header', () => {
     expect(sidebar()).not.toBeVisible();
   });
 
+  it('redirects to favorites when "Favorites" button is clicked closing sidebar', async () => {
+    const overridedContextValue = { userSession: userMockedData };
+    const built = await build(<Header/>, lightTheme, overridedContextValue);
+    const { hamburgerIcon, sidebar, sidebarButtons, history } = built;
+    
+    act(() => { fireEvent.click(hamburgerIcon()) } );
+
+    expect(sidebar()).toBeVisible();
+
+    act(() => { fireEvent.click(sidebarButtons()[2]) } );
+    
+    expect(history().location.pathname).toBe("/favorites");
+    expect(sidebar()).not.toBeVisible();
+  });
+
   it('logs user out redirecting to /', async () => {
     const mockedSetUserSession = jest.fn();
     const overridedContextValue = { userSession: userMockedData, setUserSession: mockedSetUserSession };
