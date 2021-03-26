@@ -4,7 +4,7 @@ import { lightTheme } from '../../providers/themes';
 import { act, getAllByTestId, render } from '@testing-library/react';
 import { YTMockedObject, contextWrapper, youtubeMockedData, routerWrapper } from '../../utils';
 import VideoPlayerContainer from './VideoPlayerContainer';
-import { fireEvent } from '@testing-library/dom';
+import { fireEvent, getByTestId } from '@testing-library/dom';
 import AppContext from '../../providers/AppContext';
 
 global.YT = YTMockedObject;
@@ -29,6 +29,7 @@ const build = async (
     container,
     history: () => routeWrap.history,
     searchParams: () => new URLSearchParams(routeWrap.history.location.search),
+    addFavoriteButton: () => getByTestId(container, "add-favorite"),
     videoCaptionsList: () => getAllByTestId(container, (id) => id.includes('small-caption-')),
   };
 };
@@ -50,4 +51,45 @@ describe('VideoPlayerContainer', () => {
     expect(searchParams().has("id")).toBe(true);
     expect(searchParams().get("id")).toBe(videoId);
   });
+
+  it('adds/removes to favorites and "Add favorite" / "Remove favorite" in button ', async () => {
+    const FAVORITES_KEY = "favorites";
+    const built = (await build());
+    const { addFavoriteButton } = built;
+    const savedVideo = contextValueVideosList[0];
+
+    expect(addFavoriteButton().textContent).toBe("Add favorite");
+
+    fireEvent.click(addFavoriteButton());
+
+    let favorites = window.localStorage.getItem(FAVORITES_KEY);
+    const parsedSavedVideo = JSON.parse(favorites)[savedVideo.id.videoId];
+    expect(Object.keys(JSON.parse(favorites))).toHaveLength(1);
+    expect(JSON.stringify(parsedSavedVideo)).toEqual(JSON.stringify(savedVideo));
+    expect(addFavoriteButton().textContent).toBe("Remove favorite");
+
+    fireEvent.click(addFavoriteButton());
+
+    favorites = window.localStorage.getItem(FAVORITES_KEY);
+    expect(Object.keys(JSON.parse(favorites))).toHaveLength(0);
+    expect(addFavoriteButton().textContent).toBe("Add favorite");
+  });
+
+  it('adds/removes video to existing in localStorage', async () => {
+    const FAVORITES_KEY = "favorites";
+    const firstVideo = contextValueVideosList[1];
+    window.localStorage.setItem(FAVORITES_KEY, JSON.stringify({[firstVideo.id.videoId]: firstVideo}));
+
+    const built = (await build());
+    const { addFavoriteButton } = built;
+    const savedVideo = contextValueVideosList[0];
+
+    fireEvent.click(addFavoriteButton());
+
+    let favorites = window.localStorage.getItem(FAVORITES_KEY);
+    const parsedSavedVideo = JSON.parse(favorites)[savedVideo.id.videoId];
+    expect(Object.keys(JSON.parse(favorites))).toHaveLength(2);
+    expect(JSON.stringify(parsedSavedVideo)).toEqual(JSON.stringify(savedVideo));
+  });
+
 });

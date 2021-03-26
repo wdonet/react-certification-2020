@@ -100,18 +100,27 @@ Object {
               />
             </div>
             <div
+              class="sc-VigVT lsdIp"
+            >
+              <span
+                style="color: red;"
+              />
+            </div>
+            <div
               class="sc-VigVT gRVnnS"
               display="flex"
             >
               <button
-                class="sc-iwsKbI eUpwXN"
+                class="sc-iwsKbI ffUqSO"
                 data-testid="login-button"
+                height="30px"
               >
                 Login
               </button>
               <button
-                class="sc-iwsKbI eUpwXN"
+                class="sc-iwsKbI ffUqSO"
                 data-testid="cancel-button"
+                height="30px"
               >
                 Cancel
               </button>
@@ -161,8 +170,10 @@ Object {
               data-testid="dropdown-content"
             >
               <button
-                class="sc-iwsKbI eUpwXN"
+                class="sc-iwsKbI djEUtr"
                 data-testid="menu-login-button"
+                height="30px"
+                width="100%"
               >
                 Login
               </button>

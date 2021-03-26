@@ -43,18 +43,27 @@ exports[`Login screen renders with default properties 1`] = `
     />
   </div>
   <div
+    class="sc-bxivhb dzcmIQ"
+  >
+    <span
+      style="color: red;"
+    />
+  </div>
+  <div
     class="sc-bxivhb ccxHxs"
     display="flex"
   >
     <button
-      class="sc-bwzfXH KKxBN"
+      class="sc-bwzfXH sWaNj"
       data-testid="login-button"
+      height="30px"
     >
       Login
     </button>
     <button
-      class="sc-bwzfXH KKxBN"
+      class="sc-bwzfXH sWaNj"
       data-testid="cancel-button"
+      height="30px"
     >
       Cancel
     </button>

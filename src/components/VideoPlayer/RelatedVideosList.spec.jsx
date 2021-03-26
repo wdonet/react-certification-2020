@@ -32,9 +32,13 @@ describe('RelatedVideosList', () => {
     const { videoCaptionsList, searchParams, history } = built;
     fireEvent.click(videoCaptionsList()[0].firstChild);
 
-    const { videoId } = youtubeMockedData.items[0].id;
+    const video = youtubeMockedData.items[0];
+    const { videoId } = video.id;
+    
     expect(history().location.pathname).toBe("/player");
+    expect(history().location.state).toBe(video);
     expect(searchParams().has("id")).toBe(true);
     expect(searchParams().get("id")).toBe(videoId);
+
   });
 });

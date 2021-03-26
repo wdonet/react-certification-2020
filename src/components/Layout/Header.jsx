@@ -116,6 +116,8 @@ const Header = () => {
         >
           <Button 
             data-testid="menu-login-button" 
+            width="100%" 
+            height="30px"
             onClick={() => dispatch({ type: SET_LOGIN_FORM_OPEN, payload: true })}
           >
               Login

@@ -18,6 +18,7 @@ const initialState = {
   currentVideoId: undefined,
   isLightTheme: true,
   isFirstLoad: true,
+  userSession: null
 };
 
 const history = createBrowserHistory();
@@ -26,7 +27,8 @@ function App() {
   const [{ 
     videosList, 
     isLightTheme, 
-    isFirstLoad }, 
+    isFirstLoad,
+    userSession}, 
     dispatch] = useReducer(appReducer, initialState);
 
   const getThemeConfig = () => ({
@@ -64,6 +66,7 @@ function App() {
       { ...getThemeConfig(), 
         search,
         videosList,
+        userSession,
         setUserSession: (data) => dispatch({type: SET_SESSION, payload: data}),
       }
     }>

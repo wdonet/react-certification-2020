@@ -15,6 +15,7 @@ const build = async (Component = <Login/>, theme = lightTheme) => {
         routeWrap = await routerWrapper(wrappedContext);
         container = render(routeWrap.wrap).container;
     });
+    routeWrap.history.push("/");
     return { 
         container,
         history: () => routeWrap.history,
@@ -48,11 +49,14 @@ describe('Login screen', () => {
         expect(loginButton()).toBeDefined();
     });
 
-    it('redirects to home on successful login', async () => {
+    it('redirects to home on successful login clearing and closing form', async () => {
         const REAL_USERNAME = "wizeline";
         const REAL_PASSWORD = "Rocks!";
-        const built = await build();
+        const BAD_INPUT = 'Username or password invalid';
+        const mockedOnCloseFunction = jest.fn();
+        const built = await build(<Login onCancel={mockedOnCloseFunction}/>);
         const { 
+            container,
             usernameInput, 
             passwordInput, 
             loginButton, 
@@ -64,8 +68,36 @@ describe('Login screen', () => {
         await act(async () => {
             fireEvent.click(loginButton());
         })
+        expect(usernameInput().value).toBe("");
+        expect(passwordInput().value).toBe("");
+        expect(container.firstChild).not.toHaveTextContent(BAD_INPUT);
         expect(history().location.pathname).toBe("/home");
+        expect(mockedOnCloseFunction).toHaveBeenCalledTimes(1);
+    });
 
+    it('clears form and displays "Username or password invalid" legend on wrong input', async () => {
+        const BAD_USERNAME = 'wize';
+        const BAD_PASSWORD = 'rock';
+        const BAD_INPUT = 'Username or password invalid';
+        const mockedOnCloseFunction = jest.fn();
+        const built = await build(<Login onCancel={mockedOnCloseFunction}/>);
+        const { 
+            container,
+            usernameInput, 
+            passwordInput, 
+            loginButton, 
+            history 
+        } = built;
+
+        fireEvent.change(usernameInput(), { target: { value: BAD_USERNAME } });
+        fireEvent.change(passwordInput(), { target: { value: BAD_PASSWORD } });
+        await act(async () => { fireEvent.click(loginButton()); });
+
+        expect(container.firstChild).toHaveTextContent(BAD_INPUT);
+        expect(usernameInput().value).toBe("");
+        expect(passwordInput().value).toBe("");
+        expect(history().location.pathname).toBe("/");
+        expect(mockedOnCloseFunction).not.toHaveBeenCalled();
     });
 
     it('executes "onCancel" function passed as argument', async () => {

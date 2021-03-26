@@ -27,12 +27,27 @@ const Login = (props) => {
     const { theme, setUserSession } = useContext(AppContext);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState(null);
     const { onCancel } = props;
 
+    const cleanUp = () => {
+        document.getElementById("username").value = "";
+        document.getElementById("password").value = "";
+        setError("");
+    }
+
     const loginAttempt = async () => {
-        const response = await loginService(username, password);
-        setUserSession(response);
-        push({ pathname: "/home" });
+        try{
+            setError(null);
+            const response = await loginService(username, password);
+            cleanUp();
+            setUserSession(response);
+            push({ pathname: "/home" });
+            onCancel && onCancel();
+        }catch(error){
+            cleanUp();
+            setError(error.message);
+        }
     }
 
     return (<StyledLogin role="form" theme={theme} data-testid="login-form">
@@ -56,16 +71,23 @@ const Login = (props) => {
                         onChange={(pword) => setPassword(pword)}
                     />
                 </StyledSection>
+                <StyledSection>
+                <span style={{color:'red'}}>{ error }</span>
+                </StyledSection>
                 <StyledSection display="flex">
                     <Button 
                         data-testid="login-button"
                         onClick={loginAttempt}
+                        margin="4px"
+                        height="30px"
                     >
                         Login
                     </Button>
                     <Button 
                         data-testid="cancel-button"
                         onClick={() => onCancel && onCancel()}
+                        margin="4px"
+                        height="30px"
                     >
                         Cancel
                     </Button>

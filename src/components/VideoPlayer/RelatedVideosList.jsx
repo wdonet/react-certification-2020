@@ -23,7 +23,8 @@ const RelatedVideosList = () => {
               video={video}
               onClick={() => push({
                 pathname: `/player`,
-                search: `?id=${video.id.videoId}`
+                search: `?id=${video.id.videoId}`,
+                state: video
               }) }
             />
           </div>
