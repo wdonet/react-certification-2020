@@ -41,7 +41,12 @@ const initialState = {
 const Header = () => {
   const ref = useRef(null);
   const { push } = useHistory();
-  const { search, switchTheme, theme } = useContext(AppContext);
+  const { 
+    search, 
+    userSession,
+    setUserSession,
+    switchTheme, 
+    theme, } = useContext(AppContext);
   const [{
       sidebarOpen,
       avatarMenuOpen,
@@ -55,6 +60,7 @@ const Header = () => {
 
   return (
     <StyledHeader role="toolbar" data-testid="header" theme={theme}>
+      
       <Overlay show={sidebarOpen}>
         <Sidebar 
           title="Welcome" 
@@ -66,11 +72,16 @@ const Header = () => {
           border="0px"
           margin="4px"
           data-testid="sidebar-home"
-          onClick={() => push({pathname: "/home"})}
+          onClick={() => {
+            push({pathname: "/home"});
+            dispatch({ type: SET_SIDEBAR_OPEN , payload: false });
+          }}
         >
           Home
         </Button>
-        <Button 
+        {
+          userSession && 
+          <Button 
             width="calc( 100% - 8px )" 
             height="30px"
             border="0px"
@@ -79,11 +90,14 @@ const Header = () => {
           >
             Favorites
           </Button>
+        }
         </Sidebar>
       </Overlay>
+
       <Overlay show={loginFormOpen}>
         <Login onCancel={() => dispatch({ type: SET_LOGIN_FORM_OPEN, payload: false })}/>
       </Overlay>
+
       <StyledSection>
         <IconWrapper 
           role="button" 
@@ -100,6 +114,7 @@ const Header = () => {
           }
         />
       </StyledSection>
+
       <StyledSection>
         <Switch onClick={switchTheme} data-testid="theme-mode-switch"/>
         <Menu
@@ -109,21 +124,36 @@ const Header = () => {
           menuButton={<Avatar 
             role="button" 
             alt="profile" 
-            src={defaultUser}
+            src={ userSession?.avatarUrl || defaultUser }
             data-testid="user-avatar"
             onClick={() => dispatch({ type: SET_AVATAR_MENU_OPEN, payload: true })}
           />}
         >
-          <Button 
-            data-testid="menu-login-button" 
-            width="100%" 
-            height="30px"
-            onClick={() => dispatch({ type: SET_LOGIN_FORM_OPEN, payload: true })}
-          >
-              Login
-          </Button>
+          {
+            userSession ? 
+            <Button 
+              data-testid="menu-logout-button" 
+              width="100%" 
+              height="30px"
+              onClick={() => {
+                setUserSession(null);
+                push({ pathname: "/" });
+              }}
+            >
+                Logout
+            </Button>:
+            <Button 
+              data-testid="menu-login-button" 
+              width="100%" 
+              height="30px"
+              onClick={() => dispatch({ type: SET_LOGIN_FORM_OPEN, payload: true })}
+            >
+                Login
+            </Button>
+          }
         </Menu>
       </StyledSection>
+
     </StyledHeader>
   );
 };

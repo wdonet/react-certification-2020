@@ -36,14 +36,6 @@ exports[`Header renders 1`] = `
           >
             Home
           </button>
-          <button
-            class="sc-iwsKbI dHHiSG"
-            data-testid="sidebar-favorites"
-            height="30px"
-            width="calc( 100% - 8px )"
-          >
-            Favorites
-          </button>
         </div>
       </div>
     </div>

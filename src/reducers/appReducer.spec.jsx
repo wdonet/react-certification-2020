@@ -71,7 +71,7 @@ describe("app reducer", () => {
         expect(objectResult.currentVideoId).toEqual(objectResult.currentVideoId);
         expect(objectResult.isLightTheme).toEqual(originalState.isLightTheme);
         expect(objectResult.isFirstLoad).toEqual(originalState.isFirstLoad);
-        expect(objectResult.userSession).toEqual(JSON.stringify(EXPECTED_SESSION_DATA));
+        expect(objectResult.userSession).toEqual(EXPECTED_SESSION_DATA);
         expect(window.sessionStorage.getItem(USER_SESSION_KEY)).toBe(JSON.stringify(EXPECTED_SESSION_DATA));
     });
 });

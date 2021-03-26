@@ -13,12 +13,14 @@ import {
   SWITCH_THEME 
 } from '../../reducers/actionTypes';
 import Content from './Content';
+
+const USER_SESSION_KEY = "user_session";
 const initialState = {
   videosList: [],
   currentVideoId: undefined,
   isLightTheme: true,
   isFirstLoad: true,
-  userSession: null
+  userSession: window.sessionStorage.getItem(USER_SESSION_KEY),
 };
 
 const history = createBrowserHistory();
