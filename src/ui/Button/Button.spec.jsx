@@ -45,5 +45,13 @@ describe('Button', () => {
         fireEvent.click(firstChild);
         expect(mockedFunction).toHaveBeenCalledTimes(1);
     });
-    
+
+    it('has extra custom styles passed', () => {
+        const Component = <Button border="0px" width="100px" height="100px" margin="4px"/>;
+        const { firstChild } = build(Component).container;
+        expect(firstChild).toHaveStyle('border: 0px');
+        expect(firstChild).toHaveStyle('width: 100px');
+        expect(firstChild).toHaveStyle('height: 100px');
+        expect(firstChild).toHaveStyle('margin: 4px');
+    });    
 })

@@ -1,12 +1,19 @@
-import React, { useContext, useRef, useState } from 'react';
+import React, { useContext, useReducer, useRef } from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router';
 import { TextField, IconWrapper, Avatar, Switch, Overlay, Button } from '../../ui';
-import hamburger from '../../assets/icons/hamburguer.png';
+import { headerReducer } from '../../reducers/headerReducer';
+import { 
+  SET_SIDEBAR_OPEN, 
+  SET_AVATAR_MENU_OPEN, 
+  SET_LOGIN_FORM_OPEN, 
+} from '../../reducers/actionTypes';
+import hamburger from '../../assets/icons/hamburguer_icon.jpeg';
 import defaultUser from '../../assets/icons/default_user.jpg';
 import AppContext from '../../providers/AppContext';
 import Login from '../Login/Login';
 import Menu from '../../ui/Menu/Menu';
+import Sidebar from './Sidebar';
 
 const StyledHeader = styled.div`
   display: flex;
@@ -25,12 +32,21 @@ const StyledSection = styled.div`
   align-items: center;
 `;
 
+const initialState = {
+  sidebarOpen: false,
+  avatarMenuOpen: false,
+  loginFormOpen: false,
+};
+
 const Header = () => {
-  const { search, switchTheme, theme } = useContext(AppContext);
-  const [isAvatarMenuOpen, setIsAvatarMenuOpen] = useState(false);
-  const [isLoginFormOpen, setIsLoginFormOpen] = useState(false);
   const ref = useRef(null);
   const { push } = useHistory();
+  const { search, switchTheme, theme } = useContext(AppContext);
+  const [{
+      sidebarOpen,
+      avatarMenuOpen,
+      loginFormOpen,
+    }, dispatch] = useReducer(headerReducer, initialState);
 
   const setHomeVideosViewAndSearch = (query) => {
     search(query);
@@ -39,11 +55,42 @@ const Header = () => {
 
   return (
     <StyledHeader role="toolbar" data-testid="header" theme={theme}>
-      <Overlay show={isLoginFormOpen}>
-        <Login onCancel={() => setIsLoginFormOpen(false)}/>
+      <Overlay show={sidebarOpen}>
+        <Sidebar 
+          title="Welcome" 
+          onClose={() => dispatch({ type: SET_SIDEBAR_OPEN , payload: false })}
+        >
+        <Button 
+          width="calc( 100% - 8px )" 
+          height="30px"
+          border="0px"
+          margin="4px"
+          data-testid="sidebar-home"
+          onClick={() => push({pathname: "/home"})}
+        >
+          Home
+        </Button>
+        <Button 
+            width="calc( 100% - 8px )" 
+            height="30px"
+            border="0px"
+            margin="4px"
+            data-testid="sidebar-favorites"
+          >
+            Favorites
+          </Button>
+        </Sidebar>
+      </Overlay>
+      <Overlay show={loginFormOpen}>
+        <Login onCancel={() => dispatch({ type: SET_LOGIN_FORM_OPEN, payload: false })}/>
       </Overlay>
       <StyledSection>
-        <IconWrapper role="button" src={hamburger} alt="hamburguer" />
+        <IconWrapper 
+          role="button" 
+          src={hamburger} 
+          alt="hamburguer"
+          onClick={() => dispatch({ type: SET_SIDEBAR_OPEN, payload: true })}
+        />
         <TextField
           role="search"
           ref={ref}
@@ -56,22 +103,22 @@ const Header = () => {
       <StyledSection>
         <Switch onClick={switchTheme} data-testid="theme-mode-switch"/>
         <Menu
-          show={isAvatarMenuOpen}
+          show={avatarMenuOpen}
           right="4px"
-          onClose={() => setIsAvatarMenuOpen(false)}
+          onClose={() => dispatch({ type: SET_AVATAR_MENU_OPEN, payload: false })}
           menuButton={<Avatar 
             role="button" 
             alt="profile" 
             src={defaultUser}
             data-testid="user-avatar"
-            onClick={() => setIsAvatarMenuOpen(true)}
+            onClick={() => dispatch({ type: SET_AVATAR_MENU_OPEN, payload: true })}
           />}
         >
           <Button 
             data-testid="menu-login-button" 
-            onClick={()=> setIsLoginFormOpen(true)}
+            onClick={() => dispatch({ type: SET_LOGIN_FORM_OPEN, payload: true })}
           >
-              Iniciar sesion
+              Login
           </Button>
         </Menu>
       </StyledSection>

@@ -5,7 +5,7 @@ exports[`IconWrapper renders 1`] = `
   <img
     alt="ok"
     class="sc-bdVaJa eGfAyK"
-    src="hamburguer.png"
+    src="hamburguer_icon.jpeg"
   />
 </div>
 `;

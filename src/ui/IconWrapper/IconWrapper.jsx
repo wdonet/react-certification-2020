@@ -10,7 +10,7 @@ const StyledIconWrapper = styled.img`
 `;
 
 const IconWrapper = (props) => {
-  return (<StyledIconWrapper {...props} />);
+  return <StyledIconWrapper {...props} />;
 };
 
 export default IconWrapper;

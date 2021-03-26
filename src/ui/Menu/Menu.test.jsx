@@ -24,11 +24,11 @@ describe('Menu', () => {
         expect(firstChild).toHaveStyle("position: relative");
         expect(firstChild).toHaveStyle("display: inline-block");
 
-        expect(dropdownContent()).toHaveStyle('display: none;');
-        expect(dropdownContent()).toHaveStyle('position: absolute;');
-        expect(dropdownContent()).toHaveStyle('min-width: auto;');
-        expect(dropdownContent()).toHaveStyle('padding: 4px;');
-        expect(dropdownContent()).toHaveStyle('border-radius: 4px;');
-        expect(dropdownContent()).toHaveStyle('z-index: 1;');
+        expect(dropdownContent()).toHaveStyle('display: none');
+        expect(dropdownContent()).toHaveStyle('position: absolute');
+        expect(dropdownContent()).toHaveStyle('width: max-content');
+        expect(dropdownContent()).toHaveStyle('padding: 4px');
+        expect(dropdownContent()).toHaveStyle('border-radius: 4px');
+        expect(dropdownContent()).toHaveStyle('z-index: 1');
     });
 });

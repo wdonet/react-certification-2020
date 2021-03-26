@@ -2,7 +2,7 @@ import React from 'react';
 import 'jest-styled-components';
 import { render } from '@testing-library/react';
 import IconWrapper from './IconWrapper';
-import hamburger from '../../assets/icons/hamburguer.png';
+import hamburgerIcon from '../../assets/icons/hamburguer_icon.jpeg';
 
 const build = (Component = <IconWrapper />) => {
   const { container } = render(Component);
@@ -11,7 +11,7 @@ const build = (Component = <IconWrapper />) => {
 
 describe('IconWrapper', () => {
   it('renders', () => {
-    const { container } = build(<IconWrapper src={hamburger} alt="ok" />);
+    const { container } = build(<IconWrapper src={hamburgerIcon} alt="ok" />);
     expect(container).toMatchSnapshot();
   });
 });

@@ -1,9 +1,7 @@
 describe('Test TO-DO', () => {
-  it.todo('shows small menu with "Iniciar sesión" in header UserAvatar when no session is set');
   it.todo('shows small menu with "Cerrar sesión" in header UserAvatar when session is set');
   it.todo('shows user image in UserAvatar after session is set');
 
-  it.todo('Shows Login form in App when user "Iniciar sesion" button is clicked');
   it.todo('Displays favorites section button after login button is set');
   
   it.todo('shows user image in UserAvatar after session is set');

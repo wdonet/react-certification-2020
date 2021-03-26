@@ -10,7 +10,7 @@ const StyledMenu = styled.div`
 const StyledDropdownContent = styled.div`
     display: ${ ({show}) => show ? 'block' : 'none' };
     position: absolute;
-    min-width: auto;
+    width: max-content;
     padding:4px;
     border-radius: 4px;
     z-index: 1;

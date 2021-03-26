@@ -7,6 +7,7 @@ import Button from "../../ui/Button/Button";
 import { useHistory } from "react-router";
 
 const StyledLogin = styled.div`
+    border-radius: 8px;
     padding: 4px;
     margin: 4px;
     height: min-content;
@@ -35,9 +36,9 @@ const Login = (props) => {
     }
 
     return (<StyledLogin role="form" theme={theme} data-testid="login-form">
-                <StyledSection>Inicia sesión!</StyledSection>
+                <StyledSection>Login!</StyledSection>
                 <StyledSection>
-                    <label htmlFor="username">Usuario</label>
+                    <label htmlFor="username">User</label>
                     <TextField 
                         id="username" 
                         name="username"
@@ -46,7 +47,7 @@ const Login = (props) => {
                     />
                 </StyledSection>
                 <StyledSection>
-                    <label htmlFor="password">Contraseña</label>
+                    <label htmlFor="password">Password</label>
                     <TextField 
                         id="password" 
                         name="password"
@@ -60,13 +61,13 @@ const Login = (props) => {
                         data-testid="login-button"
                         onClick={loginAttempt}
                     >
-                        Ingresar
+                        Login
                     </Button>
                     <Button 
                         data-testid="cancel-button"
                         onClick={() => onCancel && onCancel()}
                     >
-                        Cancelar
+                        Cancel
                     </Button>
                 </StyledSection>
             </StyledLogin>);

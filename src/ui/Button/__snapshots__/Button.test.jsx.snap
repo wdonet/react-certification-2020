@@ -3,7 +3,7 @@
 exports[`Button renders 1`] = `
 <div>
   <button
-    class="sc-bdVaJa eEqQQu"
+    class="sc-bdVaJa dKWesP"
   />
 </div>
 `;

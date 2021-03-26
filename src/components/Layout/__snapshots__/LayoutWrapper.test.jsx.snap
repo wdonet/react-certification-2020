@@ -6,12 +6,12 @@ Object {
   "HomeView": [Function],
   "container": <div>
     <div
-      class="sc-chPdSV hXYMvp"
+      class="sc-kpOJdX cseeBf"
       data-testid="layout-wrapper"
       role="application"
     >
       <div
-        class="sc-jzJRlG dcdMOk"
+        class="sc-chPdSV bcCQhf"
         data-testid="header"
         role="toolbar"
       >
@@ -19,14 +19,54 @@ Object {
           class="sc-gZMcBi dqmLfP"
         >
           <div
-            class="sc-gqjmRU iBEVdZ"
+            class="sc-jzJRlG lfkGpG"
+            data-testid="sidebar"
+          >
+            <div
+              class="sc-cSHVUG cTUJGP"
+            >
+              Welcome
+              <img
+                alt="close"
+                class="sc-gzVnrw iCjpdg"
+                role="button"
+                src="close_icon.png"
+              />
+            </div>
+            <div
+              class="sc-kAzzGY dLFxrJ"
+            >
+              <button
+                class="sc-iwsKbI dHHiSG"
+                data-testid="sidebar-home"
+                height="30px"
+                width="calc( 100% - 8px )"
+              >
+                Home
+              </button>
+              <button
+                class="sc-iwsKbI dHHiSG"
+                data-testid="sidebar-favorites"
+                height="30px"
+                width="calc( 100% - 8px )"
+              >
+                Favorites
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="sc-gZMcBi dqmLfP"
+        >
+          <div
+            class="sc-gqjmRU fsrssQ"
             data-testid="login-form"
             role="form"
           >
             <div
               class="sc-VigVT lsdIp"
             >
-              Inicia sesión!
+              Login!
             </div>
             <div
               class="sc-VigVT lsdIp"
@@ -34,7 +74,7 @@ Object {
               <label
                 for="username"
               >
-                Usuario
+                User
               </label>
               <input
                 class="sc-dnqmqq eMiNCI"
@@ -49,7 +89,7 @@ Object {
               <label
                 for="password"
               >
-                Contraseña
+                Password
               </label>
               <input
                 class="sc-dnqmqq eMiNCI"
@@ -64,28 +104,28 @@ Object {
               display="flex"
             >
               <button
-                class="sc-iwsKbI hbArTD"
+                class="sc-iwsKbI eUpwXN"
                 data-testid="login-button"
               >
-                Ingresar
+                Login
               </button>
               <button
-                class="sc-iwsKbI hbArTD"
+                class="sc-iwsKbI eUpwXN"
                 data-testid="cancel-button"
               >
-                Cancelar
+                Cancel
               </button>
             </div>
           </div>
         </div>
         <div
-          class="sc-cSHVUG hDNPdi"
+          class="sc-kgoBCf sZeiO"
         >
           <img
             alt="hamburguer"
             class="sc-gzVnrw iCjpdg"
             role="button"
-            src="hamburguer.png"
+            src="hamburguer_icon.jpeg"
           />
           <input
             class="sc-dnqmqq eMiNCI"
@@ -94,7 +134,7 @@ Object {
           />
         </div>
         <div
-          class="sc-cSHVUG hDNPdi"
+          class="sc-kgoBCf sZeiO"
         >
           <input
             class="sc-htoDjs bZzhDu"
@@ -117,21 +157,21 @@ Object {
               />
             </div>
             <div
-              class="sc-fjdhpX fkpVGG"
+              class="sc-fjdhpX gixdjM"
               data-testid="dropdown-content"
             >
               <button
-                class="sc-iwsKbI hbArTD"
+                class="sc-iwsKbI eUpwXN"
                 data-testid="menu-login-button"
               >
-                Iniciar sesion
+                Login
               </button>
             </div>
           </div>
         </div>
       </div>
       <div
-        class="sc-kAzzGY fHojKL"
+        class="sc-kGXeez cYLHhW"
         data-testid="main-content"
         role="main"
       />

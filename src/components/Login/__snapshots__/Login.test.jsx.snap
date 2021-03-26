@@ -2,14 +2,14 @@
 
 exports[`Login screen renders with default properties 1`] = `
 <div
-  class="sc-htpNat eiVhmM"
+  class="sc-htpNat flGpdU"
   data-testid="login-form"
   role="form"
 >
   <div
     class="sc-bxivhb dzcmIQ"
   >
-    Inicia sesión!
+    Login!
   </div>
   <div
     class="sc-bxivhb dzcmIQ"
@@ -17,7 +17,7 @@ exports[`Login screen renders with default properties 1`] = `
     <label
       for="username"
     >
-      Usuario
+      User
     </label>
     <input
       class="sc-bdVaJa fkGYjX"
@@ -32,7 +32,7 @@ exports[`Login screen renders with default properties 1`] = `
     <label
       for="password"
     >
-      Contraseña
+      Password
     </label>
     <input
       class="sc-bdVaJa fkGYjX"
@@ -47,16 +47,16 @@ exports[`Login screen renders with default properties 1`] = `
     display="flex"
   >
     <button
-      class="sc-bwzfXH mRSDS"
+      class="sc-bwzfXH KKxBN"
       data-testid="login-button"
     >
-      Ingresar
+      Login
     </button>
     <button
-      class="sc-bwzfXH mRSDS"
+      class="sc-bwzfXH KKxBN"
       data-testid="cancel-button"
     >
-      Cancelar
+      Cancel
     </button>
   </div>
 </div>
