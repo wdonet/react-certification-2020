@@ -74,4 +74,18 @@ describe("app reducer", () => {
         expect(objectResult.userSession).toEqual(EXPECTED_SESSION_DATA);
         expect(window.sessionStorage.getItem(USER_SESSION_KEY)).toBe(JSON.stringify(EXPECTED_SESSION_DATA));
     });
+
+    it('clears `sessionData` when passing "null"',() => {
+        const stateCopy = deepCopy(originalState);
+        const EXPECTED_SESSION_DATA = null;
+        const action = { type: SET_SESSION, payload: EXPECTED_SESSION_DATA };
+        let objectResult = appReducer(stateCopy, action);
+
+        expect(objectResult.videosList).toEqual(originalState.videosList);
+        expect(objectResult.currentVideoId).toEqual(objectResult.currentVideoId);
+        expect(objectResult.isLightTheme).toEqual(originalState.isLightTheme);
+        expect(objectResult.isFirstLoad).toEqual(originalState.isFirstLoad);
+        expect(objectResult.userSession).toEqual(EXPECTED_SESSION_DATA);
+        expect(window.sessionStorage.getItem(USER_SESSION_KEY)).toBe(null);
+    });
 });

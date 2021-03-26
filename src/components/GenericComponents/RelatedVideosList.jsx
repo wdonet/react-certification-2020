@@ -8,7 +8,7 @@ const StyledVideoList = styled.div`
   width: 40%;
 `;
 
-const RelatedVideosList = ({ videosList, onCaptionClick }) => {
+const RelatedVideosList = ({ videosList, onCaptionClick, addRemoveFavorite }) => {
   return (
     <StyledVideoList id="related-videos-list">
       {videosList.map((video) => {
@@ -18,6 +18,7 @@ const RelatedVideosList = ({ videosList, onCaptionClick }) => {
             <SmallVideoCard
               video={video}
               onClick={() => onCaptionClick && onCaptionClick(video)}
+              onFavorite={(video, callback) => addRemoveFavorite(video, callback)}
             />
           </div>
         );

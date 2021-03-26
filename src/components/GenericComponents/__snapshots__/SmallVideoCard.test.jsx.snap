@@ -2,16 +2,26 @@
 
 exports[`SmallVideoCard shows video info 1`] = `
 <div
-  class="sc-bdVaJa jtJdRr"
+  class="sc-gqjmRU gWskoB"
 >
   <img
     alt="Video Tour | Welcome to Wizeline Guadalajara"
     src="https://i.ytimg.com/vi/nmXMgqjQzls/default.jpg"
   />
   <div
-    class="sc-bwzfXH kuXOth"
+    class="sc-jTzLTM dCsEsz"
   >
-    Follow Hector Padilla, Wizeline Director of Engineering, for a lively tour of our office. In 2018, Wizeline opened its stunning new office in Guadalajara, Jalisco, ...
+    <div
+      class="sc-VigVT dPTAIb"
+    >
+      Follow Hector Padilla, Wizeline Director of Engineering, for a lively tour of our office. In 2018, Wizeline opened its stunning new office in Guadalajara, Jalisco, ...
+    </div>
+    <button
+      class="sc-iwsKbI eUpwXN"
+      data-testid="caption-add-favorite"
+    >
+      Add favorite
+    </button>
   </div>
 </div>
 `;

@@ -5,7 +5,7 @@ import { lightTheme } from '../../providers/themes';
 import { contextWrapper, youtubeMockedData, YTMockedObject } from '../../utils/'
 import AppContext from '../../providers/AppContext';
 import RelatedVideosList from './RelatedVideosList';
-import { getAllByTestId } from '@testing-library/dom';
+import { getAllByTestId, getByTestId } from '@testing-library/dom';
 
 global.YT = YTMockedObject;
 
@@ -26,7 +26,10 @@ describe('RelatedVideosList', () => {
   it('triggers onCaptionClick function ', async () => {
     const mockedFunction = jest.fn();
     const video = youtubeMockedData.items[0];
-    const built = await build(<RelatedVideosList videosList={youtubeMockedData.items} onCaptionClick={mockedFunction}/>);
+    const built = await build(<RelatedVideosList 
+                                videosList={youtubeMockedData.items} 
+                                onCaptionClick={mockedFunction}
+                              />);
 
     const { videoCaptionsList } = built;
 

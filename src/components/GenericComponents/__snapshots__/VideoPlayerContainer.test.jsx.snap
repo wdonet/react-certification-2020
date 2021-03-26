@@ -2,17 +2,17 @@
 
 exports[`VideoPlayerContainer shows div for iframe load 1`] = `
 <div
-  class="sc-fjdhpX fdxDzp"
+  class="sc-jzJRlG dPOBZH"
   id="video-player-container"
 >
   <div
-    class="sc-cSHVUG gWXzLn"
+    class="sc-kAzzGY jhRLeD"
   >
     <div
       id="player"
     />
     <div
-      class="sc-jzJRlG bNIedh"
+      class="sc-cSHVUG jTEtdD"
     >
       <button
         class="sc-iwsKbI ekEwku"
@@ -25,7 +25,7 @@ exports[`VideoPlayerContainer shows div for iframe load 1`] = `
     </div>
   </div>
   <div
-    class="sc-jTzLTM cGnazy"
+    class="sc-fjdhpX cjBnfF"
     id="related-videos-list"
   >
     <div
@@ -39,9 +39,19 @@ exports[`VideoPlayerContainer shows div for iframe load 1`] = `
           src="https://i.ytimg.com/vi/nmXMgqjQzls/default.jpg"
         />
         <div
-          class="sc-VigVT jCAIQR"
+          class="sc-jTzLTM dCsEsz"
         >
-          Follow Hector Padilla, Wizeline Director of Engineering, for a lively tour of our office. In 2018, Wizeline opened its stunning new office in Guadalajara, Jalisco, ...
+          <div
+            class="sc-VigVT dPTAIb"
+          >
+            Follow Hector Padilla, Wizeline Director of Engineering, for a lively tour of our office. In 2018, Wizeline opened its stunning new office in Guadalajara, Jalisco, ...
+          </div>
+          <button
+            class="sc-iwsKbI eUpwXN"
+            data-testid="caption-add-favorite"
+          >
+            Add favorite
+          </button>
         </div>
       </div>
     </div>
@@ -56,9 +66,19 @@ exports[`VideoPlayerContainer shows div for iframe load 1`] = `
           src="https://i.ytimg.com/vi/HYyRZiwBWc8/default.jpg"
         />
         <div
-          class="sc-VigVT jCAIQR"
+          class="sc-jTzLTM dCsEsz"
         >
-          Wizeline continues to offer a Silicon Valley culture in burgeoning innovation hubs like Mexico and Vietnam. In 2018, our Guadalajara team moved into a ...
+          <div
+            class="sc-VigVT dPTAIb"
+          >
+            Wizeline continues to offer a Silicon Valley culture in burgeoning innovation hubs like Mexico and Vietnam. In 2018, our Guadalajara team moved into a ...
+          </div>
+          <button
+            class="sc-iwsKbI eUpwXN"
+            data-testid="caption-add-favorite"
+          >
+            Add favorite
+          </button>
         </div>
       </div>
     </div>
@@ -73,9 +93,19 @@ exports[`VideoPlayerContainer shows div for iframe load 1`] = `
           src="https://i.ytimg.com/vi/Po3VwR_NNGk/default.jpg"
         />
         <div
-          class="sc-VigVT jCAIQR"
+          class="sc-jTzLTM dCsEsz"
         >
-          En el 2014, Bismarck fundó Wizeline, compañía tecnológica que trabaja con los corporativos ofreciendo una plataforma para que desarrollen software de forma ...
+          <div
+            class="sc-VigVT dPTAIb"
+          >
+            En el 2014, Bismarck fundó Wizeline, compañía tecnológica que trabaja con los corporativos ofreciendo una plataforma para que desarrollen software de forma ...
+          </div>
+          <button
+            class="sc-iwsKbI eUpwXN"
+            data-testid="caption-add-favorite"
+          >
+            Add favorite
+          </button>
         </div>
       </div>
     </div>

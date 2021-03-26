@@ -22,10 +22,15 @@ describe('Generic video container', () => {
         expect(videoCards()).toHaveLength(youtubeMockedData.items.length);
     });
 
-    it('shows "No videos" notice passed as prop', () => {
-        const NoVideos = () => <div>No videos</div>;
+    it('shows "Custom message" notice passed as prop', () => {
+        const NoVideos = () => <div>Custom message</div>;
         const { firstChild } = build(<VideoCardContainer noVideosNotice={<NoVideos/>}/>).container;
-        expect(firstChild).toHaveTextContent("No videos");
+        expect(firstChild).toHaveTextContent("Custom message");
+    });
+
+    it('shows "No videos available" when no notice passed', () => {
+        const { firstChild } = build(<VideoCardContainer />).container;
+        expect(firstChild).toHaveTextContent("No videos available");
     });
 
     it('triggers "onClick" function passed as prop returning video info', () =>{

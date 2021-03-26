@@ -20,7 +20,7 @@ describe('SmallVideoCard', () => {
     const mockedFunction = jest.fn();
     const { snippet } = youtubeMockedData.items[0];
     const { firstChild } = build(
-      <SmallVideoCard video={{ snippet }} onClick={mockedFunction} />
+      <SmallVideoCard video={youtubeMockedData.items[0]} onClick={mockedFunction} />
     ).container;
 
     fireEvent.click(firstChild);

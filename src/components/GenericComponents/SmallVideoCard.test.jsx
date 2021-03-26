@@ -49,8 +49,9 @@ describe('SmallVideoCard', () => {
   });
 
   it('shows video info', () => {
-    const { snippet } = youtubeMockedData.items[0];
-    const { container } = build(<SmallVideoCard video={{ snippet }} />);
+    const video = youtubeMockedData.items[0];
+    const { snippet } = video;
+    const { container } = build(<SmallVideoCard video={video} />);
     const image = getByRole(container, 'img');
 
     expect(image).toHaveAttribute('alt', snippet.title);

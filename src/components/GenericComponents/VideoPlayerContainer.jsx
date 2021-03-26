@@ -60,19 +60,18 @@ const VideoPlayerContainer = ({ videosList, onCaptionClick }) => {
     }
   }, [videoId]);
 
-
-  const addRemoveFavorite = () => {
+  const addRemoveFavorite = (video, videoId, callback) => {
     let favorites = getParsedFavorites();
     if(!favorites){
-      favorites = {[videoId]: state};
+      favorites = {[videoId]: video};
     } else if(!favorites[videoId]) {
-      favorites[videoId] = state;
+      favorites[videoId] = video;
     } else {
       delete favorites[videoId];
     }
     favorites = JSON.stringify(favorites);
     window.localStorage.setItem(FAVORITES_KEY, favorites);
-    updateButtonLabel();
+    callback && callback();
   }
 
   return (
@@ -85,13 +84,19 @@ const VideoPlayerContainer = ({ videosList, onCaptionClick }) => {
               margin="4px"
               height="30px"
               width="150px"
-              onClick={() => addRemoveFavorite()}
+              onClick={() => addRemoveFavorite(state, videoId, updateButtonLabel)}
           >
             { favoriteButtonLabel }
           </Button>
         </ControlsContainer>
       </StyledPlayerSection>
-      <RelatedVideosList videosList={videosList} onCaptionClick={onCaptionClick}/>
+      <RelatedVideosList 
+        videosList={videosList} 
+        onCaptionClick={onCaptionClick} 
+        addRemoveFavorite={
+          (video, callback) => addRemoveFavorite(video, video.id.videoId, callback)
+        }
+      />
     </StyledVideoPlayerContainer>
   );
 };

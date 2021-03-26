@@ -12,6 +12,11 @@ const EXPECTED_LENGHT = 3
 const contextValueVideosList = youtubeMockedData.items.slice(0, EXPECTED_LENGHT);
 
 const build = async ( Component = <VideoPlayerContainer videosList={contextValueVideosList}/>, video ) => {
+
+  beforeEach(() => {
+    window.localStorage.clear();
+  });
+
   const contextValue = { search: jest.fn, theme: lightTheme };
   let container;
   let routeWrap; 
@@ -87,6 +92,47 @@ describe('VideoPlayerContainer', () => {
     const parsedSavedVideo = JSON.parse(favorites)[savedVideo.id.videoId];
     expect(Object.keys(JSON.parse(favorites))).toHaveLength(2);
     expect(JSON.stringify(parsedSavedVideo)).toEqual(JSON.stringify(savedVideo));
+  });
+
+  it('adds/removes favorite clicking related video favorite button ', async () => {
+    const FAVORITES_KEY = "favorites";
+    const savedVideo = contextValueVideosList[0];
+    const built = (await build(<VideoPlayerContainer videosList={contextValueVideosList}/>, savedVideo));
+    const { container } = built;
+
+    const captionAddFavorite = getAllByTestId(container, "caption-add-favorite")[0];
+    fireEvent.click(captionAddFavorite);
+
+    let favorites = window.localStorage.getItem(FAVORITES_KEY);
+    const parsedSavedVideo = JSON.parse(favorites)[savedVideo.id.videoId];
+    
+    expect(Object.keys(JSON.parse(favorites))).toHaveLength(1);
+    expect(JSON.stringify(parsedSavedVideo)).toEqual(JSON.stringify(savedVideo));
+    expect(captionAddFavorite.textContent).toBe("Remove favorite");
+
+    fireEvent.click(captionAddFavorite);
+
+    favorites = window.localStorage.getItem(FAVORITES_KEY);
+    expect(Object.keys(JSON.parse(favorites))).toHaveLength(0);
+    expect(captionAddFavorite.textContent).toBe("Add favorite");
+  });
+
+  it('adds/removes video to existing clicking related video favorite button', async () => {
+    const FAVORITES_KEY = "favorites";
+    const firstVideo = contextValueVideosList[1];
+    const secondVideo = contextValueVideosList[0];
+    window.localStorage.setItem(FAVORITES_KEY, JSON.stringify({[firstVideo.id.videoId]: firstVideo}));
+    
+    const built = (await build(<VideoPlayerContainer videosList={contextValueVideosList}/>, secondVideo));
+    const { container } = built;
+
+    const captionAddFavorite = getAllByTestId(container, "caption-add-favorite")[0];
+    fireEvent.click(captionAddFavorite);
+
+    let favorites = window.localStorage.getItem(FAVORITES_KEY);
+    const parsedSecondVideo = JSON.parse(favorites)[secondVideo.id.videoId];
+    expect(Object.keys(JSON.parse(favorites))).toHaveLength(2);
+    expect(JSON.stringify(parsedSecondVideo)).toEqual(JSON.stringify(secondVideo));
   });
 
 });
