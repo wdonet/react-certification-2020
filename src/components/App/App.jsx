@@ -20,7 +20,7 @@ const initialState = {
   currentVideoId: undefined,
   isLightTheme: true,
   isFirstLoad: true,
-  userSession: window.sessionStorage.getItem(USER_SESSION_KEY),
+  userSession: JSON.parse(window.sessionStorage.getItem(USER_SESSION_KEY)),
 };
 
 const history = createBrowserHistory();

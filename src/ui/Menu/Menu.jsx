@@ -26,7 +26,7 @@ const Menu = (props) => {
 
     window.onclick = (event) => {
         const element = document.getElementsByClassName("menu-button");
-        if(onClose && event.target !== element[0].firstChild){
+        if(onClose && element[0] && event.target !== element[0].firstChild){
             onClose();
         }
     };

@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
 import styled from 'styled-components';
 import { Button } from '../../ui';
@@ -27,16 +27,17 @@ const VideoPlayerContainer = () => {
   const { state, search } = location;
   const videoId = new URLSearchParams(search).get("id");
 
-  const getLabel = () => 
+  const getLabel = (videoId) => 
     getParsedFavorites() && getParsedFavorites()[videoId] 
     ? "Remove favorite"
     : "Add favorite";
 
   const [favoriteButtonLabel, setFavoriteButtonLabel] = useState(getLabel());
 
-  const updateButtonLabel = () => { setFavoriteButtonLabel(getLabel()); }
+  const updateButtonLabel = () => { setFavoriteButtonLabel(() => getLabel(videoId)); }
 
-  useLayoutEffect(()=> updateButtonLabel());
+  useEffect(() => updateButtonLabel());
+
   useEffect(() => {
     /* global YT */
     /* eslint no-undef: "error" */
@@ -57,7 +58,6 @@ const VideoPlayerContainer = () => {
       player.parentNode.replaceChild(newPlayer, player);
       window.YTPlayer = undefined;
     }
-  // eslint-disable-next-line
   }, [videoId]);
 
 

@@ -35,7 +35,8 @@ const HomeVideos = () => {
             <div key={key} data-testid={`video-card-${key}`}>
               <VideoCard video={video} onClick={() => push({
                 pathname: `/player`,
-                search: `?id=${video.id.videoId}`
+                search: `?id=${video.id.videoId}`,
+                state: video,
               }) } />
             </div>
           );
