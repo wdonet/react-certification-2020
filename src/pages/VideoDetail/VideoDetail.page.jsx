@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Col, Row, Tag, Button, Divider } from 'antd';
 import { LikeOutlined, DislikeOutlined, EyeOutlined } from '@ant-design/icons';
 import Thumbnail from 'components/Thumbnail';
 import { shortenCount } from 'utils/fns';
 import { useVideos, useVideoDetail } from 'utils/hooks/useVideos';
 import { getRelatedVideos, getVideoStatistics } from 'utils/api';
+import { Context } from 'context/AppContext';
+
 import {
   StyledIFrame,
   StyledVideoDetail,
@@ -12,7 +14,10 @@ import {
   IFrameContainer,
   Title,
   FavoriteIcon,
+  NonFavoriteIcon,
 } from './VideoDetail.styles';
+
+import { useAuth } from '../../providers/Auth';
 
 const DEFAULT_VIDEO_DETAIL = {
   snippet: { title: '' },
@@ -21,7 +26,19 @@ const DEFAULT_VIDEO_DETAIL = {
 
 const getVideoId = (video) => (video.id.videoId ? video.id.videoId : video.id);
 
+const addToFavorites = (dispatch, video) =>
+  dispatch({ type: 'ADD_FAVORITE_VIDEO', payload: video });
+
+const removeFromFavorites = (dispatch, video) =>
+  dispatch({ type: 'REMOVE_FAVORITE_VIDEO', payload: video });
+
+const isInFavorites = (video, favorites) => {
+  return favorites.findIndex((favoriteVideo) => favoriteVideo.id === video.id) !== -1;
+};
+
 const VideoDetail = ({ location }) => {
+  const { state, dispatch } = useContext(Context);
+  const { authenticated } = useAuth();
   const { video } = location.state;
   const [relatedVideos] = useVideos(() => getRelatedVideos(getVideoId(video)));
   const [videoDetail] = useVideoDetail(
@@ -65,12 +82,25 @@ const VideoDetail = ({ location }) => {
             </Tag>
           </Row>
           <Row align="center">
-            <Button
-              size="small"
-              style={{ borderColor: 'red' }}
-              shape="circle"
-              icon={<FavoriteIcon />}
-            />
+            {authenticated ? (
+              <Button
+                size="small"
+                style={{ borderColor: 'red' }}
+                shape="circle"
+                icon={
+                  isInFavorites(videoDetail, state.favoriteVideos) ? (
+                    <FavoriteIcon />
+                  ) : (
+                    <NonFavoriteIcon />
+                  )
+                }
+                onClick={() =>
+                  isInFavorites(videoDetail, state.favoriteVideos)
+                    ? removeFromFavorites(dispatch, videoDetail)
+                    : addToFavorites(dispatch, videoDetail)
+                }
+              />
+            ) : null}
           </Row>
         </Row>
         <Divider />

@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import { createGlobalStyle } from 'styled-components';
 
@@ -37,7 +38,9 @@ ReactDOM.render(
   <AppContext>
     <React.StrictMode>
       <GlobalStyle />
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </React.StrictMode>
   </AppContext>,
   document.getElementById('root')

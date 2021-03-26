@@ -2,8 +2,9 @@ import React from 'react';
 import { useHistory } from 'react-router';
 import { Menu, Layout, Row } from 'antd';
 import styled from 'styled-components';
+import { HomeOutlined, CloseOutlined, HeartOutlined } from '@ant-design/icons';
 
-import { HomeOutlined, CloseOutlined } from '@ant-design/icons';
+import { useAuth } from '../../providers/Auth';
 
 const { Sider: AntSider } = Layout;
 
@@ -21,11 +22,15 @@ const StyledClose = styled(CloseOutlined)`
 
 const Sider = ({ isHidden, onToggle }) => {
   const history = useHistory();
+  const { authenticated } = useAuth();
 
   const handleMenuClick = ({ key }) => {
     switch (key) {
       case '0':
         history.push('/');
+        break;
+      case '1':
+        history.push('/favorites');
         break;
       default:
         history.push('/');
@@ -41,6 +46,11 @@ const Sider = ({ isHidden, onToggle }) => {
         <Menu.Item key="0" icon={<HomeOutlined />}>
           Home
         </Menu.Item>
+        {authenticated && (
+          <Menu.Item key="1" icon={<HeartOutlined />}>
+            Favorites
+          </Menu.Item>
+        )}
       </Menu>
     </StyledSider>
   );

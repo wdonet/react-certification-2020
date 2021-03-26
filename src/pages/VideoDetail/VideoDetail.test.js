@@ -5,6 +5,7 @@ import { render } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import VideoDetail from 'pages/VideoDetail';
 import { useVideos, useVideoDetail } from 'utils/hooks/useVideos';
+import AuthProvider from '../../providers/Auth';
 
 const MOCK_VIDEO = VIDEOS.items[0];
 const MOCK_LOCATION = { state: { video: MOCK_VIDEO } };
@@ -21,9 +22,11 @@ describe('VideoDetail', () => {
     useVideoDetail.mockImplementation(() => [DEFAULT_VIDEO_DETAIL, jest.fn()]);
 
     const { getByRole } = render(
-      <Router>
-        <VideoDetail location={MOCK_LOCATION} />
-      </Router>
+      <AuthProvider>
+        <Router>
+          <VideoDetail location={MOCK_LOCATION} />
+        </Router>
+      </AuthProvider>
     );
     expect(getByRole('application')).not.toBeUndefined();
   });
@@ -33,9 +36,11 @@ describe('VideoDetail', () => {
     useVideoDetail.mockImplementation(() => [DEFAULT_VIDEO_DETAIL, jest.fn()]);
 
     const { getByLabelText } = render(
-      <Router>
-        <VideoDetail location={MOCK_LOCATION} />
-      </Router>
+      <AuthProvider>
+        <Router>
+          <VideoDetail location={MOCK_LOCATION} />
+        </Router>
+      </AuthProvider>
     );
 
     expect(getByLabelText('detail-title')).not.toBeUndefined();
@@ -50,9 +55,11 @@ describe('VideoDetail', () => {
     useVideoDetail.mockImplementation(() => [DEFAULT_VIDEO_DETAIL, jest.fn()]);
 
     const { getAllByRole } = render(
-      <Router>
-        <VideoDetail location={MOCK_LOCATION} />
-      </Router>
+      <AuthProvider>
+        <Router>
+          <VideoDetail location={MOCK_LOCATION} />
+        </Router>
+      </AuthProvider>
     );
 
     expect(getAllByRole('listitem')).not.toBeUndefined();

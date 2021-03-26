@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Col, Row } from 'antd';
-import { HeartOutlined } from '@ant-design/icons';
+import { HeartOutlined, HeartFilled } from '@ant-design/icons';
 
 export const StyledVideoDetail = styled(Row)`
   padding: 0.5rem 2rem;
@@ -32,6 +32,10 @@ export const StyledRelatedVideosColumn = styled(Col)`
   overflow: scroll;
 `;
 
-export const FavoriteIcon = styled(HeartOutlined)`
+export const NonFavoriteIcon = styled(HeartOutlined)`
+  color: red;
+`;
+
+export const FavoriteIcon = styled(HeartFilled)`
   color: red;
 `;

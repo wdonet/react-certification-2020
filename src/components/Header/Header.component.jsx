@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { searchVideos } from 'utils/api';
 import { Layout, Row, Col, Input } from 'antd';
 import { MenuOutlined, LoginOutlined } from '@ant-design/icons';
@@ -31,6 +31,7 @@ const Center = styled(Col)`
 `;
 
 const Header = ({ onToggle }) => {
+  const location = useLocation();
   const { dispatch } = useContext(Context);
 
   const searchVideosAction = async (searchTerm) => {
@@ -61,7 +62,7 @@ const Header = ({ onToggle }) => {
           />
         </Center>
         <Col span={1} align="end">
-          <Link to="/login">
+          <Link to={{ pathname: '/login', state: { login: location } }}>
             <StyledMenuOutlined as={LoginOutlined} name="login" />
           </Link>
         </Col>

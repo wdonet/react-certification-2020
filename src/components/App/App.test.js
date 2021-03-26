@@ -1,5 +1,6 @@
 import 'mockData/matchMedia.mock';
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { render, fireEvent, waitFor } from '@testing-library/react';
 import App from 'components/App';
 import AppContext from 'context/AppContext';
@@ -17,7 +18,9 @@ describe('App', () => {
 
     const { getByRole } = render(
       <AppContext>
-        <App />
+        <Router>
+          <App />
+        </Router>
       </AppContext>
     );
     await waitFor(() => expect(getByRole('banner')).not.toBeUndefined());
@@ -27,7 +30,9 @@ describe('App', () => {
     getVideos.mockResolvedValue(MOCK_RESPONSE);
     const { getByRole } = render(
       <AppContext>
-        <App />
+        <Router>
+          <App />
+        </Router>
       </AppContext>
     );
     await waitFor(() => expect(getByRole('menuitem').textContent).toBe('Home'));
@@ -37,16 +42,21 @@ describe('App', () => {
     getVideos.mockResolvedValue(MOCK_RESPONSE);
     const { getByRole } = render(
       <AppContext>
-        <App />
+        <Router>
+          <App />
+        </Router>
       </AppContext>
     );
     await waitFor(() => expect(getByRole('main')).not.toBeUndefined());
   });
+
   it('triggers the Sider collapse when clicking on the Header menu icon', async () => {
     getVideos.mockResolvedValue(MOCK_RESPONSE);
     const { getByLabelText } = render(
       <AppContext>
-        <App />
+        <Router>
+          <App />
+        </Router>
       </AppContext>
     );
     const siderMenuIcon = getByLabelText('sider-menu-icon');
