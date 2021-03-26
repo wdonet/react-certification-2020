@@ -11,12 +11,8 @@ global.YT = YTMockedObject;
 const EXPECTED_LENGHT = 3
 const contextValueVideosList = youtubeMockedData.items.slice(0, EXPECTED_LENGHT);
 
-const build = async (
-  Component = <VideoPlayerContainer />, 
-  videosList = contextValueVideosList, 
-  currentVideoId = contextValueVideosList[0].id.videoId
-  ) => {
-  const contextValue = { search: jest.fn, videosList, currentVideoId, theme: lightTheme };
+const build = async ( Component = <VideoPlayerContainer videosList={contextValueVideosList}/>, video ) => {
+  const contextValue = { search: jest.fn, theme: lightTheme };
   let container;
   let routeWrap; 
   await act(async () => {
@@ -24,7 +20,7 @@ const build = async (
     routeWrap = await routerWrapper(contextWrap);
     container = render(routeWrap.wrap).container;
   });
-
+  routeWrap.history.push({ pathname: "/player", search: `?id=${video?.id.videoId}`, state: video });
   return { 
     container,
     history: () => routeWrap.history,
@@ -42,21 +38,21 @@ describe('VideoPlayerContainer', () => {
     expect(videoCaptionsList()).toHaveLength(EXPECTED_LENGHT);
   });
 
-  it('plays video from the begining redirecting to /player passing videoId', async () => {
-    const built = (await build());
-    const { videoCaptionsList, searchParams, history } = built;
-    const videoId = youtubeMockedData.items[0].id.videoId;
+  it('triggers onCaptionClick function passed as prop', async () => {
+    const mockedFunction = jest.fn();
+    const built = (await build(<VideoPlayerContainer videosList={youtubeMockedData.items} onCaptionClick={mockedFunction}/>));
+    const { videoCaptionsList } = built;
+    const video = youtubeMockedData.items[0];
     fireEvent.click(videoCaptionsList()[0].firstChild);
-    expect(history().location.pathname).toBe("/player");
-    expect(searchParams().has("id")).toBe(true);
-    expect(searchParams().get("id")).toBe(videoId);
+    expect(mockedFunction).toHaveBeenCalledTimes(1);
+    expect(mockedFunction).toHaveBeenCalledWith(video);
   });
 
   it('adds/removes to favorites and "Add favorite" / "Remove favorite" in button ', async () => {
     const FAVORITES_KEY = "favorites";
-    const built = (await build());
-    const { addFavoriteButton } = built;
     const savedVideo = contextValueVideosList[0];
+    const built = (await build(<VideoPlayerContainer videosList={contextValueVideosList}/>, savedVideo));
+    const { addFavoriteButton } = built;
 
     expect(addFavoriteButton().textContent).toBe("Add favorite");
 
@@ -64,6 +60,7 @@ describe('VideoPlayerContainer', () => {
 
     let favorites = window.localStorage.getItem(FAVORITES_KEY);
     const parsedSavedVideo = JSON.parse(favorites)[savedVideo.id.videoId];
+    
     expect(Object.keys(JSON.parse(favorites))).toHaveLength(1);
     expect(JSON.stringify(parsedSavedVideo)).toEqual(JSON.stringify(savedVideo));
     expect(addFavoriteButton().textContent).toBe("Remove favorite");
@@ -78,11 +75,11 @@ describe('VideoPlayerContainer', () => {
   it('adds/removes video to existing in localStorage', async () => {
     const FAVORITES_KEY = "favorites";
     const firstVideo = contextValueVideosList[1];
-    window.localStorage.setItem(FAVORITES_KEY, JSON.stringify({[firstVideo.id.videoId]: firstVideo}));
-
-    const built = (await build());
-    const { addFavoriteButton } = built;
     const savedVideo = contextValueVideosList[0];
+    window.localStorage.setItem(FAVORITES_KEY, JSON.stringify({[firstVideo.id.videoId]: firstVideo}));
+    
+    const built = (await build(<VideoPlayerContainer videosList={contextValueVideosList}/>, savedVideo));
+    const { addFavoriteButton } = built;
 
     fireEvent.click(addFavoriteButton());
 

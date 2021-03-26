@@ -11,11 +11,10 @@ const EXPECTED_LENGHT = 3
 const contextValueVideosList = youtubeMockedData.items.slice(0, EXPECTED_LENGHT);
 
 const build = async (
-  Component = <VideoPlayerContainer />, 
-  videosList = contextValueVideosList, 
+  Component = <VideoPlayerContainer videosList={contextValueVideosList}/>, 
   currentVideoId = contextValueVideosList[0].id.videoId
   ) => {
-  const contextValue = { search: jest.fn, videosList, currentVideoId, theme: lightTheme };
+  const contextValue = { search: jest.fn, currentVideoId, theme: lightTheme };
   let container;
   let routeWrap; 
   await act(async () => {

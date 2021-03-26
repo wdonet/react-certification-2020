@@ -1,7 +1,7 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router';
+import HomePlayer from '../HomeVideos/HomePlayer';
 import HomeVideos from '../HomeVideos/HomeVideos';
-import VideoPlayerContainer from '../VideoPlayer/VideoPlayerContainer';
 
 const Content = () => {
     return (<div>
@@ -13,7 +13,7 @@ const Content = () => {
                 <HomeVideos />
             </Route>
             <Route path="/player">
-                <VideoPlayerContainer />
+                <HomePlayer />
             </Route>
         </Switch>
     </div>);

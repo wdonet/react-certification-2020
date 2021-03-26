@@ -9,7 +9,7 @@ import RelatedVideosList from './RelatedVideosList';
 global.YT = YTMockedObject;
 
 const build = async (Component = <RelatedVideosList />) => {
-  const contextValue = { videosList: youtubeMockedData.items.slice(0, 1), theme: lightTheme };
+  const contextValue = { theme: lightTheme };
   let container;
   await act(async () => {
     const wrappedContext = contextWrapper(AppContext, contextValue, Component);
@@ -21,7 +21,7 @@ const build = async (Component = <RelatedVideosList />) => {
 
 describe('RelatedVideosList', () => {
   it('applies default styles', async() => {
-    const built = await build(<RelatedVideosList />);
+    const built = await build(<RelatedVideosList videosList={youtubeMockedData.items}/>);
     const { firstChild } = built.container;
     expect(firstChild).toHaveStyle('height: calc(100vh - 64px)');
     expect(firstChild).toHaveStyle('width: 40%');

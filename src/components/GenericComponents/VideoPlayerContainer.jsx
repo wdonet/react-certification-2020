@@ -22,7 +22,7 @@ const StyledPlayerSection = styled.div`
   display: grid;
 `;
 
-const VideoPlayerContainer = () => {
+const VideoPlayerContainer = ({ videosList, onCaptionClick }) => {
   const location = useLocation();
   const { state, search } = location;
   const videoId = new URLSearchParams(search).get("id");
@@ -91,7 +91,7 @@ const VideoPlayerContainer = () => {
           </Button>
         </ControlsContainer>
       </StyledPlayerSection>
-      <RelatedVideosList />
+      <RelatedVideosList videosList={videosList} onCaptionClick={onCaptionClick}/>
     </StyledVideoPlayerContainer>
   );
 };
