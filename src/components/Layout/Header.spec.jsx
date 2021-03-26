@@ -7,6 +7,10 @@ import AppContext from '../../providers/AppContext';
 import { lightTheme } from '../../providers/themes'
 import Header from './Header';
 
+const loginPortal = document.createElement('div');
+loginPortal.id = "login-portal";
+document.body.appendChild(loginPortal);
+
 const build = async (Component = <Header />, theme = lightTheme, overrideContextValues) => {
   let container;
   let routeWrap;
@@ -29,7 +33,7 @@ const build = async (Component = <Header />, theme = lightTheme, overrideContext
     favoritesButton: () => getByTestId(container, 'favorites-button'),
     logoutButton: () => getByTestId(container, 'menu-logout-button'),
     loginButton: () => getByTestId(container, 'menu-login-button'),
-    loginForm: () => getByTestId(container, 'login-form'),
+    loginForm: () => getByTestId(document.body, 'login-form'),
     hamburgerIcon: () => getByAltText(container, 'hamburguer'),
     sidebarButtons: () => getAllByRole(sidebar(), 'button'),
     contextValue,

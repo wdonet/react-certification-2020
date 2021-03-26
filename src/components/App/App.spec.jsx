@@ -6,6 +6,9 @@ import { darkTheme, lightTheme } from '../../providers/themes';
 import AppContext from '../../providers/AppContext';
 import App from './index';
 
+const loginPortal = document.createElement('div');
+loginPortal.id = "login-portal";
+document.body.appendChild(loginPortal);
 global.gapi = googleMockedAPIObject();
 global.YT = YTMockedObject;
 

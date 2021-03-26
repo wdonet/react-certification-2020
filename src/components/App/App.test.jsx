@@ -4,6 +4,9 @@ import { googleMockedAPIObject } from '../../utils';
 import App from './index';
 
 global.gapi = googleMockedAPIObject();
+const loginPortal = document.createElement('div');
+loginPortal.id = "login-portal";
+document.body.appendChild(loginPortal);
 
 const build = async (Component = <App />) => {
   let container;

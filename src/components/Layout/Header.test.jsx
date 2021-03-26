@@ -6,6 +6,10 @@ import { contextWrapper, routerWrapper } from '../../utils';
 import { darkTheme, lightTheme } from '../../providers/themes';
 import Header from './Header';
 
+const loginPortal = document.createElement('div');
+loginPortal.id = "login-portal";
+document.body.appendChild(loginPortal);
+
 const build = async (Component = <Header />, theme = lightTheme) => {
   let container;
   let routeWrap;

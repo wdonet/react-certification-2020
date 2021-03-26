@@ -1,4 +1,5 @@
 import React, { useContext, useReducer, useRef } from 'react';
+import ReactDom from 'react-dom';
 import styled from 'styled-components';
 import { useHistory } from 'react-router';
 import { TextField, IconWrapper, Avatar, Switch, Overlay, Button } from '../../ui';
@@ -94,9 +95,11 @@ const Header = () => {
         </Sidebar>
       </Overlay>
 
-      <Overlay show={loginFormOpen}>
-        <Login onCancel={() => dispatch({ type: SET_LOGIN_FORM_OPEN, payload: false })}/>
-      </Overlay>
+      {
+        ReactDom.createPortal(<Overlay show={loginFormOpen}>
+          <Login onCancel={() => dispatch({ type: SET_LOGIN_FORM_OPEN, payload: false })}/>
+        </Overlay>, document.getElementById("login-portal"))
+      }
 
       <StyledSection>
         <IconWrapper 
