@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { StoreContext } from '../../contexts/Store'
+import { HashRouter as Router, Route , useParams,useRouteMatch, useHistory} from "react-router-dom";
 
 const Input = styled.input`
   height: 40px;
@@ -62,14 +63,13 @@ const StyledInput = styled.div`
 `;
 
 
-function SearchInput({ placeholder, updateQuery , gotodetail }) {
-
+function SearchInput({ placeholder, updateQuery  }) {
+  let history = useHistory();
   const [text, setText] = useState('');
   const {
     ["squery"]: [query, setQuery]
   } = React.useContext(StoreContext);
   
-  console.log(query);
   const handleChange = (event) => {
     setText(event.target.value);
 
@@ -77,15 +77,14 @@ function SearchInput({ placeholder, updateQuery , gotodetail }) {
 
   const handleSubmit = (event) => {
     setQuery(text);
-    gotodetail(false);
     event.preventDefault();
+    history.push("/");
   }
   const clearInput = () => {
     setText('');
     if (text !== '') {
       setQuery('');
     }
-    gotodetail(false);
   };
 
   return (

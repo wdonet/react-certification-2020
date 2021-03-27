@@ -41,12 +41,13 @@ const Content = styled.div`
 `;
 
 
-const RecommendedVideoCard = ({ videoId, image, title,description,  gotodetail }) => {
+const RecommendedVideoCard = ({ videoId, image, title,description, isFavorite }) => {
     return (
-        <Container onClick={() => {  gotodetail(true, videoId, title, description) }}>
+        <Container >
             <Cover img={image} />
             <Content>
-                <Title>{decode(title)}</Title>
+              <Title>{decode(title)}</Title>
+              {isFavorite? "AddtoFavorite":null }
              </Content>
         </Container>
     )

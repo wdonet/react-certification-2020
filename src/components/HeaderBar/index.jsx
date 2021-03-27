@@ -4,6 +4,9 @@ import Avatar from './Avatar';
 import MenuButton from './MenuButton';
 import SwitchButton from '../SwitchButton';
 import SearchInput from './SearchInput';
+import { StoreContext } from '../../contexts/Store'
+import { Link } from "react-router-dom";
+
 
 const Nav = styled.nav`
   width: 100%;
@@ -17,15 +20,33 @@ const Nav = styled.nav`
   color: white;
   z-index: 1;
 `;
-const index = ({ updateQuery , gotodetail }) => {
+
+
+const StyledLink = styled(Link)`
+  color: ${(props) => props.theme.text};
+  text-decoration: none;
+  &:focus, &:hover, &:visited, &:link, &:active {
+  text-decoration: none;
+  }
+  margin-top: 16px;
+`
+
+const Index = ({ updateQuery, gotodetail }) => {
+  const {
+    ["loggedIn"]: [loggedIn, setLoggedIn]
+  } = React.useContext(StoreContext);
+
   return (
     <Nav>
       <MenuButton />
       <SearchInput placeholder="wizeline" updateQuery={updateQuery} gotodetail={ gotodetail }/>
       <SwitchButton label="Dark Mode" />
-      <Avatar />
+      { loggedIn ?
+        <Avatar /> :
+         <StyledLink to="/login">LOGIN</StyledLink>
+      }
     </Nav>
   );
 };
 
-export default index;
+export default Index;

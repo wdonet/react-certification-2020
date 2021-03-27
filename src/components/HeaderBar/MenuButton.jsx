@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import LeftNav from '../LeftNav';
+import { StoreContext } from '../../contexts/Store';
 
 const StyledMenuButton = styled.nav`
   width: 2rem;
@@ -35,16 +36,18 @@ const StyledMenuButton = styled.nav`
 `;
 
 const MenuButton = () => {
-  const [open, setOpen] = useState(false);
+  const {
+    ["menuOpen"]: [menuOpen, setMenuOpen]
+  } = React.useContext(StoreContext);
 
   return (
     <>
-      <StyledMenuButton open={open} onClick={() => setOpen(!open)}>
+      <StyledMenuButton open={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
         <div />
         <div />
         <div />
       </StyledMenuButton>
-      <LeftNav open={open} />
+      <LeftNav open={menuOpen} />
     </>
   );
 };
