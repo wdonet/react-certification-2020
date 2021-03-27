@@ -16,7 +16,8 @@ export default ({ children }) => {
     sdetailId: [sdetailId, setSdetailId],
     loggedIn: [loggedIn, setLoggedIn],
     sessionData: [sessionData, setSessionData],
-    menuOpen:[menuOpen, setMenuOpen]  
+    menuOpen: [menuOpen, setMenuOpen],
+    favorites:[favorites, setFavorites]  
   }
 
   return <StoreContext.Provider value={store}>{children}</StoreContext.Provider>

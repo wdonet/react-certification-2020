@@ -66,7 +66,6 @@ function SwitchButton({ label }) {
     } else {
       switchTheme("dark");
     }
-    // console.log(`switch: ${theme}`);
   }
   return (
     <SwitchVerticalCentered>

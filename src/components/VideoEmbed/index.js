@@ -25,6 +25,11 @@ iframe {
 const StyledVideo = styled.div`
 display:flex;
 flex-direction: column;
+
+h4 {
+    margin: 20px;
+    font-weight:normal;
+}
 `
 const VideoEmbed = ({detailVideoId, detailTitle, detailDescription}) => {
     return (

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { StoreContext } from '../../contexts/Store'
-import { HashRouter as Router, Route , useParams,useRouteMatch, useHistory} from "react-router-dom";
+import { useHistory} from "react-router-dom";
 
 const Input = styled.input`
   height: 40px;
@@ -67,7 +67,7 @@ function SearchInput({ placeholder, updateQuery  }) {
   let history = useHistory();
   const [text, setText] = useState('');
   const {
-    ["squery"]: [query, setQuery]
+    "squery": [ setQuery]
   } = React.useContext(StoreContext);
   
   const handleChange = (event) => {
