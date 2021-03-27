@@ -27,7 +27,7 @@ const Cover = styled.div`
 
 const Title = styled.div`
   color: #3c4560;
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 300;
 `;
 
@@ -47,7 +47,6 @@ const RecommendedVideoCard = ({ videoId, image, title,description, isFavorite })
             <Cover img={image} />
             <Content>
               <Title>{decode(title)}</Title>
-              {isFavorite? "AddtoFavorite":null }
              </Content>
         </Container>
     )

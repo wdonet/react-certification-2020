@@ -1,20 +1,19 @@
-import React, { useEffect, useState, useContext }from 'react';
+import React, {  useState }from 'react';
 import Content from '../Content';
-import { items } from '../../assets/mockdata/mockdata.json';
+
 import VideoCard from '../VideoCard';
-import filterByYear from '../../utils/filter';
+
 import Theme from "../../Theme";
 import { ThemeStore } from "../../contexts/ThemeStore";
 import { useFetch } from '../../hooks/useFetch';
 import { StoreContext } from '../../contexts/Store'
-import { HashRouter as Router, Route , useParams,useRouteMatch, useHistory, Redirect} from "react-router-dom";
-import { FormGroup, Label, Input, Message } from "../Forms";
+import { Route , useParams, useHistory, Redirect} from "react-router-dom";
 import styled from 'styled-components';
 import Detail from '../Detail';
 import HeaderBar from '../HeaderBar';
 import loginApi from '../../login.api';
 
-import { CardWrapper, CardHeader, CardHeading, CardBody, CardIcon, CardFieldset, CardInput, CardOptionsItem, CardOptions, CardOptionsNote, CardButton, CardLink,ErrorMessage
+import { CardWrapper, CardHeader, CardHeading, CardBody, CardIcon, CardFieldset, CardInput, CardButton,ErrorMessage
 } from "../Cards";
 
 import {
@@ -29,7 +28,7 @@ const StyledContainer = styled.div`
 `
 const ProtectedRoute = ({ component: Component, ...rest }) => {
   const {
-      ["loggedIn"]: [loggedIn, setLoggedIn]
+      "loggedIn": [loggedIn]
   } = React.useContext(StoreContext)
   
   return (
@@ -43,13 +42,7 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
 
 function App() {
   
-  const theme = "light";
-    const [recent, setRecent] = useState([]);
-    const [inDetail, setInDetail] = useState(false);
-    const [detailVideoId, setDetailVideoId] = useState("");
-    const [detailTitle, setDetailTitle] = useState("");
-    const [detailDescription, setDetailDescription] = useState("");
-
+  
 
   return (
     <React.StrictMode>
@@ -68,6 +61,10 @@ function App() {
               <Route
                 path="/video/:id"
                 children={<DetailPage/>}
+              />
+              <Route
+                path="/about"
+                children={<AboutPage/>}
               />
             </Switch>
           </StyledContainer>
@@ -89,11 +86,11 @@ const StyledLink = styled(Link)`
 const HomePage = ({ source}) => {
     
     const {
-      ["squery"]: [squery, setSquery]
+      "squery": [squery]
     } = React.useContext(StoreContext)
 
     const url = squery && `https://www.googleapis.com/youtube/v3/search?key=${process.env.REACT_APP_YOUTUBE_API_KEY2}&q=${squery}&part=snippet&maxResults=50&order=date&type=video`;
-    const { status, data, error } = useFetch(url, source);
+    const {  data } = useFetch(url, source);
 
 
   
@@ -121,7 +118,10 @@ const HomePage = ({ source}) => {
 const AboutPage = () => {
   return (
     <div>
-      About
+      <br></br>
+      <br></br>
+      <br></br>
+      React Challenge Wizeline Bootcamp
     </div>
   )
 }
@@ -135,18 +135,14 @@ const LoginPage = () => {
   const [error, setError] = useState()
   let history = useHistory();
   const {
-    ["sessionData"]: [sessionData, setSessionData],
-    ["loggedIn"]: [loggedIn, setLoggedIn],
+    "sessionData": [ setSessionData],
+    "loggedIn": [ setLoggedIn],
     
   } = React.useContext(StoreContext)
   
 
   const enterClick = () => {
-    console.log("enterClick");
-    console.log({ username });
-    console.log({ password });
-    loginApi(username, password).then((user) => {
-      console.log(user);
+      loginApi(username, password).then((user) => {
       setSessionData(user);
       setLoggedIn(true);
       history.push("/");
@@ -185,22 +181,40 @@ const LoginPage = () => {
   )
 }
 
-const StyledRemoveFavorite =styled.div`
+const StyledRemoveFavorite =styled.button`
 height: 10px;
-align-self:end ;
+height: 50px;
+margin: 5px;
+padding:5px;
 
 `
+
+
+
 const FavoritesPage = () => {
 
-  const url = "favorites"
-  const { status, data, error } = useFetch(url, "favorites");
+  const data = {items:[]}
+  const {
+    "favorites": [favorites, setFavorites],
+  } = React.useContext(StoreContext)
+
+  for (const [ value] of Object.entries(favorites)) {
+      data.items.push(value);
+  }
+
+
+  const removeFav = (videoid) => {
+    const clone = JSON.parse(JSON.stringify(favorites));
+    delete clone[videoid];
+    setFavorites(clone);
+  }
 
   return (
-    <Content title="Favorites"  is>{data.items ?
+    <Content title="Favorites"  is>{(data.items && data.items.length>0) ?
       data.items.map((video) => {
         return (
           <>
-            <StyledLink key={video.etag} to={`/video/${video.id.videoId}?fav`}>
+            <StyledLink key={video.id.videoId} to={`/video/${video.id.videoId}?fav=true`}>
               <VideoCard
                 videoId={video.id.videoId}
                 title={video.snippet.title}
@@ -209,11 +223,11 @@ const FavoritesPage = () => {
                 gotodetail={() => { }}
               />
             </StyledLink>
-            <StyledRemoveFavorite>remove</StyledRemoveFavorite>
+            <StyledRemoveFavorite onClick={ ()=>removeFav(video.id.videoId) }>Remove</StyledRemoveFavorite>
           </>
         )
       })
-    :null}
+    :"No favorites, go Home and start adding some!"}
     </Content>
   )
 }

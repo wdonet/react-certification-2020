@@ -1,9 +1,13 @@
-import { useEffect, useRef, useReducer } from 'react';
+import React, { useEffect, useRef, useReducer } from 'react';
 import mockdata from '../assets/mockdata/mockdata.json';
+import { StoreContext } from '../contexts/Store';
 
 export const useFetch = (url, source) => {
 	const cache = useRef({});
-	console.log(`source1: ${source}`)
+	const {
+        "favorites": [favorites],
+    } = React.useContext(StoreContext)
+    
 	const initialState = {
 		status: 'idle',
 		error: null,
@@ -26,12 +30,15 @@ export const useFetch = (url, source) => {
 	useEffect(() => {
 		let cancelRequest = false;
 		if (!url) return;
-		console.log(`url: ${url}, source2: ${source}`);
 		const fetchData = async () => {
 			dispatch({ type: 'FETCHING' });
 			if (source === "favorites") {
 				var newmockdata = {items:[]}
-				newmockdata.items = mockdata.items.slice(1,4);
+				// newmockdata.items = mockdata.items.slice(1,4);
+				for (const [key, value] of Object.entries(favorites)) {
+					newmockdata.items.push(value);
+					console.log(`${key}: ${value}`);
+				}
 				dispatch({ type: 'FETCHED', payload: newmockdata });
 			}
 			else if (cache.current[url]) {
@@ -62,7 +69,7 @@ export const useFetch = (url, source) => {
 		return function cleanup() {
 			cancelRequest = true;
 		};
-	}, [url]);
+	}, [url, favorites, source]);
 
 	return state;
 };

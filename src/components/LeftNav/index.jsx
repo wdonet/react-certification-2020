@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { HashRouter as Router, Link } from "react-router-dom";
+import { HashRouter as Router } from "react-router-dom";
 import { StoreContext } from '../../contexts/Store';
 import { useHistory } from "react-router-dom";
 
@@ -29,13 +29,11 @@ const Ul = styled.ul`
 const LeftNav = ({ open }) => {
   let history = useHistory();
   const {
-    ["loggedIn"]: [loggedIn, setLoggedIn],
-    ["menuOpen"]: [menuOpen, setMenuOpen]
+    "loggedIn": [loggedIn, setLoggedIn],
+    "menuOpen": [menuOpen, setMenuOpen]
   } = React.useContext(StoreContext);
       
   const menuClick = (direction, command) => {
-    console.log(direction);
-    console.log(command);
     setMenuOpen(false);
     if (command === "logout") {
       setLoggedIn(false);
@@ -50,6 +48,9 @@ const LeftNav = ({ open }) => {
         <ul>
           <li>
             <StyledLink onClick={()=> { menuClick("/")}}>Home</StyledLink>
+          </li>
+          <li>
+            <StyledLink onClick={()=> { menuClick("/about")}}>About</StyledLink>
           </li>
           {loggedIn ?
             <>

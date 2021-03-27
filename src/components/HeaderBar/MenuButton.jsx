@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import LeftNav from '../LeftNav';
 import { StoreContext } from '../../contexts/Store';
@@ -37,7 +37,7 @@ const StyledMenuButton = styled.nav`
 
 const MenuButton = () => {
   const {
-    ["menuOpen"]: [menuOpen, setMenuOpen]
+    "menuOpen": [menuOpen, setMenuOpen]
   } = React.useContext(StoreContext);
 
   return (

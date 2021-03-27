@@ -33,7 +33,7 @@ const StyledLink = styled(Link)`
 
 const Index = ({ updateQuery, gotodetail }) => {
   const {
-    ["loggedIn"]: [loggedIn, setLoggedIn]
+    "loggedIn": [loggedIn]
   } = React.useContext(StoreContext);
 
   return (
