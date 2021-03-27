@@ -37,7 +37,6 @@ export const useFetch = (url, source) => {
 				// newmockdata.items = mockdata.items.slice(1,4);
 				for (const [key, value] of Object.entries(favorites)) {
 					newmockdata.items.push(value);
-					console.log(`${key}: ${value}`);
 				}
 				dispatch({ type: 'FETCHED', payload: newmockdata });
 			}
@@ -57,7 +56,6 @@ export const useFetch = (url, source) => {
 								dispatch({ type: 'FETCHED', payload: data });
 					}
 				} catch (error) {
-					console.log("error");
 					if (cancelRequest) return;
 					dispatch({ type: 'FETCH_ERROR', payload: mockdata });
 				}

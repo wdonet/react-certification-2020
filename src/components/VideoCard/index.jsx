@@ -45,7 +45,7 @@ const Description = styled.p`
   margin-top: 4px;
 `;
 
-const VideoCard = ({ videoId, image, title, description, gotodetail, isFavorite }) => {
+const VideoCard = ({ videoId, image, title, description, gotodetail }) => {
   
   return (
     <Container>
@@ -53,8 +53,6 @@ const VideoCard = ({ videoId, image, title, description, gotodetail, isFavorite 
       <Content>
         <Title>{decode(title)}</Title>
         <Description>{decode(description)}</Description>
-        {isFavorite ?<button>Remove from favs</button>
-      : null}
       </Content>
     </Container>
   );
