@@ -1,5 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import { HashRouter as Router, Link } from "react-router-dom";
+import { StoreContext } from '../../contexts/Store';
+import { useHistory } from "react-router-dom";
+
+const StyledLink = styled.a`
+  color: white;
+`
 
 const Ul = styled.ul`
   flex-flow: column nowrap;
@@ -20,16 +27,46 @@ const Ul = styled.ul`
 `;
 
 const LeftNav = ({ open }) => {
+  let history = useHistory();
+  const {
+    ["loggedIn"]: [loggedIn, setLoggedIn],
+    ["menuOpen"]: [menuOpen, setMenuOpen]
+  } = React.useContext(StoreContext);
+      
+  const menuClick = (direction, command) => {
+    console.log(direction);
+    console.log(command);
+    setMenuOpen(false);
+    if (command === "logout") {
+      setLoggedIn(false);
+    }
+    history.push(direction);
+    
+
+  }
   return (
-    <Ul open={open}>
-      <ul>
-        <li>Home</li>
-        <li>About Us</li>
-        <li>Contact Us</li>
-        <li>Sign In</li>
-        <li>Sign Up</li>
-      </ul>
-    </Ul>
+    <Router>
+      <Ul open={menuOpen}>
+        <ul>
+          <li>
+            <StyledLink onClick={()=> { menuClick("/")}}>Home</StyledLink>
+          </li>
+          {loggedIn ?
+            <>
+              <li>
+                <StyledLink onClick={()=> { menuClick("/favorites")}}>Favorites</StyledLink>
+              </li> 
+              <li >
+                <StyledLink onClick={()=> { menuClick("/", "logout")}}>Logout</StyledLink>
+              </li>
+            </>
+              : null
+          }
+          
+        </ul>
+      </Ul>
+    </Router>
+    
   );
 };
 

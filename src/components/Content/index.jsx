@@ -17,12 +17,10 @@ const TopTitle = styled.h1`
   margin: 10px;
 `;
 
-const Content = ({ children , inDetail, gotodetail, detailVideoId ,detailTitle , detailDescription}) => {
+const Content = ({ children , title}) => {
 
-  let content = inDetail ? (
-    <Detail gotodetail={gotodetail} detailVideoId={detailVideoId} detailTitle={detailTitle} detailDescription={ detailDescription}/>
-  ) : <StyledContent >
-      <TopTitle>Welcome to the Challenge!</TopTitle>
+  let content =  <StyledContent >
+      <TopTitle>{title}</TopTitle>
         {children}
       </StyledContent>;
   

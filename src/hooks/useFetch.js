@@ -1,8 +1,9 @@
 import { useEffect, useRef, useReducer } from 'react';
 import mockdata from '../assets/mockdata/mockdata.json';
-export const useFetch = (url) => {
-	const cache = useRef({});
 
+export const useFetch = (url, source) => {
+	const cache = useRef({});
+	console.log(`source1: ${source}`)
 	const initialState = {
 		status: 'idle',
 		error: null,
@@ -25,30 +26,29 @@ export const useFetch = (url) => {
 	useEffect(() => {
 		let cancelRequest = false;
 		if (!url) return;
-
+		console.log(`url: ${url}, source2: ${source}`);
 		const fetchData = async () => {
 			dispatch({ type: 'FETCHING' });
-			if (cache.current[url]) {
+			if (source === "favorites") {
+				var newmockdata = {items:[]}
+				newmockdata.items = mockdata.items.slice(1,4);
+				dispatch({ type: 'FETCHED', payload: newmockdata });
+			}
+			else if (cache.current[url]) {
 				const data = cache.current[url];
 				dispatch({ type: 'FETCHED', payload: data });
 			} else {
 				const response = await fetch(url);
 				const data = await response.json();
-				console.log({ data });
-				if (data.error) {
-					console.log("lo que yo quiero");
-						dispatch({ type: 'FETCH_ERROR', payload: mockdata });
-					}
-				else {
-					console.log("lo que yo NO quiero");
-						cache.current[url] = data;
-						if (cancelRequest) return;
-							dispatch({ type: 'FETCHED', payload: data });
-						}
 				try {
-					
-					
-
+					if (data.error) {
+						dispatch({ type: 'FETCHED', payload: mockdata });
+						}
+					else {
+							cache.current[url] = data;
+							if (cancelRequest) return;
+								dispatch({ type: 'FETCHED', payload: data });
+					}
 				} catch (error) {
 					console.log("error");
 					if (cancelRequest) return;

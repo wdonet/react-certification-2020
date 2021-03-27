@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { ThemeContext } from "../../contexts/ThemeStore";
 
 const SwitchVerticalCentered = styled.div`
+  color: ${(props) => props.theme.text};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,6 +16,7 @@ const SwitchButtonWrapper = styled.div`
 `;
 
 const SwitchButtonLabel = styled.label`
+  
   position: absolute;
   top: 0;
   left: 0;

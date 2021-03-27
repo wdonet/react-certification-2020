@@ -3,9 +3,14 @@ import styled from 'styled-components';
 import VideoEmbed from '../VideoEmbed';
 import RecommendedVideos from '../RecommendedVideos';
 import RecommendedVideoCard from '../RecommendedVideoCard';
-import { items } from '../../assets/mockdata/mockdata.json';
 import { StoreContext } from '../../contexts/Store';
 import { useFetch } from '../../hooks/useFetch';
+
+import {
+  Switch,
+    Link,
+    useHistory
+} from "react-router-dom";
 
 const BackButtonStyle = styled.button`
     height: 50px;
@@ -23,57 +28,80 @@ const StyledContent = styled.div`
     background-color: ${(props) => props.theme.background};
 `
 const StyledRecommendedVideoContainer = styled.div`
-    /* overflow-y:scroll; */
     background-color: ${(props) => props.theme.background};
 `
 
+const StyledLink = styled(Link)`
+  color: ${(props) => props.theme.text};
+  text-decoration: none;
+  &:focus, &:hover, &:visited, &:link, &:active {
+      text-decoration: none;
+  }
+  margin-top: 16px;
+`
 
-const Detail = ({ gotodetail, detailVideoId, detailTitle, detailDescription }) => {
-    const [related, setRelated] = useState([]);
+
+const Detail = ({ detailVideoId , isFavorite}) => {
+    
+    const url_video = detailVideoId && `https://www.googleapis.com/youtube/v3/videos?id=${detailVideoId}&key=${process.env.REACT_APP_YOUTUBE_API_KEY2}&part=snippet`;
+    const videoHook = useFetch(url_video);
     const {
-        ["sdetailId"]: [sdetailId, setSdetailId],
-
+      ["loggedIn"]: [loggedIn, setLoggedIn]
     } = React.useContext(StoreContext)
-    // console.log(`sdetailId: ${sdetailId}`);
 
-    const url = sdetailId && `https://www.googleapis.com/youtube/v3/search?key=${process.env.REACT_APP_YOUTUBE_API_KEY2}&part=snippet&maxResults=10&order=date&type=video&relatedToVideoId=${sdetailId}`;
+    var videodata = videoHook.data;
+    var videotitle = "";
+    var videodescription = "";
 
-    const { status, data, error } = useFetch(url);
-    const recommendedVideoList = data.items ? data.items.map((rV) => {
-        // console.log(rV);
+
+    if (videodata && videodata.items && videodata.items.length > 0) {
+        videotitle = videodata.items[0].snippet.title;
+        videodescription = videodata.items[0].snippet.description;
+    }
+
+    const url_recommended = detailVideoId && `https://www.googleapis.com/youtube/v3/search?key=${process.env.REACT_APP_YOUTUBE_API_KEY2}&part=snippet&maxResults=10&order=date&type=video&relatedToVideoId=${detailVideoId}`;
+    console.log(`isFavorite: ${isFavorite}`);
+    var fetchType = isFavorite ? "favorites" : "";
+    const recomHook = useFetch(url_recommended, fetchType);
+    var recomdata = recomHook.data;
+    
+    const recommendedVideoList = (recomdata && recomdata.items) ? recomdata.items.map((rV) => {
         if (rV.snippet) {
             return (
-                <RecommendedVideoCard key={rV.id.videoId} videoId={rV.id.videoId} title={rV.snippet.title} image={rV.snippet.thumbnails.high.url} description={ rV.snippet.description } gotodetail={gotodetail} />
+                <StyledLink key={rV.id.videoId} to={`/video/${rV.id.videoId}`}>
+                    <RecommendedVideoCard key={rV.id.videoId} videoId={rV.id.videoId} title={rV.snippet.title} image={rV.snippet.thumbnails.high.url} description={rV.snippet.description} isFavorite={ isFavorite} />
+                </StyledLink>
             )
         } else {
             return null;
         }
-    }):null
-
+    }) : null
+    
+    var detailTitle = "";
+    var detailDescription = "";
     return (
-        <StyledContent>
-            <div>
-                <Back gotodetail={() => { gotodetail(false, "")} }/>
-            </div>
-            <StyledVideoView>
-                <VideoEmbed detailVideoId={detailVideoId} detailTitle={detailTitle} detailDescription={ detailDescription }/>
-                <StyledRecommendedVideoContainer>
-                    <RecommendedVideos>
-                        { recommendedVideoList }
-                    </RecommendedVideos>
-                </StyledRecommendedVideoContainer>
-            </StyledVideoView>
-        </StyledContent>
+            videodata?<StyledContent>
+                <div>
+                    <Back />
+                </div>
+                <StyledVideoView>
+                <VideoEmbed detailVideoId={detailVideoId} detailTitle={videotitle} detailDescription={videodescription} />
+                { loggedIn?"Add to favorites":null}
+                    <StyledRecommendedVideoContainer>
+                        <RecommendedVideos>
+                            { recommendedVideoList }
+                        </RecommendedVideos>
+                    </StyledRecommendedVideoContainer>
+                </StyledVideoView>
+            </StyledContent >:null
+        
     )
 }
 
-const Back = ({ gotodetail }) => {
-    const goBack = () => {
-        gotodetail(false);
-    };
-
+const Back = () => {
+    let history = useHistory();
     return (
-        <BackButtonStyle onClick={ goBack }>Go back</BackButtonStyle>
+        <BackButtonStyle onClick={ () => history.goBack()}>Go back</BackButtonStyle>
     )
 }
 
