@@ -41,9 +41,6 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
 
 
 function App() {
-  
-  
-
   return (
     <React.StrictMode>
       <ThemeStore>
@@ -70,8 +67,7 @@ function App() {
             </Switch>
           </StyledContainer>
         </Theme>
-      </ThemeStore>
-      
+      </ThemeStore> 
     </React.StrictMode>
   );
 }

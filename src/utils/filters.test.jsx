@@ -5,10 +5,10 @@ import filterByYear from './filter';
 describe('Must allow filtering of videos', () => {
   it('returns all videos if no filter', async () => {
     const allvideos = filterByYear(items, '');
-    expect(allvideos.length).toBe(25);
+    expect(allvideos.length).toBe(24);
   });
   it('returns a limited set of videos ', () => {
-    const allvideos = filterByYear(items, '2014');
-    expect(allvideos.length).toBe(1);
+    const allvideos = filterByYear(items, '2016');
+    expect(allvideos.length).toBe(2);
   });
 });

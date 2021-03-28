@@ -1,7 +1,9 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import ReactDOM from 'react-dom';
+import { render, fireEvent, getByTestId } from '@testing-library/react';
 import App from './components/App';
-
+import StoreProvider from './contexts/Store'
+import { MemoryRouter as Router } from "react-router-dom";
 // test if the app renders correctly (shallow?)
 // test if there is a welcome message
 // test if there are N number of videocard components based on the number of videos in the mockapi
@@ -18,8 +20,17 @@ import App from './components/App';
 // test if clicking on the darkmode actually changes the theme (once it is implemented )
 // test if an error waiting for video data returns an empty array and console.logs the error
 
+
+
 describe('App', () => {
+ 
   it('renders App component', async () => {
-    render(<App />);
+    render(
+      <Router>
+        <StoreProvider>
+            <App />
+        </StoreProvider>
+    </Router>
+    );
   });
 });
