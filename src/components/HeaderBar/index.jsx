@@ -31,7 +31,7 @@ const StyledLink = styled(Link)`
   margin-top: 16px;
 `
 
-const Index = ({ updateQuery, gotodetail }) => {
+const Index = ({ updateQuery }) => {
   const {
     "loggedIn": [loggedIn]
   } = React.useContext(StoreContext);
@@ -39,7 +39,7 @@ const Index = ({ updateQuery, gotodetail }) => {
   return (
     <Nav>
       <MenuButton />
-      <SearchInput placeholder="wizeline" updateQuery={updateQuery} gotodetail={ gotodetail }/>
+      <SearchInput placeholder="wizeline" updateQuery={updateQuery} />
       <SwitchButton label="Dark Mode" />
       { loggedIn ?
         <Avatar /> :

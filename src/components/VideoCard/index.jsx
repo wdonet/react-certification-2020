@@ -45,7 +45,7 @@ const Description = styled.p`
   margin-top: 4px;
 `;
 
-const VideoCard = ({ videoId, image, title, description, gotodetail }) => {
+const VideoCard = ({ videoId, image, title, description }) => {
   
   return (
     <Container>

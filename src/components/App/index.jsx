@@ -66,6 +66,7 @@ function App() {
                 path="/about"
                 children={<AboutPage/>}
               />
+              <Route component={NotFound} />
             </Switch>
           </StyledContainer>
         </Theme>
@@ -105,7 +106,6 @@ const HomePage = ({ source}) => {
               title={video.snippet.title}
               description={video.snippet.description}
               image={video.snippet.thumbnails.high.url}
-              gotodetail={() => { } }
               />
           </StyledLink>
         )
@@ -116,7 +116,7 @@ const HomePage = ({ source}) => {
 }
 
 const StyledAbout = styled.div`
-  margin:50px;
+  padding:50px;
 `
 const AboutPage = () => {
   return (
@@ -231,7 +231,6 @@ const FavoritesPage = () => {
                 title={video.snippet.title}
                 description={video.snippet.description}
                 image={video.snippet.thumbnails.high.url}
-                gotodetail={() => { }}
               />
             </StyledLink>
             <StyledRemoveFavorite onClick={ ()=>removeFav(video.id.videoId) }>Remove</StyledRemoveFavorite>
@@ -252,5 +251,15 @@ const DetailPage = ({ match }) => {
     </div>
   )
 }
+
+const NotFound = () => (
+  <StyledAbout>
+    <h1>404 - Not Found!</h1>
+    <Link to="/">
+      Go Home
+    </Link>
+  </StyledAbout>
+);
+
 
 export default App;
