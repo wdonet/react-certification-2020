@@ -135,11 +135,17 @@ const LoginPage = () => {
   const [error, setError] = useState()
   let history = useHistory();
   const {
-    "sessionData": [ setSessionData],
-    "loggedIn": [ setLoggedIn],
+    "sessionData": [ sessionData, setSessionData],
+    "loggedIn": [ loggedIn, setLoggedIn],
     
   } = React.useContext(StoreContext)
   
+
+  const handleSubmit = (event) => {
+    console.log("submit login");
+    event.preventDefault();
+    enterClick();
+  }
 
   const enterClick = () => {
       loginApi(username, password).then((user) => {
@@ -147,14 +153,17 @@ const LoginPage = () => {
       setLoggedIn(true);
       history.push("/");
       
-    }).catch((error) => {
-      setError("Login error");
+      }).catch((error) => {
+        console.log(error);
+        setError("Login error");
     });
   }
 
   return (
     <>
+      
       <CardWrapper>
+        <form onSubmit={handleSubmit}>
           <CardHeader>
             <CardHeading>Log in</CardHeading>
           </CardHeader>
@@ -170,12 +179,13 @@ const LoginPage = () => {
             { error}
           </ErrorMessage>:null}
           <CardFieldset>
-            <CardButton type="button" onClick={() => { enterClick() } }>Enter</CardButton>
+            <CardButton type="submit" onClick={() => { enterClick() } }>Enter</CardButton>
           </CardFieldset>
           <CardFieldset>
               <Link to="/">Don't want to login</Link>
             </CardFieldset>
           </CardBody>
+        </form>
       </CardWrapper>
     </>
   )

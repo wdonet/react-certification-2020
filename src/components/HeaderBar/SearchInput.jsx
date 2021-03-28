@@ -67,7 +67,7 @@ function SearchInput({ placeholder, updateQuery  }) {
   let history = useHistory();
   const [text, setText] = useState('');
   const {
-    "squery": [ setQuery]
+    "squery": [ squery, setSQuery]
   } = React.useContext(StoreContext);
   
   const handleChange = (event) => {
@@ -76,14 +76,14 @@ function SearchInput({ placeholder, updateQuery  }) {
   };
 
   const handleSubmit = (event) => {
-    setQuery(text);
+    setSQuery(text);
     event.preventDefault();
     history.push("/");
   }
   const clearInput = () => {
     setText('');
     if (text !== '') {
-      setQuery('');
+      setSQuery('');
     }
   };
 
