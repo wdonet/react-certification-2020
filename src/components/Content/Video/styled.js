@@ -43,4 +43,5 @@ const Styled = {
   VideoDescription,
   VideoDuration,
 };
+
 export default Styled;

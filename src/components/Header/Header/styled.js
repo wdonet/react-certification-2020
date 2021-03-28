@@ -15,10 +15,11 @@ const LogoImage = styled.div`
   height: 100px;
 `;
 
-const SearchBar = styled.div`
+const SearchArea = styled.div`
   float: left;
-  width: 1000px;
-  position: relative;
+  width: 1500px;
+  padding-top: 20px;
+  text-align: center;
 `;
 
 const Login = styled.div`
@@ -27,5 +28,5 @@ const Login = styled.div`
   height: 100px;
 `;
 
-const Styled = { Header, LogoImage, SearchBar, Login };
+const Styled = { Header, LogoImage, SearchArea, Login };
 export default Styled;

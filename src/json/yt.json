@@ -1,0 +1,848 @@
+{
+  "items": [
+    {
+      "etag": "WjVSkvLU-TyHDb85JRtqYNPwLQ4",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "aGSed4hnEv8"
+      },
+      "kind": "youtube#searchResult",
+      "snippet": {
+        "channelId": "UCnK9PxMozTYs8ELOvgMNKFA",
+        "channelTitle": "Century Media Records",
+        "description": "Director: Roberto 'Saku' Cinardi Executive Producer Borotalco.tv: Matteo Stefani Executive Producer Overclock: Stefano Bella LACUNA COIL summer shows Fri ...",
+        "liveBroadcastContent": "none",
+        "publishTime": "2019-07-26T15:01:41Z",
+        "publishedAt": "2019-07-26T15:01:41Z",
+        "thumbnails": {
+          "default": {
+            "height": 90,
+            "url": "https://i.ytimg.com/vi/aGSed4hnEv8/default.jpg",
+            "width": 120
+          },
+          "high": {
+            "height": 360,
+            "url": "https://i.ytimg.com/vi/aGSed4hnEv8/hqdefault.jpg",
+            "width": 480
+          },
+          "medium": {
+            "height": 180,
+            "url": "https://i.ytimg.com/vi/aGSed4hnEv8/mqdefault.jpg",
+            "width": 320
+          }
+        },
+        "title": "LACUNA COIL - Layers Of Time (OFFICIAL VIDEO)"
+      }
+    },
+    {
+      "etag": "VxzXYHyn313cfvq_sCMjMlQHiOs",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "4wfRHPsRGkk"
+      },
+      "kind": "youtube#searchResult",
+      "snippet": {
+        "channelId": "UCnK9PxMozTYs8ELOvgMNKFA",
+        "channelTitle": "Century Media Records",
+        "description": "LACUNA COIL - Heaven's A Lie (OFFICIAL VIDEO). Taken from the album \"Comalies\". Century Media 2002.",
+        "liveBroadcastContent": "none",
+        "publishTime": "2010-11-03T09:40:44Z",
+        "publishedAt": "2010-11-03T09:40:44Z",
+        "thumbnails": {
+          "default": {
+            "height": 90,
+            "url": "https://i.ytimg.com/vi/4wfRHPsRGkk/default.jpg",
+            "width": 120
+          },
+          "high": {
+            "height": 360,
+            "url": "https://i.ytimg.com/vi/4wfRHPsRGkk/hqdefault.jpg",
+            "width": 480
+          },
+          "medium": {
+            "height": 180,
+            "url": "https://i.ytimg.com/vi/4wfRHPsRGkk/mqdefault.jpg",
+            "width": 320
+          }
+        },
+        "title": "LACUNA COIL - Heaven&#39;s A Lie (OFFICIAL VIDEO)"
+      }
+    },
+    {
+      "etag": "VEcQPYge7FfSMYqfA-0Y_5vQ200",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "Lx58hXh4pVA"
+      },
+      "kind": "youtube#searchResult",
+      "snippet": {
+        "channelId": "UCnK9PxMozTYs8ELOvgMNKFA",
+        "channelTitle": "Century Media Records",
+        "description": "LACUNA COIL - Enjoy the Silence. Taken from the album Karmacode, century media - 2006 CMDistro ...",
+        "liveBroadcastContent": "none",
+        "publishTime": "2006-07-19T21:26:34Z",
+        "publishedAt": "2006-07-19T21:26:34Z",
+        "thumbnails": {
+          "default": {
+            "height": 90,
+            "url": "https://i.ytimg.com/vi/Lx58hXh4pVA/default.jpg",
+            "width": 120
+          },
+          "high": {
+            "height": 360,
+            "url": "https://i.ytimg.com/vi/Lx58hXh4pVA/hqdefault.jpg",
+            "width": 480
+          },
+          "medium": {
+            "height": 180,
+            "url": "https://i.ytimg.com/vi/Lx58hXh4pVA/mqdefault.jpg",
+            "width": 320
+          }
+        },
+        "title": "LACUNA COIL - Enjoy the Silence - US Version (OFFICIAL VIDEO)"
+      }
+    },
+    {
+      "etag": "94gqspxMCDzRKrJ1i_VC1-UafxQ",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "VTT6picaCoQ"
+      },
+      "kind": "youtube#searchResult",
+      "snippet": {
+        "channelId": "UCnK9PxMozTYs8ELOvgMNKFA",
+        "channelTitle": "Century Media Records",
+        "description": "LACUNA COIL - Trip The Darkness (OFFICIAL VIDEO). Taken from the album \"Dark Adrenaline\". Century Media 2012. Pick up the LIMITED Box Set (Only 500 ...",
+        "liveBroadcastContent": "none",
+        "publishTime": "2011-12-14T16:05:13Z",
+        "publishedAt": "2011-12-14T16:05:13Z",
+        "thumbnails": {
+          "default": {
+            "height": 90,
+            "url": "https://i.ytimg.com/vi/VTT6picaCoQ/default.jpg",
+            "width": 120
+          },
+          "high": {
+            "height": 360,
+            "url": "https://i.ytimg.com/vi/VTT6picaCoQ/hqdefault.jpg",
+            "width": 480
+          },
+          "medium": {
+            "height": 180,
+            "url": "https://i.ytimg.com/vi/VTT6picaCoQ/mqdefault.jpg",
+            "width": 320
+          }
+        },
+        "title": "LACUNA COIL - Trip The Darkness (OFFICIAL VIDEO)"
+      }
+    },
+    {
+      "etag": "OD-nVHgHYS0AugCldsSaIVRx0g8",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "USXHxgWoS9g"
+      },
+      "kind": "youtube#searchResult",
+      "snippet": {
+        "channelId": "UCnK9PxMozTYs8ELOvgMNKFA",
+        "channelTitle": "Century Media Records",
+        "description": "Directed by: Saku DP: Michele Brandstetter De Bellesini Editor: Marcello Saurino Production: K48.",
+        "liveBroadcastContent": "none",
+        "publishTime": "2012-12-13T19:58:20Z",
+        "publishedAt": "2012-12-13T19:58:20Z",
+        "thumbnails": {
+          "default": {
+            "height": 90,
+            "url": "https://i.ytimg.com/vi/USXHxgWoS9g/default.jpg",
+            "width": 120
+          },
+          "high": {
+            "height": 360,
+            "url": "https://i.ytimg.com/vi/USXHxgWoS9g/hqdefault.jpg",
+            "width": 480
+          },
+          "medium": {
+            "height": 180,
+            "url": "https://i.ytimg.com/vi/USXHxgWoS9g/mqdefault.jpg",
+            "width": 320
+          }
+        },
+        "title": "LACUNA COIL - End Of Time (OFFICIAL VIDEO)"
+      }
+    },
+    {
+      "etag": "gSXQ6g1xH6P9FP9kpLSLgTT2CXA",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "SB9LXpO6yWo"
+      },
+      "kind": "youtube#searchResult",
+      "snippet": {
+        "channelId": "UCnK9PxMozTYs8ELOvgMNKFA",
+        "channelTitle": "Century Media Records",
+        "description": "LACUNA COIL - Our Truth (HD QUALITY). Taken from the album \"Karmacode\". Century Media 2006.",
+        "liveBroadcastContent": "none",
+        "publishTime": "2010-11-03T10:11:09Z",
+        "publishedAt": "2010-11-03T10:11:09Z",
+        "thumbnails": {
+          "default": {
+            "height": 90,
+            "url": "https://i.ytimg.com/vi/SB9LXpO6yWo/default.jpg",
+            "width": 120
+          },
+          "high": {
+            "height": 360,
+            "url": "https://i.ytimg.com/vi/SB9LXpO6yWo/hqdefault.jpg",
+            "width": 480
+          },
+          "medium": {
+            "height": 180,
+            "url": "https://i.ytimg.com/vi/SB9LXpO6yWo/mqdefault.jpg",
+            "width": 320
+          }
+        },
+        "title": "LACUNA COIL - Our Truth (HIGH QUALITY)"
+      }
+    },
+    {
+      "etag": "h_UjA1nllgat9th0Vfl8Vi1qyko",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "r_VS2B48c24"
+      },
+      "kind": "youtube#searchResult",
+      "snippet": {
+        "channelId": "UCnK9PxMozTYs8ELOvgMNKFA",
+        "channelTitle": "Century Media Records",
+        "description": "LACUNA COIL - Spellbound (Performance Version). Taken from the album \"Shallow Life\", Century Media Records 2009. CMDistro ...",
+        "liveBroadcastContent": "none",
+        "publishTime": "2009-03-30T19:16:57Z",
+        "publishedAt": "2009-03-30T19:16:57Z",
+        "thumbnails": {
+          "default": {
+            "height": 90,
+            "url": "https://i.ytimg.com/vi/r_VS2B48c24/default.jpg",
+            "width": 120
+          },
+          "high": {
+            "height": 360,
+            "url": "https://i.ytimg.com/vi/r_VS2B48c24/hqdefault.jpg",
+            "width": 480
+          },
+          "medium": {
+            "height": 180,
+            "url": "https://i.ytimg.com/vi/r_VS2B48c24/mqdefault.jpg",
+            "width": 320
+          }
+        },
+        "title": "LACUNA COIL - Spellbound (Performance Version)"
+      }
+    },
+    {
+      "etag": "HDXYupuTo8e1yo_ZsUf0_xTIgfI",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "ixxtnrWb17Y"
+      },
+      "kind": "youtube#searchResult",
+      "snippet": {
+        "channelId": "UCnK9PxMozTYs8ELOvgMNKFA",
+        "channelTitle": "Century Media Records",
+        "description": "LACUNA COIL - Heavens A Lie. Taken from the album \"Comalies\". Century Media 2002 CMDistro ...",
+        "liveBroadcastContent": "none",
+        "publishTime": "2006-07-19T22:04:55Z",
+        "publishedAt": "2006-07-19T22:04:55Z",
+        "thumbnails": {
+          "default": {
+            "height": 90,
+            "url": "https://i.ytimg.com/vi/ixxtnrWb17Y/default.jpg",
+            "width": 120
+          },
+          "high": {
+            "height": 360,
+            "url": "https://i.ytimg.com/vi/ixxtnrWb17Y/hqdefault.jpg",
+            "width": 480
+          },
+          "medium": {
+            "height": 180,
+            "url": "https://i.ytimg.com/vi/ixxtnrWb17Y/mqdefault.jpg",
+            "width": 320
+          }
+        },
+        "title": "LACUNA COIL - Heavens A Lie (OFFICIAL VIDEO)"
+      }
+    },
+    {
+      "etag": "YjGEBgC7LyZU1Sj2H3xIGiNQiq8",
+      "id": {
+        "channelId": "UC2yGvqVB_kK0FC1eUifENGQ",
+        "kind": "youtube#channel"
+      },
+      "kind": "youtube#searchResult",
+      "snippet": {
+        "channelId": "UC2yGvqVB_kK0FC1eUifENGQ",
+        "channelTitle": "lacunacoil",
+        "description": "Welcome to the ONLY OFFICIAL LACUNA COIL Channel here on YouTube!",
+        "liveBroadcastContent": "none",
+        "publishTime": "2005-12-14T00:33:07Z",
+        "publishedAt": "2005-12-14T00:33:07Z",
+        "thumbnails": {
+          "default": {
+            "url": "https://yt3.ggpht.com/ytc/AAUvwnhUJEyRlBArRXS1SnmvHcYFc-QFWVoSjiLS2s9wDA=s88-c-k-c0xffffffff-no-rj-mo"
+          },
+          "high": {
+            "url": "https://yt3.ggpht.com/ytc/AAUvwnhUJEyRlBArRXS1SnmvHcYFc-QFWVoSjiLS2s9wDA=s800-c-k-c0xffffffff-no-rj-mo"
+          },
+          "medium": {
+            "url": "https://yt3.ggpht.com/ytc/AAUvwnhUJEyRlBArRXS1SnmvHcYFc-QFWVoSjiLS2s9wDA=s240-c-k-c0xffffffff-no-rj-mo"
+          }
+        },
+        "title": "lacunacoil"
+      }
+    },
+    {
+      "etag": "h1A17NjwrF533fiFNNGQt46O1M8",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "sM2TeOHvXZo"
+      },
+      "kind": "youtube#searchResult",
+      "snippet": {
+        "channelId": "UC6KEU5-KSTszEOOnAl8ZwPQ",
+        "channelTitle": "KING RECORDS",
+        "description": "伊・ミラノから世界に向けて躍進する\"ゴス＆ヘヴィ\"のパイオニア、ラクーナ・コイル。 話題騒然のNew Album『DARK ADRENALINE』より、新作PVが到着！ 美の象徴として ...",
+        "liveBroadcastContent": "none",
+        "publishTime": "2012-02-27T08:59:53Z",
+        "publishedAt": "2012-02-27T08:59:53Z",
+        "thumbnails": {
+          "default": {
+            "height": 90,
+            "url": "https://i.ytimg.com/vi/sM2TeOHvXZo/default.jpg",
+            "width": 120
+          },
+          "high": {
+            "height": 360,
+            "url": "https://i.ytimg.com/vi/sM2TeOHvXZo/hqdefault.jpg",
+            "width": 480
+          },
+          "medium": {
+            "height": 180,
+            "url": "https://i.ytimg.com/vi/sM2TeOHvXZo/mqdefault.jpg",
+            "width": 320
+          }
+        },
+        "title": "Trip The Darkness/LACUNA COIL"
+      }
+    },
+    {
+      "etag": "LRK-kEktlqduzM-XmDUFLOliNic",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "_mTud9BQcF0"
+      },
+      "kind": "youtube#searchResult",
+      "snippet": {
+        "channelId": "UCnK9PxMozTYs8ELOvgMNKFA",
+        "channelTitle": "Century Media Records",
+        "description": "LACUNA COIL - Save Me (OFFICIAL LIVE VIDEO). Taken from the album \"Black Anima\", out October 11th, 2019. Order now: ...",
+        "liveBroadcastContent": "none",
+        "publishTime": "2020-03-11T14:00:28Z",
+        "publishedAt": "2020-03-11T14:00:28Z",
+        "thumbnails": {
+          "default": {
+            "height": 90,
+            "url": "https://i.ytimg.com/vi/_mTud9BQcF0/default.jpg",
+            "width": 120
+          },
+          "high": {
+            "height": 360,
+            "url": "https://i.ytimg.com/vi/_mTud9BQcF0/hqdefault.jpg",
+            "width": 480
+          },
+          "medium": {
+            "height": 180,
+            "url": "https://i.ytimg.com/vi/_mTud9BQcF0/mqdefault.jpg",
+            "width": 320
+          }
+        },
+        "title": "LACUNA COIL - Save Me (OFFICIAL LIVE VIDEO)"
+      }
+    },
+    {
+      "etag": "5JY-mOkOYN9PnRW88Kt_WadXSKA",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "XCxFTh-XDy8"
+      },
+      "kind": "youtube#searchResult",
+      "snippet": {
+        "channelId": "UCnK9PxMozTYs8ELOvgMNKFA",
+        "channelTitle": "Century Media Records",
+        "description": "LACUNA COIL - Our Truth. Taken from the album Karmacode. Century Media 2006 CMDistro ...",
+        "liveBroadcastContent": "none",
+        "publishTime": "2006-07-19T17:13:29Z",
+        "publishedAt": "2006-07-19T17:13:29Z",
+        "thumbnails": {
+          "default": {
+            "height": 90,
+            "url": "https://i.ytimg.com/vi/XCxFTh-XDy8/default.jpg",
+            "width": 120
+          },
+          "high": {
+            "height": 360,
+            "url": "https://i.ytimg.com/vi/XCxFTh-XDy8/hqdefault.jpg",
+            "width": 480
+          },
+          "medium": {
+            "height": 180,
+            "url": "https://i.ytimg.com/vi/XCxFTh-XDy8/mqdefault.jpg",
+            "width": 320
+          }
+        },
+        "title": "LACUNA COIL - Our Truth (OFFICIAL VIDEO)"
+      }
+    },
+    {
+      "etag": "DXJT8dDieXZAI10PsqEa2-yosAQ",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "BEb1dT62rlc"
+      },
+      "kind": "youtube#searchResult",
+      "snippet": {
+        "channelId": "UCnK9PxMozTYs8ELOvgMNKFA",
+        "channelTitle": "Century Media Records",
+        "description": "a Borotalco.tv & Overclock production: Director: Roberto Saku Cinardi Executive Producer Borotalco.tv: Matteo Stefani, Andrea Biscaro Executive Producer ...",
+        "liveBroadcastContent": "none",
+        "publishTime": "2019-09-13T15:00:07Z",
+        "publishedAt": "2019-09-13T15:00:07Z",
+        "thumbnails": {
+          "default": {
+            "height": 90,
+            "url": "https://i.ytimg.com/vi/BEb1dT62rlc/default.jpg",
+            "width": 120
+          },
+          "high": {
+            "height": 360,
+            "url": "https://i.ytimg.com/vi/BEb1dT62rlc/hqdefault.jpg",
+            "width": 480
+          },
+          "medium": {
+            "height": 180,
+            "url": "https://i.ytimg.com/vi/BEb1dT62rlc/mqdefault.jpg",
+            "width": 320
+          }
+        },
+        "title": "LACUNA COIL - Reckless (OFFICIAL VIDEO)"
+      }
+    },
+    {
+      "etag": "5Lza4HDg8bxs8phfmso3QnBsAKA",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "nOuxOUYycoU"
+      },
+      "kind": "youtube#searchResult",
+      "snippet": {
+        "channelId": "UCnK9PxMozTYs8ELOvgMNKFA",
+        "channelTitle": "Century Media Records",
+        "description": "LACUNA COIL - Swamped (HD QUALITY). Taken from the album \"Comalies\". Century Media 2002. Get this track now! http://bit.ly/FOwP6X.",
+        "liveBroadcastContent": "none",
+        "publishTime": "2010-11-04T12:20:26Z",
+        "publishedAt": "2010-11-04T12:20:26Z",
+        "thumbnails": {
+          "default": {
+            "height": 90,
+            "url": "https://i.ytimg.com/vi/nOuxOUYycoU/default.jpg",
+            "width": 120
+          },
+          "high": {
+            "height": 360,
+            "url": "https://i.ytimg.com/vi/nOuxOUYycoU/hqdefault.jpg",
+            "width": 480
+          },
+          "medium": {
+            "height": 180,
+            "url": "https://i.ytimg.com/vi/nOuxOUYycoU/mqdefault.jpg",
+            "width": 320
+          }
+        },
+        "title": "LACUNA COIL - Swamped (HIGH QUALITY)"
+      }
+    },
+    {
+      "etag": "gyZxpuN9uqbuFRtSrcP4GNd4rxs",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "s9sVUqOhcPU"
+      },
+      "kind": "youtube#searchResult",
+      "snippet": {
+        "channelId": "UCJMyff8tcUHlVm4nVjY3hCQ",
+        "channelTitle": "LacunaCoilVEVO",
+        "description": "LACUNA COIL - Blood, Tears, Dust (OFFICIAL VIDEO) Century Media Records 2017. Taken from the album DELIRIUM // Purchase Below // CMDistro: ...",
+        "liveBroadcastContent": "none",
+        "publishTime": "2017-03-22T15:00:06Z",
+        "publishedAt": "2017-03-22T15:00:06Z",
+        "thumbnails": {
+          "default": {
+            "height": 90,
+            "url": "https://i.ytimg.com/vi/s9sVUqOhcPU/default.jpg",
+            "width": 120
+          },
+          "high": {
+            "height": 360,
+            "url": "https://i.ytimg.com/vi/s9sVUqOhcPU/hqdefault.jpg",
+            "width": 480
+          },
+          "medium": {
+            "height": 180,
+            "url": "https://i.ytimg.com/vi/s9sVUqOhcPU/mqdefault.jpg",
+            "width": 320
+          }
+        },
+        "title": "Lacuna Coil - Blood, Tears, Dust (official video)"
+      }
+    },
+    {
+      "etag": "i4LdzOSE_cA3CY0E9iw9OpAvw54",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "Gtft6LqgFSA"
+      },
+      "kind": "youtube#searchResult",
+      "snippet": {
+        "channelId": "UCnK9PxMozTYs8ELOvgMNKFA",
+        "channelTitle": "Century Media Records",
+        "description": "Taken from the album, 'Broken Crown Halo', Century Media Records, 2014. \"Nothing Stands In Our Way\" Fear We're still struggling Halfway through this journey ...",
+        "liveBroadcastContent": "none",
+        "publishTime": "2014-08-22T19:02:16Z",
+        "publishedAt": "2014-08-22T19:02:16Z",
+        "thumbnails": {
+          "default": {
+            "height": 90,
+            "url": "https://i.ytimg.com/vi/Gtft6LqgFSA/default.jpg",
+            "width": 120
+          },
+          "high": {
+            "height": 360,
+            "url": "https://i.ytimg.com/vi/Gtft6LqgFSA/hqdefault.jpg",
+            "width": 480
+          },
+          "medium": {
+            "height": 180,
+            "url": "https://i.ytimg.com/vi/Gtft6LqgFSA/mqdefault.jpg",
+            "width": 320
+          }
+        },
+        "title": "LACUNA COIL - Nothing Stands in Our Way (OFFICIAL VIDEO)"
+      }
+    },
+    {
+      "etag": "m665J7WLH_aEBzecTMt5jwmuujU",
+      "id": {
+        "kind": "youtube#playlist",
+        "playlistId": "PLRNd44e0NP0Vo_Sxk0WC8Tc6VHeztqoAt"
+      },
+      "kind": "youtube#searchResult",
+      "snippet": {
+        "channelId": "UCTExrz_Ujxm3x_LcRwZLSgw",
+        "channelTitle": "Ramses Olivares",
+        "description": "",
+        "liveBroadcastContent": "none",
+        "publishTime": "2020-05-17T01:41:07Z",
+        "publishedAt": "2020-05-17T01:41:07Z",
+        "thumbnails": {
+          "default": {
+            "height": 90,
+            "url": "https://i.ytimg.com/vi/NTy4Am3MQ4c/default.jpg",
+            "width": 120
+          },
+          "high": {
+            "height": 360,
+            "url": "https://i.ytimg.com/vi/NTy4Am3MQ4c/hqdefault.jpg",
+            "width": 480
+          },
+          "medium": {
+            "height": 180,
+            "url": "https://i.ytimg.com/vi/NTy4Am3MQ4c/mqdefault.jpg",
+            "width": 320
+          }
+        },
+        "title": "Lacuna Coil - Comalies"
+      }
+    },
+    {
+      "etag": "_J7G3XsISJNONPFc0FWbY2LMIgc",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "CYIEGaIjklk"
+      },
+      "kind": "youtube#searchResult",
+      "snippet": {
+        "channelId": "UCJMyff8tcUHlVm4nVjY3hCQ",
+        "channelTitle": "LacunaCoilVEVO",
+        "description": "Music video by Lacuna Coil performing Delirium. (C) 2016 Century Media Records Ltd. http://vevo.ly/1vlrcG #LacunaCoil #Delirium #Vevo #Metal ...",
+        "liveBroadcastContent": "none",
+        "publishTime": "2016-07-21T21:48:59Z",
+        "publishedAt": "2016-07-21T21:48:59Z",
+        "thumbnails": {
+          "default": {
+            "height": 90,
+            "url": "https://i.ytimg.com/vi/CYIEGaIjklk/default.jpg",
+            "width": 120
+          },
+          "high": {
+            "height": 360,
+            "url": "https://i.ytimg.com/vi/CYIEGaIjklk/hqdefault.jpg",
+            "width": 480
+          },
+          "medium": {
+            "height": 180,
+            "url": "https://i.ytimg.com/vi/CYIEGaIjklk/mqdefault.jpg",
+            "width": 320
+          }
+        },
+        "title": "Lacuna Coil - Delirium (official video)"
+      }
+    },
+    {
+      "etag": "B3H3hoTAL4JIua0LpR3S3tnfRYY",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "lyl4EinZsMY"
+      },
+      "kind": "youtube#searchResult",
+      "snippet": {
+        "channelId": "UCnK9PxMozTYs8ELOvgMNKFA",
+        "channelTitle": "Century Media Records",
+        "description": "Taken from the album \"Broken Crown Halo\". Century Media 2014.",
+        "liveBroadcastContent": "none",
+        "publishTime": "2014-04-30T08:35:19Z",
+        "publishedAt": "2014-04-30T08:35:19Z",
+        "thumbnails": {
+          "default": {
+            "height": 90,
+            "url": "https://i.ytimg.com/vi/lyl4EinZsMY/default.jpg",
+            "width": 120
+          },
+          "high": {
+            "height": 360,
+            "url": "https://i.ytimg.com/vi/lyl4EinZsMY/hqdefault.jpg",
+            "width": 480
+          },
+          "medium": {
+            "height": 180,
+            "url": "https://i.ytimg.com/vi/lyl4EinZsMY/mqdefault.jpg",
+            "width": 320
+          }
+        },
+        "title": "LACUNA COIL - I Forgive (But I Won&#39;t Forget Your Name) (OFFICIAL VIDEO)"
+      }
+    },
+    {
+      "etag": "BO4bCfSx5AesBcLkcXtymYdGNzs",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "Ly9E30Hc5pg"
+      },
+      "kind": "youtube#searchResult",
+      "snippet": {
+        "channelId": "UCnK9PxMozTYs8ELOvgMNKFA",
+        "channelTitle": "Century Media Records",
+        "description": "LACUNA COIL - Swamped. Taken from the album \"Comalies\". Century Media 2002 CMDistro ...",
+        "liveBroadcastContent": "none",
+        "publishTime": "2006-07-19T21:59:46Z",
+        "publishedAt": "2006-07-19T21:59:46Z",
+        "thumbnails": {
+          "default": {
+            "height": 90,
+            "url": "https://i.ytimg.com/vi/Ly9E30Hc5pg/default.jpg",
+            "width": 120
+          },
+          "high": {
+            "height": 360,
+            "url": "https://i.ytimg.com/vi/Ly9E30Hc5pg/hqdefault.jpg",
+            "width": 480
+          },
+          "medium": {
+            "height": 180,
+            "url": "https://i.ytimg.com/vi/Ly9E30Hc5pg/mqdefault.jpg",
+            "width": 320
+          }
+        },
+        "title": "LACUNA COIL - Swamped (OFFICIAL VIDEO)"
+      }
+    },
+    {
+      "etag": "n09GnmCOxTWUzop0i5uIWwIgfts",
+      "id": {
+        "kind": "youtube#playlist",
+        "playlistId": "PLjBlV8fhyE2MnikYu3r52APSJFsXcvc-A"
+      },
+      "kind": "youtube#searchResult",
+      "snippet": {
+        "channelId": "UCxIO7Za9iLxjETcbbQ3a7OA",
+        "channelTitle": "avinash sookhwa",
+        "description": "",
+        "liveBroadcastContent": "none",
+        "publishTime": "2016-06-26T13:51:05Z",
+        "publishedAt": "2016-06-26T13:51:05Z",
+        "thumbnails": {
+          "default": {
+            "height": 90,
+            "url": "https://i.ytimg.com/vi/yZDoywctlmM/default.jpg",
+            "width": 120
+          },
+          "high": {
+            "height": 360,
+            "url": "https://i.ytimg.com/vi/yZDoywctlmM/hqdefault.jpg",
+            "width": 480
+          },
+          "medium": {
+            "height": 180,
+            "url": "https://i.ytimg.com/vi/yZDoywctlmM/mqdefault.jpg",
+            "width": 320
+          }
+        },
+        "title": "Best of Lacuna coil"
+      }
+    },
+    {
+      "etag": "5LJf3_eLCc2evzBEGzFOYPR60P4",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "rGSgOF020C8"
+      },
+      "kind": "youtube#searchResult",
+      "snippet": {
+        "channelId": "UCnK9PxMozTYs8ELOvgMNKFA",
+        "channelTitle": "Century Media Records",
+        "description": "LACUNA COIL - Within Me. Taken from the album \"Karmacode\". Century Media 2007 CMDistro ...",
+        "liveBroadcastContent": "none",
+        "publishTime": "2007-05-10T21:14:19Z",
+        "publishedAt": "2007-05-10T21:14:19Z",
+        "thumbnails": {
+          "default": {
+            "height": 90,
+            "url": "https://i.ytimg.com/vi/rGSgOF020C8/default.jpg",
+            "width": 120
+          },
+          "high": {
+            "height": 360,
+            "url": "https://i.ytimg.com/vi/rGSgOF020C8/hqdefault.jpg",
+            "width": 480
+          },
+          "medium": {
+            "height": 180,
+            "url": "https://i.ytimg.com/vi/rGSgOF020C8/mqdefault.jpg",
+            "width": 320
+          }
+        },
+        "title": "LACUNA COIL - Within Me (OFFICIAL VIDEO)"
+      }
+    },
+    {
+      "etag": "0F-TiFSJ0Ph5-u5JAil8HKPcHLM",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "zntJOEvoM78"
+      },
+      "kind": "youtube#searchResult",
+      "snippet": {
+        "channelId": "UCnK9PxMozTYs8ELOvgMNKFA",
+        "channelTitle": "Century Media Records",
+        "description": "Directed & produced by Paul M Green (Film 24 Productions) Editing / authoring by Paul M Green Produced by Lacuna Coil Audio recording by Martin Knight ...",
+        "liveBroadcastContent": "none",
+        "publishTime": "2018-11-09T10:59:14Z",
+        "publishedAt": "2018-11-09T10:59:14Z",
+        "thumbnails": {
+          "default": {
+            "height": 90,
+            "url": "https://i.ytimg.com/vi/zntJOEvoM78/default.jpg",
+            "width": 120
+          },
+          "high": {
+            "height": 360,
+            "url": "https://i.ytimg.com/vi/zntJOEvoM78/hqdefault.jpg",
+            "width": 480
+          },
+          "medium": {
+            "height": 180,
+            "url": "https://i.ytimg.com/vi/zntJOEvoM78/mqdefault.jpg",
+            "width": 320
+          }
+        },
+        "title": "LACUNA COIL - Nothing Stands In Our Way (The 119 Show - OFFICIAL VIDEO)"
+      }
+    },
+    {
+      "etag": "lYBkSAmnT_8L49vHUxJlcCuE8hY",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "DaN_nEVKWCI"
+      },
+      "kind": "youtube#searchResult",
+      "snippet": {
+        "channelId": "UCnK9PxMozTYs8ELOvgMNKFA",
+        "channelTitle": "Century Media Records",
+        "description": "LACUNA COIL - I Like It (OFFICIAL VIDEO). Taken from the album \"Shallow Life\", Century Media Records 2009. BUY \"SHALLOW LIFE\": ...",
+        "liveBroadcastContent": "none",
+        "publishTime": "2009-07-03T19:23:55Z",
+        "publishedAt": "2009-07-03T19:23:55Z",
+        "thumbnails": {
+          "default": {
+            "height": 90,
+            "url": "https://i.ytimg.com/vi/DaN_nEVKWCI/default.jpg",
+            "width": 120
+          },
+          "high": {
+            "height": 360,
+            "url": "https://i.ytimg.com/vi/DaN_nEVKWCI/hqdefault.jpg",
+            "width": 480
+          },
+          "medium": {
+            "height": 180,
+            "url": "https://i.ytimg.com/vi/DaN_nEVKWCI/mqdefault.jpg",
+            "width": 320
+          }
+        },
+        "title": "LACUNA COIL - I Like It (OFFICIAL VIDEO)"
+      }
+    },
+    {
+      "etag": "xINjRk_swUU1KNP5oIcec_7rwBY",
+      "id": {
+        "kind": "youtube#video",
+        "videoId": "b6gFJogLJ_g"
+      },
+      "kind": "youtube#searchResult",
+      "snippet": {
+        "channelId": "UCnK9PxMozTYs8ELOvgMNKFA",
+        "channelTitle": "Century Media Records",
+        "description": "LACUNA COIL - Closer. Taken from \"Karmacode\". Century Media Records 2006 CMDistro ...",
+        "liveBroadcastContent": "none",
+        "publishTime": "2006-09-29T19:10:54Z",
+        "publishedAt": "2006-09-29T19:10:54Z",
+        "thumbnails": {
+          "default": {
+            "height": 90,
+            "url": "https://i.ytimg.com/vi/b6gFJogLJ_g/default.jpg",
+            "width": 120
+          },
+          "high": {
+            "height": 360,
+            "url": "https://i.ytimg.com/vi/b6gFJogLJ_g/hqdefault.jpg",
+            "width": 480
+          },
+          "medium": {
+            "height": 180,
+            "url": "https://i.ytimg.com/vi/b6gFJogLJ_g/mqdefault.jpg",
+            "width": 320
+          }
+        },
+        "title": "LACUNA COIL - Closer (OFFICIAL VIDEO)"
+      }
+    }
+  ]
+}

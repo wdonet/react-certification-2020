@@ -12,9 +12,9 @@ const Header = () => {
       <Styled.LogoImage>
         <Logo />
       </Styled.LogoImage>
-      <Styled.SearchBar>
+      <Styled.SearchArea>
         <SearchBar />
-      </Styled.SearchBar>
+      </Styled.SearchArea>
       <Styled.Login>
         <Login />
       </Styled.Login>

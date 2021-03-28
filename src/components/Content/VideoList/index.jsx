@@ -1,18 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Video from '../Video';
-
-import { items } from '../../../json/data.json';
+import YoutubeContext from '../../../context/YoutubeContext.jsx';
 
 const VideoList = () => {
-  const listofvideos = items.slice(1);
+  const listofvideos = useContext(YoutubeContext).slice(1);
+
+  const videos = listofvideos.map((video) => (
+    <Video key={video.id.videoId} info={video} />
+  ));
 
   return (
     <table className="list-videos">
-      {listofvideos.map((video) => (
-        <tr>
-          <Video info={video} />
-        </tr>
-      ))}
+      <tbody>{videos}</tbody>
     </table>
   );
 };
