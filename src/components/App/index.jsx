@@ -198,7 +198,8 @@ const FavoritesPage = () => {
     "favorites": [favorites, setFavorites],
   } = React.useContext(StoreContext)
 
-  for (const [ value] of Object.entries(favorites)) {
+  for (const [key, value] of Object.entries(favorites)) {
+      console.log(key)
       data.items.push(value);
   }
 
@@ -208,7 +209,6 @@ const FavoritesPage = () => {
     delete clone[videoid];
     setFavorites(clone);
   }
-
   return (
     <Content title="Favorites"  is>{(data.items && data.items.length>0) ?
       data.items.map((video) => {

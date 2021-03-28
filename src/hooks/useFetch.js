@@ -35,7 +35,7 @@ export const useFetch = (url, source) => {
 			if (source === "favorites") {
 				var newmockdata = {items:[]}
 				// newmockdata.items = mockdata.items.slice(1,4);
-				for (const [key, value] of Object.entries(favorites)) {
+				for (const [ value] of Object.entries(favorites)) {
 					newmockdata.items.push(value);
 				}
 				dispatch({ type: 'FETCHED', payload: newmockdata });
@@ -67,7 +67,7 @@ export const useFetch = (url, source) => {
 		return function cleanup() {
 			cancelRequest = true;
 		};
-	}, [url, favorites, source]);
+	}, [url, source]);
 
 	return state;
 };

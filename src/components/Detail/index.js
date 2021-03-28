@@ -88,14 +88,14 @@ const Detail = ({ detailVideoId }) => {
             return null;
         }
     }) : null
-    const addtoFavorites = (id, title, description, thumbnail)=>{
-
+    const addtoFavorites = (id)=>{
+        console.log(id, videotitle, videodescription, videoimage)
         if (!favorites[id]) {
             const clone = JSON.parse(JSON.stringify(favorites));
             clone[id] = { etag: id, id: {videoId: id },snippet: { title: videotitle, description: videodescription, thumbnails: { high: { url: videoimage } } } }
             setFavorites(clone);
+            console.log(favorites);
         } 
-
     }
     return (
             videodata?<StyledContent>
@@ -104,7 +104,7 @@ const Detail = ({ detailVideoId }) => {
                 </div>
                 <StyledVideoView>
                 <VideoEmbed detailVideoId={detailVideoId} detailTitle={videotitle} detailDescription={videodescription} />
-                {loggedIn ? <StyledFavButton onClick={() => { addtoFavorites(detailVideoId, videotitle, videodescription, videoimage)}}>
+                {loggedIn ? <StyledFavButton onClick={() => { addtoFavorites(detailVideoId)}}>
                     Add to favorites
                 </StyledFavButton>:null}
                     <StyledRecommendedVideoContainer>
