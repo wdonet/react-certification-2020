@@ -115,14 +115,15 @@ const HomePage = ({ source}) => {
   )
 }
 
+const StyledAbout = styled.div`
+  margin:50px;
+`
 const AboutPage = () => {
   return (
-    <div>
-      <br></br>
-      <br></br>
-      <br></br>
-      React Challenge Wizeline Bootcamp
-    </div>
+    <StyledAbout>
+      
+      React Challenge Wizeline Bootcamp v.1.0.
+    </StyledAbout>
   )
 }
 
