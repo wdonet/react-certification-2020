@@ -1,0 +1,288 @@
+<html>
+  <head>
+    <title>MarioTube</title>
+  </head>
+  <body>
+    <!--
+        <div class="header">
+            <div class="header-logo"><img src="./m-vector_icon.jpg" /></div>
+            <div class="header-search">
+                <label>Search videos <input type="text" name="search" placeholder="🎥  Search for videos"/></label>
+            </div>
+            <div class="header-login">
+                <a>Sign in</a> <img src="./wize-logo.png" />
+            </div>
+        </div>
+        <div class="sidebar">
+          <ul>
+            <li>Home</li>
+            <li>Favorites</li>
+          </ul>
+          <div>Dark Mode</div>
+        </div>
+        <div class="content">
+          <div class="categories">Categories</div>
+          <div class="videos"><div class="video"></div></div>
+        </div>
+        <div class="footer"><div class="info"></div></div>
+
+/**
+* Sample JavaScript code for youtube.search.list
+* See instructions for running APIs Explorer code samples locally:
+* https://developers.google.com/explorer-help/guides/code_samples#javascript
+*/-->
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script>
+      function authenticate() {
+        console.log('authenticate...');
+        return gapi.auth2
+          .getAuthInstance()
+          .signIn({ scope: 'https://www.googleapis.com/auth/youtube.force-ssl' })
+          .then(
+            function () {
+              console.log('Sign-in successful');
+            },
+            function (err) {
+              console.error('Error signing in', err);
+            }
+          );
+      }
+      function loadClient() {
+        console.log('loadClient...');
+        console.log('--setApiKey...');
+        gapi.client.setApiKey('AIzaSyDpytkLvHqG_bnDtwfSklDRk-eU8O-fHL8');
+        return gapi.client
+          .load('https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest')
+          .then(
+            function () {
+              console.log('GAPI client loaded for API');
+            },
+            function (err) {
+              console.error('Error loading GAPI client for API', err);
+            }
+          );
+      }
+      // Make sure the client is loaded and sign-in is complete before calling this method.
+      function execute() {
+        console.log('execute...');
+        console.log('--search.list...');
+        return gapi.client.youtube.search
+          .list({
+            part: ['snippet'],
+            q: 'lacuna coil',
+          })
+          .then(
+            function (response) {
+              // Handle the results here (response.result has the parsed body).
+              console.log('--Response', response);
+            },
+            function (err) {
+              console.error('--Execute error', err);
+            }
+          );
+      }
+      gapi.load('client:auth2', function () {
+        console.log('load...');
+        console.log('--client:auth2...');
+        console.log('--init...');
+        gapi.auth2.init({
+          client_id:
+            '1088412977008-bt87ku9si9u48echferpm6i23rcv5jei.apps.googleusercontent.com',
+        });
+      });
+    </script>
+    <button onclick="authenticate().then(loadClient)">authorize and load</button>
+    <button onclick="execute()">execute</button>
+
+    <!--
+
+    html, body, #root {
+        width: 100%;
+        height: 100%;
+      }
+      
+      .SplitPane {
+        width: 100%;
+        height: 100%;
+      }
+      
+      .SplitPane-left {
+        float: left;
+        width: 10%;
+        height: 100%;
+      }
+      
+      .SplitPane-right {
+        float: left;
+        width: 89%;
+        height: 100%;
+      }
+      
+      .Contacts {
+        width: 100%;
+        height: 100%; 
+        background: lightblue;
+      }
+      
+      .Chat {
+        width: 100%;
+        height: 100%; 
+        background: pink;
+      }
+
+
+      function Contacts() {
+        return <div className="Contacts" />;
+      }
+      
+      function Chat() {
+        return <div className="Chat" />;
+      }
+      
+      function SplitPane(props) {
+        return (
+          <div className="SplitPane">
+            <div className="SplitPane-left">
+              {props.left}
+            </div>
+            <div className="SplitPane-right">
+              {props.right}
+            </div>
+          </div>
+        );
+      }
+      
+      function App() {
+        return (
+          <SplitPane
+            left={
+              <Contacts />
+            }
+            right={
+              <Chat />
+            } />
+        );
+      }
+      
+      ReactDOM.render(
+        <App />,
+        document.getElementById('root')
+      );
+      
+
+      YouTube App
+
+
+      Menu Bar
+          Icon    
+          Search bar
+          Login icon
+              Login
+              Account info
+              Logout
+      
+      Side Bar
+          Home
+          Favorites
+          Dark mode
+      
+      Main Body
+          Videos
+              Thumbnail
+              Title
+              Description
+              Author
+      
+      Video View
+          Video
+              Title               Views
+              Author              Like/Dislike
+              Description
+      
+      Footer
+      
+      KNEWZ-1745
+      
+      React.createElement(
+          "div",
+          {},
+          React.createElement("h1", {}, props.title),
+          React.createElement("h1", {}, props.subtitle),
+      )
+
+
+      class LoginControl extends React.Component {
+        constructor(props) {
+            super(props);
+            this.handleLoginClick = this.handleLoginClick.bind(this);
+            this.handleLogoutClick = this.handleLogoutClick.bind(this);
+            this.state = {isLoggedIn: false};
+        }
+      
+        handleLoginClick() {
+            this.setState({isLoggedIn: true});
+        }
+      
+        handleLogoutClick() {
+            this.setState({isLoggedIn: false});
+        }
+      
+        render() {
+            const isLoggedIn = this.state.isLoggedIn;
+            let button;
+      
+            if (isLoggedIn) {
+                button = <LogoutButton onClick={this.handleLogoutClick} />;
+            } else {
+                button = <LoginButton onClick={this.handleLoginClick} />;
+            }
+      
+            return (
+                <div>
+                    <Greeting isLoggedIn={isLoggedIn} />
+                    {button}
+                </div>
+            );
+        }
+    }
+      
+    function UserGreeting(props) {
+        return <h1>Welcome back!</h1>;
+    }
+      
+    function GuestGreeting(props) {
+        return <h1>Please sign up.</h1>;
+    }
+      
+    function Greeting(props) {
+        const isLoggedIn = props.isLoggedIn;
+        if (isLoggedIn) {
+            return <UserGreeting />;
+        }
+        return <GuestGreeting />;
+    }
+      
+    function LoginButton(props) {
+        return (
+            <button onClick={props.onClick}>
+                Login
+            </button>
+        );
+    }
+      
+    function LogoutButton(props) {
+        return (
+            <button onClick={props.onClick}>
+                Logout
+            </button>
+        );
+    }
+      
+    ReactDOM.render(
+        <LoginControl />,
+        document.getElementById('root')
+    );
+      
+-->
+  </body>
+</html>
