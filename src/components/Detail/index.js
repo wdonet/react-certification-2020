@@ -76,7 +76,6 @@ const Detail = ({ detailVideoId }) => {
     var fetchType = isFavorite ? "favorites" : "";
     const recomHook = useFetch(url_recommended, fetchType);
     var recomdata = recomHook.data;
-    
     const recommendedVideoList = (recomdata && recomdata.items) ? recomdata.items.map((rV) => {
         if (rV.snippet) {
             return (

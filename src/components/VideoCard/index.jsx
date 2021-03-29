@@ -10,6 +10,7 @@ const Container = styled.div`
   margin: 18px;
   margin-top: 20px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
 `;
 
 const Cover = styled.div`

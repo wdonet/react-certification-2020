@@ -3,11 +3,11 @@ import mockdata from '../assets/mockdata/mockdata.json';
 import { StoreContext } from '../contexts/Store';
 
 export const useFetch = (url, source) => {
+	
 	const cache = useRef({});
 	const {
-        "favorites": [favorites],
+        "favorites": [favorites, setFavorites],
     } = React.useContext(StoreContext)
-    
 	const initialState = {
 		status: 'idle',
 		error: null,
@@ -35,7 +35,8 @@ export const useFetch = (url, source) => {
 			if (source === "favorites") {
 				var newmockdata = {items:[]}
 				// newmockdata.items = mockdata.items.slice(1,4);
-				for (const [ value] of Object.entries(favorites)) {
+				
+				for (const [id, value] of Object.entries(favorites)) {
 					newmockdata.items.push(value);
 				}
 				dispatch({ type: 'FETCHED', payload: newmockdata });
@@ -67,7 +68,7 @@ export const useFetch = (url, source) => {
 		return function cleanup() {
 			cancelRequest = true;
 		};
-	}, [url, source]);
+	}, [url, source, favorites]);
 
 	return state;
 };

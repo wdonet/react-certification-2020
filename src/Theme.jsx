@@ -1,17 +1,17 @@
-import React, { useContext } from "react";
-import { ThemeProvider, createGlobalStyle } from "styled-components";
-import { ThemeContext } from "./contexts/ThemeStore";
+import React, { useContext } from 'react';
+import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { ThemeContext } from './contexts/ThemeStore';
 
 const themes = {
   dark: {
-    background: "#6d7060",
-    title: "#6495ed",
-    text: "#fff",
+    background: '#6d7060',
+    title: '#6495ed',
+    text: '#fff',
   },
   light: {
-    background: "#fff",
-    title: "#ff6347",
-    text: "#000",
+    background: '#fff',
+    title: '#ff6347',
+    text: '#000',
   },
 };
 
