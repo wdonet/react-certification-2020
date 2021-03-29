@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useLayoutEffect, useState } from 'react';
 import { useLocation } from 'react-router';
 import styled from 'styled-components';
+import RelatedVideosContext from '../../providers/RelatedVideosContext';
+import PlayerContext from '../../providers/PlayerContext';
 import { Button } from '../../ui';
 import RelatedVideosList from './RelatedVideosList';
 
@@ -23,22 +25,31 @@ const StyledPlayerSection = styled.div`
 `;
 
 const VideoPlayerContainer = ({ videosList, onCaptionClick }) => {
-  const location = useLocation();
-  const { state, search } = location;
-  const videoId = new URLSearchParams(search).get("id");
+
+  const getFavoritesList = () => {
+    let parsedFavorites = getParsedFavorites();
+    return parsedFavorites ? Object.keys(parsedFavorites) : [];
+  };
 
   const getLabel = (videoId) => 
     getParsedFavorites() && getParsedFavorites()[videoId] 
     ? "Remove favorite"
     : "Add favorite";
 
-  const [favoriteButtonLabel, setFavoriteButtonLabel] = useState(getLabel());
-
   const updateButtonLabel = () => { setFavoriteButtonLabel(() => getLabel(videoId)); }
+
+  const [favoriteButtonLabel, setFavoriteButtonLabel] = useState(getLabel());
+  const [favoritesList, setFavoritesList] = useState(getFavoritesList);
+  const { hideFavoriteButtons } = useContext(PlayerContext);
+  const location = useLocation();
+  
+  const { state, search } = location;
+  const videoId = new URLSearchParams(search).get("id");
+
 
   useEffect(() => updateButtonLabel());
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     /* global YT */
     /* eslint no-undef: "error" */
     YT.ready(() => {
@@ -60,7 +71,7 @@ const VideoPlayerContainer = ({ videosList, onCaptionClick }) => {
     }
   }, [videoId]);
 
-  const addRemoveFavorite = (video, videoId, callback) => {
+  const addRemoveFavorite = (video, videoId) => {
     let favorites = getParsedFavorites();
     if(!favorites){
       favorites = {[videoId]: video};
@@ -71,7 +82,6 @@ const VideoPlayerContainer = ({ videosList, onCaptionClick }) => {
     }
     favorites = JSON.stringify(favorites);
     window.localStorage.setItem(FAVORITES_KEY, favorites);
-    callback && callback();
   }
 
   return (
@@ -79,24 +89,42 @@ const VideoPlayerContainer = ({ videosList, onCaptionClick }) => {
       <StyledPlayerSection>
         <div id="player" />
         <ControlsContainer>
-          <Button 
-              data-testid="add-favorite"
-              margin="4px"
-              height="30px"
-              width="150px"
-              onClick={() => addRemoveFavorite(state, videoId, updateButtonLabel)}
-          >
-            { favoriteButtonLabel }
-          </Button>
+          {
+            hideFavoriteButtons?
+            <></>:
+            <Button 
+                data-testid="add-favorite"
+                margin="4px"
+                height="30px"
+                width="150px"
+                onClick={
+                  () => { 
+                    addRemoveFavorite(state, videoId); 
+                    updateButtonLabel();
+                    setFavoritesList(getFavoritesList());
+                  }
+                }
+            >
+              { favoriteButtonLabel }
+            </Button>
+          }
         </ControlsContainer>
       </StyledPlayerSection>
-      <RelatedVideosList 
-        videosList={videosList} 
-        onCaptionClick={onCaptionClick} 
-        addRemoveFavorite={
-          (video, callback) => addRemoveFavorite(video, video.id.videoId, callback)
+      <RelatedVideosContext.Provider value={
+        { 
+          favoritesList, 
+          addRemoveFavorite: (video) => {
+              addRemoveFavorite(video, video.id.videoId);
+              setFavoritesList(getFavoritesList()); 
+              if(video.id.videoId === videoId) { updateButtonLabel(); }
+            } 
         }
-      />
+      }>
+        <RelatedVideosList 
+          videosList={videosList} 
+          onCaptionClick={onCaptionClick}
+        />
+      </RelatedVideosContext.Provider>
     </StyledVideoPlayerContainer>
   );
 };

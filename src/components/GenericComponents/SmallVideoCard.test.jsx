@@ -3,15 +3,18 @@ import 'jest-styled-components';
 import { getByRole } from '@testing-library/dom';
 import { render } from '@testing-library/react';
 import { youtubeMockedData } from '../../utils';
-import { lightTheme, darkTheme } from '../../providers/themes'
-import { contextWrapper } from '../../utils' 
-import AppContext from '../../providers/AppContext'
+import { lightTheme, darkTheme } from '../../providers/themes';
+import { contextWrapper } from '../../utils';
+import AppContext from '../../providers/AppContext';
+import RelatedVideosContext from '../../providers/RelatedVideosContext';
 import SmallVideoCard from './SmallVideoCard';
 
 const build = (Component = <SmallVideoCard />, theme = lightTheme) => {
-  const contextValue = { theme };
-  const wrapped = contextWrapper(AppContext, contextValue, Component);
-  const { container } = render(wrapped);
+  const appContextValue = { theme };
+  const relatedVideosContextValue = { favoritesList: [] };
+  let wrappedContext = contextWrapper(AppContext, appContextValue, Component);
+  wrappedContext = contextWrapper(RelatedVideosContext, relatedVideosContextValue, wrappedContext);
+  const { container } = render(wrappedContext);
   return { container };
 };
 

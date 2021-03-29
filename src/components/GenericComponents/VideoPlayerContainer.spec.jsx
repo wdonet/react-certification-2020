@@ -6,6 +6,8 @@ import { YTMockedObject, contextWrapper, youtubeMockedData, routerWrapper } from
 import VideoPlayerContainer from './VideoPlayerContainer';
 import { fireEvent, getByTestId } from '@testing-library/dom';
 import AppContext from '../../providers/AppContext';
+import PlayerContext from '../../providers/PlayerContext';
+import RelatedVideosContext from '../../providers/RelatedVideosContext';
 
     
 global.YT = YTMockedObject;
@@ -14,11 +16,15 @@ const EXPECTED_LENGHT = 3
 const contextValueVideosList = youtubeMockedData.items.slice(0, EXPECTED_LENGHT);
 
 const build = async ( Component = <VideoPlayerContainer videosList={contextValueVideosList}/>, video ) => {
-  const contextValue = { search: jest.fn, theme: lightTheme };
+  const appContextValue = { search: jest.fn, theme: lightTheme };
+  const playerContextValue = { hideFavoriteButtons: false };
+  const relatedVideosContextValue = { favoritesList: [], addRemoveFavorite: jest.fn() };
   let container;
   let routeWrap; 
   await act(async () => {
-    let contextWrap = contextWrapper(AppContext, contextValue, Component);
+    let contextWrap = contextWrapper(AppContext, appContextValue, Component);
+    contextWrap = contextWrapper(PlayerContext, playerContextValue, contextWrap);
+    contextWrap = contextWrapper(RelatedVideosContext, relatedVideosContextValue, contextWrap);
     routeWrap = await routerWrapper(contextWrap);
     container = render(routeWrap.wrap).container;
   });

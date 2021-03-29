@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import PlayerContext from '../../providers/PlayerContext';
 import SmallVideoCard from './SmallVideoCard';
 
 const StyledVideoList = styled.div`
@@ -8,7 +9,8 @@ const StyledVideoList = styled.div`
   width: 40%;
 `;
 
-const RelatedVideosList = ({ videosList, onCaptionClick, addRemoveFavorite }) => {
+const RelatedVideosList = ({ videosList, onCaptionClick }) => {
+  const { hideFavoriteButtons } = useContext(PlayerContext);
   return (
     <StyledVideoList id="related-videos-list">
       {videosList.map((video) => {
@@ -17,8 +19,8 @@ const RelatedVideosList = ({ videosList, onCaptionClick, addRemoveFavorite }) =>
           <div data-testid={`small-caption-${key}`} key={key}>
             <SmallVideoCard
               video={video}
+              hideFavoriteButtons={hideFavoriteButtons}
               onClick={() => onCaptionClick && onCaptionClick(video)}
-              onFavorite={(video, callback) => addRemoveFavorite(video, callback)}
             />
           </div>
         );

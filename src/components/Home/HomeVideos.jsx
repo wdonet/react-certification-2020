@@ -22,7 +22,7 @@ const HomeVideos = () => {
 
   return (<VideoCardContainer 
             videosList={videosList}
-            noVideosNotice={NoVideosNotice} 
+            noVideosNotice={NoVideosNotice}
             onClick={
               (video) => push({
                 pathname: `/player`,

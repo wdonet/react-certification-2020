@@ -7,11 +7,14 @@ import { lightTheme } from '../../providers/themes'
 import { contextWrapper } from '../../utils' 
 import AppContext from '../../providers/AppContext'
 import SmallVideoCard from './SmallVideoCard';
+import RelatedVideosContext from '../../providers/RelatedVideosContext';
 
 const build = (Component = <SmallVideoCard />, theme = lightTheme) => {
-  const contextValue = { theme };
-  const wrapped = contextWrapper(AppContext, contextValue, Component);
-  const { container } = render(wrapped);
+  const appContextValue = { theme };
+  const relatedVideosContextValue = { favoritesList: [], addRemoveFavorite: jest.fn() }
+  let wrappedContext = contextWrapper(AppContext, appContextValue, Component);
+  wrappedContext = contextWrapper(RelatedVideosContext, relatedVideosContextValue, wrappedContext);
+  const { container } = render(wrappedContext);
   return { container };
 };
 

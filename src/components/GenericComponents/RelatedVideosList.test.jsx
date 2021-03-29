@@ -5,14 +5,20 @@ import { lightTheme } from '../../providers/themes';
 import { contextWrapper, routerWrapper, youtubeMockedData, YTMockedObject } from '../../utils/'
 import AppContext from '../../providers/AppContext';
 import RelatedVideosList from './RelatedVideosList';
+import RelatedVideosContext from '../../providers/RelatedVideosContext';
+import PlayerContext from '../../providers/PlayerContext';
 
 global.YT = YTMockedObject;
 
 const build = async (Component = <RelatedVideosList />) => {
-  const contextValue = { theme: lightTheme };
+  const appContextValue = { theme: lightTheme };
+  const playerContextValue = { hideFavoriteButtons: false };
+  const relatedVideosContextValue = { favoritesList: [], addRemoveFavorite: jest.fn() };
   let container;
   await act(async () => {
-    const wrappedContext = contextWrapper(AppContext, contextValue, Component);
+    let wrappedContext = contextWrapper(AppContext, appContextValue, Component);
+    wrappedContext = contextWrapper(PlayerContext, playerContextValue, wrappedContext);
+    wrappedContext = contextWrapper(RelatedVideosContext, relatedVideosContextValue, wrappedContext);
     const routeWrap = await routerWrapper(wrappedContext);
     container = render(routeWrap.wrap).container;
   })

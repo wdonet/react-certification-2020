@@ -1,6 +1,7 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import AppContext from '../../providers/AppContext';
+import RelatedVideosContext from '../../providers/RelatedVideosContext';
 import { Button } from '../../ui'
 
 const StyledSmallVideoCard = styled.div`
@@ -27,21 +28,12 @@ const StyledCaption = styled.div`
   padding: 4px;
 `;
 
-const FAVORITES_KEY = "favorites";
-const getParsedFavorites = () => JSON.parse(window.localStorage.getItem(FAVORITES_KEY));
+const SmallVideoCard = ({ video, onClick, hideFavoriteButtons }) => {
 
-const SmallVideoCard = ({ video, onClick, onFavorite }) => {
-
-  const getLabel = (videoId) => 
-    getParsedFavorites() && getParsedFavorites()[videoId] 
-    ? "Remove favorite"
-    : "Add favorite";
+  const { favoritesList, addRemoveFavorite } = useContext(RelatedVideosContext);
 
   const { theme } = useContext(AppContext);
   const { thumbnails, title, description } = video.snippet;
-  const [buttonLabel, setButtonLabel] = useState(getLabel(video.id.videoId));
-
-  const updateLabel = () => { setButtonLabel(getLabel(video.id.videoId)); }
 
   return (
     <StyledSmallVideoCard 
@@ -51,12 +43,19 @@ const SmallVideoCard = ({ video, onClick, onFavorite }) => {
       <img src={thumbnails.default.url} alt={title} />
       <StyledCaption>
         <StyledSmallVideoCardDescription>{description}</StyledSmallVideoCardDescription>
-        <Button 
-          data-testid="caption-add-favorite" 
-          onClick={() => { onFavorite && onFavorite(video, updateLabel) }}
-        >
-          {buttonLabel}
-        </Button>
+        {
+          hideFavoriteButtons?
+          <></>:
+          <Button 
+            data-testid="caption-add-favorite" 
+            onClick={ () =>  addRemoveFavorite(video) }
+          >
+          { 
+            favoritesList && favoritesList.includes(video.id.videoId) 
+            ? 'Remove favorite'
+            : 'Add favorite'
+          }
+        </Button>}
       </StyledCaption>
     </StyledSmallVideoCard>
   );
