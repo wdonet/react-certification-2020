@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LayoutWrapper renders 1`] = `
+Object {
+  "Header": [Function],
+  "HomeView": [Function],
+  "container": <div>
+    <div
+      class="sc-kpOJdX cseeBf"
+      data-testid="layout-wrapper"
+      role="application"
+    >
+      <div
+        class="sc-chPdSV bcCQhf"
+        data-testid="header"
+        role="toolbar"
+      >
+        <div
+          class="sc-gZMcBi dqmLfP"
+        >
+          <div
+            class="sc-jzJRlG lfkGpG"
+            data-testid="sidebar"
+          >
+            <div
+              class="sc-cSHVUG cTUJGP"
+            >
+              Welcome
+              <img
+                alt="close"
+                class="sc-gzVnrw iCjpdg"
+                role="button"
+                src="close_icon.png"
+              />
+            </div>
+            <div
+              class="sc-kAzzGY dLFxrJ"
+            >
+              <button
+                class="sc-iwsKbI dHHiSG"
+                data-testid="sidebar-home"
+                height="30px"
+                width="calc( 100% - 8px )"
+              >
+                Home
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="sc-kgoBCf sZeiO"
+        >
+          <img
+            alt="hamburguer"
+            class="sc-gzVnrw iCjpdg"
+            role="button"
+            src="hamburguer_icon.jpeg"
+          />
+          <input
+            class="sc-dnqmqq eMiNCI"
+            data-testid="search-input"
+            role="search"
+          />
+        </div>
+        <div
+          class="sc-kgoBCf sZeiO"
+        >
+          <input
+            class="sc-htoDjs bZzhDu"
+            data-testid="theme-mode-switch"
+            role="switch"
+            type="checkbox"
+          />
+          <div
+            class="sc-jTzLTM cqwcFw"
+          >
+            <div
+              class="menu-button"
+            >
+              <img
+                alt="profile"
+                class="sc-bdVaJa ieaWl"
+                data-testid="user-avatar"
+                role="button"
+                src="default_user.jpg"
+              />
+            </div>
+            <div
+              class="sc-fjdhpX gixdjM"
+              data-testid="dropdown-content"
+            >
+              <button
+                class="sc-iwsKbI djEUtr"
+                data-testid="menu-login-button"
+                height="30px"
+                width="100%"
+              >
+                Login
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="sc-kGXeez cYLHhW"
+        data-testid="main-content"
+        role="main"
+      />
+    </div>
+  </div>,
+}
+`;

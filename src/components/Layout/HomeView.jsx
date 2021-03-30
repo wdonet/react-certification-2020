@@ -1,0 +1,18 @@
+import React from 'react';
+import styled from 'styled-components';
+
+const StyledHomeView = styled.div`
+  padding-top: 64px;
+  height: calc(100% - 64px);
+  overflow-y: scroll;
+`;
+
+const HomeView = ({ children }) => {
+  return (
+    <StyledHomeView role="main" data-testid="main-content">
+      {children}
+    </StyledHomeView>
+  );
+};
+
+export default HomeView;
