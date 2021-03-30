@@ -50,7 +50,7 @@ const ContentDetails = ({ item, relatedItems }) => {
         <StyledSnippetDiv>
           <StyledSnippetTitleDiv>
             <SnippetTitle>{htmlParser(item.snippet.title)}</SnippetTitle>
-            {authenticated && !isFavoritePage && (
+            {authenticated && (
               <StyledButton
                 aria-label="fav button"
                 onClick={handleFavButton}
