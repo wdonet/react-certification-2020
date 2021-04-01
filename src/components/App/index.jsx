@@ -6,10 +6,13 @@ import GlobalStyle from '../../theme/globalStyle';
 
 import AuthProvider from '../../providers/Auth';
 import YoutubeDataProvider from '../../providers/YoutubeData';
+import GlobalProvider from '../../providers/Global';
 
 import Header from '../Header';
 import HomePage from '../../pages/Home';
 import VideoPage from '../../pages/Video';
+import FavoritesPage from '../../pages/Favorites';
+import ProfilePage from '../../pages/Profile';
 
 function App() {
   const [theme, setTheme] = useState('light');
@@ -37,17 +40,25 @@ function App() {
       <BrowserRouter>
         <AuthProvider>
           <YoutubeDataProvider iframeAPIReady={iframeAPIReady}>
-            <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-              <Header handleThemeSwitch={handleThemeSwitch} />
-              <Switch>
-                <Route exact path="/">
-                  <HomePage />
-                </Route>
-                <Route exact path="/:videoId">
-                  <VideoPage />
-                </Route>
-              </Switch>
-            </ThemeProvider>
+            <GlobalProvider>
+              <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+                <Header handleThemeSwitch={handleThemeSwitch} />
+                <Switch>
+                  <Route exact path="/">
+                    <HomePage />
+                  </Route>
+                  <Route exact path="/video/:videoId">
+                    <VideoPage />
+                  </Route>
+                  <Route exact path="/favorites">
+                    <FavoritesPage />
+                  </Route>
+                  <Route exact path="/profile">
+                    <ProfilePage />
+                  </Route>
+                </Switch>
+              </ThemeProvider>
+            </GlobalProvider>
           </YoutubeDataProvider>
         </AuthProvider>
       </BrowserRouter>

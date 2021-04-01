@@ -24,7 +24,14 @@ const HomePage = () => {
           id: { videoId },
         } = video;
         return (
-          <Link key={videoId} to={`/${videoId}`} onClick={() => setSelectedVideo(video)}>
+          <Link
+            style={{
+              'text-decoration': 'none',
+            }}
+            key={videoId}
+            to={`/video/${videoId}`}
+            onClick={() => setSelectedVideo(video)}
+          >
             <VideoCard
               title={title}
               channelTitle={channelTitle}
