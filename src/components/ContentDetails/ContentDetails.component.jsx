@@ -34,7 +34,7 @@ const ContentDetails = ({ item, relatedItems }) => {
   const isVideoInList = Boolean(findFavoriteVideo(item.id.videoId));
   const isFavoritePage = location.pathname.includes('favs');
 
-  const path = isFavoritePage ? 'favs' : '/';
+  const path = isFavoritePage ? '/favs/' : '/v/';
   const handleGoBack = () => history.push(path);
   const handleFavButton = isVideoInList
     ? () => removeFavoriteVideo(item)
