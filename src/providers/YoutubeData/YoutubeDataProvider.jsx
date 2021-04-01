@@ -1,16 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import { getVideosByQuery, getRelatedToVideo } from './api';
+import reducer from './reducer';
+import { setSearchTerm, setSelectedVideo, setVideos } from './actions';
 
 const YoutubeDataContext = React.createContext(null);
 
 const YoutubeDataProvider = ({ iframeAPIReady, children }) => {
-  const [videos, setVideos] = useState([]);
-  const [selectedVideo, setSelectedVideo] = useState({});
+  const [state, dispatch] = useReducer(reducer, {
+    videos: [],
+    selectedVideo: '',
+    searchTerm: '',
+  });
+
+  const { videos, selectedVideo, searchTerm } = state;
 
   const fetchVideos = async (query) => {
     try {
       const newVideos = await getVideosByQuery(query);
-      setVideos(newVideos);
+      setVideos(dispatch, newVideos);
     } catch (error) {
       console.error(error);
     }
@@ -35,9 +42,11 @@ const YoutubeDataProvider = ({ iframeAPIReady, children }) => {
         videos,
         fetchVideos,
         selectedVideo,
-        setSelectedVideo,
+        setSelectedVideo: (videoId) => setSelectedVideo(dispatch, videoId),
         iframeAPIReady,
         fetchRelatedTo,
+        searchTerm,
+        setSearchTerm: (search) => setSearchTerm(dispatch, search),
       }}
     >
       {children}

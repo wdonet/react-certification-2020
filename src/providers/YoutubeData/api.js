@@ -14,7 +14,8 @@ const getVideosByQuery = async (query) => {
     }&key=${params.apiKey}${query ? `&q=${query}` : `&channelId=${params.channelId}`}`
   );
 
-  const { items } = await response.json();
+  const { items, error } = await response.json();
+  if (error) throw new Error(error.message);
   return items;
 };
 
