@@ -13,6 +13,7 @@ export const Title = styled.h1`
 `;
 
 export const Details = styled.section`
+  white-space: pre-line;
   color: ${({ theme }) => theme.videoDetailsTextColor};
   font-size: 1.2vmax;
   margin: 0;

@@ -25,11 +25,9 @@ function VideoDetails({ videoId }) {
   return (
     <VideoDetailsContainer>
       <Title aria-label="title">{title}</Title>
-      <Details
-        role="region"
-        aria-label="description"
-        dangerouslySetInnerHTML={{ __html: description.replace(/\n/g, '</br>') }}
-      />
+      <Details role="region" aria-label="description">
+        {description}
+      </Details>
     </VideoDetailsContainer>
   );
 }
