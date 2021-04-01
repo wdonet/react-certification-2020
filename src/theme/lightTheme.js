@@ -2,7 +2,7 @@ const lightTheme = {
   background: {
     primary: '#ECECEC',
     secondary: '#FFFFFF',
-    tertiary: '#F0DDDD',
+    tertiary: '#f0dddd85',
     highlight: '#eea2a2',
   },
   font: {

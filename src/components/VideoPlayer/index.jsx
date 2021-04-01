@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { useYoutubeData } from '../../providers/YoutubeData';
 
+import { VideoIframe } from './styled';
+
 const VideoPlayer = ({ videoId }) => {
   const { iframeAPIReady } = useYoutubeData();
   const player = useRef(null);
@@ -30,7 +32,7 @@ const VideoPlayer = ({ videoId }) => {
       player.current.loadVideoById(videoId);
   }, [videoId]);
 
-  return <div id="player" />;
+  return <VideoIframe id="player" />;
 };
 
 export default VideoPlayer;

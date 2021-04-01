@@ -1,12 +1,18 @@
 import styled from 'styled-components';
 
+const VideoContainer = styled.div`
+  display: flex;
+  margin: 0 0 10px 0;
+`;
+
 const VideoImage = styled.img`
   float: left;
-  width: 30%;
+  width: 40%;
 `;
 
 const Title = styled.p`
-  font-size: 0.9em;
+  margin: 0;
+  font-size: 0.8em;
   font-weight: 600;
   color: ${({ theme }) => theme.font.primary};
 `;
@@ -19,4 +25,4 @@ const Details = styled.p`
   font-size: 0.8em;
 `;
 
-export { VideoImage, Title, VideoDetails, Details };
+export { VideoContainer, VideoImage, Title, VideoDetails, Details };

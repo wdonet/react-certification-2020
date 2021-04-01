@@ -2,10 +2,14 @@ import styled from 'styled-components';
 
 const StyledSection = styled.section`
   padding: 30px;
+  display: flex;
+  justify-content: space-between;
 `;
 
 const RelatedVideosContainer = styled.div`
-  padding: 0 15px 0 15px;
+  padding: 15px;
+  background-color: ${({ theme }) => theme.background.secondary};
+  box-shadow: 0px 1px 10px 0px rgb(0 0 0 / 12%);
   display: flex;
   flex-direction: column;
   width: 400px;
@@ -17,8 +21,34 @@ const RelatedVideosContainer = styled.div`
   }
 `;
 
-const VideoPlaterContainer = styled.div`
-  float: left;
+const VideoPlayerContainer = styled.div`
+  width: 60%;
+  background-color: ${({ theme }) => theme.background.secondary};
+  box-shadow: 0px 1px 10px 0px rgb(0 0 0 / 12%);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
 `;
 
-export { StyledSection, RelatedVideosContainer, VideoPlaterContainer };
+const RelatedVideoTitle = styled.p`
+  margin: 10px 0 20px 5px;
+  font-size: 1.4em;
+  font-weight: 400;
+
+  color: ${({ theme }) => theme.font.secondary};
+`;
+
+const MainVideoTitle = styled.p`
+  font-size: 1.7em;
+  font-weight: 400;
+
+  color: ${({ theme }) => theme.font.secondary};
+`;
+
+export {
+  StyledSection,
+  RelatedVideosContainer,
+  VideoPlayerContainer,
+  RelatedVideoTitle,
+  MainVideoTitle,
+};

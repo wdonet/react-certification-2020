@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const CardContainer = styled.li`
-  max-width: 350px;
   background-color: ${({ theme }) => theme.background.secondary};
   transition: all 0.2s ease-in-out;
   cursor: pointer;
