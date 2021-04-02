@@ -1,8 +1,19 @@
-const saveFavorite = (dispatch, newFavorite) => {
+const saveFavorite = (dispatch, newFavorite, videoDetails) => {
+  console.log({ newFavorite });
   dispatch({
-    type: 'SET_FAVORITES',
+    type: 'SAVE_FAVORITE',
     payload: {
       newFavorite,
+      videoDetails,
+    },
+  });
+};
+
+const deleteFavorite = (dispatch, favoriteKey) => {
+  dispatch({
+    type: 'DELETE_FAVORITE',
+    payload: {
+      favoriteKey,
     },
   });
 };
@@ -16,4 +27,4 @@ const setTheme = (dispatch, theme) => {
   });
 };
 
-export { saveFavorite, setTheme };
+export { saveFavorite, deleteFavorite, setTheme };

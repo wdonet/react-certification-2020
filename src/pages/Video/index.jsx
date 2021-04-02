@@ -1,33 +1,61 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 import VideoPlayer from '../../components/VideoPlayer';
+import Icon from '../../components/Icon';
 import {
   StyledSection,
   RelatedVideosContainer,
   VideoPlayerContainer,
   RelatedVideoTitle,
   MainVideoTitle,
+  MainVideoDescription,
+  TitleContainer,
 } from './styled';
 import { useYoutubeData } from '../../providers/YoutubeData';
+import { useGlobal } from '../../providers/Global';
 
 import VideoCardV2 from '../../components/VideoCardV2';
+import HeaderButton from '../../components/HeaderButton';
 
 const VideoPage = () => {
   const [relatedVideos, setRelatedVideos] = useState([]);
-  const { fetchRelatedTo } = useYoutubeData();
+  const [videoDetails, setVideoDetails] = useState({});
+  const { fetchVideoDetails, fetchRelatedVideos } = useYoutubeData();
+  const { favorites, saveFavorite, deleteFavorite } = useGlobal();
+  console.log({ favorites });
   const { videoId } = useParams();
+  const [isFavorite, setIsFavorite] = useState(!!favorites[videoId]);
 
   useEffect(() => {
     const getRelated = async () => {
-      const related = await fetchRelatedTo(videoId);
-      if (related) setRelatedVideos(related);
+      const videos = await fetchRelatedVideos(videoId);
+
+      if (videos) setRelatedVideos(videos);
     };
 
-    const getVideoData = async () => {};
+    const getVideoData = async () => {
+      const data = await fetchVideoDetails(videoId);
+      if (data) setVideoDetails(data);
+    };
+
     getRelated();
     getVideoData();
   }, [videoId]);
+
+  useEffect(() => {
+    console.log('Favorite changed');
+    if (Object.keys(favorites).length >= 0) {
+      setIsFavorite(!!favorites[videoId]);
+    }
+  }, [favorites]);
+
+  const addToFavorites = () => {
+    if (favorites[videoId]) deleteFavorite(videoId);
+    else saveFavorite(videoId, videoDetails);
+  };
+  console.log({ isFavorite });
 
   const relatedVideosMapped = relatedVideos.map((video) => {
     const {
@@ -43,7 +71,7 @@ const VideoPage = () => {
     return (
       <Link
         style={{ 'text-decoration': 'none' }}
-        to={`/${relatedVideoId}`}
+        to={`/video/${relatedVideoId}`}
         key={relatedVideoId}
       >
         <VideoCardV2 image={url} title={title} channelTitle={channelTitle} />
@@ -51,15 +79,22 @@ const VideoPage = () => {
     );
   });
 
+  const { snippet: { title = '', description = '' } = {} } = videoDetails;
+
   return (
     <StyledSection>
       <VideoPlayerContainer>
         <VideoPlayer videoId={videoId} />
-        <MainVideoTitle>Video Title</MainVideoTitle>
+        <TitleContainer>
+          <MainVideoTitle>{title}</MainVideoTitle>
+          <HeaderButton onClick={addToFavorites} fillColor={isFavorite}>
+            <Icon icon={faHeart} size="small" />
+          </HeaderButton>
+        </TitleContainer>
+        <MainVideoDescription>{description}</MainVideoDescription>
       </VideoPlayerContainer>
       <RelatedVideosContainer>
         <RelatedVideoTitle>Related Videos</RelatedVideoTitle>
-        MainVideoTitle
         {relatedVideosMapped}
       </RelatedVideosContainer>
     </StyledSection>

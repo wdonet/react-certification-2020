@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const StyledSection = styled.section`
   padding: 30px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 `;
 
 const RelatedVideosContainer = styled.div`
@@ -38,10 +38,20 @@ const RelatedVideoTitle = styled.p`
   color: ${({ theme }) => theme.font.secondary};
 `;
 
+const TitleContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 const MainVideoTitle = styled.p`
-  font-size: 1.7em;
+  font-size: 1.5em;
   font-weight: 400;
 
+  color: ${({ theme }) => theme.font.primary};
+`;
+
+const MainVideoDescription = styled.p`
+  font-size: 0.8em;
   color: ${({ theme }) => theme.font.secondary};
 `;
 
@@ -51,4 +61,6 @@ export {
   VideoPlayerContainer,
   RelatedVideoTitle,
   MainVideoTitle,
+  MainVideoDescription,
+  TitleContainer,
 };

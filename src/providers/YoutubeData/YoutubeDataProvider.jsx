@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer } from 'react';
-import { getVideosByQuery, getRelatedToVideo } from './api';
+import { getVideosByQuery, getVideoDetails, getRelatedVideos } from './api';
 import reducer from './reducer';
 import { setSearchTerm, setSelectedVideo, setVideos } from './actions';
 
@@ -23,9 +23,18 @@ const YoutubeDataProvider = ({ iframeAPIReady, children }) => {
     }
   };
 
-  const fetchRelatedTo = async (videoId) => {
+  const fetchVideoDetails = async (videoId) => {
     try {
-      const relatedVideos = await getRelatedToVideo(videoId);
+      const videoDetails = await getVideoDetails(videoId);
+      return videoDetails;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const fetchRelatedVideos = async (videoId) => {
+    try {
+      const relatedVideos = await getRelatedVideos(videoId);
       return relatedVideos;
     } catch (error) {
       console.error(error);
@@ -44,7 +53,8 @@ const YoutubeDataProvider = ({ iframeAPIReady, children }) => {
         selectedVideo,
         setSelectedVideo: (videoId) => setSelectedVideo(dispatch, videoId),
         iframeAPIReady,
-        fetchRelatedTo,
+        fetchVideoDetails,
+        fetchRelatedVideos,
         searchTerm,
         setSearchTerm: (search) => setSearchTerm(dispatch, search),
       }}

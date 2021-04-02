@@ -28,13 +28,27 @@ const getChannelDetails = async () => {
   return contentDetails;
 };
 
-const getRelatedToVideo = async (videoId) => {
+const getVideoDetails = async (videoId) => {
+  const response = await fetch(
+    `${params.baseUrl}videos?part=snippet&id=${videoId}&key=${params.apiKey}`
+  );
+
+  const {
+    items: [videoDetails = {}],
+  } = await response.json();
+  console.log({ videoDetails });
+  // console.log({ items, snippet });
+  return videoDetails;
+};
+
+const getRelatedVideos = async (videoId) => {
   const response = await fetch(
     `${params.baseUrl}search?part=snippet&relatedToVideoId=${videoId}&type=video&key=${params.apiKey}`
   );
 
   const { items } = await response.json();
+
   return items;
 };
 
-export { getVideosByQuery, getChannelDetails, getRelatedToVideo };
+export { getVideosByQuery, getChannelDetails, getVideoDetails, getRelatedVideos };
