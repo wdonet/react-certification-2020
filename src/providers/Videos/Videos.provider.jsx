@@ -1,15 +1,12 @@
-import React, {
-  useState,
-  useEffect,
-  createContext,
-  useContext,
-  useCallback,
-} from 'react';
-import YoutubeService from '../../services/youtube/youtube.service';
+import React, { createContext, useContext, useEffect, useReducer } from 'react';
+import VideosReducer, { initialState } from './VideosReducer';
+import actions from './VideosActions';
 
 const VideosContext = createContext({
-  videos: [],
-  filterVideos: () => {},
+  state: {
+    videos: [],
+  },
+  dispatch: () => {},
 });
 
 const useVideos = () => {
@@ -20,30 +17,23 @@ const useVideos = () => {
   return context;
 };
 
-const VideosProvider = ({ children, value }) => {
-  const [videos, setVideos] = useState([]);
+const VideosProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(VideosReducer, {
+    ...initialState,
+  });
+
+  const value = {
+    ...state,
+    dispatch,
+    actions,
+  };
 
   useEffect(() => {
-    setVideos(value);
-  }, [value]);
+    const load = () => actions.load()(dispatch);
+    load();
+  }, [dispatch]);
 
-  const filterVideos = useCallback(
-    async (query) => {
-      try {
-        const newVideos = await YoutubeService.search(query);
-        setVideos(newVideos);
-      } catch (error) {
-        setVideos(value);
-      }
-    },
-    [value]
-  );
-
-  return (
-    <VideosContext.Provider value={{ videos, filterVideos }}>
-      {children}
-    </VideosContext.Provider>
-  );
+  return <VideosContext.Provider value={value}>{children}</VideosContext.Provider>;
 };
 export { useVideos };
 export default VideosProvider;

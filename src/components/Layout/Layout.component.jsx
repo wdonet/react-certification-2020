@@ -8,16 +8,13 @@ import VideosProvider from '../../providers/Videos/Videos.provider';
 import AppBar from '../common/AppBar';
 // Styles
 import { MainContainer } from './styles';
-// Hooks
-import { useVideosData } from '../../utils/hooks/useVideos';
 
 function Layout({ children }) {
   const { theme } = useTheme();
-  const { videos } = useVideosData();
 
   return (
     <ThemeProvider theme={theme}>
-      <VideosProvider value={videos}>
+      <VideosProvider>
         <AppBar />
         <MainContainer>{children}</MainContainer>
       </VideosProvider>

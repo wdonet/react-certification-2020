@@ -1,5 +1,5 @@
 // React
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 // Components
 import IconButton from '../Buttons/Icon';
 import ToggleButton from '../Buttons/Toggle';
@@ -15,13 +15,16 @@ import { useVideos } from '../../../providers/Videos/Videos.provider';
 
 const AppBar = () => {
   const { selected, toggleTheme } = useTheme();
-  const { filterVideos } = useVideos();
+  const { dispatch, actions } = useVideos();
   const [theme, setTheme] = useState(selected);
 
   // handle functions
-  const filter = ({ target }) => {
-    filterVideos(target.value);
-  };
+  const filter = useCallback(
+    ({ target }) => {
+      if (actions) actions.filter(target.value)(dispatch);
+    },
+    [dispatch, actions]
+  );
   const handleTheme = ({ target }) => {
     toggleTheme(target.checked);
     setTheme(target.checked);
