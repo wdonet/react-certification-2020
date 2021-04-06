@@ -11,14 +11,20 @@ import {
   VideoContent,
 } from './VideoList.styled';
 import { useYouTube } from '../YouTubeProvider';
-import FavoritesButton from '../../FavoritesButton/FavoritesButton';
+import useFavorites from '../../FavoritesButton/useFavorites';
 
 const VideoList = () => {
   const history = useHistory();
   const { state } = useYouTube();
   const { search } = state;
 
-  const { videos, isLoading, error } = useVideos({ search });
+  const { favorites } = useFavorites();
+  const { videos, isLoading, error } = useVideos({
+    search,
+    favoriteIds: history.location.pathname.startsWith('/favorites')
+      ? favorites
+      : undefined,
+  });
 
   if (isLoading) return <p>Loading...</p>;
 
@@ -33,13 +39,14 @@ const VideoList = () => {
         {videos.map((item) => (
           <VideoCard
             key={item.id.videoId}
-            onClick={() => history.push(`/videos/${item.id.videoId}`, { item })}
+            onClick={() =>
+              history.push(`${history.location.pathname}/${item.id.videoId}`, { item })
+            }
           >
             <VideoPreview src={item.snippet.thumbnails.medium.url} />
             <VideoContent>
               <VideoTitle>{item.snippet.title}</VideoTitle>
               <VideoDescription>{item.snippet.description}</VideoDescription>
-              <FavoritesButton videoId={item.id.videoId} />
             </VideoContent>
           </VideoCard>
         ))}

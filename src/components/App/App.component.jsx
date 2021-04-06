@@ -2,8 +2,7 @@ import React, { useLayoutEffect } from 'react';
 import { BrowserRouter, Switch, Route, useRouteMatch } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
-import AuthProvider from '../../providers/Auth';
-import HomePage from '../../pages/Home';
+import AuthProvider, { useAuth } from '../../providers/Auth';
 import LoginPage from '../../pages/Login';
 import NotFound from '../../pages/NotFound';
 import Layout from '../Layout';
@@ -14,7 +13,8 @@ import VideoList from '../YouTube/List/VideoList';
 import VideoDetail from '../YouTube/Detail/VideoDetail';
 
 const ProtectedRoute = (props) => {
-  return <Route {...props} />;
+  const { authenticated } = useAuth();
+  return authenticated ? <Route {...props} /> : <LoginPage />;
 };
 
 function App() {
@@ -43,14 +43,14 @@ function App() {
           <MyThemeProvider>
             <Layout>
               <Switch>
-                <ProtectedRoute path="/videos">
+                <ProtectedRoute path="/favorites">
                   <VideosRoute />
                 </ProtectedRoute>
                 <Route exact path="/login">
                   <LoginPage />
                 </Route>
                 <Route path="/">
-                  <HomePage />
+                  <VideosRoute />
                 </Route>
                 <Route path="*">
                   <NotFound />

@@ -54,9 +54,6 @@ const useLocalStorage = ({ cacheKey, initialData }) => {
       {
         retry: 1,
         initialData,
-        onSuccess: () => {
-          // console.log('useLocalStorage.onSuccess', cacheKey, data);
-        },
       }
     ),
     mutation,

@@ -10,13 +10,20 @@ import {
   VideoTitleDescWrap,
 } from './VideoDetail.styled';
 
-import useRelatedVideos from '../useRelatedVideos';
+import useVideos from '../useVideos';
+import useFavorites from '../../FavoritesButton/useFavorites';
 
 const RelatedVideos = ({ relatedTo }) => {
   const history = useHistory();
-  const { isLoading, error, videos } = useRelatedVideos({
+  const { favorites } = useFavorites();
+
+  const { isLoading, error, videos } = useVideos({
     relatedToVideoId: relatedTo?.id?.videoId,
+    favoriteIds: history.location.pathname.startsWith('/favorites')
+      ? favorites
+      : undefined,
   });
+
   if (isLoading) return <div>Loading...</div>;
 
   return (
@@ -26,7 +33,11 @@ const RelatedVideos = ({ relatedTo }) => {
         <VideoItem
           key={video.id.videoId}
           onClick={() => {
-            history.push(`/videos/${video.id.videoId}`);
+            history.push(
+              `${
+                history.location.pathname.startsWith('/favorites') ? '/favorites' : '/'
+              }/${video.id.videoId}`
+            );
           }}
         >
           <VideoPreview src={video.snippet.thumbnails.default.url} />

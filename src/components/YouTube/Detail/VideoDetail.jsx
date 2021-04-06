@@ -16,14 +16,22 @@ import {
 import useVideo from '../useVideo';
 import RelatedVideos from './RelatedVideos';
 import FavoritesButton from '../../FavoritesButton/FavoritesButton';
+import { useAuth } from '../../../providers/Auth';
 
 const VideoDetail = () => {
   const { id } = useParams();
   const { video } = useVideo(id);
   const history = useHistory();
+  const { authenticated } = useAuth();
 
   return (
-    <Overlay onClick={() => history.push('/videos')}>
+    <Overlay
+      onClick={() =>
+        history.push(
+          history.location.pathname.startsWith('/favorites') ? '/favorites' : '/'
+        )
+      }
+    >
       <Container onClick={(event) => event.stopPropagation()}>
         <Row>
           <Col>
@@ -36,9 +44,11 @@ const VideoDetail = () => {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
             />
-            <FavoritesButtonWrapper>
-              <FavoritesButton videoId={id} />
-            </FavoritesButtonWrapper>
+            {authenticated && (
+              <FavoritesButtonWrapper>
+                <FavoritesButton videoId={id} />
+              </FavoritesButtonWrapper>
+            )}
             <VideoInfo>
               <Title>{video?.snippet?.title}</Title>
               <Description>{video?.snippet?.description}</Description>
