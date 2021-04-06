@@ -39,9 +39,13 @@ const VideoList = () => {
         {videos.map((item) => (
           <VideoCard
             key={item.id.videoId}
-            onClick={() =>
-              history.push(`${history.location.pathname}/${item.id.videoId}`, { item })
-            }
+            onClick={() => {
+              history.push(
+                history.location.pathname.startsWith('/favorites')
+                  ? `/favorites/${item.id.videoId}`
+                  : `/${item.id.videoId}`
+              );
+            }}
           >
             <VideoPreview src={item.snippet.thumbnails.medium.url} />
             <VideoContent>

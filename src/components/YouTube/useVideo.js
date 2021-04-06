@@ -22,6 +22,7 @@ function useVideo(id) {
         if (json.error && json.error.code === 403) {
           setVideo(mockData.items.find((item) => item.id.videoId === id));
           setError('Error from YouTube API, displaying mock data..');
+          console.error(json);
         } else {
           setVideo(json.items);
         }

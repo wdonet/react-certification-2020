@@ -34,9 +34,9 @@ const RelatedVideos = ({ relatedTo }) => {
           key={video.id.videoId}
           onClick={() => {
             history.push(
-              `${
-                history.location.pathname.startsWith('/favorites') ? '/favorites' : '/'
-              }/${video.id.videoId}`
+              history.location.pathname.startsWith('/favorites')
+                ? `/favorites/${video.id.videoId}`
+                : `/${video.id.videoId}`
             );
           }}
         >

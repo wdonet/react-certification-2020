@@ -1,36 +1,22 @@
 import styled from 'styled-components';
 
-const videoDetailHeight = '440px';
-
-const Overlay = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-`;
-
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  height: ${videoDetailHeight};
-  width: 90%;
+  width: 100%;
   max-width: 1200px;
   background-color: white;
-  overflow: hidden;
-  border-radius: 20px;
-  border: 10px solid lightgray;
+  padding: 20px;
+  align-self: center;
   ${({ theme }) => (theme.primary ? `border-color: ${theme.primary}` : '')};
+  ${({ theme }) => (theme.primary ? `background: darkgray` : '')};
 `;
 
 const Row = styled.div`
   display: flex;
   flex-direction: row;
   flex: 1;
+  /* height: 90vh; */
 `;
 
 const Col = styled.div`
@@ -61,9 +47,6 @@ const Description = styled.p`
 
 const RelatedVideosContainer = styled(Col)`
   padding: 5px;
-  max-height: ${videoDetailHeight};
-  overflow-y: scroll;
-  overflow-x: hidden;
 `;
 
 const VideoItem = styled(Row)`
@@ -100,7 +83,6 @@ const FavoritesButtonWrapper = styled.div`
 `;
 
 export {
-  Overlay,
   Container,
   Row,
   Col,

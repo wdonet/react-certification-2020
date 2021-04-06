@@ -74,7 +74,10 @@ function VideosRoute() {
         <Route exact path={path}>
           <VideoList />
         </Route>
-        <Route path={`${path}/:id`}>
+        <Route path="/favorites/:id">
+          <VideoDetail />
+        </Route>
+        <Route path="/:id">
           <VideoDetail />
         </Route>
       </Switch>
