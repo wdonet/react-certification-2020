@@ -42,7 +42,7 @@ const VideoList = () => {
             onClick={() => {
               history.push(
                 history.location.pathname.startsWith('/favorites')
-                  ? `/favorites/${item.id.videoId}`
+                  ? `/favorites/${item.id}`
                   : `/${item.id.videoId}`
               );
             }}

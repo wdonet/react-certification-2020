@@ -35,7 +35,7 @@ const RelatedVideos = ({ relatedTo }) => {
           onClick={() => {
             history.push(
               history.location.pathname.startsWith('/favorites')
-                ? `/favorites/${video.id.videoId}`
+                ? `/favorites/${video.id}`
                 : `/${video.id.videoId}`
             );
           }}
