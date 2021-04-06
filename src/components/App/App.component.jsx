@@ -1,5 +1,6 @@
 import React, { useLayoutEffect } from 'react';
 import { BrowserRouter, Switch, Route, useRouteMatch } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 import AuthProvider from '../../providers/Auth';
 import HomePage from '../../pages/Home';
@@ -63,11 +64,12 @@ function App() {
   );
 }
 
+export const queryClient = new QueryClient();
 function VideosRoute() {
   const { path } = useRouteMatch();
 
   return (
-    <div>
+    <QueryClientProvider client={queryClient}>
       <Switch>
         <Route exact path={path}>
           <VideoList />
@@ -76,7 +78,7 @@ function VideosRoute() {
           <VideoDetail />
         </Route>
       </Switch>
-    </div>
+    </QueryClientProvider>
   );
 }
 

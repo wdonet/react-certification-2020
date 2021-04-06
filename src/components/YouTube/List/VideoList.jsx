@@ -11,6 +11,7 @@ import {
   VideoContent,
 } from './VideoList.styled';
 import { useYouTube } from '../YouTubeProvider';
+import FavoritesButton from '../../FavoritesButton/FavoritesButton';
 
 const VideoList = () => {
   const history = useHistory();
@@ -38,6 +39,7 @@ const VideoList = () => {
             <VideoContent>
               <VideoTitle>{item.snippet.title}</VideoTitle>
               <VideoDescription>{item.snippet.description}</VideoDescription>
+              <FavoritesButton videoId={item.id.videoId} />
             </VideoContent>
           </VideoCard>
         ))}
