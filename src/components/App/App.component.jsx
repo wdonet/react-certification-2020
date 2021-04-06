@@ -1,5 +1,5 @@
 import React, { useLayoutEffect } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, useRouteMatch } from 'react-router-dom';
 
 import AuthProvider from '../../providers/Auth';
 import HomePage from '../../pages/Home';
@@ -9,6 +9,12 @@ import Layout from '../Layout';
 import { random } from '../../utils/fns';
 import { YouTubeProvider } from '../YouTube/YouTubeProvider';
 import MyThemeProvider from './MyThemeProvider';
+import VideoList from '../YouTube/List/VideoList';
+import VideoDetail from '../YouTube/Detail/VideoDetail';
+
+const ProtectedRoute = (props) => {
+  return <Route {...props} />;
+};
 
 function App() {
   useLayoutEffect(() => {
@@ -31,16 +37,19 @@ function App() {
 
   return (
     <BrowserRouter>
-      <YouTubeProvider>
-        <AuthProvider>
+      <AuthProvider>
+        <YouTubeProvider>
           <MyThemeProvider>
             <Layout>
               <Switch>
-                <Route exact path="/">
-                  <HomePage />
-                </Route>
+                <ProtectedRoute path="/videos">
+                  <VideosRoute />
+                </ProtectedRoute>
                 <Route exact path="/login">
                   <LoginPage />
+                </Route>
+                <Route path="/">
+                  <HomePage />
                 </Route>
                 <Route path="*">
                   <NotFound />
@@ -48,9 +57,26 @@ function App() {
               </Switch>
             </Layout>
           </MyThemeProvider>
-        </AuthProvider>
-      </YouTubeProvider>
+        </YouTubeProvider>
+      </AuthProvider>
     </BrowserRouter>
+  );
+}
+
+function VideosRoute() {
+  const { path } = useRouteMatch();
+
+  return (
+    <div>
+      <Switch>
+        <Route exact path={path}>
+          <VideoList />
+        </Route>
+        <Route path={`${path}/:id`}>
+          <VideoDetail />
+        </Route>
+      </Switch>
+    </div>
   );
 }
 

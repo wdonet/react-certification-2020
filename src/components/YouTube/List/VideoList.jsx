@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import useVideos from '../useVideos';
 
 import {
@@ -12,14 +13,11 @@ import {
 import { useYouTube } from '../YouTubeProvider';
 
 const VideoList = () => {
-  const { state, dispatch } = useYouTube();
+  const history = useHistory();
+  const { state } = useYouTube();
   const { search } = state;
 
   const { videos, isLoading, error } = useVideos({ search });
-
-  const onVideoCardClick = (item) => {
-    dispatch({ type: 'currentVideo', payload: item });
-  };
 
   if (isLoading) return <p>Loading...</p>;
 
@@ -32,7 +30,10 @@ const VideoList = () => {
       )}
       <VideosContainer>
         {videos.map((item) => (
-          <VideoCard key={item.id.videoId} onClick={() => onVideoCardClick(item)}>
+          <VideoCard
+            key={item.id.videoId}
+            onClick={() => history.push(`/videos/${item.id.videoId}`, { item })}
+          >
             <VideoPreview src={item.snippet.thumbnails.medium.url} />
             <VideoContent>
               <VideoTitle>{item.snippet.title}</VideoTitle>

@@ -1,9 +1,16 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Col = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 10px;
+`;
+
+const TitleLink = styled(NavLink)`
+  text-decoration: none;
+  color: black;
+  ${({ theme }) => (theme.color ? `color: ${theme.color}` : '')};
 `;
 
 const HeaderContainer = styled.div`
@@ -46,4 +53,4 @@ const User = styled.span`
   align-items: center;
 `;
 
-export { Col, HeaderContainer, Search, Space, Switch, User };
+export { Col, TitleLink, HeaderContainer, Search, Space, Switch, User };

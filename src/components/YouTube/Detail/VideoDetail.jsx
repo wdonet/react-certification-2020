@@ -1,4 +1,6 @@
 import React from 'react';
+import { useHistory, useParams } from 'react-router';
+
 import {
   Container,
   Row,
@@ -8,73 +10,37 @@ import {
   Title,
   Description,
   ColGrow,
-  RelatedVideosContainer,
-  VideoItem,
   Overlay,
-  VideoPreview,
-  VideoTitle,
-  VideoDescription,
-  VideoTitleDescWrap,
 } from './VideoDetail.styled';
-import { useYouTube } from '../YouTubeProvider';
-import useRelatedVideos from '../useRelatedVideos';
-
-const RelatedVideos = ({ relatedTo }) => {
-  const { dispatch } = useYouTube();
-  const { isLoading, error, videos } = useRelatedVideos({
-    relatedToVideoId: relatedTo.id.videoId,
-  });
-  if (isLoading) return <div>Loading...</div>;
-
-  return (
-    <RelatedVideosContainer>
-      {error && <div>Error. Displaying mock data...</div>}
-      {videos.map((video) => (
-        <VideoItem
-          key={video.id.videoId}
-          onClick={() => {
-            dispatch({ type: 'currentVideo', payload: video });
-          }}
-        >
-          <VideoPreview src={video.snippet.thumbnails.default.url} />
-          <VideoTitleDescWrap>
-            <VideoTitle>{video.snippet.title}</VideoTitle>
-            <VideoDescription>{video.snippet.description}</VideoDescription>
-          </VideoTitleDescWrap>
-        </VideoItem>
-      ))}
-    </RelatedVideosContainer>
-  );
-};
+import useVideo from '../useVideo';
+import RelatedVideos from './RelatedVideos';
 
 const VideoDetail = () => {
-  const { state, dispatch } = useYouTube();
-  const { currentVideo } = state;
+  const { id } = useParams();
+  const { video } = useVideo(id);
+  const history = useHistory();
+
   return (
-    <Overlay
-      onClick={() => {
-        dispatch({ type: 'closeCurrentVideo' });
-      }}
-    >
+    <Overlay onClick={() => history.push('/videos')}>
       <Container onClick={(event) => event.stopPropagation()}>
         <Row>
           <Col>
             <VideoPlayer
               width="560"
               height="315"
-              src={`https://www.youtube.com/embed/${currentVideo.id.videoId}`}
+              src={`https://www.youtube.com/embed/${id}`}
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
             />
             <VideoInfo>
-              <Title>{currentVideo.snippet.title}</Title>
-              <Description>{currentVideo.snippet.description}</Description>
+              <Title>{video?.snippet?.title}</Title>
+              <Description>{video?.snippet?.description}</Description>
             </VideoInfo>
           </Col>
           <ColGrow>
-            <RelatedVideos relatedTo={currentVideo} />
+            <RelatedVideos relatedTo={video} />
           </ColGrow>
         </Row>
       </Container>

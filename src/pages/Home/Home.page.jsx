@@ -1,13 +1,14 @@
 import React from 'react';
-import VideoList from '../../components/YouTube/List/VideoList';
+import { Link } from 'react-router-dom';
 
 import { Title } from './Home.styled';
 
 function HomePage() {
   return (
     <>
-      <Title>Mini-Challenges 3 and 4</Title>
-      <VideoList />
+      <Title>Welcome to Mini-Challenges-5!</Title>
+      <p>This page requires no authentication.</p>
+      <Link to="/videos"> Go To Videos (which requires authentication)</Link>
     </>
   );
 }

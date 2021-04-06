@@ -1,6 +1,6 @@
 import React from 'react';
 import { useYouTube } from '../../YouTube/YouTubeProvider';
-import { Col, HeaderContainer, Search, Space, Switch } from './Header.styled';
+import { Col, TitleLink, HeaderContainer, Search, Space, Switch } from './Header.styled';
 
 const Header = () => {
   const { state, dispatch } = useYouTube();
@@ -12,7 +12,9 @@ const Header = () => {
 
   return (
     <HeaderContainer>
-      <Col>React Bootcamp</Col>
+      <TitleLink to="/">
+        <Col>React Bootcamp</Col>
+      </TitleLink>
       <Col>
         <Search placeholder="Search" value={search} onChange={setSearch} />
       </Col>

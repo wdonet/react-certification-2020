@@ -9,16 +9,6 @@ function youtubeReducer(state, action) {
         ...state,
         search: action.payload,
       };
-    case 'currentVideo':
-      return {
-        ...state,
-        currentVideo: action.payload,
-      };
-    case 'closeCurrentVideo':
-      return {
-        ...state,
-        currentVideo: null,
-      };
     case 'switchTheme':
       return {
         ...state,
