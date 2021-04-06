@@ -1,15 +1,21 @@
 import React, { useLayoutEffect } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, useRouteMatch } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
-import AuthProvider from '../../providers/Auth';
-import HomePage from '../../pages/Home';
+import AuthProvider, { useAuth } from '../../providers/Auth';
 import LoginPage from '../../pages/Login';
 import NotFound from '../../pages/NotFound';
-import SecretPage from '../../pages/Secret';
-import Private from '../Private';
-import Fortune from '../Fortune';
 import Layout from '../Layout';
 import { random } from '../../utils/fns';
+import { YouTubeProvider } from '../YouTube/YouTubeProvider';
+import MyThemeProvider from './MyThemeProvider';
+import VideoList from '../YouTube/List/VideoList';
+import VideoDetail from '../YouTube/Detail/VideoDetail';
+
+const ProtectedRoute = (props) => {
+  const { authenticated } = useAuth();
+  return authenticated ? <Route {...props} /> : <LoginPage />;
+};
 
 function App() {
   useLayoutEffect(() => {
@@ -33,25 +39,49 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <Layout>
-          <Switch>
-            <Route exact path="/">
-              <HomePage />
-            </Route>
-            <Route exact path="/login">
-              <LoginPage />
-            </Route>
-            <Private exact path="/secret">
-              <SecretPage />
-            </Private>
-            <Route path="*">
-              <NotFound />
-            </Route>
-          </Switch>
-          <Fortune />
-        </Layout>
+        <YouTubeProvider>
+          <MyThemeProvider>
+            <Layout>
+              <Switch>
+                <ProtectedRoute path="/favorites">
+                  <VideosRoute />
+                </ProtectedRoute>
+                <Route exact path="/login">
+                  <LoginPage />
+                </Route>
+                <Route path="/">
+                  <VideosRoute />
+                </Route>
+                <Route path="*">
+                  <NotFound />
+                </Route>
+              </Switch>
+            </Layout>
+          </MyThemeProvider>
+        </YouTubeProvider>
       </AuthProvider>
     </BrowserRouter>
+  );
+}
+
+export const queryClient = new QueryClient();
+function VideosRoute() {
+  const { path } = useRouteMatch();
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Switch>
+        <Route exact path={path}>
+          <VideoList />
+        </Route>
+        <Route path="/favorites/:id">
+          <VideoDetail />
+        </Route>
+        <Route path="/:id">
+          <VideoDetail />
+        </Route>
+      </Switch>
+    </QueryClientProvider>
   );
 }
 
