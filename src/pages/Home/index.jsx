@@ -4,11 +4,13 @@ import Grid from '../../components/Grid';
 import VideoCard from '../../components/VideoCard';
 
 import { useYoutubeData } from '../../providers/YoutubeData';
+import { useGlobal } from '../../providers/Global';
 
 import { StyledSection, Title } from './styled';
 
 const HomePage = () => {
-  const { videos, setSelectedVideo } = useYoutubeData();
+  const { videos } = useYoutubeData();
+  const { setSelectedVideo } = useGlobal();
 
   const videosParsed = videos
     ? videos.map((video) => {

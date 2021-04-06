@@ -1,6 +1,6 @@
 import React, { useReducer } from 'react';
 import reducer from './reducer';
-import { saveFavorite, deleteFavorite, setTheme } from './actions';
+import { saveFavorite, deleteFavorite, setTheme, setSelectedVideo } from './actions';
 
 const GlobalContext = React.createContext(null);
 
@@ -8,14 +8,17 @@ const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, {
     favorites: {},
     theme: 'light',
+    selectedVideo: '',
   });
 
-  const { favorites, theme } = state;
+  const { favorites, theme, selectedVideo } = state;
 
   return (
     <GlobalContext.Provider
       value={{
         favorites,
+        selectedVideo,
+        setSelectedVideo: (videoId) => setSelectedVideo(dispatch, videoId),
         saveFavorite: (videoId, videoDetails) =>
           saveFavorite(dispatch, videoId, videoDetails),
         deleteFavorite: (videoId) => deleteFavorite(dispatch, videoId),

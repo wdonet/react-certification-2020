@@ -1,18 +1,17 @@
 import React, { useEffect, useReducer } from 'react';
 import { getVideosByQuery, getVideoDetails, getRelatedVideos } from './api';
 import reducer from './reducer';
-import { setSearchTerm, setSelectedVideo, setVideos } from './actions';
+import { setSearchTerm, setVideos } from './actions';
 
 const YoutubeDataContext = React.createContext(null);
 
 const YoutubeDataProvider = ({ iframeAPIReady, children }) => {
   const [state, dispatch] = useReducer(reducer, {
     videos: [],
-    selectedVideo: '',
     searchTerm: '',
   });
 
-  const { videos, selectedVideo, searchTerm } = state;
+  const { videos, searchTerm } = state;
 
   const fetchVideos = async (query) => {
     try {
@@ -50,8 +49,6 @@ const YoutubeDataProvider = ({ iframeAPIReady, children }) => {
       value={{
         videos,
         fetchVideos,
-        selectedVideo,
-        setSelectedVideo: (videoId) => setSelectedVideo(dispatch, videoId),
         iframeAPIReady,
         fetchVideoDetails,
         fetchRelatedVideos,

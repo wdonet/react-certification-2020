@@ -7,15 +7,6 @@ const setSearchTerm = (dispatch, searchTerm) => {
   });
 };
 
-const setSelectedVideo = (dispatch, selectedVideo) => {
-  dispatch({
-    type: 'SET_SELECTED_VIDEO',
-    payload: {
-      selectedVideo,
-    },
-  });
-};
-
 const setVideos = (dispatch, videos) => {
   dispatch({
     type: 'SET_VIDEOS',
@@ -25,4 +16,4 @@ const setVideos = (dispatch, videos) => {
   });
 };
 
-export { setSearchTerm, setSelectedVideo, setVideos };
+export { setSearchTerm, setVideos };

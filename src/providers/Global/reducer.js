@@ -15,12 +15,11 @@ const reducer = (state, { type, payload }) => {
     }
     case 'DELETE_FAVORITE': {
       const { favoriteKey } = payload;
+      const newFavorites = { ...state.favorites };
+      delete newFavorites[favoriteKey];
       return {
         ...state,
-        favorites: {
-          ...state.favorites,
-          [favoriteKey]: null,
-        },
+        favorites: newFavorites,
       };
     }
     case 'SET_THEME':

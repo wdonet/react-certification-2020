@@ -39,13 +39,12 @@ const VideoPage = () => {
       const data = await fetchVideoDetails(videoId);
       if (data) setVideoDetails(data);
     };
-
+    setIsFavorite(!!favorites[videoId]);
     getRelated();
     getVideoData();
   }, [videoId]);
 
   useEffect(() => {
-    console.log('Favorite changed');
     if (Object.keys(favorites).length >= 0) {
       setIsFavorite(!!favorites[videoId]);
     }
@@ -55,18 +54,15 @@ const VideoPage = () => {
     if (favorites[videoId]) deleteFavorite(videoId);
     else saveFavorite(videoId, videoDetails);
   };
-  console.log({ isFavorite });
 
   const relatedVideosMapped = relatedVideos.map((video) => {
     const {
       snippet: {
-        title,
-        thumbnails: {
-          medium: { url },
-        },
-        channelTitle,
-      },
-      id: { videoId: relatedVideoId },
+        title = '',
+        thumbnails: { medium: { url } = {} } = {},
+        channelTitle = '',
+      } = {},
+      id: { videoId: relatedVideoId } = {},
     } = video;
     return (
       <Link

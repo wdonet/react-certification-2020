@@ -27,4 +27,13 @@ const setTheme = (dispatch, theme) => {
   });
 };
 
-export { saveFavorite, deleteFavorite, setTheme };
+const setSelectedVideo = (dispatch, selectedVideo) => {
+  dispatch({
+    type: 'SET_SELECTED_VIDEO',
+    payload: {
+      selectedVideo,
+    },
+  });
+};
+
+export { saveFavorite, deleteFavorite, setTheme, setSelectedVideo };
