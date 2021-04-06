@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const videoDetailHeight = '380px';
+const videoDetailHeight = '440px';
 
 const Overlay = styled.div`
   display: flex;
@@ -50,11 +50,13 @@ const VideoInfo = styled(Col)``;
 const Title = styled.h2`
   font-size: 15px;
   margin: 0;
+  margin-left: 5px;
 `;
 
 const Description = styled.p`
   font-size: 13px;
   margin: 0;
+  margin-left: 5px;
 `;
 
 const RelatedVideosContainer = styled(Col)`
@@ -93,6 +95,10 @@ const VideoDescription = styled.p`
   padding-left: 5px;
 `;
 
+const FavoritesButtonWrapper = styled.div`
+  margin-left: 5px;
+`;
+
 export {
   Overlay,
   Container,
@@ -109,4 +115,5 @@ export {
   VideoPreview,
   VideoTitle,
   VideoDescription,
+  FavoritesButtonWrapper,
 };

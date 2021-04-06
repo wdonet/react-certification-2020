@@ -11,9 +11,11 @@ import {
   Description,
   ColGrow,
   Overlay,
+  FavoritesButtonWrapper,
 } from './VideoDetail.styled';
 import useVideo from '../useVideo';
 import RelatedVideos from './RelatedVideos';
+import FavoritesButton from '../../FavoritesButton/FavoritesButton';
 
 const VideoDetail = () => {
   const { id } = useParams();
@@ -34,6 +36,9 @@ const VideoDetail = () => {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
             />
+            <FavoritesButtonWrapper>
+              <FavoritesButton videoId={id} />
+            </FavoritesButtonWrapper>
             <VideoInfo>
               <Title>{video?.snippet?.title}</Title>
               <Description>{video?.snippet?.description}</Description>
