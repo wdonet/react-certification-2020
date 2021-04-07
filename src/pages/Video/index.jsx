@@ -66,7 +66,7 @@ const VideoPage = () => {
     } = video;
     return (
       <Link
-        style={{ 'text-decoration': 'none' }}
+        style={{ textDecoration: 'none' }}
         to={`/video/${relatedVideoId}`}
         key={relatedVideoId}
       >

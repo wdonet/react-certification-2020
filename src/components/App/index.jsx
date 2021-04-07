@@ -9,10 +9,10 @@ import YoutubeDataProvider from '../../providers/YoutubeData';
 import GlobalProvider from '../../providers/Global';
 
 import Header from '../Header';
+import ProtectedRoute from '../ProtectedRoute';
 import HomePage from '../../pages/Home';
 import VideoPage from '../../pages/Video';
 import FavoritesPage from '../../pages/Favorites';
-import ProfilePage from '../../pages/Profile';
 
 function App() {
   const [theme, setTheme] = useState('light');
@@ -50,12 +50,9 @@ function App() {
                   <Route exact path="/video/:videoId">
                     <VideoPage />
                   </Route>
-                  <Route exact path="/favorites">
+                  <ProtectedRoute exact path="/favorites">
                     <FavoritesPage />
-                  </Route>
-                  <Route exact path="/profile">
-                    <ProfilePage />
-                  </Route>
+                  </ProtectedRoute>
                 </Switch>
               </ThemeProvider>
             </GlobalProvider>

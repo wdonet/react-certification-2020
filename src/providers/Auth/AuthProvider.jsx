@@ -1,17 +1,10 @@
-import React, { useState, useEffect, useContext, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import { AUTH_STORAGE_KEY } from '../../utils/constants';
+import { loginUser } from '../../mocks/loginApi';
 import { storage } from '../../utils/storage';
 
 const AuthContext = React.createContext(null);
-
-function useAuth() {
-  const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error(`Can't use "useAuth" without an AuthProvider!`);
-  }
-  return context;
-}
 
 function AuthProvider({ children }) {
   const [authenticated, setAuthenticated] = useState(false);
@@ -19,14 +12,23 @@ function AuthProvider({ children }) {
   useEffect(() => {
     const lastAuthState = storage.get(AUTH_STORAGE_KEY);
     const isAuthenticated = Boolean(lastAuthState);
-
+    console.log({ isAuthenticated });
     setAuthenticated(isAuthenticated);
   }, []);
 
-  const login = useCallback(() => {
-    setAuthenticated(true);
-    storage.set(AUTH_STORAGE_KEY, true);
-  }, []);
+  const login = async ({ username, password }) => {
+    try {
+      const authorized = await loginUser({ username, password });
+      if (authorized) {
+        console.log({ authorized });
+        setAuthenticated(true);
+        storage.set(AUTH_STORAGE_KEY, true);
+      }
+      return { success: true };
+    } catch (error) {
+      return { error };
+    }
+  };
 
   const logout = useCallback(() => {
     setAuthenticated(false);
@@ -40,5 +42,5 @@ function AuthProvider({ children }) {
   );
 }
 
-export { useAuth };
+export { AuthContext };
 export default AuthProvider;

@@ -25,14 +25,14 @@ const FavoritesPage = () => {
           return (
             <Link
               style={{
-                'text-decoration': 'none',
+                textDecoration: 'none',
               }}
               key={videoId}
               to={`/video/${videoId}`}
               onClick={() => setSelectedVideo(favorites[videoId])}
             >
               <VideoCard
-                title={title}
+                title={title.length > 77 ? `${title.substr(0, 74)}...` : title}
                 channelTitle={channelTitle}
                 publishedAt={publishedAt}
                 image={url}
