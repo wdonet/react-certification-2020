@@ -36,8 +36,6 @@ const getVideoDetails = async (videoId) => {
   const {
     items: [videoDetails = {}],
   } = await response.json();
-  console.log({ videoDetails });
-  // console.log({ items, snippet });
   return videoDetails;
 };
 

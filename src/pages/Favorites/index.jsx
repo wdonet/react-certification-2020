@@ -12,7 +12,6 @@ const FavoritesPage = () => {
   const videosParsed =
     Object.keys(favorites).length > 0
       ? Object.keys(favorites).map((videoId) => {
-          console.log({ videoId, video: favorites[videoId] });
           const {
             snippet: {
               title = '',

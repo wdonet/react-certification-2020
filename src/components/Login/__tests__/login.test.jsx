@@ -1,29 +1,23 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import { ThemeProvider } from 'styled-components';
 import '@testing-library/jest-dom/extend-expect';
 import 'jest-styled-components';
 
-import Header from '../index';
+import Login from '../index';
 import AuthProvider from '../../../providers/Auth';
-import YoutubeDataProvider from '../../../providers/YoutubeData';
 
 import { lightTheme } from '../../../theme';
 
-describe('Header', () => {
+describe('Login', () => {
   test('renders correctly', () => {
     const tree = renderer
       .create(
-        <BrowserRouter>
-          <AuthProvider>
-            <YoutubeDataProvider>
-              <ThemeProvider theme={lightTheme}>
-                <Header />
-              </ThemeProvider>
-            </YoutubeDataProvider>
-          </AuthProvider>
-        </BrowserRouter>
+        <AuthProvider>
+          <ThemeProvider theme={lightTheme}>
+            <Login open closeModal={() => {}} />
+          </ThemeProvider>
+        </AuthProvider>
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

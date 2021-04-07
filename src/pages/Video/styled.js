@@ -41,6 +41,7 @@ const RelatedVideoTitle = styled.p`
 const TitleContainer = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
 `;
 
 const MainVideoTitle = styled.p`

@@ -15,6 +15,7 @@ import {
 } from './styled';
 import { useYoutubeData } from '../../providers/YoutubeData';
 import { useGlobal } from '../../providers/Global';
+import { useAuth } from '../../providers/Auth';
 
 import VideoCardV2 from '../../components/VideoCardV2';
 import HeaderButton from '../../components/HeaderButton';
@@ -24,7 +25,7 @@ const VideoPage = () => {
   const [videoDetails, setVideoDetails] = useState({});
   const { fetchVideoDetails, fetchRelatedVideos } = useYoutubeData();
   const { favorites, saveFavorite, deleteFavorite } = useGlobal();
-  console.log({ favorites });
+  const { authenticated } = useAuth();
   const { videoId } = useParams();
   const [isFavorite, setIsFavorite] = useState(!!favorites[videoId]);
 
@@ -80,12 +81,18 @@ const VideoPage = () => {
   return (
     <StyledSection>
       <VideoPlayerContainer>
-        <VideoPlayer videoId={videoId} />
+        <VideoPlayer data-testid="video-id" videoId={videoId} />
         <TitleContainer>
           <MainVideoTitle>{title}</MainVideoTitle>
-          <HeaderButton onClick={addToFavorites} fillColor={isFavorite}>
-            <Icon icon={faHeart} size="small" />
-          </HeaderButton>
+          {authenticated && (
+            <HeaderButton
+              data-testid="favorite-btn"
+              onClick={addToFavorites}
+              fillColor={isFavorite}
+            >
+              <Icon icon={faHeart} size="small" />
+            </HeaderButton>
+          )}
         </TitleContainer>
         <MainVideoDescription>{description}</MainVideoDescription>
       </VideoPlayerContainer>

@@ -1,5 +1,4 @@
 const saveFavorite = (dispatch, newFavorite, videoDetails) => {
-  console.log({ newFavorite });
   dispatch({
     type: 'SAVE_FAVORITE',
     payload: {

@@ -5,24 +5,27 @@ import { ThemeProvider } from 'styled-components';
 import '@testing-library/jest-dom/extend-expect';
 import 'jest-styled-components';
 
-import Header from '../index';
+import HomePage from '../index';
 import AuthProvider from '../../../providers/Auth';
 import YoutubeDataProvider from '../../../providers/YoutubeData';
+import GlobalProvider from '../../../providers/Global';
 
 import { lightTheme } from '../../../theme';
 
-describe('Header', () => {
+describe('HomePage', () => {
   test('renders correctly', () => {
     const tree = renderer
       .create(
         <BrowserRouter>
-          <AuthProvider>
-            <YoutubeDataProvider>
-              <ThemeProvider theme={lightTheme}>
-                <Header />
-              </ThemeProvider>
-            </YoutubeDataProvider>
-          </AuthProvider>
+          <GlobalProvider>
+            <AuthProvider>
+              <YoutubeDataProvider>
+                <ThemeProvider theme={lightTheme}>
+                  <HomePage />
+                </ThemeProvider>
+              </YoutubeDataProvider>
+            </AuthProvider>
+          </GlobalProvider>
         </BrowserRouter>
       )
       .toJSON();

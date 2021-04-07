@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Favorites renders correctly 1`] = `
+.c0 {
+  text-align: center;
+}
+
+.c1 {
+  color: #333333;
+}
+
+<section
+  className="c0"
+>
+  <h2
+    className="c1"
+  >
+    Favorites
+  </h2>
+  No favorites added yet
+</section>
+`;

@@ -43,16 +43,12 @@ const StyledInput = styled.input`
   border: 0;
   box-sizing: content-box;
   background: none;
-  height: 45px; 
+  height: 45px;
   margin: 0;
   -webkit-tap-highlight-color: transparent;
   display: block;
   min-width: 0;
   width: 100%;
-  &::-webkit-input-placeholder: ${({ theme }) => theme.font.primary};
-  &::-moz-placeholder: ${({ theme }) => theme.font.primary};
-  &:-ms-input-placeholder: ${({ theme }) => theme.font.primary};
-  &::-ms-input-placeholder: ${({ theme }) => theme.font.primary};
   &:focus {
     outline: 0;
   }

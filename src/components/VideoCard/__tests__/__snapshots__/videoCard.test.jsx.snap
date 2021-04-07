@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VideoCard renders correctly 1`] = `
+.c0 {
+  background-color: #FFFFFF;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.c0:hover {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.c1 {
+  width: 100%;
+}
+
+.c2 {
+  padding: 0.5em;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.c4 {
+  margin: 0px;
+  font-size: 0.9em;
+  color: #333333;
+  font-weight: 600;
+  text-align: left;
+}
+
+.c5 {
+  font-size: 0.8em;
+  text-align: left;
+  color: #666666;
+  margin: 8px;
+  font-weight: 500;
+}
+
+<li
+  className="c0"
+>
+  <img
+    className="c1"
+    src="thisistheurl.com"
+  />
+  <div
+    className="c2"
+  >
+    <div
+      className="c3"
+    >
+      <img
+        className=""
+      />
+      <p
+        className="c4"
+      >
+        Title of the video
+      </p>
+    </div>
+    <p
+      className="c5"
+    >
+      Wizeline
+      <br />
+       
+      609
+       months ago
+    </p>
+  </div>
+</li>
+`;

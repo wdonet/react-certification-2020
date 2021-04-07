@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VideoCardV2 renders correctly 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 0 10px 0;
+}
+
+.c1 {
+  float: left;
+  width: 40%;
+}
+
+.c3 {
+  margin: 0;
+  font-size: 0.8em;
+  font-weight: 600;
+  color: #333333;
+}
+
+.c2 {
+  padding: 5px;
+}
+
+.c4 {
+  font-size: 0.8em;
+}
+
+<div
+  className="c0"
+>
+  <img
+    className="c1"
+    src="urlimage.com"
+  />
+  <div
+    className="c2"
+  >
+    <p
+      className="c3"
+    >
+      title of the video
+    </p>
+    <p
+      className="c4"
+    />
+  </div>
+</div>
+`;

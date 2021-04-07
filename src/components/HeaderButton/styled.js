@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledLink = styled.div`
-display: inline
+  display: inline;
   padding: 0 20px 0 20px;
   cursor: pointer;
   color: ${({ theme, fillColor }) =>

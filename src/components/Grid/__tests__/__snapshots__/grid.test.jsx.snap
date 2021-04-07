@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Grid renders correctly 1`] = `
+.c1 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(320px,1fr));
+  grid-gap: 1rem;
+}
+
+.c0 {
+  padding: 2rem;
+}
+
+<div
+  className="c0"
+>
+  <ul
+    className="c1"
+  >
+     
+    <div>
+      Hola
+    </div>
+    <div>
+      Adios
+    </div>
+  </ul>
+</div>
+`;

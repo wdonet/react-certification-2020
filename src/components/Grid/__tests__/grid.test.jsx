@@ -5,21 +5,22 @@ import { ThemeProvider } from 'styled-components';
 import '@testing-library/jest-dom/extend-expect';
 import 'jest-styled-components';
 
-import Header from '../index';
+import Grid from '../index';
 import AuthProvider from '../../../providers/Auth';
 import YoutubeDataProvider from '../../../providers/YoutubeData';
 
 import { lightTheme } from '../../../theme';
 
-describe('Header', () => {
+describe('Grid', () => {
   test('renders correctly', () => {
+    const items = [<div key="1">Hola</div>, <div key="2">Adios</div>];
     const tree = renderer
       .create(
         <BrowserRouter>
           <AuthProvider>
             <YoutubeDataProvider>
               <ThemeProvider theme={lightTheme}>
-                <Header />
+                <Grid gridItems={items} />
               </ThemeProvider>
             </YoutubeDataProvider>
           </AuthProvider>

@@ -6,21 +6,20 @@ import { storage } from '../../utils/storage';
 
 const AuthContext = React.createContext(null);
 
-function AuthProvider({ children }) {
-  const [authenticated, setAuthenticated] = useState(false);
+function AuthProvider({ authenticatedJest, children }) {
+  const [authenticated, setAuthenticated] = useState(authenticatedJest);
 
   useEffect(() => {
     const lastAuthState = storage.get(AUTH_STORAGE_KEY);
     const isAuthenticated = Boolean(lastAuthState);
-    console.log({ isAuthenticated });
-    setAuthenticated(isAuthenticated);
+
+    setAuthenticated(isAuthenticated || authenticatedJest);
   }, []);
 
   const login = async ({ username, password }) => {
     try {
       const authorized = await loginUser({ username, password });
       if (authorized) {
-        console.log({ authorized });
         setAuthenticated(true);
         storage.set(AUTH_STORAGE_KEY, true);
       }
