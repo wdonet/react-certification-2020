@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login renders correctly 1`] = `
+.c0 {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.7);
+  display: block;
+}
+
+.c1 {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 5%;
+  width: 300px;
+  height: 350px;
+  position: relative;
+}
+
+.c2 {
+  color: #aaa;
+  position: absolute;
+  top: 0px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.c2:hover,
+.c2:focus {
+  color: black;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.c4 {
+  width: 100%;
+  height: 30px;
+  border: 1px solid #666666;
+  margin: 10px 0;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+<div
+  className="c0"
+  open={true}
+>
+  <div
+    className="c1"
+  >
+    <span
+      className="c2"
+      onClick={[Function]}
+    >
+      ×
+    </span>
+    <form
+      className="c3"
+    >
+      <input
+        className="c4"
+        name="username"
+        onChange={[Function]}
+        placeholder="Username"
+        value=""
+      />
+      <input
+        className="c4"
+        name="password"
+        onChange={[Function]}
+        placeholder="Password"
+        type="password"
+        value=""
+      />
+      <button
+        onClick={[Function]}
+        type="button"
+      >
+        Login
+      </button>
+    </form>
+  </div>
+</div>
+`;

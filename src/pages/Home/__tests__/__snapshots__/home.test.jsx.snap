@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePage renders correctly 1`] = `
+.c3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(320px,1fr));
+  grid-gap: 1rem;
+}
+
+.c2 {
+  padding: 2rem;
+}
+
+.c0 {
+  text-align: center;
+}
+
+.c1 {
+  color: #333333;
+}
+
+<section
+  className="c0"
+>
+  <h2
+    className="c1"
+  >
+    Home
+  </h2>
+  <div
+    className="c2"
+  >
+    <ul
+      className="c3"
+    >
+       
+    </ul>
+  </div>
+</section>
+`;
