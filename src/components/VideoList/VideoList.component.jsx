@@ -3,12 +3,10 @@ import React, { useContext } from 'react';
 import styled from 'styled-components';
 import VideoCard from '../VideoCard';
 import useVideoList from '../../hooks/useVideoList';
-import SearchContext from '../../state/SearchContext';
-import ThemeContext from '../../state/ThemeContext';
+import GlobalContext from '../../state/GlobalContext';
 
 const VideoList = ({ className, selectVideo }) => {
-  const { search } = useContext(SearchContext);
-  const { theme } = useContext(ThemeContext);
+  const { search, theme } = useContext(GlobalContext);
 
   const videos = useVideoList(search);
 

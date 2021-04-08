@@ -3,12 +3,12 @@ import Grid from '@material-ui/core/Grid';
 import useVideoDetails from '../../hooks/useVideoDetails';
 import VideoPlayer from '../VideoPlayer';
 import RelatedVideos from '../RelatedVideos';
-import ThemeContext from '../../state/ThemeContext';
+import GlobalContext from '../../state/GlobalContext';
 
 const VideoDetailsView = ({ id }) => {
   const [videoId, setVideoId] = useState(id);
   const video = useVideoDetails(videoId);
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useContext(GlobalContext);
 
   return (
     <Grid

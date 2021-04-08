@@ -10,7 +10,7 @@ import SecretPage from '../../pages/Secret';
 import Private from '../Private';
 import Layout from '../Layout';
 import { random } from '../../utils/fns';
-import ThemeContext from '../../state/ThemeContext';
+import GlobalContext from '../../state/GlobalContext';
 
 const GlobalStyle = createGlobalStyle`
 body {
@@ -37,9 +37,10 @@ function App() {
     };
   }, []);
 
+  const [search, setSearch] = useState('');
   const [theme, setTheme] = useState('light');
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
+    <GlobalContext.Provider value={{ search, setSearch, theme, setTheme }}>
       <BrowserRouter>
         <AuthProvider>
           <Layout>
@@ -61,7 +62,7 @@ function App() {
           </Layout>
         </AuthProvider>
       </BrowserRouter>
-    </ThemeContext.Provider>
+    </GlobalContext.Provider>
   );
 }
 

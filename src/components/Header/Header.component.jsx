@@ -9,8 +9,7 @@ import React, { useContext } from 'react';
 import Toolbar from '@material-ui/core/Toolbar';
 import styled from 'styled-components';
 import InputBase from '@material-ui/core/InputBase';
-import SearchContext from '../../state/SearchContext';
-import ThemeContext from '../../state/ThemeContext';
+import GlobalContext from '../../state/GlobalContext';
 
 const StyledToolbar = styled(Toolbar)`
   display: flex;
@@ -26,12 +25,7 @@ const StyledInputBase = styled(InputBase)`
 `;
 
 const Header = () => {
-  const { search, setSearch } = useContext(SearchContext);
-  const { theme, setTheme } = useContext(ThemeContext);
-
-  const handleChange = (event) => {
-    setSearch(event.target.value);
-  };
+  const { search, setSearch, setTheme } = useContext(GlobalContext);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -50,7 +44,9 @@ const Header = () => {
               <StyledInputBase
                 placeholder="Search..."
                 value={search}
-                onChange={handleChange}
+                onChange={(event) => {
+                  setSearch(event.target.value);
+                }}
               />
             </form>
           </Hidden>

@@ -6,14 +6,14 @@ import React, { useContext } from 'react';
 import CardMedia from '@material-ui/core/CardMedia';
 import Card from '@material-ui/core/Card';
 import styled from 'styled-components';
-import ThemeContext from '../../state/ThemeContext';
+import GlobalContext from '../../state/GlobalContext';
 
 const StyledCardMedia = styled(CardMedia)`
   height: 140px;
 `;
 
 const VideoCard = ({ video, selectVideo }) => {
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useContext(GlobalContext);
   const StyledCard = styled(Card)`
     height: 350px;
     ${() => theme === 'dark' && `background: gray; color: white;`}
