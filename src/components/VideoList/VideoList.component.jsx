@@ -1,10 +1,13 @@
 import Grid from '@material-ui/core/Grid';
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import VideoCard from '../VideoCard';
 import useVideoList from '../../hooks/useVideoList';
+import SearchContext from '../../state/SearchContext';
 
-const VideoList = ({ className, search, selectVideo }) => {
+const VideoList = ({ className, selectVideo }) => {
+  const { search } = useContext(SearchContext);
+
   const videos = useVideoList(search);
 
   return (

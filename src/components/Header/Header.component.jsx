@@ -5,10 +5,11 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 import Button from '@material-ui/core/Button';
 import AppBar from '@material-ui/core/AppBar';
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import Toolbar from '@material-ui/core/Toolbar';
 import styled from 'styled-components';
 import InputBase from '@material-ui/core/InputBase';
+import SearchContext from '../../state/SearchContext';
 
 const StyledToolbar = styled(Toolbar)`
   display: flex;
@@ -23,16 +24,16 @@ const StyledInputBase = styled(InputBase)`
   padding: 4px;
 `;
 
-const Header = ({ searchVideos }) => {
-  const [search, setSearch] = useState('');
+const Header = () => {
+  const { search, setSearch } = useContext(SearchContext);
 
   const handleChange = (event) => {
     setSearch(event.target.value);
   };
 
   const handleSubmit = (event) => {
-    searchVideos(search);
     event.preventDefault();
+    setSearch(search);
   };
 
   return (

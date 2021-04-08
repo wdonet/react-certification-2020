@@ -2,20 +2,21 @@ import React, { useState } from 'react';
 import Header from '../../components/Header';
 import VideoDetailsView from '../../components/VideoDetailsView';
 import VideoList from '../../components/VideoList';
+import SearchContext from '../../state/SearchContext';
 
 function HomePage() {
   const [search, setSearch] = useState('');
   const [video, setVideo] = useState({ id: null });
 
   return (
-    <>
-      <Header searchVideos={setSearch} />
+    <SearchContext.Provider value={{ search, setSearch }}>
+      <Header />
       {video.id ? (
         <VideoDetailsView id={video.id} />
       ) : (
-        <VideoList search={search} selectVideo={(videoId) => setVideo({ id: videoId })} />
+        <VideoList selectVideo={(videoId) => setVideo({ id: videoId })} />
       )}
-    </>
+    </SearchContext.Provider>
   );
 }
 

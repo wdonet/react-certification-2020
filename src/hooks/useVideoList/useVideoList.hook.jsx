@@ -9,12 +9,17 @@ const fetchVideoList = async ({ search, relatedToVideoId }) => {
     apiKey: process.env.REACT_APP_YOUTUBE_API_KEY,
   };
 
+  let q = '';
+  if (search) {
+    q = `*${search}*`;
+  }
+
   const videosRequest = await fetch(
     `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=${
       params.maxResults
     }&channelId=${params.channelId}&order=${params.order}&key=${
       params.apiKey
-    }&q=${search}&type=${params.type}${
+    }&q=${q}&type=${params.type}${
       relatedToVideoId ? `&relatedToVideoId=${relatedToVideoId}` : ''
     }`
   );
