@@ -10,6 +10,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import styled from 'styled-components';
 import InputBase from '@material-ui/core/InputBase';
 import SearchContext from '../../state/SearchContext';
+import ThemeContext from '../../state/ThemeContext';
 
 const StyledToolbar = styled(Toolbar)`
   display: flex;
@@ -26,6 +27,7 @@ const StyledInputBase = styled(InputBase)`
 
 const Header = () => {
   const { search, setSearch } = useContext(SearchContext);
+  const { theme, setTheme } = useContext(ThemeContext);
 
   const handleChange = (event) => {
     setSearch(event.target.value);
@@ -55,7 +57,14 @@ const Header = () => {
         </div>
         <div>
           <Hidden xsDown>
-            <FormControlLabel label="Dark Mode" control={<Switch />} />
+            <FormControlLabel
+              label="Dark Mode"
+              control={<Switch />}
+              onChange={(event) => {
+                const currentTheme = event.target.checked ? 'dark' : 'light';
+                setTheme(currentTheme);
+              }}
+            />
           </Hidden>
           <Button color="inherit">Login</Button>
         </div>

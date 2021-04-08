@@ -4,14 +4,16 @@ import styled from 'styled-components';
 import VideoCard from '../VideoCard';
 import useVideoList from '../../hooks/useVideoList';
 import SearchContext from '../../state/SearchContext';
+import ThemeContext from '../../state/ThemeContext';
 
 const VideoList = ({ className, selectVideo }) => {
   const { search } = useContext(SearchContext);
+  const { theme } = useContext(ThemeContext);
 
   const videos = useVideoList(search);
 
   return (
-    <div className={className}>
+    <div id="videoList" className={`${className} ${theme}`}>
       <h1>Youtube Video List</h1>
       <Grid container spacing={3} id="video-list">
         {videos.map((video) => (
@@ -40,6 +42,15 @@ const StyledVideoList = styled(VideoList)`
   p {
     text-align: left;
     color: rgba(169, 169, 169, 1);
+  }
+  &.light {
+    background-color: white;
+  }
+  &.dark {
+    background-color: black;
+    h1 {
+      color: white;
+    }
   }
 `;
 

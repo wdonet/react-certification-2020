@@ -2,20 +2,23 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import he from 'he';
 import Grid from '@material-ui/core/Grid';
-import React from 'react';
+import React, { useContext } from 'react';
 import CardMedia from '@material-ui/core/CardMedia';
 import Card from '@material-ui/core/Card';
 import styled from 'styled-components';
+import ThemeContext from '../../state/ThemeContext';
 
 const StyledCardMedia = styled(CardMedia)`
   height: 140px;
 `;
 
-const StyledCard = styled(Card)`
-  height: 350px;
-`;
-
 const VideoCard = ({ video, selectVideo }) => {
+  const { theme } = useContext(ThemeContext);
+  const StyledCard = styled(Card)`
+    height: 350px;
+    ${() => theme === 'dark' && `background: gray; color: white;`}
+  `;
+
   const {
     etag,
     id: { videoId },

@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import { createGlobalStyle } from 'styled-components';
@@ -10,6 +10,7 @@ import SecretPage from '../../pages/Secret';
 import Private from '../Private';
 import Layout from '../Layout';
 import { random } from '../../utils/fns';
+import ThemeContext from '../../state/ThemeContext';
 
 const GlobalStyle = createGlobalStyle`
 body {
@@ -36,28 +37,31 @@ function App() {
     };
   }, []);
 
+  const [theme, setTheme] = useState('light');
   return (
-    <BrowserRouter>
-      <AuthProvider>
-        <Layout>
-          <GlobalStyle />
-          <Switch>
-            <Route exact path="/">
-              <HomePage />
-            </Route>
-            <Route exact path="/login">
-              <LoginPage />
-            </Route>
-            <Private exact path="/secret">
-              <SecretPage />
-            </Private>
-            <Route path="*">
-              <NotFound />
-            </Route>
-          </Switch>
-        </Layout>
-      </AuthProvider>
-    </BrowserRouter>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      <BrowserRouter>
+        <AuthProvider>
+          <Layout>
+            <GlobalStyle />
+            <Switch>
+              <Route exact path="/">
+                <HomePage />
+              </Route>
+              <Route exact path="/login">
+                <LoginPage />
+              </Route>
+              <Private exact path="/secret">
+                <SecretPage />
+              </Private>
+              <Route path="*">
+                <NotFound />
+              </Route>
+            </Switch>
+          </Layout>
+        </AuthProvider>
+      </BrowserRouter>
+    </ThemeContext.Provider>
   );
 }
 

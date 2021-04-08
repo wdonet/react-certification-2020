@@ -1,15 +1,23 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Grid from '@material-ui/core/Grid';
 import useVideoDetails from '../../hooks/useVideoDetails';
 import VideoPlayer from '../VideoPlayer';
 import RelatedVideos from '../RelatedVideos';
+import ThemeContext from '../../state/ThemeContext';
 
 const VideoDetailsView = ({ id }) => {
   const [videoId, setVideoId] = useState(id);
   const video = useVideoDetails(videoId);
+  const { theme } = useContext(ThemeContext);
 
   return (
-    <Grid container>
+    <Grid
+      container
+      style={{
+        backgroundColor: theme === 'dark' ? 'black' : 'white',
+        color: theme === 'dark' ? 'white' : 'black',
+      }}
+    >
       <Grid item md={9}>
         <VideoPlayer video={video} />
       </Grid>
